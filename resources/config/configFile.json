@@ -1,10 +1,25 @@
 {
 
+    "createViewPort": true,
+
+    "viewsContainerPackage": "Framework.ux.view.container.SimpleViewsContainer",
+
     "localizationEnabled":true,
 
     "localeFilesBaseUrls":[
         "resources/locales/ext-lang-",
         "resources/locales/framework-lang-"
+    ],
+
+    "views": [
+        {
+            "name": "loginPage",
+            "package": "AliveTracker.view.user.Login"
+        },
+        {
+            "name": "forgotPasswordPage",
+            "package": "AliveTracker.view.user.ForgotPassword"
+        }
     ]
 
 }
