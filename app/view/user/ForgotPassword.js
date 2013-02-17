@@ -8,9 +8,21 @@ Ext.define('AliveTracker.view.user.ForgotPassword',{
             {
                 xtype: 'label',
                 text: 'Forgot Password'
+            },
+            {
+                xtype: 'button',
+                text: 'Show Login Page',
+                listeners: {
+                    scope: this,
+                    click: this.onShowForgotPasswordPageClick
+                }
             }
         ];
-		this.callParent(arguments);
-	}
-	
+        this.callParent(arguments);
+    },
+
+    onShowForgotPasswordPageClick: function(){
+        this.fireEvent('showLoginPage');
+    }
+
 });

@@ -11,7 +11,6 @@ Ext.define('AliveTracker.view.user.Login',{
             },
             {
                 xtype: 'button',
-                name: 'showForgotPasswordBtn',
                 text: 'Show Forgot Password Page',
                 listeners: {
                     scope: this,
