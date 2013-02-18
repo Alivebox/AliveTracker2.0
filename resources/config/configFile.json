@@ -14,12 +14,24 @@
     "views": [
         {
             "name": "loginPage",
-            "package": "AliveTracker.view.user.Login",
+            "package": "AliveTracker.view.authentication.Login",
             "default": true
         },
         {
             "name": "forgotPasswordPage",
-            "package": "AliveTracker.view.user.ForgotPassword"
+            "package": "AliveTracker.view.authentication.ForgotPassword"
+        },
+        {
+            "name": "registerPage",
+            "package": "AliveTracker.view.authentication.Register"
+        },
+        {
+            "name": "homePage",
+            "package": "AliveTracker.view.home.Home"
+        },
+        {
+            "name": "groupDetailPage",
+            "package": "AliveTracker.view.group.GroupDetail"
         }
     ]
 

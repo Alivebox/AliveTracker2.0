@@ -1,4 +1,4 @@
-Ext.define('Locales', {
+Ext.define('Locales.AliveTracker', {
 
     statics: {
 

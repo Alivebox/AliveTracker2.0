@@ -8,14 +8,21 @@ Ext.Loader.setConfig({
 Ext.application({
 
     requires: [
-        'Framework.Main'
+        'Framework.Main',
+        'AliveTracker.defaults.Constants'
     ],
     name:'AliveTracker',
     autoCreateViewport:false,
 
     controllers: [
-        'LoginController',
-        'ForgotPasswordController'
+        'authentication.ForgotPasswordController',
+        'authentication.LoginController',
+        'authentication.RegisterController',
+        'home.HomeController',
+        'group.GroupDetailController',
+        'users.AssignUsersToProjectsController',
+        'projects.LogBookController',
+        'group.AddUsersGroupController'
     ],
 
     launch:function () {
