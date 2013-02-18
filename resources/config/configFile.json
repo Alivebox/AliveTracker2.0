@@ -14,7 +14,8 @@
     "views": [
         {
             "name": "loginPage",
-            "package": "AliveTracker.view.user.Login"
+            "package": "AliveTracker.view.user.Login",
+            "default": true
         },
         {
             "name": "forgotPasswordPage",
