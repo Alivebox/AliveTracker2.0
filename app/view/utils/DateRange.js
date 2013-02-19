@@ -12,7 +12,7 @@ Ext.define('AliveTracker.view.utils.DateRange', {
         this.items = [
             {
                 xtype:'datefield',
-                fieldLabel:'Start Date',
+                fieldLabel: Locales.AliveTracker.DATERANGE_LABEL_START_DATE,
                 name:'startdt',
                 itemId:'startdt',
                 endDateField:'enddt',
@@ -28,7 +28,7 @@ Ext.define('AliveTracker.view.utils.DateRange', {
             },
             {
                 xtype:'datefield',
-                fieldLabel:'End Date',
+                fieldLabel:Locales.AliveTracker.DATERANGE_LABEL_END_DATE,
                 name:'enddt',
                 itemId:'enddt',
                 startDateField:'startdt',

@@ -10,14 +10,14 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 {
                     xtype: 'gridcolumn',
                     menuDisabled:true,
-                    text: 'Name',
+                    text: Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable : false,
                     dataIndex: 'name'
                 },
                 {
                     xtype: 'gridcolumn',
                     menuDisabled:true,
-                    text: 'Role',
+                    text: Locales.AliveTracker.USERS_LABEL_ROLE,
                     sortable : false,
                     width: 75,
                     dataIndex: 'role',
@@ -32,17 +32,17 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 {
                     xtype:'actioncolumn',
                     menuDisabled:true,
-                    text: 'Buttons',
+                    text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
                     align : 'center',
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER,
+                            tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER,
                             handler: function(grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function(argButton){
                                         if(argButton == 'yes')
                                         {

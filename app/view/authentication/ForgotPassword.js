@@ -1,21 +1,20 @@
 Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     extend:'Ext.form.Panel',
     xtype:'forgotpasswordform',
+
     initComponent:function () {
         this.items = [
             {
                 xtype:'textfield',
                 itemId:'emailForgotPasswordView',
-                name:'email',
-                fieldLabel:'Email',
+                fieldLabel: Locales.AliveTracker.FORGOT_PASSWORD_LABEL_MAIL,
                 allowBlank:false,
                 maxLength:50,
                 vtype:'email'
             },
             {
                 xtype:'button',
-                name:'resetInsructions',
-                text:'Send me reset instructions',
+                text: Locales.AliveTracker.FORGOT_PASSWORD_LABEL_RESET_INSTRUCTION,
                 formBind: true,
                 disabled: true,
                 listeners:{

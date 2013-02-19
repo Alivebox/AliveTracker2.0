@@ -8,16 +8,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
     initComponent:function () {
         this.items = [
             {
-                xtype:'label',
-                name:'reports',
-                text:'Reports'
-            },
-            {
                 xtype:'combobox',
                 itemId:'groupReports',
-                name:'group',
                 allowBlank:false,
-                fieldLabel:'Group',
+                fieldLabel:Locales.AliveTracker.REPORTS_LABEL_GROUP,
                 store:'Groups',
                 displayField:'name',
                 editable:false
@@ -25,9 +19,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'projectReports',
-                name:'project',
                 allowBlank:false,
-                fieldLabel:'Project',
+                fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
                 store:'Projects',
                 displayField:'name',
                 editable:false
@@ -35,9 +28,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'userReports',
-                name:'user',
                 allowBlank:false,
-                fieldLabel:'User',
+                fieldLabel: Locales.AliveTracker.REPORTS_LABEL_USER,
                 store:'Users',
                 displayField:'name',
                 editable:false
@@ -45,16 +37,15 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'dateRangeComboReports',
-                name:'dateRangeCombo',
                 allowBlank:false,
-                fieldLabel:'Date Range',
+                fieldLabel:Locales.AliveTracker.REPORTS_LABEL_DATERANGE,
                 editable:false,
                 store:[
-                    [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
-                    [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
-                    [AliveTracker.defaults.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION],
-                    [AliveTracker.defaults.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION],
-                    [AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
+                    [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_SEVEN_DAYS_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_TWO_WEEKS_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION],
+                    [AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
                 ],
                 listeners:{
                     scope:this,
@@ -64,13 +55,11 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'daterange',
                 itemId:'dateRangeReports',
-                name:'dateRangeField',
                 allowBlank:false,
                 hidden:true
             },
             {
                 xtype:'button',
-                name:'export',
                 text:'Export',
                 formBind:true,
                 disabled:true,

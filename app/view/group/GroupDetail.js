@@ -19,15 +19,15 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                 items: [
                     {
                         xtype:'logbookform',
-                        title:'Log book'
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_LOG_BOOK
                     },
                     {
                         xtype: 'groupprojects',
-                        title:'Projects'
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_PROJECTS
                     },
                     {
                         xtype: 'addusersgroup',
-                        title:'Users'
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS
                     }
                 ]
 
@@ -55,8 +55,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
      * */
     onCreateGroupTitleTextField: function(){
         var tmpGroupTitleTextField = Ext.create('Ext.form.Label',{
-            name:'groupNameLabelField',
-            text: ''
+            name:'groupNameLabelField'
         });
         return tmpGroupTitleTextField;
     },

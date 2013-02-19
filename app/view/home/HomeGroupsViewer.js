@@ -22,7 +22,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                     '<div class="x-clear"></div></br></br>'
             ],
             itemSelector: 'div.thumb-wrap',
-            emptyText: 'No groups created',
+            emptyText: Locales.AliveTracker.HOME_LABEL_NO_GROUPS,
             trackOver: true,
             overItemCls: 'x-item-over',
             plugins: [

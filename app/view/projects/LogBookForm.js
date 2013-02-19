@@ -21,7 +21,7 @@ Ext.define('AliveTracker.view.projects.LogBookForm', {
             {
                 xtype: 'label',
                 name: 'logBook',
-                text: 'Log Book'
+                text: Locales.AliveTracker.PROJECTS_LABEL_LOG_BOOK
             },
             {
                 xtype: 'container',
@@ -70,7 +70,7 @@ Ext.define('AliveTracker.view.projects.LogBookForm', {
                                 xtype: 'label',
                                 itemId: 'totalTime',
                                 name: 'totalTime',
-                                text: 'Total'
+                                text: Locales.AliveTracker.PROJECTS_LABEL_TOTAL
                             }
                         ]
                     }

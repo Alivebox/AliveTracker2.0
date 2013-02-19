@@ -6,18 +6,18 @@ Ext.define('AliveTracker.view.authentication.Login', {
             {
                 xtype:'textfield',
                 itemId:'userNameLoginView',
-                name:'userName',
-                fieldLabel:'Username',
+                fieldLabel: Locales.AliveTracker.LOGIN_LABEL_USERNAME,
                 allowBlank:false,
-                maxLength:20
+                maxLength:20,
+                minLength: 8
             },
             {
                 xtype:'textfield',
                 itemId:'passwordLoginView',
-                name:'password',
-                fieldLabel:'Password',
+                fieldLabel:Locales.AliveTracker.LOGIN_LABEL_PASSWORD,
                 allowBlank:false,
                 maxLength:20,
+                minLength: 8,
                 inputType:'password'
             },
             {
@@ -26,8 +26,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                 items:[
                     {
                         xtype:'button',
-                        name:'login',
-                        text:'Login',
+                        text:Locales.AliveTracker.LOGIN_LABEL_LOGIN,
                         formBind: true,
                         disabled: true,
                         listeners:{
@@ -41,8 +40,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         items:[
                             {
                                 xtype:'button',
-                                name:'signUp',
-                                text:'Sign-Up',
+                                text: Locales.AliveTracker.LOGIN_LABEL_SIGNUP,
                                 listeners:{
                                     scope:this,
                                     click:this.onSignUpClick
@@ -51,7 +49,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                             {
                                 xtype:'button',
                                 name:'forgotPassword',
-                                text:'forgot password',
+                                text: Locales.AliveTracker.LOGIN_LABEL_FORGOT_PASSWORD,
                                 listeners:{
                                     scope:this,
                                     click:this.onForgotPasswordClick

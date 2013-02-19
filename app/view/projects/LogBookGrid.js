@@ -11,14 +11,14 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Project',
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
                     dataIndex:'project'
                 },
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Activity',
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
                     sortable:false,
                     dataIndex:'txtActivity',
                     editor: {
@@ -29,7 +29,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Time(h)',
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
                     sortable:false,
                     dataIndex:'time',
                     editor: {
@@ -51,7 +51,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                             handler: function(grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function(argButton){
                                         if(argButton == 'yes')
                                         {

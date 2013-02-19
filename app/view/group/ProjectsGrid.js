@@ -11,7 +11,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Name',
+                    text: Locales.AliveTracker.GROUP_PROJECT_LABEL_NAME,
                     sortable:false,
                     align:'center',
                     dataIndex:'name'
@@ -20,24 +20,24 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     xtype:'gridcolumn',
                     menuDisabled:true,
                     align:'center',
-                    text:'Members'
+                    text:Locales.AliveTracker.GROUP_PROJECT_LABEL_MEMBERS
                 },
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
                     align:'center',
-                    text:'Created'
+                    text:Locales.AliveTracker.GROUP_PROJECT_LABEL_CREATED
                 },
                 {
                     xtype:'actioncolumn',
                     menuDisabled:true,
-                    text:'Buttons',
+                    text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
                     align:'center',
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
-                            tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
+                            tooltip:Locales.AliveTracker.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
                             handler:function (grid, rowIndex, colIndex) {
                                 this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
                                 this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
@@ -50,7 +50,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                             handler:function (grid, rowIndex, colIndex) {
                                 Ext.MessageBox.confirm(
                                     'Confirm',
-                                    Ext.util.Format.format(AliveTracker.defaults.Constants.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
                                     function (argButton) {
                                         if (argButton == 'yes') {
                                             grid.getStore().removeAt(rowIndex);

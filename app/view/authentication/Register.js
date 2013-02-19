@@ -6,8 +6,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
             {
                 xtype:'textfield',
                 itemId:'emailRegister',
-                name:'email',
-                fieldLabel:'Email',
+                fieldLabel:Locales.AliveTracker.REGISTER_LABEL_EMAIL,
                 allowBlank:false,
                 maxLength:50,
                 vtype:'email'
@@ -15,8 +14,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
             {
                 xtype:'textfield',
                 itemId:'passwordRegister',
-                name:'password',
-                fieldLabel:'Password',
+                fieldLabel:Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
                 allowBlank:false,
                 maxLength:20,
                 minLength:8,
@@ -28,15 +26,13 @@ Ext.define('AliveTracker.view.authentication.Register', {
                 items:[
                     {
                         xtype:'checkboxfield',
-                        boxLabel:'Sign me up for newsletter',
+                        boxLabel:Locales.AliveTracker.REGISTER_LABEL_NEWSLETTER,
                         itemId:'newsletterSelectedRegister',
-                        name:'newsletterSelected',
                         inputValue:'1'
                     },
                     {
                         xtype:'button',
-                        name:'registerNow',
-                        text:'Register Now',
+                        text: Locales.AliveTracker.REGISTER_LABEL_REGISTER_NOW,
                         formBind: true,
                         disabled: true,
                         listeners:{

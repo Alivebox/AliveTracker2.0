@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
 
     extend:'Ext.window.Window',
     xtype:'userrolesassignmentpopup',
-    title:'Users and Roles manager',
+    title: Locales.AliveTracker.USERS_LABEL_ROLES_MANAGER ,
     resizable: false,
     height:300,
     width:500,

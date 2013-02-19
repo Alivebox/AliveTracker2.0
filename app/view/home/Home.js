@@ -28,11 +28,11 @@ Ext.define('AliveTracker.view.home.Home', {
             items:[
                 {
                     xtype:'label',
-                    text:'My Groups'
+                    text: Locales.AliveTracker.HOME_LABEL_MY_GROUPS
                 },
                 {
                     xtype:'button',
-                    text:'New',
+                    text:Locales.AliveTracker.HOME_LABEL_NEW,
                     listeners: {
                         scope: this,
                         click: 'onCreateNewGroup'
@@ -50,7 +50,7 @@ Ext.define('AliveTracker.view.home.Home', {
             items:[
                 {
                     xtype:'label',
-                    text:'Groups I belong to'
+                    text: Locales.AliveTracker.HOME_LABEL_BELONG_GROUPS
                 }
             ]
         };

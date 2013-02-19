@@ -15,7 +15,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     refs:[
         {
             ref:'groupModelForm',
-            selector:'addprojectpopup form[name=groupModelForm]'
+            selector:'addgrouppopup form[name=groupModelForm]'
         },
         {
             ref:'main',
@@ -37,7 +37,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             'homebelonggroupsviewer': {
                 afterrender: this.onHomeBelongGroupsAfterRender
             },
-            "addprojectpopup": {
+            "addgrouppopup": {
                 onSaveAction: this.onSaveAction,
                 onCloseWindows: this.onCloseWindows
             }

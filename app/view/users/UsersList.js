@@ -19,7 +19,7 @@ Ext.define('AliveTracker.view.users.UsersList', {
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
-                    text:'Name',
+                    text:Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable:false,
                     width: 200,
                     dataIndex:'name'

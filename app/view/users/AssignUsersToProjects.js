@@ -11,14 +11,14 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
             {
                 xtype:'textfield',
                 allowBlank:false,
-                fieldLabel:'Project',
+                fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
                 maxLength:25,
                 width:350
             },
             {
                 xtype:'textareafield',
                 grow:true,
-                fieldLabel:'Description',
+                fieldLabel:Locales.AliveTracker.USERS_LABEL_DESCRIPTION,
                 maxLength:250,
                 width:350,
                 anchor:'90%'
@@ -69,7 +69,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     {
                         xtype:'button',
                         name:'save',
-                        text:'Save',
+                        text: Locales.AliveTracker.USERS_LABEL_SAVE,
                         listeners:{
                             scope:this,
                             click:this.onSaveClick
@@ -79,7 +79,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     {
                         xtype:'button',
                         name:'cancel',
-                        text:'Cancel',
+                        text:Locales.AliveTracker.USERS_LABEL_CANCEL,
                         listeners:{
                             scope:this,
                             click:this.onCancelClick

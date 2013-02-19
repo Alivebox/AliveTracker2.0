@@ -12,7 +12,7 @@ Ext.define('AliveTracker.view.utils.PasswordVerification', {
             {
                 xtype:'textfield',
                 itemId:'passwordProfile',
-                fieldLabel:'Password',
+                fieldLabel: Locales.AliveTracker.PASSWORD_VERIFICATION_LABEL_PASSWORD,
                 allowBlank:false,
                 maxLength:20,
                 minLength:8,
@@ -23,7 +23,7 @@ Ext.define('AliveTracker.view.utils.PasswordVerification', {
             {
                 xtype:'textfield',
                 itemId:'confirmPasswordProfile',
-                fieldLabel:'Confirm Password',
+                fieldLabel:Locales.AliveTracker.PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD,
                 allowBlank:false,
                 maxLength:20,
                 minLength:8,

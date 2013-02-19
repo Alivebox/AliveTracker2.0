@@ -97,7 +97,7 @@ Ext.onReady(function() {
         dayNames: Ext.Date.dayNames,
         nextText: 'Mes Siguiente (Control+Right)',
         prevText: 'Mes Anterior (Control+Left)',
-        monthYearText: 'Seleccione un mes (Control+Up/Down para desplazar el año)',
+        monthYearText: 'Seleccióne un mes (Control+Up/Down para desplazar el año)',
         todayTip: "{0} (Barra espaciadora)",
         format: "d/m/Y",
         startDay: 1
@@ -176,23 +176,23 @@ Ext.onReady(function() {
 
     Ext.define("Ext.locale.es.form.field.HtmlEditor", {
         override: "Ext.form.field.HtmlEditor",
-        createLinkText: "Por favor proporcione la URL para el enlace:"
+        createLinkText: "Por favor proporcióne la URL para el enlace:"
     }, function() {
         Ext.apply(Ext.form.field.HtmlEditor.prototype, {
             buttonTips: {
                 bold: {
                     title: 'Negritas (Ctrl+B)',
-                    text: 'Transforma el texto seleccionado en Negritas.',
+                    text: 'Transforma el texto selecciónado en Negritas.',
                     cls: Ext.baseCSSPrefix + 'html-editor-tip'
                 },
                 italic: {
                     title: 'Itálica (Ctrl+I)',
-                    text: 'Transforma el texto seleccionado en Itálicas.',
+                    text: 'Transforma el texto selecciónado en Itálicas.',
                     cls: Ext.baseCSSPrefix + 'html-editor-tip'
                 },
                 underline: {
                     title: 'Subrayado (Ctrl+U)',
-                    text: 'Subraya el texto seleccionado.',
+                    text: 'Subraya el texto selecciónado.',
                     cls: Ext.baseCSSPrefix + 'html-editor-tip'
                 },
                 increasefontsize: {
@@ -207,12 +207,12 @@ Ext.onReady(function() {
                 },
                 backcolor: {
                     title: 'Color de fondo',
-                    text: 'Modifica el color de fondo del texto seleccionado.',
+                    text: 'Modifica el color de fondo del texto selecciónado.',
                     cls: Ext.baseCSSPrefix + 'html-editor-tip'
                 },
                 forecolor: {
                     title: 'Color de la fuente',
-                    text: 'Modifica el color del texto seleccionado.',
+                    text: 'Modifica el color del texto selecciónado.',
                     cls: Ext.baseCSSPrefix + 'html-editor-tip'
                 },
                 justifyleft: {
@@ -286,11 +286,11 @@ Ext.onReady(function() {
 
     Ext.define("Ext.locale.es.form.CheckboxGroup", {
         override: "Ext.form.CheckboxGroup",
-        blankText: "Debe seleccionar al menos un étem de este grupo"
+        blankText: "Debe selecciónar al menos un étem de este grupo"
     });
 
     Ext.define("Ext.locale.es.form.RadioGroup", {
         override: "Ext.form.RadioGroup",
-        blankText: "Debe seleccionar un étem de este grupo"
+        blankText: "Debe selecciónar un étem de este grupo"
     });
 });

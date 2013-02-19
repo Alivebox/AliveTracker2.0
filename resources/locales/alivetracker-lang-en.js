@@ -1,0 +1,111 @@
+Ext.define('Locales.AliveTracker', {
+	statics: {
+        /**
+         * Forgot Password View
+         */
+        FORGOT_PASSWORD_LABEL_MAIL: 'Email',
+        FORGOT_PASSWORD_LABEL_RESET_INSTRUCTION:'Send me reset instructions',
+        /**
+         * Login View
+         */
+        LOGIN_LABEL_USERNAME: 'Username',
+        LOGIN_LABEL_PASSWORD: 'Password',
+        LOGIN_LABEL_LOGIN: 'Login',
+        LOGIN_LABEL_SIGNUP: 'Sign-Up',
+        LOGIN_LABEL_FORGOT_PASSWORD: 'forgot password',
+        /**
+         * Password Verification  View
+         */
+        PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Password',
+        PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirm Password',
+        /**
+         * Password Verification  View
+         */
+        PROFILE_LABEL_EMAIL: 'Email',
+        PROFILE_LABEL_NAME: 'Name',
+        /**
+         * Register  View
+         */
+        REGISTER_LABEL_EMAIL: 'Email',
+        REGISTER_LABEL_NEWSLETTER: 'Sign me up for newsletter',
+        REGISTER_LABEL_PASSWORD: 'Password',
+        REGISTER_LABEL_REGISTER_NOW:'Register now',
+        /**
+         * Reports View
+         */
+        REPORTS_LABEL_GROUP: 'Group',
+        REPORTS_LABEL_PROJECT: 'Project',
+        REPORTS_LABEL_USER: 'User',
+        REPORTS_LABEL_DATERANGE:'Date Range',
+        REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Customized',
+        REPORTS_LAST_DAY_DATERANGE_DESCRIPTION: 'Last day',
+        REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION: 'Last 7 days',
+        REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
+        REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
+        /**
+         * Home View
+         */
+        HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the project?',
+        HOME_LABEL_GROUP_NAME: 'Group name',
+        HOME_LABEL_DESCRIPTION: 'Description',
+        HOME_LABEL_WEBSITE: 'Website URL',
+        HOME_LABEL_LOGO_URL:'Logo URL',
+        HOME_LABEL_CANCEL: 'Cancel',
+        HOME_LABEL_INSERT: 'Insert',
+        HOME_LABEL_MY_GROUPS:'My Groups',
+        HOME_LABEL_NEW_GROUP:'New Group',
+        HOME_LABEL_NEW: 'New',
+        HOME_LABEL_BELONG_GROUPS:'Groups I belong to',
+        HOME_LABEL_NO_GROUPS: 'No groups created',
+        /**
+         * Group Detail View
+         */
+        GROUP_DETAIL_TITLE_LOG_BOOK: 'Log book',
+        GROUP_DETAIL_TITLE_PROJECTS: 'Projects',
+        GROUP_DETAIL_TITLE_USERS: 'Users',
+        GROUP_DETAIL_REMOVE_USER: 'Remove user from group',
+        GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
+        GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group',
+        GROUP_DETAIL_SHOW_TEAM_MEMBERS: 'Display team members',
+        /**
+         * Group Project View
+         */
+        GROUP_PROJECT_LABEL_NEW_PROJECT: 'New Project',
+        GROUP_PROJECT_LABEL_NAME: 'Name',
+        GROUP_PROJECT_LABEL_MEMBERS: 'Members',
+        GROUP_PROJECT_LABEL_CREATED: 'Created',
+        GROUP_PROJECT_LABEL_BUTTONS: 'Buttons',
+        /**
+         * Confirmation Messages
+         */
+        GRID_DELETE_ROW_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the selected row?',
+        /**
+         * AddUsersGroup View
+         */
+        ADD_USERS_GROUP_LABEL_ADD_USER: 'Add User',
+        /**
+         * Projects View
+         */
+        PROJECTS_LABEL_LOG_BOOK: 'Log Book',
+        PROJECTS_LABEL_TOTAL: 'Total',
+        PROJECTS_COLUMN_HEADER_PROJECT: 'Project',
+        PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'New Project',
+        PROJECTS_COLUMN_HEADER_ACTIVITY: 'Activity',
+        PROJECTS_COLUMN_HEADER_TIME: 'Time(h)',
+        /**
+         * Users View
+         */
+        USERS_LABEL_PROJECT: 'Project',
+        USERS_LABEL_DESCRIPTION: 'Description',
+        USERS_LABEL_SAVE:'Save',
+        USERS_LABEL_CANCEL:'Cancel',
+        USERS_LABEL_ROLES_MANAGER:'Users and Roles manager',
+        USERS_LABEL_NAME:'Name',
+        USERS_LABEL_ROLE: 'Role',
+        /**
+         * DateRange View
+         */
+        DATERANGE_LABEL_START_DATE: 'Start date',
+        DATERANGE_LABEL_END_DATE: 'End date'
+	}
+});

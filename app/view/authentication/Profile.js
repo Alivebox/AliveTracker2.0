@@ -13,7 +13,6 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                 items:[
                     {
                         xtype:'image',
-                        name:'image',
                         src: AliveTracker.defaults.Constants.PROFILE_LOGO_URL
                     },
                     {
@@ -22,8 +21,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             {
                                 xtype:'textfield',
                                 itemId:'emailProfile',
-                                name:'email',
-                                fieldLabel:'Email',
+                                fieldLabel:Locales.AliveTracker.PROFILE_LABEL_EMAIL,
                                 allowBlank:false,
                                 maxLength:50,
                                 vtype:'email'
@@ -31,8 +29,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                             {
                                 xtype:'textfield',
                                 itemId:'nameProfile',
-                                name:'name',
-                                fieldLabel:'Name',
+                                fieldLabel:Locales.AliveTracker.PROFILE_LABEL_NAME,
                                 allowBlank:false,
                                 maxLength:50
                             },
@@ -51,7 +48,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                     {
                         xtype:'button',
                         name:'save',
-                        text:'Save',
+                        text: Locales.AliveTracker.USERS_LABEL_SAVE,
                         formBind: true,
                         disabled: true,
                         listeners:{
@@ -63,7 +60,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
                     {
                         xtype:'button',
                         name:'cancel',
-                        text:'Cancel',
+                        text:Locales.AliveTracker.USERS_LABEL_CANCEL,
                         listeners:{
                             scope:this,
                             click:this.onCancelClick

@@ -67,7 +67,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpStore.each(function(record){
             tmpTotal += record.data.time;
         },this);
-        this.getTotalTime().setText('Total: ' + tmpTotal + ' h');
+        this.getTotalTime().setText(Locales.AliveTracker.PROJECTS_LABEL_TOTAL+ ': ' + tmpTotal + ' h');
     },
 
     /**

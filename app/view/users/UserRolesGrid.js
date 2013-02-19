@@ -20,7 +20,7 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                 {
                     xtype: 'gridcolumn',
                     menuDisabled:true,
-                    text: 'Name',
+                    text: Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable : false,
                     width: 175,
                     dataIndex: 'name'
@@ -28,7 +28,7 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                 {
                     xtype: 'gridcolumn',
                     menuDisabled:true,
-                    text: 'Role',
+                    text: Locales.AliveTracker.USERS_LABEL_ROLE,
                     sortable : false,
                     width: 75,
                     dataIndex: 'role',

@@ -22,7 +22,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             'groupprojects': {
                 addProject : this.onShowProjectPopUp
             },
-            'addprojectpopup': {
+            'addgrouppopup': {
                 addProjectClick : this.onAddProject
             }
         });

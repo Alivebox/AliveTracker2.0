@@ -1,8 +1,8 @@
 Ext.define('AliveTracker.view.home.AddGroupPopUp', {
 
     extend:'Ext.window.Window',
-    xtype:'addprojectpopup',
-    title:'Groups',
+    xtype:'addgrouppopup',
+    title:Locales.AliveTracker.HOME_LABEL_NEW_GROUP,
     height:400,
     width:400,
     renderTo: Ext.getBody(),
@@ -25,21 +25,21 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                             {
                                 xtype: 'textfield',
                                 name:'name',
-                                fieldLabel: 'Group name',
+                                fieldLabel: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
                                 allowBlank:false,
                                 maxLength:300
                             },
                             {
                                 xtype: 'textfield',
                                 name:'description',
-                                fieldLabel: 'Description',
+                                fieldLabel: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
                                 allowBlank:false,
                                 maxLength:300
                             },
                             {
                                 xtype: 'textfield',
                                 name:'webSiteUrl',
-                                fieldLabel: 'Website URL',
+                                fieldLabel: Locales.AliveTracker.HOME_LABEL_WEBSITE,
                                 allowBlank:false,
                                 maxLength:300,
                                 vtype: 'url'
@@ -49,7 +49,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                             {
                                 xtype: 'button',
                                 name: 'cancel',
-                                text: 'Cancel',
+                                text: Locales.AliveTracker.HOME_LABEL_CANCEL,
                                 listeners: {
                                     scope:this,
                                     click:"onCloseWindows"
@@ -85,7 +85,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     onCreateSubmitButton: function(){
         var tmpSubmitButton = Ext.create('Ext.Button',{
             name: 'submitButton',
-            text: 'Insert',
+            text: Locales.AliveTracker.HOME_LABEL_INSERT,
             formBind: true,
             disabled: true,
             listeners: {
@@ -109,7 +109,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     onCreateLogoUrlTextField: function(){
         var tmpLogoUrlTextField = Ext.create('Ext.form.field.Text',{
             name:'logoUrl',
-            fieldLabel: 'Logo URL',
+            fieldLabel: Locales.AliveTracker.HOME_LABEL_LOGO_URL,
             allowBlank:false,
             maxLength:300,
             vtype: 'url'

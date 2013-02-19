@@ -27,7 +27,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
                     {
                         xtype: 'button',
                         id: 'btnAddUser',
-                        text: 'Add User',
+                        text: Locales.AliveTracker.ADD_USERS_GROUP_LABEL_ADD_USER,
                         listeners: {
                             scope: this,
                             'click' : 'onAddUserClick'

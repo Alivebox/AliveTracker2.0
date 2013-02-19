@@ -8,7 +8,7 @@
 
     "localeFilesBaseUrls":[
         "resources/locales/ext-lang-",
-        "resources/locales/framework-lang-"
+        "resources/locales/alivetracker-lang-"
     ],
 
     "views": [
