@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.utils.DateRange', {
+Ext.define('AliveTracker.view.ux.DateRange', {
 
     extend:'Ext.Container',
     xtype:'daterange',
@@ -65,10 +65,8 @@ Ext.define('AliveTracker.view.utils.DateRange', {
     },
 
     isValid: function(){
-        if(this.allowBlank){
-            return true;
-        }
-        if(!this.isVisible() ){
+        debugger;
+        if(this.allowBlank || this.hidden){
             return true;
         }
         var tmpStartDate = this.getComponent('startdt');

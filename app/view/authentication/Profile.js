@@ -3,7 +3,7 @@ Ext.define('AliveTracker.view.authentication.Profile', {
     extend:'Ext.form.Panel',
     xtype:'profileform',
     requires:[
-        'AliveTracker.view.utils.PasswordVerification'
+        'AliveTracker.view.ux.PasswordVerification'
     ],
     initComponent:function () {
         this.items = [

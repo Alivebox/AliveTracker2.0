@@ -93,6 +93,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'Proyecto Nuevo',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo(h)',
+        PROJECTS_LABEL_SAVE:'Guardar',
         /**
          * Users View
          */
@@ -107,6 +108,11 @@ Ext.define('Locales.AliveTracker', {
          * DateRange View
          */
         DATERANGE_LABEL_START_DATE: 'Fecha inicio',
-        DATERANGE_LABEL_END_DATE: 'Fecha fin'
+        DATERANGE_LABEL_END_DATE: 'Fecha fin',
+        /**
+         * VTypesOverrides
+         */
+        VTYPES_OVERRIDE_MESSAGE_DATERANGE:'La fecha de inicio debe ser menor a la fecha de fin',
+        VTYPES_OVERRIDE_MESSAGE_PASSWORD:'La contraseña no concuerda'
     }
 });

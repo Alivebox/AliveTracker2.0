@@ -38,6 +38,16 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             {
                 xtype: 'usersGrid',
                 store: 'AssignedUsers'
+            },
+            {
+                xtype:'button',
+                text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
+                icon:AliveTracker.defaults.Constants.SAVE_ELEMENT_BUTTON,
+                iconAlign:'right',
+                listeners:{
+                    scope:this,
+                    click:this.onSaveGroupUsers
+                }
             }
         ];
 
@@ -79,5 +89,8 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
 
     onAddUserClick: function(){
         this.fireEvent('addUserClick');
+    },
+    onSaveGroupUsers: function(){
+        this.fireEvent('saveGroupUsers');
     }
 });

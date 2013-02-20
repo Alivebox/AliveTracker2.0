@@ -3,7 +3,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
     xtype:'reportsform',
     layout:'anchor',
     requires:[
-        'AliveTracker.view.utils.DateRange'
+        'AliveTracker.view.ux.DateRange'
     ],
     initComponent:function () {
         this.items = [
@@ -53,7 +53,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'button',
+                itemId:'exportButton',
                 text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
+                icon: AliveTracker.defaults.Constants.FILE_ELEMENT_BUTTON,
+                iconAlign: 'right',
                 formBind:true,
                 disabled:true,
                 listeners:{

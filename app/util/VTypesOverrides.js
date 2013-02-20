@@ -82,7 +82,7 @@ Ext.define('AliveTracker.util.VTypesOverrides',{
                     return true;
                 },
 
-                confirmPasswordText: 'Passwords do not match.'
+                confirmPasswordText: 'Passwords do not match'
             })
         }
 

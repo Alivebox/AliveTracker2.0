@@ -7,6 +7,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             selector:'logbookform'
         },
         {
+            ref:'datepicker',
+            selector:'logbookform [itemId=datepickerLogBook]'
+        },
+        {
             ref:'logBookGridHeader',
             selector:'logbookgridheader'
         },
@@ -45,7 +49,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             'logbookform':{
                 afterrender:this.onUserAfterRender,
                 newActivity:this.onAddNewActivity,
-                datePickerChanged:this.onDatePickerChange
+                datePickerChanged:this.onDatePickerChange,
+                saveLogHistory: this.onSaveLogHistory
 
             }
         });
@@ -121,10 +126,16 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Handles all the logic asociated to the date changed action
      * @param argDatePicker component
      */
-    onDatePickerChange: function(argDatePicker){
-        argDatePicker.getValue();
+    onDatePickerChange: function(){
+        this.getDatepicker().getValue();
         this.getLogBookGrid().getStore().removeAll();
         this.onTotalTimeUpdate();
+    },
+    /**
+     * Sends all log history info to backend
+     */
+    onSaveLogHistory: function(){
+        debugger;
     }
 
 });

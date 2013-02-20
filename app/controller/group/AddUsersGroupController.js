@@ -1,10 +1,3 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: Andres
- * Date: 14/02/13
- * Time: 02:23 PM
- * To change this template use File | Settings | File Templates.
- */
 Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     extend: "Ext.app.Controller",
@@ -21,7 +14,8 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
             'addusersgroup': {
                 boxready : this.onAddUsersGroupBoxReady,
                 comboUsersKeyUp: this.filterComboUsers,
-                addUserClick: this.addUser
+                addUserClick: this.addUser,
+                saveGroupUsers: this.onSaveGroupUsers
             }
         });
     },
@@ -66,6 +60,9 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
                 return false;
             }
         });
+    },
+    onSaveGroupUsers: function(){
+        debugger;
     }
 
 });

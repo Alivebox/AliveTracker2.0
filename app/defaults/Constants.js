@@ -3,6 +3,8 @@ Ext.define("AliveTracker.defaults.Constants",{
     statics: {
         PROFILE_LOGO_URL: 'resources/icons/user.png',
         ADD_ELEMENT_BUTTON: 'resources/icons/add.png',
+        SAVE_ELEMENT_BUTTON: 'resources/icons/save.png',
+        FILE_ELEMENT_BUTTON: 'resources/icons/file.png',
         REMOVE_GRID_ROW_BUTTON: 'resources/icons/delete.png',
         EDIT_GRID_ROW_BUTTON: 'resources/icons/edit.png',
         EDIT_USERS_GRID_BUTTON: 'resources/icons/users.png',

@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.utils.DatePickerField', {
+Ext.define('AliveTracker.view.ux.DatePickerField', {
 
     extend:'Ext.Container',
     xtype:'datepickerfield',
