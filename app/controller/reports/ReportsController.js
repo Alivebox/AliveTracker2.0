@@ -6,14 +6,12 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     ],
     models:[
         'Project',
-        'User',
-        'Group'
+        'User'
     ],
 
     stores:[
         'Projects',
-        'Users',
-        'Groups'
+        'Users'
     ],
     refs: [
         {

@@ -9,7 +9,8 @@ Ext.application({
 
     requires: [
         'Framework.Main',
-        'AliveTracker.defaults.Constants'
+        'AliveTracker.defaults.Constants',
+        'AliveTracker.util.VTypesOverrides'
     ],
     name:'AliveTracker',
     autoCreateViewport:false,
@@ -22,7 +23,8 @@ Ext.application({
         'group.GroupDetailController',
         'users.AssignUsersToProjectsController',
         'projects.LogBookController',
-        'group.AddUsersGroupController'
+        'group.AddUsersGroupController',
+        'reports.ReportsController'
     ],
 
     launch:function () {
@@ -37,6 +39,7 @@ Ext.application({
     },
 
     onConfigLoaded: function(argConfigFileObject){
+        AliveTracker.util.VTypesOverrides.init();
         Framework.Main.init({
             scope:this,
             config: argConfigFileObject

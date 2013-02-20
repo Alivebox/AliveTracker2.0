@@ -42,6 +42,7 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION: 'Last 7 days',
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
+        REPORTS_LABEL_EXPORT: 'Export',
         /**
          * Home View
          */
@@ -63,6 +64,7 @@ Ext.define('Locales.AliveTracker', {
         GROUP_DETAIL_TITLE_LOG_BOOK: 'Log book',
         GROUP_DETAIL_TITLE_PROJECTS: 'Projects',
         GROUP_DETAIL_TITLE_USERS: 'Users',
+        GROUP_DETAIL_TITLE_REPORTS: 'Reports',
         GROUP_DETAIL_REMOVE_USER: 'Remove user from group',
         GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
         GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group',

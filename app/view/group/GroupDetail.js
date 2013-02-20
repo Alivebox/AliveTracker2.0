@@ -7,7 +7,8 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         'AliveTracker.view.group.ProjectsGrid',
         'AliveTracker.view.group.GroupProjects',
         'AliveTracker.view.users.AssignUsersToProjects',
-        'AliveTracker.view.projects.LogBookForm'
+        'AliveTracker.view.projects.LogBookForm',
+        'AliveTracker.view.reports.Reports'
     ],
     groupData: null,
     initComponent: function(){
@@ -28,6 +29,10 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                     {
                         xtype: 'addusersgroup',
                         title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS
+                    },
+                    {
+                        xtype: 'reportsform',
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_REPORTS
                     }
                 ]
 

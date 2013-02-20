@@ -39,9 +39,10 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LABEL_DATERANGE:'Rango de fechas',
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Personalizado',
         REPORTS_LAST_DAY_DATERANGE_DESCRIPTION: 'Ultimo día',
-        REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION: 'Ultimos 7 dias',
+        REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION: 'Ultimos 7 días',
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Ultimas 2 semanas',
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Ultimo mes',
+        REPORTS_LABEL_EXPORT: 'Exportar',
         /**
          * Home View
          */
@@ -63,6 +64,7 @@ Ext.define('Locales.AliveTracker', {
         GROUP_DETAIL_TITLE_LOG_BOOK: 'Bitacora',
         GROUP_DETAIL_TITLE_PROJECTS: 'Proyectos',
         GROUP_DETAIL_TITLE_USERS: 'Usuarios',
+        GROUP_DETAIL_TITLE_REPORTS: 'Reportes',
         GROUP_DETAIL_REMOVE_USER: 'Eliminar usuario del grupo',
         GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Editar usuarios asignados al proyecto',
         GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Eliminar proyecto del grupo',
@@ -88,7 +90,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_LABEL_LOG_BOOK: 'Bitacora',
         PROJECTS_LABEL_TOTAL: 'Total',
         PROJECTS_COLUMN_HEADER_PROJECT: 'Proyecto',
-        PROJECTS_COLUMN_HEADER_PROJECT: 'Proyecto Nuevo',
+        PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'Proyecto Nuevo',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo(h)',
         /**

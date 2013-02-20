@@ -10,10 +10,6 @@ Ext.define('AliveTracker.model.reports.ReportForm', {
             type:'int'
         },
         {
-            name:'group',
-            type:'string'
-        },
-        {
             name:'project',
             type:'string'
         },
