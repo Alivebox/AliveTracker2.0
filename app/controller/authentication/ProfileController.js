@@ -39,7 +39,6 @@ Ext.define('AliveTracker.controller.authentication.ProfileController', {
      * Cancels all information of the profile edition
      */
     onCancelAction:function () {
-        debugger;
     }
 
 

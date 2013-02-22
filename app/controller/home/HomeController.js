@@ -12,6 +12,10 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         'BelongGroups'
     ],
 
+    views: [
+        'home.Home'
+    ],
+
     refs:[
         {
             ref:'groupModelForm',

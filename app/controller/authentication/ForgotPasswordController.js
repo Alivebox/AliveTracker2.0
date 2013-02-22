@@ -30,6 +30,5 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
      */
     onSendResetInstruccions: function(){
         var tmpEmail = this.getEmail().value;
-        debugger;
     }
 });

@@ -35,14 +35,12 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     /**This method will save all users assigned to projects changes*/
     onSaveUsersToProjectChanges: function(argPopUp, argWindow){
         var tmpWindow = argWindow;
-        debugger;
         tmpWindow.close();
     },
 
     /**This method will cancel all users assigned to projects changes*/
     onCancelUsersToProjectChanges: function(argWindow){
         var tmpWindow = argWindow;
-        debugger;
         tmpWindow.close();
     },
 
