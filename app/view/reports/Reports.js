@@ -1,10 +1,9 @@
 Ext.define('AliveTracker.view.reports.Reports', {
+
     extend:'Ext.form.Panel',
     xtype:'reportsform',
     layout:'anchor',
-    requires:[
-        'AliveTracker.view.utils.DateRange'
-    ],
+
     initComponent:function () {
         this.items = [
             {

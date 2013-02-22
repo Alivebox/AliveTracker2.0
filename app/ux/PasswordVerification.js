@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.utils.PasswordVerification', {
+Ext.define('AliveTracker.ux.PasswordVerification', {
 
     extend:'Ext.Container',
     xtype:'passwordverification',

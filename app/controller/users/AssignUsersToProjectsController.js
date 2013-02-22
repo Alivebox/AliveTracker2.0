@@ -1,16 +1,15 @@
 Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     extend: "Ext.app.Controller",
-    refs:[
-        {
-            ref:'usersList',
-            selector:'userslist'
-        },
-        {
-            ref:'userRolesGrid',
-            selector:'userrolesgrid'
-        }
+
+    views: [
+        'users.AssignUsersToProjects',
+        'users.UserRolesAssignmentPopUp',
+        'users.UserRolesGrid',
+        'users.UsersGrid',
+        'users.UsersList'
     ],
+
     models:[
         'User',
         'Role'
@@ -21,6 +20,18 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         'Roles',
         'AssignedUsers'
     ],
+
+    refs:[
+        {
+            ref:'usersList',
+            selector:'userslist'
+        },
+        {
+            ref:'userRolesGrid',
+            selector:'userrolesgrid'
+        }
+    ],
+
     init: function(){
         this.control({
             'assignuserstoprojectsview': {

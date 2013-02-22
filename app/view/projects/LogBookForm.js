@@ -2,20 +2,7 @@ Ext.define('AliveTracker.view.projects.LogBookForm', {
 
     extend: 'Ext.form.Panel',
     xtype: 'logbookform',
-    requires : [
-        'AliveTracker.view.projects.LogBookGridHeader',
-        'AliveTracker.view.projects.LogBookGrid',
-        'AliveTracker.view.utils.DatePickerField'
-    ],
-    models:[
-        'Group',
-        'Project'
-    ],
 
-    stores:[
-        'Groups',
-        'Projects'
-    ],
     initComponent:function () {
         this.items = [
             {

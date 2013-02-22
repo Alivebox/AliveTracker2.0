@@ -1,6 +1,25 @@
 Ext.define("AliveTracker.controller.projects.LogBookController", {
 
     extend:"Ext.app.Controller",
+
+    views: [
+        'projects.LogBookForm',
+        'projects.LogBookGridHeader',
+        'projects.LogBookGrid'
+    ],
+
+    models:[
+        'Group',
+        'Project',
+        'projects.LogBook'
+    ],
+
+    stores:[
+        'Groups',
+        'Projects',
+        'LogBook'
+    ],
+
     refs:[
         {
             ref:'logBookForm',
@@ -18,23 +37,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             ref: 'totalTime',
             selector: 'logbookform label[itemId=totalTime]'
         }
-    ],
-    requires:[
-        'AliveTracker.view.projects.LogBookForm',
-        'AliveTracker.view.projects.LogBookGridHeader',
-        'AliveTracker.view.projects.LogBookGrid'
-    ],
-
-    models:[
-        'Group',
-        'Project',
-        'projects.LogBook'
-    ],
-
-    stores:[
-        'Groups',
-        'Projects',
-        'LogBook'
     ],
 
     /**

@@ -2,9 +2,10 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
 
     extend:"Ext.app.Controller",
 
-    requires:[
-        'AliveTracker.view.authentication.Register'
+    views:[
+        'authentication.Register'
     ],
+
     refs: [
 
         {

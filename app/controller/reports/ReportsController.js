@@ -1,9 +1,11 @@
 Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     extend: 'Ext.app.Controller',
-    requires : [
-        'AliveTracker.view.reports.Reports'
+
+    views : [
+        'reports.Reports'
     ],
+
     models:[
         'Project',
         'User'
@@ -13,6 +15,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         'Projects',
         'Users'
     ],
+
     refs: [
         {
             ref: 'reportsform',

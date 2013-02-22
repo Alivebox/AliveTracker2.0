@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.utils.DateRange', {
+Ext.define('AliveTracker.ux.DateRange', {
 
     extend:'Ext.Container',
     xtype:'daterange',

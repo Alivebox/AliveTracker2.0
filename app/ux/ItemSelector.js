@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.utils.ItemSelector', {
+Ext.define('AliveTracker.ux.ItemSelector', {
 
     extend: 'Ext.Container',
     xtype: 'itemselector',

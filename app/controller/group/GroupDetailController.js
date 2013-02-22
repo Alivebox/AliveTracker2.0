@@ -1,10 +1,18 @@
 Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     extend: "Ext.app.Controller",
+
+    views:[
+        'group.GroupDetail',
+        'group.GroupProjects',
+        'group.ProjectsGrid'
+    ],
+
     requires : [
         'AliveTracker.view.users.UsersGrid',
         'AliveTracker.view.group.GroupProjects'
     ],
+
     models:[
         'User',
         'Project',
