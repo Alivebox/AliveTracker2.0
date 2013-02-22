@@ -2,12 +2,12 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
 
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
-    title:Locales.AliveTracker.HOME_LABEL_NEW_GROUP,
     height:400,
     width:400,
     renderTo: Ext.getBody(),
     insert: true,
     initComponent:function () {
+        this.title = Locales.AliveTracker.HOME_LABEL_NEW_GROUP;
         this.logoUrlTextField = this.onCreateLogoUrlTextField();
         this.submitButton = this.onCreateSubmitButton();
         this.groupImageField = this.onCreateGroupImage();

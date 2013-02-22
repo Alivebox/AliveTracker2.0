@@ -39,7 +39,6 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         var tmpPassword = this.getPassword().value;
         var tmpEmail = this.getEmail().value;
         var tmpNewsletterSelected = this.getNewsletterselected().value;
-        debugger;
     }
 
 
