@@ -2,6 +2,10 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     extend: "Ext.app.Controller",
 
+    views: [
+        'group.AddUsersGroup'
+    ],
+
     refs: [
         {
             ref: 'addUsersCombo',

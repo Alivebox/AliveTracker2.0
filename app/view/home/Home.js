@@ -1,10 +1,6 @@
 Ext.define('AliveTracker.view.home.Home', {
 
     extend:'Ext.Container',
-    requires:[
-        'AliveTracker.view.home.HomeGroupsViewer',
-        'AliveTracker.view.home.HomeBelongGroupsViewer'
-    ],
     xtype:'home',
 
     initComponent:function () {

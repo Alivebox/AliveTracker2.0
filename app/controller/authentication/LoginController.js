@@ -2,10 +2,10 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
 
     extend:"Ext.app.Controller",
 
-    requires:[
-        'AliveTracker.view.authentication.Login',
-        'AliveTracker.view.authentication.ForgotPassword'
+    views: [
+        'authentication.Login'
     ],
+
     refs: [
         {
             ref: 'main',

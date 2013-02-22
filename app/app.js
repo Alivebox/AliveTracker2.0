@@ -10,21 +10,24 @@ Ext.application({
     requires: [
         'Framework.Main',
         'AliveTracker.defaults.Constants',
-        'AliveTracker.util.VTypesOverrides'
+        'AliveTracker.util.VTypesOverrides',
+        'AliveTracker.ux.AliveTrackerUxDependencies'
     ],
+
     name:'AliveTracker',
     autoCreateViewport:false,
 
     controllers: [
         'authentication.ForgotPasswordController',
         'authentication.LoginController',
+        'authentication.ProfileController',
         'authentication.RegisterController',
-        'home.HomeController',
-        'group.GroupDetailController',
-        'users.AssignUsersToProjectsController',
-        'projects.LogBookController',
         'group.AddUsersGroupController',
-        'reports.ReportsController'
+        'group.GroupDetailController',
+        'home.HomeController',
+        'projects.LogBookController',
+        'reports.ReportsController',
+        'users.AssignUsersToProjectsController'
     ],
 
     launch:function () {

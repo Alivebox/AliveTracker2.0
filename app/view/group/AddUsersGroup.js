@@ -1,19 +1,7 @@
-/**
- * Created with JetBrains PhpStorm.
- * User: Andres
- * Date: 14/02/13
- * Time: 01:36 PM
- * To change this template use File | Settings | File Templates.
- */
-
 Ext.define('AliveTracker.view.group.AddUsersGroup', {
 
     extend: 'Ext.Container',
     xtype: 'addusersgroup',
-
-    requires : [
-        'AliveTracker.view.users.UsersGrid'
-    ],
 
     initComponent: function() {
         var me = this;

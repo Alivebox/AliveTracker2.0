@@ -13,7 +13,10 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     ],
 
     views: [
-        'home.Home'
+        'home.Home',
+        'home.AddGroupPopUp',
+        'home.HomeBelongGroupsViewer',
+        'home.HomeGroupsViewer'
     ],
 
     refs:[

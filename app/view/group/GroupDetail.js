@@ -2,15 +2,9 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
 
     extend: 'Ext.Container',
     xtype: 'groupdetailform',
-    requires : [
-        'AliveTracker.view.group.AddUsersGroup',
-        'AliveTracker.view.group.ProjectsGrid',
-        'AliveTracker.view.group.GroupProjects',
-        'AliveTracker.view.users.AssignUsersToProjects',
-        'AliveTracker.view.projects.LogBookForm',
-        'AliveTracker.view.reports.Reports'
-    ],
+
     groupData: null,
+
     initComponent: function(){
         this.groupTitleLabel = this.onCreateGroupTitleTextField();
         this.groupImage = this.onCreateGroupImage();
