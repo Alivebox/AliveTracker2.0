@@ -1,4 +1,4 @@
-Ext.define("AliveTracker.defaults.Constants",{
+Ext.define('AliveTracker.defaults.Constants',{
 
     statics: {
         PROFILE_LOGO_URL: 'resources/icons/user.png',

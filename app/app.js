@@ -11,7 +11,8 @@ Ext.application({
         'Framework.Main',
         'AliveTracker.defaults.Constants',
         'AliveTracker.util.VTypesOverrides',
-        'AliveTracker.ux.AliveTrackerUxDependencies'
+        'AliveTracker.ux.AliveTrackerUxDependencies',
+        'AliveTracker.defaults.WebServices'
     ],
 
     name:'AliveTracker',

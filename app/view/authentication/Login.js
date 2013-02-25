@@ -8,8 +8,8 @@ Ext.define('AliveTracker.view.authentication.Login', {
                 itemId:'userNameLoginView',
                 fieldLabel: Locales.AliveTracker.LOGIN_LABEL_USERNAME,
                 allowBlank:false,
-                maxLength:20,
-                minLength: 8
+                maxLength:50,
+                vtype:'email'
             },
             {
                 xtype:'textfield',

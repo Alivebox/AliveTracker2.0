@@ -47,6 +47,18 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     onLoginAction:function () {
         var tmpUsername = this.getUsername().value;
         var tmpPassword = this.getPassword().value;
+        debugger;
+        Ext.Ajax.request({
+            url: AliveTracker.defaults.WebServices.USER_AUTHENTICATION + tmpPassword+'/'+tmpUsername+'/?format=json',
+            success: function(response){
+                debugger;
+                var text = response.responseText;
+            },
+            failure:    function() {
+                debugger;
+            }
+        });
+
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'homePage');
     },
 
