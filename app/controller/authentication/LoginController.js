@@ -2,22 +2,22 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
 
     extend:"Ext.app.Controller",
 
-    views: [
+    views:[
         'authentication.Login'
     ],
 
-    refs: [
+    refs:[
         {
-            ref: 'main',
-            selector: 'main'
+            ref:'main',
+            selector:'main'
         },
         {
-            ref: 'username',
-            selector: 'loginform [itemId=userNameLoginView]'
+            ref:'username',
+            selector:'loginform [itemId=userNameLoginView]'
         },
         {
-            ref: 'password',
-            selector: 'loginform [itemId=passwordLoginView]'
+            ref:'password',
+            selector:'loginform [itemId=passwordLoginView]'
         }
     ],
 
@@ -38,35 +38,44 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
      * Changes current view to ForgotPassword view
      */
     onNavigateToForgotPasswordView:function () {
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'forgotPasswordPage');
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
     },
 
     /**
      * Handles the logic of the login action
      */
     onLoginAction:function () {
-        var tmpUsername = this.getUsername().value;
-        var tmpPassword = this.getPassword().value;
-        debugger;
+        Framework.core.ModelLocator.username = this.getUsername().value;
+        Framework.core.ModelLocator.password = this.getPassword().value;
         Ext.Ajax.request({
-            url: AliveTracker.defaults.WebServices.USER_AUTHENTICATION + tmpPassword+'/'+tmpUsername+'/?format=json',
-            success: function(response){
-                debugger;
-                var text = response.responseText;
-            },
-            failure:    function() {
-                debugger;
+            url:AliveTracker.defaults.WebServices.USER_AUTHENTICATION,
+            scope: this,
+            success: this.onLoginSuccess,
+            failure: this.onLoginFailure,
+            headers:{
+                'username': Framework.core.ModelLocator.username,
+                'password': Framework.core.ModelLocator.password
             }
         });
+    },
 
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'homePage');
+    onLoginSuccess: function(argResponse) {
+        Framework.core.ModelLocator.loggedUser = Ext.decode(argResponse.responseText);
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+    },
+
+    onLoginFailure: function(){
+        this.getUsername().reset();
+        this.getUsername().validate(false);
+        this.getPassword().reset();
+        this.getPassword().validate(false);
     },
 
     /**
      * Handles the logic of the sign-up action
      */
     onSignUpAction:function () {
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'registerPage');
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'registerPage');
     }
 
 
