@@ -36,7 +36,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     init:function () {
         this.control({
             'home': {
-                onCreateNewGroup: this.onCreateNewGroup
+                onCreateNewGroup: this.onCreateNewGroup,
+                afterrender: this.onHomeGroupsInfoLoad
             },
             'homegroupsviewer': {
                 afterrender: this.onHomeGroupsAfterRender
@@ -49,6 +50,33 @@ Ext.define("AliveTracker.controller.home.HomeController", {
                 onCloseWindows: this.onCloseWindows
             }
         });
+    },
+
+    /**
+     * Home AfterRender
+     * */
+    onHomeGroupsInfoLoad: function(){
+        debugger;
+        Ext.Ajax.request({
+            url:AliveTracker.defaults.WebServices.GROUP_MY_GROUPS,
+            scope: this,
+            success: this.onInfoLoadSuccess,
+            failure: this.onInfoLoadFailure,
+            headers:{
+                'username': Framework.core.ModelLocator.username,
+                'password': Framework.core.ModelLocator.password,
+                'user-id': Framework.core.ModelLocator.loggedUser.id
+            }
+        });
+    },
+
+    onInfoLoadSuccess: function(argResponse) {
+        debugger;
+        var data = Ext.decode(argResponse.responseText);
+    },
+
+    onInfoLoadFailure: function(){
+        debugger;
     },
 
     /**
@@ -172,7 +200,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Creates group model from form values
      * */
     onCreateModelFromGroupModelValues: function(){
-        //TODO fix the ID
         var tmpItem = this.getGroupModelForm().getValues();
         var tmpId = this.getGroupModelForm().getRecord().getData().id;
         if(tmpId === 0){
