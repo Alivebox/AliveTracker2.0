@@ -60,7 +60,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     },
 
     onLoginSuccess: function(argResponse) {
-        Framework.core.ModelLocator.loggedUser = Ext.decode(argResponse.responseText);
+        Framework.core.ModelLocator.loggedUser = Ext.decode(argResponse.responseText).result;
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
