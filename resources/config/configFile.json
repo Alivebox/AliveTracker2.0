@@ -8,8 +8,11 @@
 
     "localeFilesBaseUrls":[
         "resources/locales/ext-lang-",
-        "resources/locales/alivetracker-lang-"
+        "resources/locales/alivetracker-lang-",
+        "resources/locales/errors-lang-"
     ],
+
+    "errorCodesClass": "Locales.ErrorCodes",
 
     "views": [
         {

@@ -137,7 +137,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      * Sends all log history info to backend
      */
     onSaveLogHistory: function(){
-        debugger;
     }
 
 });

@@ -66,7 +66,6 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         });
     },
     onSaveGroupUsers: function(){
-        debugger;
     }
 
 });

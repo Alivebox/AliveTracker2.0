@@ -5,10 +5,13 @@ Ext.Loader.setConfig({
     }
 });
 
+Ext.syncRequire([
+    'Framework.Main'
+]);
+
 Ext.application({
 
     requires: [
-        'Framework.Main',
         'AliveTracker.defaults.Constants',
         'AliveTracker.util.VTypesOverrides',
         'AliveTracker.ux.AliveTrackerUxDependencies',
@@ -45,7 +48,6 @@ Ext.application({
     onConfigLoaded: function(argConfigFileObject){
         AliveTracker.util.VTypesOverrides.init();
         Framework.Main.init({
-            scope:this,
             config: argConfigFileObject
         });
     },

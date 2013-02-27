@@ -2,25 +2,26 @@ Ext.define('AliveTracker.model.User', {
 
     extend:'Ext.data.Model',
 
-    idProperty:'name',
+    idProperty:'id',
 
     fields:[
+        {
+            name:'id',
+            type:'int'
+        },
         {
             name:'name',
             type:'string'
         },
         {
-            name:'role',
+            name:'email',
             type:'string'
         }
     ],
 
     proxy: {
-        type: 'ajax',
-        url: 'resources/data/users.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
+        type: 'restproxy',
+        url: '/ws/alivews/main/'
     }
+
 });

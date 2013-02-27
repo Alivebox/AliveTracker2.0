@@ -21,9 +21,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         }
     ],
 
-    /**
-     * Initializes components listeners
-     */
     init:function () {
         this.control({
             'loginform':{
@@ -34,46 +31,40 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         });
     },
 
-    /**
-     * Changes current view to ForgotPassword view
-     */
     onNavigateToForgotPasswordView:function () {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
     },
 
-    /**
-     * Handles the logic of the login action
-     */
     onLoginAction:function () {
         Framework.core.ModelLocator.username = this.getUsername().value;
-        Framework.core.ModelLocator.password = this.getPassword().value;
-        Ext.Ajax.request({
-            url:AliveTracker.defaults.WebServices.USER_AUTHENTICATION,
+        Framework.core.ModelLocator.password = Framework.util.MD5Util.calcMD5(this.getPassword().value);
+        Framework.ux.data.RestProxy.setHeaders({
+            username: Framework.core.ModelLocator.username,
+            password: Framework.core.ModelLocator.password
+        });
+        var tmpUsersStore = Ext.create('AliveTracker.store.Users');
+        tmpUsersStore.load({
             scope: this,
-            success: this.onLoginSuccess,
-            failure: this.onLoginFailure,
-            headers:{
-                'username': Framework.core.ModelLocator.username,
-                'password': Framework.core.ModelLocator.password
-            }
+            callback: this.onLoginResult
         });
     },
 
-    onLoginSuccess: function(argResponse) {
-        Framework.core.ModelLocator.loggedUser = Ext.decode(argResponse.responseText);
+    onLoginResult: function(argRecords,argOperation,argSuccess){
+        if( !argSuccess || Ext.isEmpty(argRecords) ){
+            this.loginFailure();
+            return;
+        }
+        Framework.core.ModelLocator.loggedUser = argRecords[0];
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
-    onLoginFailure: function(){
+    loginFailure: function(){
         this.getUsername().reset();
         this.getUsername().validate(false);
         this.getPassword().reset();
         this.getPassword().validate(false);
     },
 
-    /**
-     * Handles the logic of the sign-up action
-     */
     onSignUpAction:function () {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'registerPage');
     }
