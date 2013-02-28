@@ -56,7 +56,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Home AfterRender
      * */
     onHomeGroupsInfoLoad: function(){
-        debugger;
         Ext.Ajax.request({
             url:AliveTracker.defaults.WebServices.GROUP_MY_GROUPS,
             scope: this,
@@ -71,12 +70,10 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onInfoLoadSuccess: function(argResponse) {
-        debugger;
         var data = Ext.decode(argResponse.responseText);
     },
 
     onInfoLoadFailure: function(){
-        debugger;
     },
 
     /**
