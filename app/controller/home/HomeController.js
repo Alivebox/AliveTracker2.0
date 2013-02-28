@@ -55,27 +55,43 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     /**
      * Home AfterRender
      * */
-    onHomeGroupsInfoLoad: function(){
-        debugger;
+    onHomeGroupsInfoLoad:function () {
+        this.onMyGroupsLoad();
+        this.onGroupsIBelongLoad();
+    },
+
+    onMyGroupsLoad:function () {
+//        Framework.ux.data.RestProxy.setHeaders({
+//            'user-id':Framework.core.ModelLocator.loggedUser.data.id
+//        });
+//        var tmpGroupStore = Ext.create('AliveTracker.store.Groups');
+//        tmpGroupStore.load({
+//            scope: this,
+//            callback: this.onLoadMyGroupsResult
+//        });
+    },
+    onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
+       debugger;
+        if(argSuccess){
+            var data = Ext.decode(argResponse.responseText);
+        }
+    },
+    onGroupsIBelongLoad:function () {
         Ext.Ajax.request({
-            url:AliveTracker.defaults.WebServices.GROUP_MY_GROUPS,
-            scope: this,
-            success: this.onInfoLoadSuccess,
-            failure: this.onInfoLoadFailure,
+            url:AliveTracker.defaults.WebServices.GROUP_GROUPS_I_BELONG,
+            scope:this,
+            success:this.onGroupsIBelongLoadSuccess,
+            failure:this.onGroupsIBelongLoadFailure,
             headers:{
-                'username': Framework.core.ModelLocator.username,
-                'password': Framework.core.ModelLocator.password,
-                'user-id': Framework.core.ModelLocator.loggedUser.id
+                'user-id':Framework.core.ModelLocator.loggedUser.data.id
             }
         });
     },
-
-    onInfoLoadSuccess: function(argResponse) {
-        debugger;
+    onGroupsIBelongLoadSuccess:function (argResponse) {
         var data = Ext.decode(argResponse.responseText);
     },
 
-    onInfoLoadFailure: function(){
+    onGroupsIBelongLoadFailure:function () {
         debugger;
     },
 
@@ -133,10 +149,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         var tmpGroupsStore = Ext.getStore(agrStore);
         var tmpModel = tmpGroupsStore.findRecord('id', argElement.getAttribute('id'));
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
-//        this.getGroupdetailform().groupData = tmpModel;
-//        this.getGroupdetailform().groupTitleLabel.setText(tmpModel.get('name'));
-//        this.getGroupdetailform().groupImage.setSrc(AliveTracker.defaults.Constants.EXT_GROUP_IMAGE_IO_SIZE + tmpModel.get('logoUrl'));
-//        this.getMain().setActiveTab(this.getGroupdetailform());
     },
 
     /**
@@ -188,12 +200,30 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Will add a new group to the store
      * */
     onSaveAction: function(argEvent){
-        var tmpWindow = argEvent;
+        var tmpForm = argEvent;
         var tmpGroupModel = this.onCreateModelFromGroupModelValues();
         var tmpGroupStore = Ext.getStore('Groups');
         tmpGroupStore.add(tmpGroupModel);
         tmpGroupStore.commitChanges();
         tmpWindow.close();
+//        debugger;
+//        Framework.ux.data.RestProxy.setHeaders({
+//            name: tmpForm[0].value,
+//            description: tmpForm[1].value,
+//            logo: tmpForm[2].value,
+//            website: tmpForm[3].value
+//        });
+//        var tmpGroupStore = Ext.create('AliveTracker.store.Groups');
+//        tmpGroupStore.load({
+//            scope: this,
+//            callback: this.onCreateGroupResult
+//        });
+    },
+
+    onCreateGroupResult: function(argRecords,argOperation,argSuccess){
+        debugger;
+        Framework.core.ModelLocator.loggedUser = argRecords[0];
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
     /**

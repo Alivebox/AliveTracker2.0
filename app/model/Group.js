@@ -36,4 +36,5 @@ Ext.define('AliveTracker.model.Group', {
         }
     }
 
+
 });
