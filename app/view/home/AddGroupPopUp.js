@@ -15,6 +15,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
             {
                 xtype: 'container',
                 id: 'addEditGroupContainer',
+                itemId: 'addEditGroupContainer',
                 name: 'homeGroup',
                 layout: 'column',
                 items: [
@@ -79,7 +80,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
      * Fires an event to be caught by the controller
      * */
     onSubmitAction: function(){
-            this.fireEvent('onSaveAction', this);
+        this.fireEvent('onSaveAction', this.getComponent(0).getComponent(0).items.items);
     },
 
     onCreateSubmitButton: function(){
