@@ -36,12 +36,9 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     },
 
     onLoginAction:function () {
-        Framework.core.ModelLocator.username = this.getUsername().value;
-        Framework.core.ModelLocator.password = Framework.util.MD5Util.calcMD5(this.getPassword().value);
-        Framework.ux.data.RestProxy.setHeaders({
-            username: Framework.core.ModelLocator.username,
-            password: Framework.core.ModelLocator.password
-        });
+        var tmpUsername = this.getUsername().value;
+        var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
+        Framework.core.SecurityManager.setUsernameAndPassword(tmpUsername,tmpPassword);
         var tmpUsersStore = Ext.create('AliveTracker.store.Users');
         tmpUsersStore.load({
             scope: this,
@@ -54,8 +51,23 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             this.loginFailure();
             return;
         }
-        Framework.core.ModelLocator.loggedUser = argRecords[0];
+        var tmpCurrentUser = argRecords[0];
+        tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
+        Framework.core.SecurityManager.setCurrentUser(tmpCurrentUser);
+        Framework.core.SecurityManager.setPermissions(tmpCurrentUser.get('permissions'));
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+    },
+
+    addDefaultPermissions: function(argUser){
+        if( Ext.isEmpty(argUser) ){
+            return null;
+        }
+        var tmpDefaultPermissions = [
+            'viewHome',
+            'viewGroupDetail'
+        ];
+        argUser.set('permissions',tmpDefaultPermissions);
+        return argUser;
     },
 
     loginFailure: function(){

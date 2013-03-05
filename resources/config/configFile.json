@@ -30,7 +30,10 @@
         },
         {
             "name": "homePage",
-            "package": "AliveTracker.view.home.Home"
+            "package": "AliveTracker.view.home.Home",
+            "permissions": [
+                "viewHome"
+            ]
         },
         {
             "name": "groupDetailPage",

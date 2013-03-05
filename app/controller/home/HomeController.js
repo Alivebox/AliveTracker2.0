@@ -71,7 +71,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 //        });
     },
     onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
-       debugger;
         if(argSuccess){
             var data = Ext.decode(argResponse.responseText);
         }
@@ -92,7 +91,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onGroupsIBelongLoadFailure:function () {
-        debugger;
     },
 
     /**
@@ -206,7 +204,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         tmpGroupStore.add(tmpGroupModel);
         tmpGroupStore.commitChanges();
         tmpWindow.close();
-//        debugger;
 //        Framework.ux.data.RestProxy.setHeaders({
 //            name: tmpForm[0].value,
 //            description: tmpForm[1].value,
@@ -221,7 +218,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onCreateGroupResult: function(argRecords,argOperation,argSuccess){
-        debugger;
         Framework.core.ModelLocator.loggedUser = argRecords[0];
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
