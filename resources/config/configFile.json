@@ -37,7 +37,10 @@
         },
         {
             "name": "groupDetailPage",
-            "package": "AliveTracker.view.group.GroupDetail"
+            "package": "AliveTracker.view.group.GroupDetail",
+            "permissions": [
+                "viewGroupDetail"
+            ]
         }
     ]
 

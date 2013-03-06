@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.home.Home', {
 
-    extend:'Ext.Container',
-    xtype:'home',
+    extend:'Ext.container.Container',
+    xtype:'homeview',
 
     initComponent:function () {
         var tmpMyGroupsHeader = this.getMyGroupsHeader();
