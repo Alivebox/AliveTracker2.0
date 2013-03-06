@@ -24,8 +24,8 @@ Ext.define('AliveTracker.model.User', {
     ],
 
     proxy: {
-        type: 'restproxy',
-        url: '/ws/alivews/main/'
+        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        url:  AliveTracker.defaults.WebServices.USER_AUTHENTICATION
     }
 
 });

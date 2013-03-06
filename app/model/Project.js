@@ -16,12 +16,9 @@ Ext.define('AliveTracker.model.Project', {
     ],
 
     proxy: {
-        type: 'ajax',
-        url: 'resources/data/projects.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
+        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        url: AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID
+
     }
 
 });

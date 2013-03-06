@@ -40,6 +40,18 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref: 'totalTime',
             selector: 'logbookform label[itemId=totalTime]'
+        },
+        {
+            ref:'projectComboBox',
+            selector:'logbookgridheader [itemId=logProjectComboBox]'
+        },
+        {
+            ref:'reportProjectComboBox',
+            selector: 'reportsform  [itemId=projectReports]'
+        },
+        {
+            ref:'groupProjectGrid',
+            selector: 'groupprojects  [itemId=groupProjectGrid]'
         }
     ],
 
@@ -49,13 +61,18 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     init:function () {
         this.control({
             'logbookform':{
-                afterrender:this.onUserAfterRender,
+                afterrender:this.onAfterRender,
                 newActivity:this.onAddNewActivity,
                 datePickerChanged:this.onDatePickerChange,
                 saveLogHistory: this.onSaveLogHistory
 
             }
         });
+    },
+
+    onAfterRender:function(){
+        this.onUserAfterRender();
+        this.loadProjectStore();
     },
 
     /**
@@ -94,9 +111,14 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     loadProjectStore:function () {
         var tmpProjectsStore = Ext.getStore('Projects');
         tmpProjectsStore.load({
+            scope: this,
+            url: (AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID),
             callback:function () {
             }
         });
+        this.getProjectComboBox().store = tmpProjectsStore;
+        this.getReportProjectComboBox().store = tmpProjectsStore;
+        this.getGroupProjectGrid().store = tmpProjectsStore;
     },
 
     /**
