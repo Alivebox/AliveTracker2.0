@@ -36,6 +36,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     },
 
     onLoginAction:function () {
+        debugger;
         var tmpUsername = this.getUsername().value;
         var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
         Framework.core.SecurityManager.setUsernameAndPassword(tmpUsername,tmpPassword);
