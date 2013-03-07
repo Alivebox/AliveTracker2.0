@@ -59,20 +59,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Initializes components listeners
      */
     onReportsAfterRender: function(){
-        this.loadProjectsStore();
         this.loadUsersStore();
         this.loadGoupsStore();
-    },
-
-    /**
-     * Loads the Projects store
-     */
-    loadProjectsStore: function(){
-        var tmpProjectsStore = Ext.getStore('Projects');
-        tmpProjectsStore.load({
-            callback: function(){
-            }
-        });
     },
 
     /**

@@ -7,9 +7,17 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
     initComponent: function(){
         this.activityTextField = this.onCreateActivityTextField();
         this.timeTextField = this.onCreateTimeTextField();
-        this.projectComboBox = this.onCreateProjectComboBox();
         this.items = [
-            this.projectComboBox,
+            {
+                xtype: 'combobox',
+                name: 'project',
+                itemId: 'logProjectComboBox',
+                allowBlank: false,
+                fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
+                labelAlign: 'top',
+                displayField: 'name',
+                editable: false
+            },
             this.activityTextField,
             this.timeTextField
         ];
@@ -52,10 +60,10 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
     onCreateProjectComboBox: function(){
         var tmpProjectComboBox = Ext.create('Ext.form.ComboBox', {
             name: 'project',
+            itemId: 'logProjectComboBox',
             allowBlank: false,
             fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
             labelAlign: 'top',
-            store: 'Projects',
             displayField: 'name',
             editable: false
         });

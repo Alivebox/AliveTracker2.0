@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
             },
             {
                 xtype: 'projectGrid',
-                store: 'Projects'
+                itemId: 'groupProjectGrid'
             }
         ];
         this.callParent(arguments);

@@ -33,6 +33,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             selector:'groupdetailform'
         }
     ],
+
     init:function () {
         this.control({
             'home': {
@@ -129,6 +130,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Show GroupDetailView when user click on the imagen in home
      * */
     onShowGroupDetailView: function(agrAbstractComponent, argElement){
+        AliveTracker.defaults.WebServices.GROUP_ID = argElement.id;
         this.navigateToGroupView('Groups', argElement);
     },
 

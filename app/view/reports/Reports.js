@@ -11,7 +11,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 itemId:'projectReports',
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
-                store:'Projects',
                 displayField:'name',
                 editable:false
             },
