@@ -71,8 +71,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     },
 
     onAfterRender:function(){
-        this.onUserAfterRender();
-        this.loadProjectStore();
+//        this.onUserAfterRender();
+//        this.loadProjectStore();
     },
 
     /**
