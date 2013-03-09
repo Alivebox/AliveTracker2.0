@@ -2,8 +2,6 @@
 
     "createViewPort": true,
 
-    "viewsContainerPackage": "Framework.ux.view.container.SimpleViewsContainer",
-
     "localizationEnabled":true,
 
     "localeFilesBaseUrls":[
@@ -14,34 +12,41 @@
 
     "errorCodesClass": "Locales.ErrorCodes",
 
-    "views": [
-        {
-            "name": "loginPage",
-            "package": "AliveTracker.view.authentication.Login",
-            "default": true
-        },
-        {
-            "name": "forgotPasswordPage",
-            "package": "AliveTracker.view.authentication.ForgotPassword"
-        },
-        {
-            "name": "registerPage",
-            "package": "AliveTracker.view.authentication.Register"
-        },
-        {
-            "name": "homePage",
-            "package": "AliveTracker.view.home.Home",
-            "permissions": [
-                "viewHome"
-            ]
-        },
-        {
-            "name": "groupDetailPage",
-            "package": "AliveTracker.view.group.GroupDetail",
-            "permissions": [
-                "viewGroupDetail"
-            ]
-        }
-    ]
+    "viewsContainer": {
+        "package": "Framework.ux.view.container.SimpleViewsContainer",
+        "headerPackage": "AliveTracker.view.header.HeaderView",
+        "views": [
+            {
+                "name": "loginPage",
+                "package": "AliveTracker.view.authentication.Login",
+                "default": true,
+                "hideHeader": true
+            },
+            {
+                "name": "forgotPasswordPage",
+                "package": "AliveTracker.view.authentication.ForgotPassword",
+                "hideHeader": true
+            },
+            {
+                "name": "registerPage",
+                "package": "AliveTracker.view.authentication.Register",
+                "hideHeader": true
+            },
+            {
+                "name": "homePage",
+                "package": "AliveTracker.view.home.Home",
+                "permissions": [
+                    "viewHome"
+                ]
+            },
+            {
+                "name": "groupDetailPage",
+                "package": "AliveTracker.view.group.GroupDetail",
+                "permissions": [
+                    "viewGroupDetail"
+                ]
+            }
+        ]
+    }
 
 }
