@@ -13,7 +13,7 @@
     "errorCodesClass": "Locales.ErrorCodes",
 
     "viewsContainer": {
-        "package": "Framework.ux.view.container.SimpleViewsContainer",
+        "package": "Framework.ux.view.SimpleViewsContainer",
         "headerPackage": "AliveTracker.view.header.HeaderView",
         "views": [
             {
