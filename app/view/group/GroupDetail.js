@@ -6,7 +6,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     initComponent: function(){
         this.items = [
             {
-                xtype: 'tabpanel',
+                xtype: 'tabcontainer',
                 items: [
                     {
                         xtype:'logbookform',
