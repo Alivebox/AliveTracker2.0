@@ -8,7 +8,8 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GROUP_GROUPS_I_BELONG: '/ws/alivews/groups/retrieveGroupsIBelongTo/',
         GROUP_CREATE_GROUP: '/ws/alivews/groups/createGroup/',
         GET_PROJECTS : '/ws/alivews/projects/group/',
-        GROUP_ID: 0
+        GROUP_ID: 0,
+        EXAMPLE_COMPLEX_URL: 'ws/alivews/projects/group/{0}/user/{1}/'
     }
 
 });

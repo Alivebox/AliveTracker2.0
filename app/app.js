@@ -31,7 +31,8 @@ Ext.application({
         'home.HomeController',
         'projects.LogBookController',
         'reports.ReportsController',
-        'users.AssignUsersToProjectsController'
+        'users.AssignUsersToProjectsController',
+        'header.HeaderController'
     ],
 
     launch:function () {
