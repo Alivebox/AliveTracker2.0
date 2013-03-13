@@ -59,7 +59,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     /**Will show a pop up to request a project*/
     onShowProjectPopUp: function(){
         this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = 'New Project';
+        this.addProjectPopup.title = Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT;
         this.addProjectPopup.show();
     },
 
