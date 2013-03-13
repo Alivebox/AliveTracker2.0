@@ -17,6 +17,7 @@ Ext.define('AliveTracker.view.projects.LogBookGridHeader', {
                 labelAlign: 'top',
                 displayField: 'name',
                 editable: false,
+                store: 'Projects',
                 queryMode: 'local'
             },
             this.activityTextField,
