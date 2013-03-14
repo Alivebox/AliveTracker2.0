@@ -350,7 +350,7 @@ Ext.define('Ext.tab.Panel', {
      * heavy controls being rendered into panels that are not displayed by default, setting this to true might improve
      * performance.
      *
-     * The deferredRender property is internally passed to the layout manager for TabPanels ({@link
+     * The deferredRender property is internally passed to the layout manager for TabPanels ({
      * Ext.layout.container.Card}) as its {@link Ext.layout.container.Card#deferredRender} configuration value.
      *
      * **Note**: leaving deferredRender as true means that the content within an unactivated tab will not be available

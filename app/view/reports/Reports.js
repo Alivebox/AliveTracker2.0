@@ -9,6 +9,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'projectReports',
+                store: 'Projects',
+                queryMode: 'local',
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
                 displayField:'name',
