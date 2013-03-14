@@ -18,6 +18,10 @@ Ext.define('AliveTracker.model.User', {
             type:'string'
         },
         {
+           name:'role',
+           type:'string'
+        },
+        {
             name:'permissions',
             type:'array'
         }

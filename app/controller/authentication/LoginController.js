@@ -27,7 +27,17 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
                 navigateToForgotPasswordView:this.onNavigateToForgotPasswordView,
                 loginAction:this.onLoginAction,
                 signUpAction:this.onSignUpAction
+                //afterrender:this.onVerifyUserLoggued
             }
+        });
+    },
+
+    onVerifyUserLoggued:function() {
+        var tmpUsersStore = Ext.create('AliveTracker.store.Users');
+        tmpUsersStore.load({
+            scope: this,
+            callback: this.onLoginResult,
+            urlOverride: AliveTracker.defaults.WebServices.GET_USER_AUTH
         });
     },
 
@@ -42,7 +52,8 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         var tmpUsersStore = Ext.create('AliveTracker.store.Users');
         tmpUsersStore.load({
             scope: this,
-            callback: this.onLoginResult
+            callback: this.onLoginResult,
+            urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
         });
     },
 

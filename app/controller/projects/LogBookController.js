@@ -2,101 +2,65 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
 
     extend:"Ext.app.Controller",
 
-    views: [
-        'projects.LogBookForm',
-        'projects.LogBookGridHeader',
+    views:[
+        'projects.LogBook',
+        'projects.LogBookActivityForm',
         'projects.LogBookGrid'
     ],
 
     models:[
         'Group',
         'Project',
-        'projects.LogBook'
+        'projects.LogBook',
+        'projects.Log'
     ],
 
     stores:[
         'Groups',
         'Projects',
-        'LogBook'
+        'Logs'
     ],
 
     refs:[
         {
-            ref:'logBookForm',
-            selector:'logbookform'
+            ref:'logBook',
+            selector:'logbook'
         },
         {
             ref:'datepicker',
-            selector:'logbookform [itemId=datepickerLogBook]'
+            selector:'logbook [itemId=datepickerLogBook]'
         },
         {
-            ref:'logBookGridHeader',
-            selector:'logbookgridheader'
+            ref:'totalTime',
+            selector:'logbook label[itemId=totalTime]'
         },
         {
-            ref:'logBookGrid',
-            selector:'logbookgrid'
-        },
-        {
-            ref: 'totalTime',
-            selector: 'logbookform label[itemId=totalTime]'
-        },
-        {
-            ref:'projectComboBox',
-            selector:'logbookgridheader [itemId=logProjectComboBox]'
-        },
-        {
-            ref:'reportProjectComboBox',
-            selector: 'reportsform  [itemId=projectReports]'
-        },
-        {
-            ref:'groupProjectGrid',
-            selector: 'groupprojects  [itemId=groupProjectGrid]'
+            ref:'logBookActivityForm',
+            selector:'logbookactivityform'
         }
     ],
 
-    /**
-     *Initialization of all items
-     */
     init:function () {
         this.control({
-            'logbookform':{
-                afterrender:this.onAfterRender,
-                newActivity:this.onAddNewActivity,
+            'logbook':{
                 datePickerChanged:this.onDatePickerChange,
-                saveLogHistory: this.onSaveLogHistory
-
+                saveLogHistory:this.onSaveLogHistory
+            },
+            'logbookactivityform': {
+                addActivity:this.onAddNewActivity
             }
         });
     },
 
-    onAfterRender:function(){
-//        this.onUserAfterRender();
-//        this.loadProjectStore();
-    },
-
-    /**
-     *Function called after renderization
-     */
-    onUserAfterRender:function () {
-        this.onTotalTimeUpdate();
-    },
-
-    /**
-     * Calculates the sum of all time expended on one day
-     */
-    onTotalTimeUpdate: function(){
+    onTotalTimeUpdate:function () {
         var tmpTotal = 0;
-        var tmpStore = this.getLogBookGrid().getStore();
-        tmpStore.each(function(record){
+        var tmpStore = Ext.getStore('Logs');
+        tmpStore.each(function (record) {
             tmpTotal += record.data.time;
-        },this);
-        this.getTotalTime().setText(Locales.AliveTracker.PROJECTS_LABEL_TOTAL+ ': ' + tmpTotal + ' h');
+        }, this);
+        this.getTotalTime().setText(Locales.AliveTracker.PROJECTS_LABEL_TOTAL + ': ' + tmpTotal + ' h');
     },
 
-    /**
-     * Load previous group data stored
-     */
     loadGroupStore:function () {
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({
@@ -105,60 +69,42 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         });
     },
 
-    /**
-     * Load previous project data stored
-     */
-    loadProjectStore:function () {
-        var tmpProjectsStore = Ext.getStore('Projects');
-        tmpProjectsStore.load({
-            scope: this,
-            url: (AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID),
-            callback:function () {
-            }
-        });
-        this.getProjectComboBox().store = tmpProjectsStore;
-        this.getReportProjectComboBox().store = tmpProjectsStore;
-        this.getGroupProjectGrid().store = tmpProjectsStore;
-    },
-
-    /**
-     * Create a new activity and add to the store
-     */
-    onAddNewActivity:function (argEvent) {
-        var tmpLogBookFormBasic = this.getLogBookForm().getForm();
-        if (!tmpLogBookFormBasic.isValid()) {
+    onAddNewActivity:function (argActivity) {
+        if( Ext.isEmpty(argActivity) ){
             return;
         }
-        var tmpModel = Ext.create('AliveTracker.model.projects.LogBook');
-        tmpLogBookFormBasic.updateRecord(tmpModel);
-        var tmpLogBookStore = Ext.getStore('LogBook');
-        tmpLogBookStore.add(tmpModel);
+        argActivity.set("group", 3);
+        var tmpLogBookStore = Ext.getStore('Logs');
+        tmpLogBookStore.add(argActivity);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
     },
 
-    /**
-     * Clears all editable components on screen
-     */
-    onClearUsersSelection: function(){
-        this.getLogBookGridHeader().projectComboBox.reset();
-        this.getLogBookGridHeader().activityTextField.reset();
-        this.getLogBookGridHeader().timeTextField.reset();
+    onClearUsersSelection:function () {
+        //FIX find method to set empty textField
+        //this.getLogBookActivityForm().activityTextField = "";
+        //this.getLogBookActivityForm().timeTextField = "";
     },
-
-    /**
-     * Handles all the logic asociated to the date changed action
-     * @param argDatePicker component
-     */
-    onDatePickerChange: function(){
+    onDatePickerChange:function () {
         this.getDatepicker().getValue();
         this.getLogBookGrid().getStore().removeAll();
         this.onTotalTimeUpdate();
     },
-    /**
-     * Sends all log history info to backend
-     */
-    onSaveLogHistory: function(){
+    onSaveLogHistory:function () {
+        // FIX do a extra function to get store.data[i].items[i]
+        var tmpLogArray = [];
+        for(var i=0; i < Ext.getStore('Logs').data.items.length; i++){
+            tmpLogArray.push(Ext.getStore('Logs').data.items[i].data)
+        }
+        var tmpLogBook = Ext.create('AliveTracker.model.projects.LogBook', {
+            date:this.getDatepicker().getValue(),
+            group:3,
+            activities:tmpLogArray
+        });
+        debugger;
+        tmpLogBook.save();
     }
+
+
 
 });

@@ -2,7 +2,6 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
     xtype: 'usersGrid',
-
     initComponent: function() {
         var me = this;
         Ext.applyIf(me, {

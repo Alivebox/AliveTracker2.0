@@ -6,17 +6,25 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         'group.AddUsersGroup'
     ],
 
+    stores: [
+        'GroupUsers'
+    ],
+
     refs: [
         {
             ref: 'addUsersCombo',
             selector: 'addusersgroup #usersCombo'
+        },
+        {
+            ref: 'usersGrid',
+            selector: 'addusersgroup [name=usersGrid]'
         }
     ],
 
     init: function(){
         this.control({
             'addusersgroup': {
-                boxready : this.onAddUsersGroupBoxReady,
+                afterrender: this.onAddUserPopUpAfterRender,
                 comboUsersKeyUp: this.filterComboUsers,
                 addUserClick: this.addUser,
                 saveGroupUsers: this.onSaveGroupUsers
@@ -24,11 +32,17 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         });
     },
 
-    onAddUsersGroupBoxReady:function(abstractcomponent, width, height, options){
-        this.addListeners(abstractcomponent);
+    onAddUserPopUpAfterRender: function() {
+        this.onLoadUserListStore();
     },
 
-    addListeners:function(abstractcomponent){
+    onLoadUserListStore: function() {
+        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP,3);
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
     },
 
     addUser:function(e, el){

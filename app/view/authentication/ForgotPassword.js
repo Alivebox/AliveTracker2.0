@@ -19,14 +19,14 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                 disabled: true,
                 listeners:{
                     scope:this,
-                    click:this.onSendResetInstruccionsClick
+                    click:this.onSendResetInstructionsClick
                 }
             }
         ];
         this.callParent(arguments);
     },
-    onSendResetInstruccionsClick:function () {
-        this.fireEvent('sendResetInstruccions',this);
+    onSendResetInstructionsClick:function () {
+        this.fireEvent('sendResetInstructions',this);
     }
 
 });

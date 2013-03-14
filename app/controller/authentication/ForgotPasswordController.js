@@ -20,7 +20,7 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     init: function(){
         this.control({
             'forgotpasswordform': {
-                sendResetInstruccions: this.onSendResetInstruccions
+                sendResetInstructions: this.onSendResetInstructions
 
             }
         });
@@ -29,7 +29,18 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     /**
      * Sends via email the reset password instructions
      */
-    onSendResetInstruccions: function(){
+    onSendResetInstructions: function(){
+        debugger;
         var tmpEmail = this.getEmail().value;
+        var tmpForgotPassStore = Ext.create('AliveTracker.model.authentication.ForgotPassword');
+        tmpForgotPassStore.save({
+            scope: this,
+            callback: this.onSendResetInstructionsResult
+        });
+    },
+
+
+    onSendResetInstructionsResult: function(){
+        debugger;
     }
 });
