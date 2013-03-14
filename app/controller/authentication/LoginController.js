@@ -26,8 +26,8 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             'loginform':{
                 navigateToForgotPasswordView:this.onNavigateToForgotPasswordView,
                 loginAction:this.onLoginAction,
-                signUpAction:this.onSignUpAction,
-                afterrender:this.onVerifyUserLoggued
+                signUpAction:this.onSignUpAction
+                //afterrender:this.onVerifyUserLoggued
             }
         });
     },

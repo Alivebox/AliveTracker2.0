@@ -25,7 +25,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             },
             {
                 xtype: 'usersGrid',
-                store: 'AssignedUsers'
+                name: 'usersGrid'
             },
             {
                 xtype:'button',

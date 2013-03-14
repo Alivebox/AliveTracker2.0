@@ -24,7 +24,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     refs:[
         {
             ref:'usersList',
-            selector:'userslist'
+            selector:'assignuserstoprojectsview [name=usersList]'
         },
         {
             ref:'userRolesGrid',
@@ -46,6 +46,17 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
 
     onAfterRender:function() {
+        this.onLoadUserListStore()
+    },
+
+    onLoadUserListStore: function() {
+        var tmpUsersGroupStore = Ext.create('AliveTracker.store.Users');
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride: AliveTracker.defaults.WebServices.GET_USERS_GROUP + AliveTracker.defaults.WebServices.GROUP_ID,
+            callback: function(){}
+        });
+        this.getUsersList().store = tmpUsersGroupStore;
     },
 
     /**This method will save all users assigned to projects changes*/
