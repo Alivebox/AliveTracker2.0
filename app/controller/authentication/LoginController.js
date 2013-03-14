@@ -26,21 +26,18 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             'loginform':{
                 navigateToForgotPasswordView:this.onNavigateToForgotPasswordView,
                 loginAction:this.onLoginAction,
-                signUpAction:this.onSignUpAction
-               // afterrender:this.onVerifyUserLoggued
+                signUpAction:this.onSignUpAction,
+                afterrender:this.onVerifyUserLoggued
             }
         });
     },
 
     onVerifyUserLoggued:function() {
         var tmpUsersStore = Ext.create('AliveTracker.store.Users');
-        tmpUsersStore.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
-            url: (AliveTracker.defaults.WebServices.GET_USER_AUTH)
-        });
         tmpUsersStore.load({
             scope: this,
-            callback: this.onLoginResult
+            callback: this.onLoginResult,
+            urlOverride: AliveTracker.defaults.WebServices.GET_USER_AUTH
         });
     },
 
@@ -53,13 +50,10 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
         Framework.core.SecurityManager.setUsernameAndPassword(tmpUsername,tmpPassword);
         var tmpUsersStore = Ext.create('AliveTracker.store.Users');
-        tmpUsersStore.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
-            url: (AliveTracker.defaults.WebServices.USER_AUTHENTICATION)
-        });
         tmpUsersStore.load({
             scope: this,
-            callback: this.onLoginResult
+            callback: this.onLoginResult,
+            urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
         });
     },
 

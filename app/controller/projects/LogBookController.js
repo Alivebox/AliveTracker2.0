@@ -98,12 +98,9 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
      */
     loadProjectStore:function () {
         var tmpProjectsStore = Ext.getStore('Projects');
-        tmpProjectsStore.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
-            url: AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID
-        });
         tmpProjectsStore.load({
             scope: this,
+            urlOverride: AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID,
             callback:function () {}
         });
     },

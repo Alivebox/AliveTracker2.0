@@ -38,9 +38,14 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
                 saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
                 cancelUsersToProjectAction : this.onCancelUsersToProjectChanges,
                 addUserToProjectButtonAction: this.onAddUserToProjectButtonAction,
-                removeUserFromProjectButtonAction: this.onRemoveUserFromProjectButtonAction
+                removeUserFromProjectButtonAction: this.onRemoveUserFromProjectButtonAction,
+                afterrender: this.onAfterRender
             }
         });
+    },
+
+
+    onAfterRender:function() {
     },
 
     /**This method will save all users assigned to projects changes*/
