@@ -9,7 +9,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                 xtype: 'tabcontainer',
                 items: [
                     {
-                        xtype:'logbookform',
+                        xtype:'logbook',
                         title: Locales.AliveTracker.GROUP_DETAIL_TITLE_LOG_BOOK
                     },
                     {
