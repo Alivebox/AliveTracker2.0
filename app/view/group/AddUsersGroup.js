@@ -25,6 +25,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             },
             {
                 xtype: 'usersGrid',
+                store: 'GroupUsers',
                 name: 'usersGrid'
             },
             {
@@ -43,14 +44,13 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
     },
 
     getUsersCombo: function(){
-        var tmpTypeahead = new Ext.form.ComboBox({
+        var tmpTypeahead = Ext.create('Ext.form.field.ComboBox',{
             triggerAction:'all',
             typeAhead:true,
             mode:'remote',
             minChars:2,
             forceSelection:true,
             hideTrigger:true,
-            id: 'usersCombo',
             store: 'Users',
             valueField: 'name',
             displayField: 'name',

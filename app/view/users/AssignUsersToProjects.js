@@ -29,7 +29,8 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                 items:[
                     {
                         xtype:'userslist',
-                        name:'usersList'
+                        name:'usersList',
+                        store: 'GroupUsers'
                     },
                     {
                         xtype:'container',

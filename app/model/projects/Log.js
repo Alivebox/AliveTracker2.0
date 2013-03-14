@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.projects.LogBook', {
+Ext.define('AliveTracker.model.projects.Log', {
 
     extend:'Ext.data.Model',
 
@@ -10,21 +10,20 @@ Ext.define('AliveTracker.model.projects.LogBook', {
             type:'int'
         },
         {
-            name:'datepicker',
-            type:'date',
-            dateFormat: 'c'
-
-        },
-        {
             name:'group',
             type:'string'
         },
         {
             name:'project',
-            type:'string'
+            type:'id'
         },
         {
-            name:'txtActivity',
+            name:'projectLabel',
+            type:'string',
+            persist: false
+        },
+        {
+            name:'activity',
             type:'string'
         },
         {
@@ -33,11 +32,7 @@ Ext.define('AliveTracker.model.projects.LogBook', {
         }
     ],
     proxy: {
-        type: 'ajax',
-        url: 'resources/data/logBook.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
+        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        url: AliveTracker.defaults.WebServices.LOG_CREATE_LOGS
     }
 });

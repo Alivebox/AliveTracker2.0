@@ -38,25 +38,9 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
                 saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
                 cancelUsersToProjectAction : this.onCancelUsersToProjectChanges,
                 addUserToProjectButtonAction: this.onAddUserToProjectButtonAction,
-                removeUserFromProjectButtonAction: this.onRemoveUserFromProjectButtonAction,
-                afterrender: this.onAfterRender
+                removeUserFromProjectButtonAction: this.onRemoveUserFromProjectButtonAction
             }
         });
-    },
-
-
-    onAfterRender:function() {
-        this.onLoadUserListStore()
-    },
-
-    onLoadUserListStore: function() {
-        var tmpUsersGroupStore = Ext.create('AliveTracker.store.Users');
-        tmpUsersGroupStore.load({
-            scope: this,
-            urlOverride: AliveTracker.defaults.WebServices.GET_USERS_GROUP + AliveTracker.defaults.WebServices.GROUP_ID,
-            callback: function(){}
-        });
-        this.getUsersList().store = tmpUsersGroupStore;
     },
 
     /**This method will save all users assigned to projects changes*/
