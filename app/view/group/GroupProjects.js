@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
                 }
             },
             {
-                xtype: 'projectGrid',
+                xtype: 'projectgrid',
                 itemId: 'groupProjectGrid',
                 queryMode: 'local',
                 store: 'Projects'

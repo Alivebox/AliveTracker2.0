@@ -18,7 +18,8 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     stores:[
         'Users',
         'Roles',
-        'AssignedUsers'
+        'AssignedUsers',
+        'ProjectDetails'
     ],
 
     refs:[
@@ -28,19 +29,67 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         },
         {
             ref:'userRolesGrid',
-            selector:'userrolesgrid'
+            selector:'assignuserstoprojectsview [name=userrolesgrid]'
+        },
+        {
+            ref:'assignUsersToProjectsView',
+            selector:'assignuserstoprojectsview'
+        },
+        {
+            ref:'projectModelForm',
+            selector:'assignuserstoprojectsview form[name=projectModelForm]'
         }
     ],
 
     init: function(){
         this.control({
             'assignuserstoprojectsview': {
+                afterrender: this.onAfterRender,
                 saveUsersToProjectAction : this.onSaveUsersToProjectChanges,
                 cancelUsersToProjectAction : this.onCancelUsersToProjectChanges,
                 addUserToProjectButtonAction: this.onAddUserToProjectButtonAction,
                 removeUserFromProjectButtonAction: this.onRemoveUserFromProjectButtonAction
             }
         });
+    },
+
+    onAfterRender: function(){
+        this.onLoadAssignUsersStore();
+//        this.onLoadProjectForm();
+    },
+
+    onLoadAssignUsersStore: function(){
+        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        tmpAssignedUsersStore.removeAll();
+        var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
+        tmpProjectDetailStore.removeAll();
+        if(!this.getAssignUsersToProjectsView().insert){
+            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,3);
+            tmpProjectDetailStore.load({
+                scope: this,
+                urlOverride: tmpUrl,
+                callback: this.onLoadProjectStoreResult
+            });
+        }
+    },
+
+    onLoadProjectStoreResult: function(argRecords,argOperation,argSuccess){
+        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        var tmpUserList = argRecords[0].data.users;
+        var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
+        this.onLoadProjectForm();
+        tmpProjectDetailStore.add(argRecords[0].data);
+        for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
+            tmpAssignedUsersStore.add(tmpUserList[tmpCont])
+        }
+    },
+
+    onLoadProjectForm: function(){
+        if(!this.getAssignUsersToProjectsView().insert){
+            var tmpProjectForm = this.getProjectModelForm();
+            var tmpStore = Ext.getStore('ProjectDetails');
+            tmpProjectForm.loadRecord(tmpStore.getAt(0));
+        }
     },
 
     /**This method will save all users assigned to projects changes*/

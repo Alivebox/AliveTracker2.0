@@ -12,6 +12,10 @@ Ext.define('AliveTracker.model.Project', {
         {
             name:'name',
             type:'string'
+        },
+        {
+            name:'users',
+            type:'arraylist'
         }
     ],
 

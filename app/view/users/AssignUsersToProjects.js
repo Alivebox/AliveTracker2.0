@@ -5,23 +5,22 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
         'AliveTracker.view.users.UserRolesGrid',
         'AliveTracker.view.users.UsersList'
     ],
-
+    insert: true,
     initComponent:function () {
         this.items = [
             {
-                xtype:'textfield',
-                allowBlank:false,
-                fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
-                maxLength:25,
-                width:350
-            },
-            {
-                xtype:'textareafield',
-                grow:true,
-                fieldLabel:Locales.AliveTracker.USERS_LABEL_DESCRIPTION,
-                maxLength:250,
-                width:350,
-                anchor:'90%'
+                xtype: 'form',
+                name: 'projectModelForm',
+                items: [
+                    {
+                        xtype:'textfield',
+                        name:'name',
+                        allowBlank:false,
+                        fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
+                        maxLength:25,
+                        width:350
+                    }
+                ]
             },
             {
                 xtype:'container',
@@ -58,7 +57,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     },
                     {
                         xtype:'userrolesgrid',
-                        itemId:'userrolesgrid',
+                        name:'userRolesGrid',
                         store:'AssignedUsers'
                     }
                 ]
