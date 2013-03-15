@@ -6,66 +6,38 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         'authentication.Login'
     ],
 
-    refs:[
-        {
-            ref:'main',
-            selector:'main'
-        },
-        {
-            ref:'username',
-            selector:'loginform [itemId=userNameLoginView]'
-        },
-        {
-            ref:'password',
-            selector:'loginform [itemId=passwordLoginView]'
-        }
+    models: [
+        'authentication.LoginUser'
     ],
 
     init:function () {
         this.control({
             'loginform':{
-                navigateToForgotPasswordView:this.onNavigateToForgotPasswordView,
-                loginAction:this.onLoginAction,
-                signUpAction:this.onSignUpAction
-                //afterrender:this.onVerifyUserLoggued
+                login:this.onLoginAction,
+                showSignUp:this.onSignUpAction,
+                showForgotPassword:this.onNavigateToForgotPasswordView
             }
         });
     },
 
-    onVerifyUserLoggued:function() {
-        var tmpUsersStore = Ext.create('AliveTracker.store.Users');
-        tmpUsersStore.load({
-            scope: this,
-            callback: this.onLoginResult,
-            urlOverride: AliveTracker.defaults.WebServices.GET_USER_AUTH
+    onLoginAction:function (argUsername,argPassword) {
+        argPassword = Framework.util.MD5Util.calcMD5(argPassword);
+        var tmpUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
+            email: argUsername,
+            password: argPassword
         });
-    },
-
-    onNavigateToForgotPasswordView:function () {
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
-    },
-
-    onLoginAction:function () {
-        var tmpUsername = this.getUsername().value;
-        var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
-        Framework.core.SecurityManager.setUsernameAndPassword(tmpUsername,tmpPassword);
-        var tmpUsersStore = Ext.create('AliveTracker.store.Users');
-        tmpUsersStore.load({
+        tmpUser.save({
             scope: this,
-            callback: this.onLoginResult,
+            success: this.onLoginSuccess,
             urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
         });
     },
 
-    onLoginResult: function(argRecords,argOperation,argSuccess){
-        if( !argSuccess || Ext.isEmpty(argRecords) ){
-            this.loginFailure();
-            return;
-        }
-        var tmpCurrentUser = argRecords[0];
+    onLoginSuccess: function(argRecord){
+        var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUser(tmpCurrentUser);
-        Framework.core.SecurityManager.setPermissions(tmpCurrentUser.get('permissions'));
+        Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
@@ -81,17 +53,12 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         return argUser;
     },
 
-    loginFailure: function(){
-        this.getUsername().reset();
-        this.getUsername().validate(false);
-        this.getPassword().reset();
-        this.getPassword().validate(false);
+    onNavigateToForgotPasswordView:function () {
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
     },
 
     onSignUpAction:function () {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'registerPage');
     }
-
-
 
 });

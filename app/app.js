@@ -24,7 +24,6 @@ Ext.application({
     controllers: [
         'authentication.ForgotPasswordController',
         'authentication.LoginController',
-        'authentication.ProfileController',
         'authentication.RegisterController',
         'group.AddUsersGroupController',
         'group.GroupDetailController',

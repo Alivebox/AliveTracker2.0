@@ -56,14 +56,12 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         });
     },
 
-    /**Will show a pop up to request a project*/
     onShowProjectPopUp: function(){
         this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
         this.addProjectPopup.title = Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT;
         this.addProjectPopup.show();
     },
 
-    /**This method will add a project*/
     onAddProject: function(argEvent){
         var tmpWindow = argEvent;
         var tmpProjectName = argEvent.projectTextField.value;
@@ -71,7 +69,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         tmpWindow.close();
     },
 
-    /**Method in charge to load element to a project store*/
     loadProjectToStore: function(argProjectName){
         var tmpProjectStore = Ext.getStore('Projects');
         var tmpProjectModel = tmpProjectStore.getProxy().getModel();

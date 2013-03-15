@@ -64,12 +64,14 @@ Ext.define('AliveTracker.view.authentication.Login', {
         this.callParent(arguments);
     },
     onForgotPasswordClick:function () {
-        this.fireEvent('navigateToForgotPasswordView',this);
+        this.fireEvent('showForgotPassword',this);
     },
     onLoginClick:function () {
-        this.fireEvent('loginAction',this);
+        var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
+        var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
+        this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
     },
     onSignUpClick:function () {
-        this.fireEvent('signUpAction',this);
+        this.fireEvent('showSignUp',this);
     }
 });
