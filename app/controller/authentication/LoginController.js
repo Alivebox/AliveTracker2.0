@@ -62,10 +62,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             this.loginFailure();
             return;
         }
-
-        //tmp code
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.EXAMPLE_COMPLEX_URL,152,895);
-
         var tmpCurrentUser = argRecords[0];
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUser(tmpCurrentUser);
