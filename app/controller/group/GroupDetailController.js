@@ -25,41 +25,66 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         'Roles',
         'AssignedUsers'
     ],
+
+    refs: [
+        {
+            ref:'assignUsersToProjectsView',
+            selector:'assignuserstoprojectsview'
+        }
+    ],
+
     init: function(){
-        this.control({
-            'groupprojects': {
-                addProject : this.onShowProjectPopUp
+        this.control(
+            {
+                'groupprojects': {
+                    addProject : this.onShowProjectPopUp
+                },
+                'addgrouppopup': {
+                    addProjectClick : this.onAddProject
+                },
+                'actioncolumn#projectGridActionId': {
+                    click: this.onProjectGridActionIdAction
+                }
+            });
+    },
+
+    onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
+        var tmpRec = argGrid.getStore().getAt(argRow);
+        var tmpAction = argEvent.target.getAttribute('class');
+        if (tmpAction.indexOf("x-action-col-0") != -1) {
+            this.showEditProjectPopUp(argGrid,argRow);
+        }
+        else if (tmpAction.indexOf("x-action-col-1") != -1) {
+            this.onConfirmDeleteProject(argGrid,argRow);
+        }
+
+    },
+
+    showEditProjectPopUp: function(argGrid,argRow){
+        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+        this.addProjectPopup.title = argGrid.store.getAt(argRow).data.name;
+        this.getAssignUsersToProjectsView().insert = false;
+        this.addProjectPopup.show();
+    },
+
+    onConfirmDeleteProject: function(argGrid,argRow) {
+        Ext.MessageBox.confirm(
+            'Confirm',
+            Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+            function (argButton) {
+                if (argButton == 'yes') {
+                    argGrid.getStore().removeAt(argRow);
+                }
             },
-            'addgrouppopup': {
-                addProjectClick : this.onAddProject
-            }
-        });
-    },
-
-    onUserAfterRender: function(){
-    },
-
-    loadGroupStore: function(){
-        var tmpGroupsStore = Ext.getStore('Users');
-        tmpGroupsStore.load({
-            callback: function(){
-            }
-        });
-    },
-
-    loadProjectStore: function(){
-        var tmpProjectsStore = Ext.getStore('Projects');
-        tmpProjectsStore.removeAll();
-        tmpProjectsStore.load({
-            callback: function(){
-            }
-        });
+            this
+        );
     },
 
     /**Will show a pop up to request a project*/
     onShowProjectPopUp: function(){
         this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
         this.addProjectPopup.title = Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT;
+        this.getAssignUsersToProjectsView().insert = true;
         this.addProjectPopup.show();
     },
 
@@ -69,15 +94,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         var tmpProjectName = argEvent.projectTextField.value;
         this.loadProjectToStore(tmpProjectName);
         tmpWindow.close();
-    },
-
-    /**Method in charge to load element to a project store*/
-    loadProjectToStore: function(argProjectName){
-        var tmpProjectStore = Ext.getStore('Projects');
-        var tmpProjectModel = tmpProjectStore.getProxy().getModel();
-        var tmpProject = new tmpProjectModel({name: argProjectName});
-        tmpProjectStore.add(tmpProject);
-        tmpProjectStore.commitChanges();
     }
 
 });

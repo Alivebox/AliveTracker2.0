@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.group.ProjectsGrid', {
 
     extend:'Ext.grid.Panel',
-    xtype:'projectGrid',
+    xtype:'projectgrid',
 
     initComponent:function () {
         var me = this;
@@ -30,6 +30,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                 },
                 {
                     xtype:'actioncolumn',
+                    id: 'projectGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
@@ -37,30 +38,11 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
-                            tooltip:Locales.AliveTracker.GROUP_DETAIL_EDIT_USER_OF_PROJECT,
-                            handler:function (grid, rowIndex, colIndex) {
-                                this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-                                this.addProjectPopup.title = grid.store.getAt(rowIndex).data.name;
-                                this.addProjectPopup.show();
-                            }
+                            tooltip:Locales.AliveTracker.GROUP_DETAIL_EDIT_USER_OF_PROJECT
                         },
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER_OF_PROJECT,
-                            handler:function (grid, rowIndex, colIndex) {
-                                Ext.MessageBox.confirm(
-                                    'Confirm',
-                                    Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function (argButton) {
-                                        if (argButton == 'yes') {
-                                            grid.getStore().removeAt(rowIndex);
-                                        }
-                                    },
-                                    this
-                                );
-
-
-                            }
                         }
                     ]
                 }

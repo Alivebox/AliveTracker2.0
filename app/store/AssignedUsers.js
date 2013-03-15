@@ -6,11 +6,7 @@ Ext.define('AliveTracker.store.AssignedUsers', {
     autoLoad: true,
     model: 'AliveTracker.model.User',
     proxy: {
-        type: 'ajax',
-        url: 'resources/data/assignedUsers.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
+        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        url:  AliveTracker.defaults.WebServices.GET_USERS_PROJECTS
     }
 });
