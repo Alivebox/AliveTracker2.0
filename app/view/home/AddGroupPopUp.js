@@ -39,7 +39,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                             },
                             {
                                 xtype: 'textfield',
-                                name:'webSiteUrl',
+                                name:'web_site_url',
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_WEBSITE,
                                 allowBlank:false,
                                 maxLength:300,
@@ -80,7 +80,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
      * Fires an event to be caught by the controller
      * */
     onSubmitAction: function(){
-        this.fireEvent('onSaveAction', this.getComponent(0).getComponent(0).items.items);
+        this.fireEvent('onSaveAction', this);
     },
 
     onCreateSubmitButton: function(){
@@ -91,7 +91,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
             disabled: true,
             listeners: {
                 scope:this,
-                click:'onSubmitAction'
+                click: this.onSubmitAction
             }
         });
         return tmpSubmitButton;

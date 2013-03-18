@@ -70,7 +70,7 @@ Ext.define('AliveTracker.view.home.Home', {
     },
 
     onCreateNewGroup: function() {
-        this.fireEvent('onCreateNewGroup', this);
+        this.fireEvent('onShowCreateNewGroup', this);
     }
 
 });
