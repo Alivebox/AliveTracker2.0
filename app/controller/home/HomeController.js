@@ -9,7 +9,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
     stores:[
         'Groups',
-        'BelongGroups'
+        'BelongGroups',
+        'GroupsDTO'
     ],
 
     views: [
@@ -37,8 +38,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     init:function () {
         this.control({
             'home': {
-                onCreateNewGroup: this.onCreateNewGroup,
-                afterrender: this.onHomeGroupsInfoLoad
+                onCreateNewGroup: this.onCreateNewGroup
             },
             'homegroupsviewer': {
                 afterrender: this.onHomeGroupsAfterRender
@@ -53,48 +53,33 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         });
     },
 
-    /**
-     * Home AfterRender
-     * */
     onHomeGroupsInfoLoad:function () {
-        this.onMyGroupsLoad();
-        this.onGroupsIBelongLoad();
-    },
-
-    onMyGroupsLoad:function () {
-//        Framework.ux.data.RestProxy.setHeaders({
-//            'user-id':Framework.core.ModelLocator.loggedUser.data.id
-//        });
-//        var tmpGroupStore = Ext.create('AliveTracker.store.Groups');
-//        tmpGroupStore.load({
-//            scope: this,
-//            callback: this.onLoadMyGroupsResult
-//        });
-    },
-    onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
-        if(argSuccess){
-            var data = Ext.decode(argResponse.responseText);
-        }
-    },
-    onGroupsIBelongLoad:function () {
-        Ext.Ajax.request({
-            url:AliveTracker.defaults.WebServices.GROUP_GROUPS_I_BELONG,
-            scope:this,
-            success:this.onGroupsIBelongLoadSuccess,
-            failure:this.onGroupsIBelongLoadFailure,
-            headers:{
-                'user-id':Framework.core.ModelLocator.loggedUser.data.id
-            }
+        var tmpGroupsDTO = Ext.getStore('GroupsDTO');
+        tmpGroupsDTO.load({
+            scope: this,
+            callback: this.onLoadMyGroupsResult
         });
     },
-    onGroupsIBelongLoadSuccess:function (argResponse) {
-        var data = Ext.decode(argResponse.responseText);
-    },
 
-    onGroupsIBelongLoadFailure:function () {
+    onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
+        if(argSuccess){
+            var tmpBelongGroups = Ext.getStore('BelongGroups');
+            tmpBelongGroups.removeAll();
+            var tmpBelongGroupsList = argRecords[0].data.belongToGroups;
+            var tmpGroupsList = argRecords[0].data.myGroups;
+            var tmpGroups = Ext.getStore('Groups');
+            tmpGroups.removeAll();
+            for (var tmpCont = 0; tmpCont <= tmpBelongGroupsList.length-1; tmpCont++){
+                tmpBelongGroups.add(tmpBelongGroupsList[tmpCont])
+            }
+            for (var tmpCont = 0; tmpCont <= tmpGroupsList.length-1; tmpCont++){
+                tmpGroups.add(tmpGroupsList[tmpCont])
+            }
+        }
     },
 
     onHomeGroupsAfterRender: function(agrAbstractComponent){
+        this.onHomeGroupsInfoLoad();
         var tmpEl = agrAbstractComponent.getEl();
         tmpEl.on('click', this.onConfirmDeleteDialog, this, {delegate: '.deleteGroup'});
         tmpEl.on('click', this.onShowGroupDetailView, this, {delegate: '.groupImage'});
@@ -104,19 +89,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         var tmpMe = this;
         var tmpEl = agrAbstractComponent.getEl();
         tmpEl.on('click', tmpMe.onShowBelongGroupDetailView, tmpMe, {delegate: '.belongGroupImage'});
-    },
-
-    loadHomeStore: function(){
-        var tmpGroupsStore = Ext.getStore('Groups');
-        tmpGroupsStore.load({
-            callback: function(){
-            }
-        });
-        var tmpBelongGroupsStore = Ext.getStore('BelongGroups');
-        tmpBelongGroupsStore.load({
-            callback: function(){
-            }
-        });
     },
 
     onShowGroupDetailView: function(agrAbstractComponent, argElement){
@@ -242,7 +214,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             id: tmpId,
             name: tmpItem.name,
             description: tmpItem.description,
-            logoUrl: tmpItem.logoUrl,
+            logo_url: tmpItem.logo_url,
             webSiteUrl: tmpItem.webSiteUrl
         });
         return tmpModel;

@@ -109,7 +109,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
      * */
     onCreateLogoUrlTextField: function(){
         var tmpLogoUrlTextField = Ext.create('Ext.form.field.Text',{
-            name:'logoUrl',
+            name:'logo_url',
             fieldLabel: Locales.AliveTracker.HOME_LABEL_LOGO_URL,
             allowBlank:false,
             maxLength:300,

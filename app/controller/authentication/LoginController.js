@@ -37,7 +37,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUser(tmpCurrentUser);
-        Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
+        //Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
