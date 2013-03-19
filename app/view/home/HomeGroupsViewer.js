@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                     '<img id="{id}" class="deleteGroup" src="resources/icons/remove.png" title="Delete" style="float: right;"/>' +
                     '</div>' +
                     '<div class="thumb"> ' +
-                    '<img id="{id}" class="groupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
+                    '<img id="{id}" class="groupImage" src="http://src.sencha.io/60/60/{logo_url}" title="{description}"/>' +
                     '</div>',
                         '<label for="name">{name}</label>' +
                     '</div>' +

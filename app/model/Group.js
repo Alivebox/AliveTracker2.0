@@ -18,23 +18,13 @@ Ext.define('AliveTracker.model.Group', {
             type:'string'
         },
         {
-            name:'logoUrl',
+            name:'logo_url',
             type:'string'
         },
         {
-            name:'webSiteUrl',
+            name:'web_site_url',
             type:'string'
         }
-    ],
-
-    proxy: {
-        type: 'ajax',
-        url: 'resources/data/groups.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
-    }
-
+    ]
 
 });

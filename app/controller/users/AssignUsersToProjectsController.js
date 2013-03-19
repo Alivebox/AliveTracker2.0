@@ -74,13 +74,14 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onLoadProjectStoreResult: function(argRecords,argOperation,argSuccess){
-        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
-        var tmpUserList = argRecords[0].data.users;
-        var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
-        this.onLoadProjectForm();
-        tmpProjectDetailStore.add(argRecords[0].data);
-        for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
-            tmpAssignedUsersStore.add(tmpUserList[tmpCont])
+        if(argSuccess) {
+            var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+            var tmpUserList = argRecords[0].data.users;
+            var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
+            tmpProjectDetailStore.add(argRecords[0].data);
+            for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
+                tmpAssignedUsersStore.add(tmpUserList[tmpCont])
+            }
         }
     },
 
