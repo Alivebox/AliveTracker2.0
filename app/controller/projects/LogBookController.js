@@ -101,7 +101,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             group:3,
             activities:tmpLogArray
         });
-        debugger;
         tmpLogBook.save();
     }
 

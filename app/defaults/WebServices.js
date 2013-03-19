@@ -11,7 +11,6 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GROUP_CREATE_GROUP: '/ws/alivews/groups/createGroup/',
         GET_PROJECTS : '/ws/alivews/projects/group/{0}',
         LOG_CREATE_LOGS: '/ws/alivews/logs/',
-        EXAMPLE_COMPLEX_URL: 'ws/alivews/projects/group/{0}/user/{1}/',
         GET_USERS_PROJECTS: '/ws/alivews/projects/{0}'
     }
 
