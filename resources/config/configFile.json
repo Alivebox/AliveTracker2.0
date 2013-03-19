@@ -1,20 +1,23 @@
 {
 
-    "createViewPort": true,
+    "localizationManagement": {
+        "enabled": true,
+        "filesBaseUrls":[
+            "resources/locales/ext-lang-",
+            "resources/locales/alivetracker-lang-",
+            "resources/locales/errors-lang-"
+        ]
+    },
 
-    "localizationEnabled":true,
+    "errorsManagement": {
+        "enabled": true,
+        "errorCodesClass": "Locales.ErrorCodes"
+    },
 
-    "localeFilesBaseUrls":[
-        "resources/locales/ext-lang-",
-        "resources/locales/alivetracker-lang-",
-        "resources/locales/errors-lang-"
-    ],
-
-    "errorCodesClass": "Locales.ErrorCodes",
-
-    "viewsContainer": {
-        "package": "Framework.ux.view.SimpleViewsContainer",
+    "viewsManagement": {
+        "enabled": true,
         "headerPackage": "AliveTracker.view.header.HeaderView",
+        "viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
         "views": [
             {
                 "name": "loginPage",

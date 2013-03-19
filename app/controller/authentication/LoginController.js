@@ -13,11 +13,23 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     init:function () {
         this.control({
             'loginform':{
+                beforerender: this.onBeforeRender,
                 login:this.onLoginAction,
                 showSignUp:this.onSignUpAction,
                 showForgotPassword:this.onNavigateToForgotPasswordView
             }
         });
+    },
+
+    onBeforeRender: function(){
+        this.validateIfUserAlreadyLogged();
+    },
+
+    validateIfUserAlreadyLogged: function(){
+        if( !Framework.core.SecurityManager.isUserLogged()){
+            return;
+        }
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
     onLoginAction:function (argUsername,argPassword) {
@@ -36,8 +48,8 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     onLoginSuccess: function(argRecord){
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
-        Framework.core.SecurityManager.setCurrentUser(tmpCurrentUser);
-        //Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
+        Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
+        Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 

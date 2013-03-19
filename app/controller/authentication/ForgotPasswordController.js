@@ -30,7 +30,6 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
      * Sends via email the reset password instructions
      */
     onSendResetInstructions: function(){
-        debugger;
         var tmpEmail = this.getEmail().value;
         var tmpForgotPassStore = Ext.create('AliveTracker.model.authentication.ForgotPassword');
         tmpForgotPassStore.save({
@@ -41,6 +40,5 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
 
 
     onSendResetInstructionsResult: function(){
-        debugger;
     }
 });

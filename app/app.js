@@ -31,7 +31,8 @@ Ext.application({
         'projects.LogBookController',
         'reports.ReportsController',
         'users.AssignUsersToProjectsController',
-        'header.HeaderController'
+        'header.HeaderController',
+        'MainController'
     ],
 
     launch:function () {
@@ -47,9 +48,7 @@ Ext.application({
 
     onConfigLoaded: function(argConfigFileObject){
         AliveTracker.util.VTypesOverrides.init();
-        Framework.Main.init({
-            config: argConfigFileObject
-        });
+        Framework.Main.init(argConfigFileObject);
     },
 
     onConfigFail:function () {
