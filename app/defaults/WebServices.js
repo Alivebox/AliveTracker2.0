@@ -11,7 +11,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         DELETE_GROUP: '/ws/alivews/groups/delete/{0}',
         GET_HOME_GROUP: '/ws/alivews/groups/getGroupsByUser/',
         GET_PROJECTS : '/ws/alivews/projects/group/{0}',
-        LOG_CREATE_LOGS: '/ws/alivews/logs/',
+        GET_LOGS_USER_GROUP_DATE: '/ws/alivews/logs/group/{0}',
         GET_USERS_PROJECTS: '/ws/alivews/projects/{0}'
     }
 

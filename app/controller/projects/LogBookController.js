@@ -41,14 +41,26 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     ],
 
     init:function () {
+        debugger;
         this.control({
             'logbook':{
+                afterrender:this.onAfterRender,
                 datePickerChanged:this.onDatePickerChange,
                 saveLogHistory:this.onSaveLogHistory
             },
             'logbookactivityform': {
                 addActivity:this.onAddNewActivity
             }
+        });
+    },
+
+    onAfterRender:function(){
+        debugger;
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId')/*, "date=2013-03-19"*/);
+        var tmpLogsStore = Ext.getStore('Logs');
+        tmpLogsStore.load({
+            scope: this,
+            urlOverride: tmpUrl
         });
     },
 
@@ -64,6 +76,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     loadGroupStore:function () {
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({
+
             callback:function () {
             }
         });
@@ -73,7 +86,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         if( Ext.isEmpty(argActivity) ){
             return;
         }
-        argActivity.set("group", 3);
+        argActivity.set("group", Ext.state.Manager.get('groupId'));
         var tmpLogBookStore = Ext.getStore('Logs');
         tmpLogBookStore.add(argActivity);
         this.onClearUsersSelection();
@@ -91,19 +104,22 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.onTotalTimeUpdate();
     },
     onSaveLogHistory:function () {
-        // FIX do a extra function to get store.data[i].items[i]
+        debugger;
         var tmpLogArray = [];
-        for(var i=0; i < Ext.getStore('Logs').data.items.length; i++){
-            tmpLogArray.push(Ext.getStore('Logs').data.items[i].data)
-        }
+        tmpLogArray = this.getItemsFromStore(Ext.getStore('Logs'));
         var tmpLogBook = Ext.create('AliveTracker.model.projects.LogBook', {
             date:this.getDatepicker().getValue(),
-            group:3,
+            group: Ext.state.Manager.get('groupId'),
             activities:tmpLogArray
         });
         tmpLogBook.save();
+    },
+
+    getItemsFromStore:function (argStore){
+        var tmpArray = [];
+        for(var i=0; i < argStore.data.items.length; i++){
+            tmpArray.push(argStore.data.items[i].data)
+        }
+        return tmpArray;
     }
-
-
-
 });

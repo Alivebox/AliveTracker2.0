@@ -108,6 +108,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         if( !argSuccess){
             return;
         }
+        Ext.state.Manager.set('groupId',this.selectedGroupElement.id);
         this.navigateToGroupView('Groups', this.selectedGroupElement);
     },
 
