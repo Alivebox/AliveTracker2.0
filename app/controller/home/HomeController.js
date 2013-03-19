@@ -133,6 +133,16 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * */
     onDeleteGroup: function(argElement){
         var tmpGroupStore = Ext.getStore('Groups');
+        var tmpGroup = tmpGroupStore.findRecord('id', argElement.getAttribute('id'));
+        debugger;
+        tmpGroup.setProxy({
+            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
+        });
+        tmpGroup.destroy({
+            scope: this,
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
+        });
         tmpGroupStore.removeAt(tmpGroupStore.find('id', argElement.getAttribute('id')));
         tmpGroupStore.commitChanges();
     },
@@ -143,7 +153,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onConfirmDeleteDialog: function(argEvent, argElement) {
         Ext.MessageBox.confirm(
             'Confirm',
-            Ext.util.Format.format(AliveTracker.defaults.Constants.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE),
+            Locales.AliveTracker.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE,
             function(argButton){
                 if(argButton == 'yes')
                 {
