@@ -55,7 +55,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     onAfterRender: function(){
         this.onLoadAssignUsersStore();
-//        this.onLoadProjectForm();
+        this.onLoadProjectForm();
     },
 
     onLoadAssignUsersStore: function(){
@@ -95,8 +95,28 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     /**This method will save all users assigned to projects changes*/
     onSaveUsersToProjectChanges: function(argPopUp, argWindow){
-        var tmpWindow = argWindow;
-        tmpWindow.close();
+        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        var tmpProjectForm = this.getProjectModelForm().getValues();
+        var tmpAssignArray = [];
+        for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
+            tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
+        }
+        var tmpProject = Ext.create('AliveTracker.model.Project', {
+            name: tmpProjectForm.name,
+            description: tmpProjectForm.description,
+            users: tmpAssignArray
+        });
+        tmpProject.setProxy({
+            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            url: AliveTracker.defaults.WebServices.SAVE_PROJECT
+        });
+        tmpProject.save({
+            scope: this,
+            //FIXME
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,3)
+        });
+        debugger;
+        this.onCancelUsersToProjectChanges(argWindow);
     },
 
     /**This method will cancel all users assigned to projects changes*/

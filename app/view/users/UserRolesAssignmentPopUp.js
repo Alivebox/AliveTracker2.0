@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
 
     extend:'Ext.window.Window',
     xtype:'userrolesassignmentpopup',
-    resizable: false,
+    resizable: true,
     height:300,
     width:500,
     modal: true,

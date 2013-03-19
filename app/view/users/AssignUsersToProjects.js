@@ -19,12 +19,20 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                         fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
                         maxLength:25,
                         width:350
+                    },
+                    {
+                        xtype:'textareafield',
+                        grow:true,
+                        name:'description',
+                        fieldLabel:Locales.AliveTracker.USERS_LABEL_DESCRIPTION,
+                        maxLength:250,
+                        width:350,
+                        anchor:'90%'
                     }
                 ]
             },
             {
                 xtype:'container',
-                layout:'hbox',
                 items:[
                     {
                         xtype:'userslist',
@@ -33,7 +41,6 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     },
                     {
                         xtype:'container',
-                        layout:'vbox',
                         items:[
                             {
                                 xtype:'button',
@@ -57,7 +64,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     },
                     {
                         xtype:'userrolesgrid',
-                        name:'userRolesGrid',
+                        name:'userrolesgrid',
                         store:'AssignedUsers'
                     }
                 ]
@@ -98,10 +105,10 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
         this.fireEvent('cancelUsersToProjectAction', this.ownerCt);
     },
     onRemoveElement: function(){
-        this.fireEvent('removeUserFromProjectButtonAction');
+        this.fireEvent('removeUserFromProjectButtonAction', this);
     },
     onAddElement: function(){
-        this.fireEvent('addUserToProjectButtonAction');
+        this.fireEvent('addUserToProjectButtonAction', this);
     }
 });
 
