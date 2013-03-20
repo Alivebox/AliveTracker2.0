@@ -5,7 +5,8 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     views:[
         'group.GroupDetail',
         'group.GroupProjects',
-        'group.ProjectsGrid'
+        'group.ProjectsGrid',
+        'users.UserRolesAssignmentPopUp'
     ],
 
     requires : [
@@ -23,7 +24,8 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         'Users',
         'Projects',
         'Roles',
-        'AssignedUsers'
+        'AssignedUsers',
+        'ProjectUsers'
     ],
 
     refs: [
@@ -49,6 +51,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
+        debugger;
         var tmpRec = argGrid.getStore().getAt(argRow);
         var tmpAction = argEvent.target.getAttribute('class');
         if (tmpAction.indexOf("x-action-col-0") != -1) {

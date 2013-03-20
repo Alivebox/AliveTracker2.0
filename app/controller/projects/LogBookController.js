@@ -77,10 +77,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.getTotalTime().setText(Locales.AliveTracker.PROJECTS_LABEL_TOTAL + ': ' + tmpTotal + ' h');
     },
 
-    sumHoursCallback:function(argElement){
-
-    },
-
     loadGroupStore:function () {
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({
@@ -113,6 +109,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.onTotalTimeUpdate();
     },
     onSaveLogHistory:function () {
+        debugger;
         var tmpLogArray = [];
         tmpLogArray = this.getItemsFromStore(Ext.getStore('Logs'));
         var tmpLogBook = Ext.create('AliveTracker.model.projects.LogBook', {
