@@ -38,7 +38,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     onLoadUserListStore: function() {
         var tmpUsersGroupStore = Ext.getStore('GroupUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP,3);
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
             scope: this,
             urlOverride:  tmpUrl

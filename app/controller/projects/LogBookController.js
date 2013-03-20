@@ -41,17 +41,16 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     ],
 
     init:function () {
-        debugger;
-        this.control({
-            'logbook':{
-                afterrender:this.onAfterRender,
-                datePickerChanged:this.onDatePickerChange,
-                saveLogHistory:this.onSaveLogHistory
-            },
-            'logbookactivityform': {
-                addActivity:this.onAddNewActivity
-            }
-        });
+//        this.control({
+//            'logbook':{
+//                afterrender:this.onAfterRender,
+//                datePickerChanged:this.onDatePickerChange,
+//                saveLogHistory:this.onSaveLogHistory
+//            },
+//            'logbookactivityform': {
+//                addActivity:this.onAddNewActivity
+//            }
+//        });
     },
 
     onAfterRender:function(){
