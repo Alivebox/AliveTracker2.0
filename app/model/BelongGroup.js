@@ -18,7 +18,7 @@ Ext.define('AliveTracker.model.BelongGroup', {
             type:'string'
         },
         {
-            name:'logoUrl',
+            name:'logo_url',
             type:'string'
         }
     ],

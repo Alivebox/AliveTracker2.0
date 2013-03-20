@@ -11,7 +11,7 @@ Ext.define('AliveTracker.view.home.HomeBelongGroupsViewer', {
                 '<tpl for=".">',
                 '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">' +
                     '<div class="thumb"> ' +
-                    '<img id="{id}" class="belongGroupImage" src="http://src.sencha.io/60/60/{logoUrl}" title="{description}"/>' +
+                    '<img id="{id}" class="belongGroupImage" src="http://src.sencha.io/60/60/{logo_url}" title="{description}"/>' +
                     '</div>',
                         '<label for="name">{name}</label>' +
                     '</div>' +

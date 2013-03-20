@@ -31,12 +31,16 @@ Ext.define('AliveTracker.ux.DatePickerField', {
 
     /**
      * Gets the value contained in the component
+     * If argFormat is null get the dateSelect with default format
      * @return {date selected by user}
      */
-    getValue:function () {
+    getValue:function (argFormat) {
         var tmpStartDate = this.getComponent('datepicker');
         if (Ext.isEmpty(tmpStartDate)) {
             return null;
+        }
+        if(argFormat){
+            return Ext.util.Format.date(tmpStartDate.getValue(),argFormat);
         }
         return tmpStartDate.getValue().toJSON();
     },
