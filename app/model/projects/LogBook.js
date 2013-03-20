@@ -7,8 +7,7 @@ Ext.define('AliveTracker.model.projects.LogBook', {
     fields:[
         {
             name:'date',
-            type:'date',
-            dateFormat: 'Y-m-d'
+            type:'date'
         },
         {
             name:'group',

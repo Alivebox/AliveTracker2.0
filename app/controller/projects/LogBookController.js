@@ -92,6 +92,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     },
     onSaveLogHistory:function () {
         // FIX do a extra function to get store.data[i].items[i]
+        debugger;
         var tmpLogArray = [];
         for(var i=0; i < Ext.getStore('Logs').data.items.length; i++){
             tmpLogArray.push(Ext.getStore('Logs').data.items[i].data)
@@ -101,7 +102,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             group:3,
             activities:tmpLogArray
         });
-        debugger;
         tmpLogBook.save();
     }
 
