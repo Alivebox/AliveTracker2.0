@@ -41,25 +41,30 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     ],
 
     init:function () {
-//        this.control({
-//            'logbook':{
-//                afterrender:this.onAfterRender,
-//                datePickerChanged:this.onDatePickerChange,
-//                saveLogHistory:this.onSaveLogHistory
-//            },
-//            'logbookactivityform': {
-//                addActivity:this.onAddNewActivity
-//            }
-//        });
+        this.control({
+            'logbook':{
+                afterrender:this.onAfterRender,
+                datePickerChanged:this.onDatePickerChange,
+                saveLogHistory:this.onSaveLogHistory
+            },
+            'logbookactivityform': {
+                addActivity:this.onAddNewActivity
+            }
+        });
     },
 
     onAfterRender:function(){
-        debugger;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId')/*, "date=2013-03-19"*/);
+        var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
+        this.populateLogsStore(tmpUrl);
+        this.onTotalTimeUpdate();
+    },
+
+    populateLogsStore:function (argUrl){
         var tmpLogsStore = Ext.getStore('Logs');
         tmpLogsStore.load({
             scope: this,
-            urlOverride: tmpUrl
+            urlOverride: argUrl
         });
     },
 
@@ -75,7 +80,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     loadGroupStore:function () {
         var tmpGroupsStore = Ext.getStore('Groups');
         tmpGroupsStore.load({
-
             callback:function () {
             }
         });
@@ -98,8 +102,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         //this.getLogBookActivityForm().timeTextField = "";
     },
     onDatePickerChange:function () {
-        this.getDatepicker().getValue();
-        this.getLogBookGrid().getStore().removeAll();
+        Ext.getStore('Logs').removeAll();
+        var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
+        this.populateLogsStore(tmpUrl);
         this.onTotalTimeUpdate();
     },
     onSaveLogHistory:function () {
@@ -107,13 +113,12 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpLogArray = [];
         tmpLogArray = this.getItemsFromStore(Ext.getStore('Logs'));
         var tmpLogBook = Ext.create('AliveTracker.model.projects.LogBook', {
-            date:this.getDatepicker().getValue(),
+            date:this.getDatepicker().getValue('Y-m-d'),
             group: Ext.state.Manager.get('groupId'),
             activities:tmpLogArray
         });
         tmpLogBook.save();
     },
-
     getItemsFromStore:function (argStore){
         var tmpArray = [];
         for(var i=0; i < argStore.data.items.length; i++){

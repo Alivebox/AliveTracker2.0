@@ -101,7 +101,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
                 urlOverride: tmpUrl
             }
         );
-        AliveTracker.defaults.WebServices.GROUP_ID = argElement.id;
     },
 
     onProjectDetailResult: function(argRecords,argOperation,argSuccess){

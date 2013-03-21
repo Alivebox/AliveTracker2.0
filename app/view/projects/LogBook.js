@@ -59,7 +59,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
         this.fireEvent('saveLogHistory', this);
     },
     onDateSelectedAction:function () {
-        this.fireEvent('datePickerChanged', this.getComponent(1).getComponent('datepickerLogBook'));
+        this.fireEvent('datePickerChanged', this);
     }
 
 });
