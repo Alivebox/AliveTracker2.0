@@ -67,7 +67,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         var tmpProjectModel = argGrid.store.getAt(argRow);
         Ext.state.Manager.set('projectId',tmpProjectModel.data.id);
         AliveTracker.assignUsersToProjectsController.insert = false;
-        var tmpProjectPopUp = this.createProjectPopUp();
+        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_EDIT_PROJECT);
         this.getProjectModelForm().loadRecord(tmpProjectModel);
     },
 
@@ -86,11 +86,13 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     onShowProjectPopUp: function(){
         AliveTracker.assignUsersToProjectsController.insert = true;
-        var tmpProjectPopUp = this.createProjectPopUp();
+        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT);
     },
 
-    createProjectPopUp: function(){
+    createProjectPopUp: function(argTitle){
     this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+    this.addProjectPopup.title = argTitle;
     this.addProjectPopup.show();
+    return this.addProjectPopup;
     }
 });

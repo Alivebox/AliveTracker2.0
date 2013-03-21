@@ -32,6 +32,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
             },
             {
                 xtype:'container',
+                layout:'hbox',
                 items:[
                     {
                         xtype:'userslist',
@@ -43,6 +44,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                         items:[
                             {
                                 xtype:'button',
+                                layout:'vbox',
                                 text:null,
                                 icon:AliveTracker.defaults.Constants.RIGHT_ARROW_BUTTON,
                                 listeners:{
