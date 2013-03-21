@@ -32,6 +32,10 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         {
             ref:'assignUsersToProjectsView',
             selector:'assignuserstoprojectsview'
+        },
+        {
+            ref:'projectModelForm',
+            selector:'assignuserstoprojectsview form[name=projectModelForm]'
         }
     ],
 
@@ -41,9 +45,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
                 },
-                'addgrouppopup': {
-                    addProjectClick : this.onAddProject
-                },
                 'actioncolumn#projectGridActionId': {
                     click: this.onProjectGridActionIdAction
                 }
@@ -51,7 +52,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
-        debugger;
         var tmpRec = argGrid.getStore().getAt(argRow);
         var tmpAction = argEvent.target.getAttribute('class');
         if (tmpAction.indexOf("x-action-col-0") != -1) {
@@ -64,10 +64,10 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     showEditProjectPopUp: function(argGrid,argRow){
-        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = argGrid.store.getAt(argRow).data.name;
-        this.getAssignUsersToProjectsView().insert = false;
-        this.addProjectPopup.show();
+        AliveTracker.assignUsersToProjectsController.insert = false;
+        var tmpProjectPopUp = this.createProjectPopUp();
+        this.getProjectModelForm().loadRecord(argGrid.store.getAt(argRow));
+
     },
 
     onConfirmDeleteProject: function(argGrid,argRow) {
@@ -84,17 +84,12 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onShowProjectPopUp: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT;
-        this.getAssignUsersToProjectsView().insert = true;
-        this.addProjectPopup.show();
+        AliveTracker.assignUsersToProjectsController.insert = true;
+        var tmpProjectPopUp = this.createProjectPopUp();
     },
 
-    onAddProject: function(argEvent){
-        var tmpWindow = argEvent;
-        var tmpProjectName = argEvent.projectTextField.value;
-        this.loadProjectToStore(tmpProjectName);
-        tmpWindow.close();
+    createProjectPopUp: function(){
+    this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+    this.addProjectPopup.show();
     }
-
 });

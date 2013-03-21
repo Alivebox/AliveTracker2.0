@@ -5,7 +5,6 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
         'AliveTracker.view.users.UserRolesGrid',
         'AliveTracker.view.users.UsersList'
     ],
-    insert: true,
     initComponent:function () {
         this.items = [
             {
