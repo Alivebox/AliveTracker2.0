@@ -60,7 +60,6 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onLoadAssignUsersStore: function(){
-        debugger;
         var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
         tmpAssignedUsersStore.removeAll();
         var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
@@ -68,8 +67,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         var tmpProjectUsers = Ext.getStore('ProjectUsers');
         tmpProjectUsers.removeAll();
         if(!this.insert){
-            debugger;
-            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,26);
+            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,Ext.state.Manager.get('projectId'));
             tmpProjectDetailStore.load({
                 scope: this,
                 urlOverride: tmpUrl,
@@ -144,15 +142,16 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onUpdateUsersToProjectChanges: function(argPopUp, argWindow){
+        debugger;
         var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
         var tmpProjectForm = this.getProjectModelForm().getValues();
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
-        var tmpProjectModel = tmpProjectForm.getRecord();
+        var tmpProjectModel = this.getProjectModelForm().getRecord();
         var tmpProject = Ext.create('AliveTracker.model.Project', {
-            id: tmpProjectModel.id,
+            id: tmpProjectModel.data.id,
             name: tmpProjectForm.name,
             description: tmpProjectForm.description,
             users: tmpAssignArray
@@ -161,11 +160,12 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
             url: AliveTracker.defaults.WebServices.SAVE_PROJECT
         });
-        tmpProject.update({
+        tmpProject.save({
             scope: this,
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId'))
         });
         var tmpProjectStore = Ext.getStore('Projects')
+        tmpProjectStore.updateRecord(tmpProject);
         tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
     },

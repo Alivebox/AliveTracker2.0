@@ -64,10 +64,11 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     showEditProjectPopUp: function(argGrid,argRow){
+        var tmpProjectModel = argGrid.store.getAt(argRow);
+        Ext.state.Manager.set('projectId',tmpProjectModel.data.id);
         AliveTracker.assignUsersToProjectsController.insert = false;
         var tmpProjectPopUp = this.createProjectPopUp();
-        this.getProjectModelForm().loadRecord(argGrid.store.getAt(argRow));
-
+        this.getProjectModelForm().loadRecord(tmpProjectModel);
     },
 
     onConfirmDeleteProject: function(argGrid,argRow) {
