@@ -1,0 +1,28 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"SICOME"
+        },
+        {
+            "id":2,
+            "name":"SIGEM"
+        },
+        {
+            "id":3,
+            "name":"eLog"
+        },
+        {
+            "id":4,
+            "name":"eDelivery"
+        },
+        {
+            "id":5,
+            "name":"eDoc"
+        },
+        {
+            "id":6,
+            "name":"AliveTracker"
+        }
+    ]
+}
