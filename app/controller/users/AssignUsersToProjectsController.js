@@ -57,16 +57,6 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     onAfterRender: function(){
         this.onLoadAssignUsersStore();
-        this.onLoadRolesStore();
-    },
-
-    onLoadRolesStore: function(){
-        var tmpRoleStore = Ext.getStore('Roles');
-        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
-        tmpRoleStore.load({
-            scope: this,
-            urlOverride: tmpUrlOverride
-        });
     },
 
     onLoadAssignUsersStore: function(){
