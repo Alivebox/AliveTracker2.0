@@ -71,13 +71,27 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.getProjectModelForm().loadRecord(tmpProjectModel);
     },
 
+    onDeleteGroup: function(argProject){
+        var tmpProjectStore = Ext.getStore('Projects');
+        argProject.setProxy({
+            type: 'restproxy',
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
+        });
+        argProject.destroy({
+            scope: this,
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
+        });
+        tmpProjectStore.removeAt(tmpProjectStore.find('id', argProject.data.id));
+        tmpProjectStore.commitChanges();
+    },
+
     onConfirmDeleteProject: function(argGrid,argRow) {
         Ext.MessageBox.confirm(
             'Confirm',
             Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
             function (argButton) {
                 if (argButton == 'yes') {
-                    argGrid.getStore().removeAt(argRow);
+                    this.onDeleteGroup(argGrid.store.getAt(argRow));
                 }
             },
             this

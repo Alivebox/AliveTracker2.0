@@ -128,9 +128,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 
-    /**
-     * Delete a created group
-     * */
     onDeleteGroup: function(argElement){
         var tmpGroupStore = Ext.getStore('Groups');
         var tmpGroup = tmpGroupStore.findRecord('id', argElement.getAttribute('id'));
@@ -147,9 +144,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         tmpGroupStore.commitChanges();
     },
 
-    /**
-     * Show a pop up to confirm the delete action
-     * */
     onConfirmDeleteDialog: function(argEvent, argElement) {
         Ext.MessageBox.confirm(
             'Confirm',
