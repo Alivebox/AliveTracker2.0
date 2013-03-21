@@ -1,7 +1,6 @@
 Ext.define('AliveTracker.defaults.WebServices',{
 
     statics: {
-        WEB_SERVICE_TYPE: 'restproxy',
         WEB_SERVICES_SERVER: '/ws/alivews/',
         USER_AUTHENTICATION: '/ws/alivews/main/',
         GET_USER_AUTH: '/ws/alivews/main/user/',

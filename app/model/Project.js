@@ -24,7 +24,7 @@ Ext.define('AliveTracker.model.Project', {
     ],
 
     proxy: {
-        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        type: 'restproxy',
         url: AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID
     }
 });

@@ -6,7 +6,7 @@ Ext.define('AliveTracker.store.Groups', {
     autoLoad: false,
     model: 'AliveTracker.model.Group',
     proxy: {
-        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        type: 'restproxy',
         url:  AliveTracker.defaults.WebServices.GET_HOME_GROUP
     }
 });

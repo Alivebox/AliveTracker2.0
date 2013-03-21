@@ -19,7 +19,7 @@ Ext.define('AliveTracker.model.projects.LogBook', {
         }
     ],
     proxy: {
-        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        type: 'restproxy',
         url: AliveTracker.defaults.WebServices.LOG_CREATE_LOGS
     }
 });

@@ -119,7 +119,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             users: tmpAssignArray
         });
         tmpProject.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_PROJECT
         });
         tmpProject.save({

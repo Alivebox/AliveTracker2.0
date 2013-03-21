@@ -136,7 +136,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         var tmpGroup = tmpGroupStore.findRecord('id', argElement.getAttribute('id'));
         debugger;
         tmpGroup.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            type: 'restproxy',
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
         });
         tmpGroup.destroy({
@@ -182,7 +182,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         var tmpGroupModel = this.onCreateModelFromGroupModelValues();
         var tmpGroupStore = Ext.getStore('Groups');
         tmpGroupModel.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_GROUP
         });
         tmpGroupModel.save({

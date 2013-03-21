@@ -5,7 +5,7 @@ Ext.define('AliveTracker.store.GroupUsers', {
     model: 'AliveTracker.model.User',
 
     proxy: {
-        type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+        type: 'restproxy',
         url:  AliveTracker.defaults.WebServices.GET_USERS_GROUP
     }
 
