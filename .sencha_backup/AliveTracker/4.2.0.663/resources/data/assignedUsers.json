@@ -1,0 +1,24 @@
+{
+    "data":[
+        {
+            "name":"evalverde@alivebox.com",
+            "role":"usr"
+        },
+        {
+            "name":"jcorrales@alivebox.com",
+            "role":"inv"
+        },
+        {
+            "name":"Marco Mora",
+            "role":"adm"
+        },
+        {
+            "name":"cvalverde@alivebox.com",
+            "role":"usr"
+        },
+        {
+            "name":"asalazar@quattrocento.net",
+            "role":"inv"
+        }
+    ]
+}
