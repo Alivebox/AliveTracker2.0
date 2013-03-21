@@ -34,6 +34,16 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     onAddUserPopUpAfterRender: function() {
         this.onLoadUserListStore();
+        this.onLoadRolesStore();
+    },
+
+    onLoadRolesStore: function(){
+        var tmpRoleStore = Ext.getStore('Roles');
+        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
+        tmpRoleStore.load({
+            scope: this,
+            urlOverride: tmpUrlOverride
+        });
     },
 
     onLoadUserListStore: function() {

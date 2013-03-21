@@ -90,7 +90,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_LABEL_LOG_BOOK: 'Bitacora',
         PROJECTS_LABEL_TOTAL: 'Total',
         PROJECTS_COLUMN_HEADER_PROJECT: 'Proyecto',
-        PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'Proyecto Nuevo',
+        PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Editar Proyecto',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo(h)',
         PROJECTS_LABEL_SAVE:'Guardar',

@@ -10,17 +10,13 @@ Ext.define('AliveTracker.model.Role', {
             type:'int'
         },
         {
-            name:'role',
+            name:'name',
+            type:'string'
+        },
+        {
+            name:'description',
             type:'string'
         }
-    ],
+    ]
 
-    proxy: {
-        type: 'ajax',
-        url: 'resources/data/roles.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
-    }
 });
