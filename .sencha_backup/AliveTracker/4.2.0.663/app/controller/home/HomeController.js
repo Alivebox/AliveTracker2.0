@@ -134,7 +134,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onDeleteGroup: function(argElement){
         var tmpGroupStore = Ext.getStore('Groups');
         var tmpGroup = tmpGroupStore.findRecord('id', argElement.getAttribute('id'));
-        debugger;
         tmpGroup.setProxy({
             type: 'restproxy',
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
