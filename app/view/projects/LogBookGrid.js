@@ -13,7 +13,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
-                    dataIndex:'projectLabel'
+                    dataIndex:'project_name'
                 },
                 {
                     xtype:'gridcolumn',

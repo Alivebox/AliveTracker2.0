@@ -37,6 +37,14 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref:'logBookActivityForm',
             selector:'logbookactivityform'
+        },
+        {
+            ref:'logBookActivityField',
+            selector:'logbookactivityform [itemId=txtActivity]'
+        },
+        {
+            ref:'logBookTimeTextField',
+            selector:'logbookactivityform [itemId=time]'
         }
     ],
     init:function () {
@@ -102,9 +110,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.onTotalTimeUpdate();
     },
     onClearUsersSelection:function () {
-        //FIX find method to set empty textField
-        //this.getLogBookActivityForm().activityTextField = "";
-        //this.getLogBookActivityForm().timeTextField = "";
+        this.getLogBookActivityField().setValue('');
+        this.getLogBookTimeTextField().setValue(1);
     },
     onDatePickerChange:function () {
         Ext.getStore('Logs').removeAll();
