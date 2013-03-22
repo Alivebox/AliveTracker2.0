@@ -142,7 +142,6 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onUpdateUsersToProjectChanges: function(argPopUp, argWindow){
-        debugger;
         var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
         var tmpProjectForm = this.getProjectModelForm().getValues();
         var tmpAssignArray = [];
@@ -157,15 +156,16 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             users: tmpAssignArray
         });
         tmpProject.setProxy({
-            type: AliveTracker.defaults.WebServices.WEB_SERVICE_TYPE,
+            type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_PROJECT
         });
         tmpProject.save({
             scope: this,
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId'))
         });
-        var tmpProjectStore = Ext.getStore('Projects')
-        tmpProjectStore.updateRecord(tmpProject);
+        var tmpProjectStore = Ext.getStore('Projects');
+        tmpProjectStore.remove(tmpProjectStore.findRecord('id', tmpProject.data.id));
+        tmpProjectStore.add(tmpProject);
         tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
     },

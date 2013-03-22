@@ -4,6 +4,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         WEB_SERVICES_SERVER: '/ws/alivews/',
         USER_AUTHENTICATION: '/ws/alivews/main/',
         GET_USER_AUTH: '/ws/alivews/main/user/',
+        GET_USERS: '/ws/alivews/main/users/',
         GET_USERS_GROUP: '/ws/alivews/users/group/{0}',
         GROUP_CREATE_GROUP: '/ws/alivews/groups/createGroup/',
         SAVE_GROUP: '/ws/alivews/groups/',

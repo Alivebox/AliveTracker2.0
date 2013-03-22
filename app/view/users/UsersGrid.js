@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
-    xtype: 'usersGrid',
+    xtype: 'usersgrid',
     initComponent: function() {
         var me = this;
         Ext.applyIf(me, {
@@ -31,6 +31,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 },
                 {
                     xtype:'actioncolumn',
+                    name: 'userGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
@@ -38,20 +39,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER,
-                            handler: function(grid, rowIndex, colIndex) {
-                                Ext.MessageBox.confirm(
-                                    'Confirm',
-                                    Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function(argButton){
-                                        if(argButton == 'yes')
-                                        {
-                                            grid.getStore().removeAt(rowIndex);
-                                        }
-                                    },
-                                    this
-                                );
-                            }
+                            tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER
                         }
                     ]
                 }

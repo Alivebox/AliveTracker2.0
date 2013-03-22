@@ -17,7 +17,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         },
         {
             ref: 'usersGrid',
-            selector: 'addusersgroup [name=usersGrid]'
+            selector: 'addusersgroup [name=usersgrid]'
         }
     ],
 
