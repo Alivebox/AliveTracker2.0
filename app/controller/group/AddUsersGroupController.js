@@ -19,8 +19,9 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         },
         {
             ref: 'usersGrid',
-            selector: 'addusersgroup [name=usersgrid]'
+            selector: 'usersgrid'
         }
+
     ],
 
     init: function(){
@@ -132,13 +133,27 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         });
     },
     onUpdateGroupUsers: function(){
-        debugger;
         var tmpUsersGroupStore = Ext.getStore('GroupUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_GROUP_USER, Ext.state.Manager.get('groupId'));
-        tmpUsersGroupStore.save({
-            scope: this,
-            urlOverride:  tmpUrl
+        var tmpAssignArray = [];
+        for(var tmpCont=0; tmpCont < tmpUsersGroupStore.data.items.length; tmpCont++){
+            tmpAssignArray.push(tmpUsersGroupStore.data.items[tmpCont].data)
+        }
+
+        var tmpGroup = Ext.create('AliveTracker.model.Group', {
+            id: Ext.state.Manager.get('groupId'),
+            users: tmpAssignArray
         });
+
+        tmpGroup.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.UPDATE_GROUP_USER
+        });
+
+        tmpGroup.save({
+            scope: this,
+            url: AliveTracker.defaults.WebServices.UPDATE_GROUP_USER
+        });
+        this.getUsersGrid().cbUserGridRoles.clear;
     }
 
 });

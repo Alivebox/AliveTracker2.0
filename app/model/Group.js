@@ -24,6 +24,10 @@ Ext.define('AliveTracker.model.Group', {
         {
             name:'web_site_url',
             type:'string'
+        },
+        {
+            name:'users',
+            type:'arraylist'
         }
     ]
 

@@ -4,6 +4,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
     xtype: 'usersgrid',
     initComponent: function() {
         var me = this;
+        this.cbUserGridRoles = this.onCreateRoleComboBox();
         Ext.applyIf(me, {
             columns: [
                 {
@@ -20,14 +21,8 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     sortable : false,
                     width: 75,
                     dataIndex: 'role',
-                    editor: {
-                        xtype:'combobox',
-                        allowBlank:true,
-                        store:'Roles',
-                        displayField:'name',
-                        queryMode:'local',
-                        editable:false
-                    }
+                    editor: this.cbUserGridRoles
+
                 },
                 {
                     xtype:'actioncolumn',
@@ -53,5 +48,18 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
         });
 
         me.callParent(arguments);
+    },
+
+    onCreateRoleComboBox: function(){
+        var tmpComboBox = Ext.create('Ext.form.field.ComboBox',{
+            name: 'cbUserGridRoles',
+            allowBlank:true,
+            store:'Roles',
+            displayField:'name',
+            queryMode:'local',
+            editable:false
+        });
+
+        return tmpComboBox;
     }
 });
