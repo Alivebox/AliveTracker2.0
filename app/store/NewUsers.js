@@ -6,7 +6,7 @@ Ext.define('AliveTracker.store.NewUsers', {
 
     proxy: {
         type: 'restproxy',
-        url:  AliveTracker.defaults.WebServices.GET_USERS_GROUP
+        url:  AliveTracker.defaults.WebServices.GET_ALL_USERS
     }
 
 });

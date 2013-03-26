@@ -66,8 +66,9 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     filterComboUsers: function (argDataToFilter){
+        debugger;
         var query = argDataToFilter.toLowerCase();
-        var tmpStore = Ext.getStore('Users');
+        var tmpStore = Ext.getStore('NewUsers');
         tmpStore.clearFilter();
         tmpStore.filterBy(function(record, id) {
             var name_check = record.get('name').toLowerCase().indexOf(query)
