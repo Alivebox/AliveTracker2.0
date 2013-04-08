@@ -47,12 +47,22 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Exports the report
      */
     onExportReport: function(){
+        debugger;
         var tmpReportsFormBasic = this.getReportsform().getForm();
         if( !tmpReportsFormBasic.isValid() ){
             return;
         }
         var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm');
         tmpReportsFormBasic.updateRecord(tmpModel);
+        Ext.Ajax.request({
+            url: '',
+            params: {
+                id: 1
+            },
+            success: function(response){
+                console.log("Into callback - request resport");
+            }
+        });
     },
 
     /**
