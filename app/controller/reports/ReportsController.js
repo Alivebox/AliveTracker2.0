@@ -20,6 +20,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         {
             ref: 'reportsform',
             selector: 'reportsform'
+        },
+        {
+            ref: 'cmbProject',
+            selector: 'reportsform [itemId=projectReports]'
         }
     ],
 
@@ -30,7 +34,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         this.control({
             'reportsform': {
                 exportReport: this.onExportReport,
-                dateRangeComboSelection: this.onDateRangeComboSelection
+                dateRangeComboSelection: this.onDateRangeComboSelection,
+                loadUsersStore: this.loadUsersStore
             }
         });
     },
@@ -67,9 +72,14 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Loads the Users store
      */
     loadUsersStore: function(){
+        var tmpProjectId = this.getCmbProject();
         var tmpUsersStore = Ext.getStore('Users');
+        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
         tmpUsersStore.load({
-            callback: function(){
+            scope: this,
+            urlOverride:  tmpStoreUrl,
+            callback: function(records, operation, success) {
+                console.log(records);
             }
         });
     },

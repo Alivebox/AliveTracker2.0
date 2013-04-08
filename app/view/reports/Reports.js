@@ -14,9 +14,12 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
                 displayField:'name',
+                valueField: 'id',
                 editable:false,
-                queryMode: 'local',
-                store: 'Projects'
+                listeners:{
+                    scope:this,
+                    select:this.onLoadUsersStore
+                }
             },
             {
                 xtype:'combobox',
@@ -24,7 +27,9 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_USER,
                 store:'Users',
-                displayField:'name',
+                queryMode: 'local',
+                displayField:'email',
+                valueField: 'id',
                 editable:false
             },
             {
@@ -73,5 +78,9 @@ Ext.define('AliveTracker.view.reports.Reports', {
     },
     onDateRangeComboChanged:function () {
         this.fireEvent('dateRangeComboSelection', this.getComponent('dateRangeComboReports').getValue(), this.getComponent('dateRangeReports'));
+    },
+    onLoadUsersStore:function () {
+        this.fireEvent('loadUsersStore');
     }
+
 });
