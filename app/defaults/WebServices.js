@@ -5,7 +5,8 @@ Ext.define('AliveTracker.defaults.WebServices',{
         USER_AUTHENTICATION: '/ws/alivews/main/',
         GET_USER_AUTH: '/ws/alivews/main/user/',
         GET_USERS_GROUP: '/ws/alivews/users/group/{0}',
-        GET_ALL_USERS: '/ws/alivews/main/users/',
+        GET_USERS_GROUP_AND_PROJECT: '/ws/alivews/main/user/group/{0}/project/{1}',
+        GET_ALL_USERS: '/ws/alivews/main/users/{0}',
         GROUP_CREATE_GROUP: '/ws/alivews/groups/createGroup/',
         SAVE_GROUP: '/ws/alivews/groups/',
         UPDATE_GROUP_USER: '/ws/alivews/groups/updateUser/',
@@ -20,5 +21,4 @@ Ext.define('AliveTracker.defaults.WebServices',{
         DELETE_PROJECT: '/ws/alivews/projects/deleteProject/{0}',
         DELETE_USER: '/ws/alivews/main/users/delete/{0}/group/{1}'
     }
-
 });

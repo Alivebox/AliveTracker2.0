@@ -4,6 +4,11 @@ Ext.define('AliveTracker.store.Users', {
 
     id: 'userStore',
     autoLoad: false,
-    model: 'AliveTracker.model.User'
+    model: 'AliveTracker.model.User',
+
+    proxy: {
+        type: 'restproxy',
+        url:  AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT
+    }
 
 });
