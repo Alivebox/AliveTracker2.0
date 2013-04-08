@@ -127,7 +127,16 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             group: Ext.state.Manager.get('groupId'),
             activities:tmpLogArray
         });
-        tmpLogBook.save();
+        tmpLogBook.save({
+            scope: this,
+            callback: this.saveCallback
+        });
+    },
+    saveCallback: function(record, operation){
+        if(operation.success){
+            Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.PROJECTS_LOG_SAVE_SUCCESS);
+            return;
+        }
     },
     getItemsFromStore:function (argStore){
         var tmpArray = [];
