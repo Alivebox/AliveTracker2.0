@@ -104,9 +104,8 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         }
     },
 
-    /**This method will save all users assigned to projects changes*/
+    /**This method will DEBUGGERsave all users assigned to projects changes*/
     onSaveUsersToProjectChanges: function(argPopUp, argWindow){
-        debugger;
         var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
         var tmpProjectForm = this.getProjectModelForm().getValues();
         var tmpAssignArray = [];

@@ -37,6 +37,14 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref:'logBookActivityForm',
             selector:'logbookactivityform'
+        },
+        {
+            ref:'logBookActivityField',
+            selector:'logbookactivityform [itemId=txtActivity]'
+        },
+        {
+            ref:'logBookTimeTextField',
+            selector:'logbookactivityform [itemId=time]'
         }
     ],
     init:function () {
@@ -102,9 +110,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.onTotalTimeUpdate();
     },
     onClearUsersSelection:function () {
-        //FIX find method to set empty textField
-        //this.getLogBookActivityForm().activityTextField = "";
-        //this.getLogBookActivityForm().timeTextField = "";
+        this.getLogBookActivityField().setValue('');
+        this.getLogBookTimeTextField().setValue(1);
     },
     onDatePickerChange:function () {
         Ext.getStore('Logs').removeAll();
@@ -120,7 +127,16 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             group: Ext.state.Manager.get('groupId'),
             activities:tmpLogArray
         });
-        tmpLogBook.save();
+        tmpLogBook.save({
+            scope: this,
+            callback: this.saveCallback
+        });
+    },
+    saveCallback: function(record, operation){
+        if(operation.success){
+            Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.PROJECTS_LOG_SAVE_SUCCESS);
+            return;
+        }
     },
     getItemsFromStore:function (argStore){
         var tmpArray = [];

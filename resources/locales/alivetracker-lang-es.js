@@ -81,6 +81,10 @@ Ext.define('Locales.AliveTracker', {
          */
         GRID_DELETE_ROW_CONFIRMATION_MESSAGE: '¿Confirma que desea eliminar el registro seleccionado?',
         /**
+         * Success Messages
+         */
+        SUCCESS_MESSAGE: 'Éxito',
+        /**
          * AddUsersGroup View
          */
         ADD_USERS_GROUP_LABEL_ADD_USER: 'Agregar usuario',
@@ -94,6 +98,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo(h)',
         PROJECTS_LABEL_SAVE:'Guardar',
+        PROJECTS_LOG_SAVE_SUCCESS:'Guardado exitoso',
         /**
          * Users View
          */

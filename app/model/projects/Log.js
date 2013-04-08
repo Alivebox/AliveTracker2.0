@@ -18,7 +18,7 @@ Ext.define('AliveTracker.model.projects.Log', {
             type:'id'
         },
         {
-            name:'projectLabel',
+            name:'project_name',
             type:'string',
             persist: false
         },
