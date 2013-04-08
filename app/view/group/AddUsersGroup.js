@@ -24,7 +24,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
                 ]
             },
             {
-                xtype: 'usersGrid',
+                xtype: 'usersgrid',
                 store: 'GroupUsers',
                 name: 'usersGrid'
             },
@@ -51,7 +51,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             minChars:2,
             forceSelection:true,
             hideTrigger:true,
-            store: 'Users',
+            store: 'NewUsers',
             valueField: 'name',
             displayField: 'name',
             enableKeyEvents: true,
