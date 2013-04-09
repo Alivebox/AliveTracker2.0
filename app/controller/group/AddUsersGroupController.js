@@ -143,7 +143,6 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
             tmpUser.set('role','dev');
             tmpProjectUserStore.add(tmpUser);
             tmpProjectUserStore.commitChanges();
-           // tmpUser.set('name',tmpUser.get('email'));
         }
         else
         {
