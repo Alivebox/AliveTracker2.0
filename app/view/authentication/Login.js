@@ -18,7 +18,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
                 allowBlank:false,
                 maxLength:20,
                 minLength: 8,
-                inputType:'password'
+                inputType:'password',
+                listeners:{
+                    scope:this,
+                    specialkey:this.onLoginEnter
+                }
             },
             {
                 xtype:'container',
@@ -70,6 +74,13 @@ Ext.define('AliveTracker.view.authentication.Login', {
         var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
         var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
         this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
+    },
+    onLoginEnter:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
+            var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
+            this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
+        }
     },
     onSignUpClick:function () {
         this.fireEvent('showSignUp',this);

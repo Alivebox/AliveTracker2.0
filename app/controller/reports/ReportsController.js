@@ -84,17 +84,11 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     saveReportCallback: function(record, operation){
-        debugger;
         if(operation.success){
             var tmpReport = record.data;
-            window.open(AliveTracker.defaults.WebServices.LOG_EXPORT_REPORT+'?'+Ext.Object.toQueryString({
-                                                                                                            group:tmpReport.group,
-                                                                                                            user:tmpReport.user,
-                                                                                                            project:tmpReport.project,
-                                                                                                            dateRangeOption:tmpReport.dateRangeOption,
-                                                                                                            startDate:tmpReport.startDate,
-                                                                                                            endDate:tmpReport.endDate
-                                                                                                         }));
+            window.open(AliveTracker.defaults.WebServices.LOG_EXPORT_REPORT+'?'+
+                            Ext.Object.toQueryString({group:tmpReport.group,user:tmpReport.user,project:tmpReport.project,
+                                                      dateRangeOption:tmpReport.dateRangeOption,startDate:tmpReport.startDate,endDate:tmpReport.endDate}));
         }
     },
 
