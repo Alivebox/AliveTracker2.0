@@ -122,6 +122,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     onSaveLogHistory:function () {
         var tmpLogArray = [];
         tmpLogArray = this.getItemsFromStore(Ext.getStore('Logs'));
+        if(tmpLogArray.length == 0){
+            debugger;
+            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.NO_DATA_TO_SAVE);
+            return;
+        }
         var tmpLogBook = Ext.create('AliveTracker.model.projects.LogBook', {
             date:this.getDatepicker().getValue(),
             group: Ext.state.Manager.get('groupId'),

@@ -86,6 +86,11 @@ Ext.define('Locales.AliveTracker', {
          */
         SUCCESS_MESSAGE: 'Success',
         /**
+         * Warning Messages
+         */
+        WARNING_MESSAGE: 'Warning',
+        NO_DATA_TO_SAVE: 'No data to save',
+        /**
          * AddUsersGroup View
          */
         ADD_USERS_GROUP_LABEL_ADD_USER: 'Add User',
