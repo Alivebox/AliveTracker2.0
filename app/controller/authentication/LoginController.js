@@ -15,7 +15,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             'loginform':{
                 beforerender: this.onBeforeRender,
                 login:this.onLoginAction,
-                showSignUp:this.onSignUpAction,
                 showForgotPassword:this.onNavigateToForgotPasswordView
             }
         });
@@ -67,10 +66,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
 
     onNavigateToForgotPasswordView:function () {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
-    },
-
-    onSignUpAction:function () {
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'registerPage');
     }
 
 });

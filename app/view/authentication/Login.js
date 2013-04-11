@@ -44,14 +44,6 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         items:[
                             {
                                 xtype:'button',
-                                text: Locales.AliveTracker.LOGIN_LABEL_SIGNUP,
-                                listeners:{
-                                    scope:this,
-                                    click:this.onSignUpClick
-                                }
-                            },
-                            {
-                                xtype:'button',
                                 name:'forgotPassword',
                                 text: Locales.AliveTracker.LOGIN_LABEL_FORGOT_PASSWORD,
                                 listeners:{
@@ -63,6 +55,9 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         ]
                     }
                 ]
+            },
+            {
+                xtype:'registerform'
             }
         ];
         this.callParent(arguments);
@@ -81,8 +76,5 @@ Ext.define('AliveTracker.view.authentication.Login', {
             var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
             this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
         }
-    },
-    onSignUpClick:function () {
-        this.fireEvent('showSignUp',this);
     }
 });
