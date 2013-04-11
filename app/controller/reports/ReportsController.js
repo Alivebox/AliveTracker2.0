@@ -13,7 +13,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     stores:[
         'Projects',
-        'Users'
+        'Users',
+        'LogReport'
     ],
 
     refs: [
@@ -24,6 +25,18 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         {
             ref: 'cmbProject',
             selector: 'reportsform [itemId=projectReports]'
+        },
+        {
+            ref: 'cmbUser',
+            selector: 'reportsform [itemId=userReports]'
+        },
+        {
+            ref: 'cmbDateRange',
+            selector: 'reportsform [itemId=dateRangeComboReports]'
+        },
+        {
+            ref: 'dateRange',
+            selector: 'reportsform [itemId=dateRangeReports]'
         }
     ],
 
@@ -52,22 +65,37 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Exports the report
      */
     onExportReport: function(){
-        debugger;
         var tmpReportsFormBasic = this.getReportsform().getForm();
         if( !tmpReportsFormBasic.isValid() ){
             return;
         }
-        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm');
-        tmpReportsFormBasic.updateRecord(tmpModel);
-        Ext.Ajax.request({
-            url: '',
-            params: {
-                id: 1
-            },
-            success: function(response){
-                console.log("Into callback - request resport");
-            }
+        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm',{
+            group: Ext.state.Manager.get('groupId'),
+            project: this.getCmbProject().value,
+            user: this.getCmbUser().value,
+            dateRangeOption:this.getCmbDateRange().value,
+            startDate:this.getDateRange().getStartValue(),
+            endDate:this.getDateRange().getEndValue()
         });
+        tmpModel.save({
+            scope:this,
+            callback:this.saveReportCallback
+        });
+    },
+
+    saveReportCallback: function(record, operation){
+        debugger;
+        if(operation.success){
+            var tmpReport = record.data;
+            window.open(AliveTracker.defaults.WebServices.LOG_EXPORT_REPORT+'?'+Ext.Object.toQueryString({
+                                                                                                            group:tmpReport.group,
+                                                                                                            user:tmpReport.user,
+                                                                                                            project:tmpReport.project,
+                                                                                                            dateRangeOption:tmpReport.dateRangeOption,
+                                                                                                            startDate:tmpReport.startDate,
+                                                                                                            endDate:tmpReport.endDate
+                                                                                                         }));
+        }
     },
 
     /**

@@ -10,6 +10,10 @@ Ext.define('AliveTracker.model.reports.ReportForm', {
             type:'int'
         },
         {
+            name:'group',
+            type:'string'
+        },
+        {
             name:'project',
             type:'string'
         },
@@ -18,13 +22,21 @@ Ext.define('AliveTracker.model.reports.ReportForm', {
             type:'string'
         },
         {
-            name:'dateRangeCombo',
+            name:'dateRangeOption',
             type:'string'
         },
         {
-            name:'dateRangeField',
+            name:'startDate',
+            type:'string'
+        },
+        {
+            name:'endDate',
             type:'string'
         }
-    ]
 
+    ],
+    proxy: {
+        type: 'restproxy',
+        url: AliveTracker.defaults.WebServices.LOG_EXPORT_REPORT
+    }
 });

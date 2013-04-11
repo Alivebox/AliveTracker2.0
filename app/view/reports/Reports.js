@@ -55,14 +55,13 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 xtype:'daterange',
                 itemId:'dateRangeReports',
                 name:'dateRangeReports',
-                allowBlank:false,
+                allowBlank:true,
                 hidden:true
             },
             {
                 xtype:'button',
                 text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
                 formBind:true,
-                disabled:true,
                 listeners:{
                     scope:this,
                     click:this.onExportReportClick

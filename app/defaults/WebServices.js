@@ -19,6 +19,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GET_USERS_PROJECTS: '/ws/alivews/projects/{0}',
         GET_ROLES: '/ws/alivews/roles/',
         DELETE_PROJECT: '/ws/alivews/projects/deleteProject/{0}',
-        DELETE_USER: '/ws/alivews/main/users/delete/{0}/group/{1}'
+        DELETE_USER: '/ws/alivews/main/users/delete/{0}/group/{1}',
+        LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/'
     }
 });

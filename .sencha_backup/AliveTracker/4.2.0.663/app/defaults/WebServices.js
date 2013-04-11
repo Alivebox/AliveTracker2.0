@@ -14,7 +14,8 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GET_PROJECTS : '/ws/alivews/projects/group/{0}',
         GET_LOGS_USER_GROUP_DATE: '/ws/alivews/logs/group/{0}/?{1}',
         LOG_CREATE_LOGS: '/ws/alivews/logs/',
-        GET_USERS_PROJECTS: '/ws/alivews/projects/{0}'
+        GET_USERS_PROJECTS: '/ws/alivews/projects/{0}',
+        LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/'
     }
 
 });
