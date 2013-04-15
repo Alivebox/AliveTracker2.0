@@ -19,6 +19,15 @@ Ext.define('Locales.AliveTracker', {
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Contraseña',
         PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirmar Contraseña',
         /**
+         * Forgot Password
+         */
+        SUCCESS_SEND_EMAIL_INSTRUCTION: 'Te enviamos un correo con las instrucciones para restaurar tu contraseña',
+        /**
+         * Reset Password
+         */
+        SUCCESS_RESET_PASSWORD: 'Te enviamos un correo con tu nueva contraseña',
+        RESET_PASSWORD_LABEL: 'Restablecer contraseña',
+        /**
          * Password Verification  View
          */
         PROFILE_LABEL_EMAIL: 'Email',

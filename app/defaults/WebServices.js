@@ -3,6 +3,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
     statics: {
         WEB_SERVICES_SERVER: '/ws/alivews/',
         USER_AUTHENTICATION: '/ws/alivews/main/',
+        USER_FORGOT_PASSWORD: '/ws/alivews/main/forgotPassword/',
         GET_USER_AUTH: '/ws/alivews/main/user/',
         GET_USERS_GROUP: '/ws/alivews/users/group/{0}',
         GET_USERS_GROUP_AND_PROJECT: '/ws/alivews/main/user/group/{0}/project/{1}',
