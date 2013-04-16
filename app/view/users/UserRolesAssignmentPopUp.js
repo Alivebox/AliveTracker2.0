@@ -10,7 +10,6 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
         'AliveTracker.view.users.AssignUsersToProjects'
     ],
     initComponent:function () {
-        this.title = Locales.AliveTracker.USERS_LABEL_ROLES_MANAGER;
         this.items = [
             {
                 xtype: 'assignuserstoprojectsview',

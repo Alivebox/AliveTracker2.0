@@ -19,6 +19,15 @@ Ext.define('Locales.AliveTracker', {
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Password',
         PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirm Password',
         /**
+         * Forgot Password
+         */
+        SUCCESS_SEND_EMAIL_INSTRUCTION: 'We send you an e-mail with the instruction to reset your password',
+        /**
+         * Reset Password
+         */
+        SUCCESS_RESET_PASSWORD: 'We send you an e-mail with your new password',
+        RESET_PASSWORD_LABEL: 'Reset Password',
+        /**
          * Password Verification  View
          */
         PROFILE_LABEL_EMAIL: 'Email',
@@ -82,6 +91,15 @@ Ext.define('Locales.AliveTracker', {
          */
         GRID_DELETE_ROW_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the selected row?',
         /**
+         * Success Messages
+         */
+        SUCCESS_MESSAGE: 'Success',
+        /**
+         * Warning Messages
+         */
+        WARNING_MESSAGE: 'Warning',
+        NO_DATA_TO_SAVE: 'No data to save',
+        /**
          * AddUsersGroup View
          */
         ADD_USERS_GROUP_LABEL_ADD_USER: 'Add User',
@@ -92,9 +110,11 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_LABEL_TOTAL: 'Total',
         PROJECTS_COLUMN_HEADER_PROJECT: 'Project',
         PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'New Project',
+        PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Edit Project',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Activity',
         PROJECTS_COLUMN_HEADER_TIME: 'Time(h)',
         PROJECTS_LABEL_SAVE:'Save',
+        PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
         /**
          * Users View
          */

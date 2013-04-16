@@ -19,6 +19,15 @@ Ext.define('Locales.AliveTracker', {
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Contraseña',
         PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirmar Contraseña',
         /**
+         * Forgot Password
+         */
+        SUCCESS_SEND_EMAIL_INSTRUCTION: 'Te enviamos un correo con las instrucciones para restaurar tu contraseña',
+        /**
+         * Reset Password
+         */
+        SUCCESS_RESET_PASSWORD: 'Te enviamos un correo con tu nueva contraseña',
+        RESET_PASSWORD_LABEL: 'Restablecer contraseña',
+        /**
          * Password Verification  View
          */
         PROFILE_LABEL_EMAIL: 'Email',
@@ -81,6 +90,15 @@ Ext.define('Locales.AliveTracker', {
          */
         GRID_DELETE_ROW_CONFIRMATION_MESSAGE: '¿Confirma que desea eliminar el registro seleccionado?',
         /**
+         * Success Messages
+         */
+        SUCCESS_MESSAGE: 'Éxito',
+        /**
+         * Warning Messages
+         */
+        WARNING_MESSAGE: 'Advertencia',
+        NO_DATA_TO_SAVE: 'No hay datos para guardar',
+        /**
          * AddUsersGroup View
          */
         ADD_USERS_GROUP_LABEL_ADD_USER: 'Agregar usuario',
@@ -90,10 +108,11 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_LABEL_LOG_BOOK: 'Bitacora',
         PROJECTS_LABEL_TOTAL: 'Total',
         PROJECTS_COLUMN_HEADER_PROJECT: 'Proyecto',
-        PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'Proyecto Nuevo',
+        PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Editar Proyecto',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo(h)',
         PROJECTS_LABEL_SAVE:'Guardar',
+        PROJECTS_LOG_SAVE_SUCCESS:'Guardado exitoso',
         /**
          * Users View
          */

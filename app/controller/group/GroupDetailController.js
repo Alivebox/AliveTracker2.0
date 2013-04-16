@@ -32,6 +32,10 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         {
             ref:'assignUsersToProjectsView',
             selector:'assignuserstoprojectsview'
+        },
+        {
+            ref:'projectModelForm',
+            selector:'assignuserstoprojectsview form[name=projectModelForm]'
         }
     ],
 
@@ -41,9 +45,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
                 },
-                'addgrouppopup': {
-                    addProjectClick : this.onAddProject
-                },
                 'actioncolumn#projectGridActionId': {
                     click: this.onProjectGridActionIdAction
                 }
@@ -51,7 +52,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
-        debugger;
         var tmpRec = argGrid.getStore().getAt(argRow);
         var tmpAction = argEvent.target.getAttribute('class');
         if (tmpAction.indexOf("x-action-col-0") != -1) {
@@ -64,10 +64,25 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     showEditProjectPopUp: function(argGrid,argRow){
-        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = argGrid.store.getAt(argRow).data.name;
-        this.getAssignUsersToProjectsView().insert = false;
-        this.addProjectPopup.show();
+        var tmpProjectModel = argGrid.store.getAt(argRow);
+        Ext.state.Manager.set('projectId',tmpProjectModel.data.id);
+        AliveTracker.assignUsersToProjectsController.insert = false;
+        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_EDIT_PROJECT);
+        this.getProjectModelForm().loadRecord(tmpProjectModel);
+    },
+
+    onDeleteGroup: function(argProject){
+        var tmpProjectStore = Ext.getStore('Projects');
+        argProject.setProxy({
+            type: 'restproxy',
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
+        });
+        argProject.destroy({
+            scope: this,
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
+        });
+        tmpProjectStore.removeAt(tmpProjectStore.find('id', argProject.data.id));
+        tmpProjectStore.commitChanges();
     },
 
     onConfirmDeleteProject: function(argGrid,argRow) {
@@ -76,7 +91,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
             function (argButton) {
                 if (argButton == 'yes') {
-                    argGrid.getStore().removeAt(argRow);
+                    this.onDeleteGroup(argGrid.store.getAt(argRow));
                 }
             },
             this
@@ -84,17 +99,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onShowProjectPopUp: function(){
-        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT;
-        this.getAssignUsersToProjectsView().insert = true;
-        this.addProjectPopup.show();
+        AliveTracker.assignUsersToProjectsController.insert = true;
+        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT);
     },
 
-    onAddProject: function(argEvent){
-        var tmpWindow = argEvent;
-        var tmpProjectName = argEvent.projectTextField.value;
-        this.loadProjectToStore(tmpProjectName);
-        tmpWindow.close();
+    createProjectPopUp: function(argTitle){
+    this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+    this.addProjectPopup.title = argTitle;
+    this.addProjectPopup.show();
+    return this.addProjectPopup;
     }
-
 });

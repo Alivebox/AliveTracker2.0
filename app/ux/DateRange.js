@@ -64,6 +64,22 @@ Ext.define('AliveTracker.ux.DateRange', {
         return "[{\"value\":\"" +tmpStartDate.getValue().toJSON()+ "\"},{\"value\":\""+tmpEndDate.getValue().toJSON()+"\"}]";
     },
 
+    getStartValue:function (argValue) {
+        var tmpStartDate = this.getComponent('startdt');
+        if (Ext.isEmpty(tmpStartDate) || Ext.isEmpty(tmpStartDate.getValue()) ) {
+            return null;
+        }
+        return tmpStartDate.getValue().toJSON();
+    },
+
+    getEndValue:function (argValue) {
+        var tmpEndDate = this.getComponent('enddt');
+        if (Ext.isEmpty(tmpEndDate) || Ext.isEmpty(tmpEndDate.getValue())) {
+            return null;
+        }
+        return tmpEndDate.getValue().toJSON();
+    },
+
     isValid: function(){
         if(this.allowBlank){
             return true;

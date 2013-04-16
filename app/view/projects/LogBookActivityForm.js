@@ -97,7 +97,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpTimeNumberField = this.down('numberfield[itemId=time]');
         var tmpActivity = Ext.create('AliveTracker.model.projects.Log',{
             project: tmpProjectCombobox.getValue(),
-            projectLabel: tmpProjectCombobox.getRawValue(),
+            project_name: tmpProjectCombobox.getRawValue(),
             activity: tmpActivityTextField.getValue(),
             time: tmpTimeNumberField.getValue()
         });
@@ -113,5 +113,4 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         }
         return true;
     }
-
 });

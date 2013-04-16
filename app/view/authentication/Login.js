@@ -18,7 +18,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
                 allowBlank:false,
                 maxLength:20,
                 minLength: 8,
-                inputType:'password'
+                inputType:'password',
+                listeners:{
+                    scope:this,
+                    specialkey:this.onLoginEnter
+                }
             },
             {
                 xtype:'container',
@@ -40,14 +44,6 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         items:[
                             {
                                 xtype:'button',
-                                text: Locales.AliveTracker.LOGIN_LABEL_SIGNUP,
-                                listeners:{
-                                    scope:this,
-                                    click:this.onSignUpClick
-                                }
-                            },
-                            {
-                                xtype:'button',
                                 name:'forgotPassword',
                                 text: Locales.AliveTracker.LOGIN_LABEL_FORGOT_PASSWORD,
                                 listeners:{
@@ -59,6 +55,9 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         ]
                     }
                 ]
+            },
+            {
+                xtype:'registerform'
             }
         ];
         this.callParent(arguments);
@@ -71,7 +70,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
         var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
         this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
     },
-    onSignUpClick:function () {
-        this.fireEvent('showSignUp',this);
+    onLoginEnter:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
+            var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
+            this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
+        }
     }
 });

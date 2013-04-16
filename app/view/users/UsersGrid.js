@@ -1,9 +1,10 @@
 Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
-    xtype: 'usersGrid',
+    xtype: 'usersgrid',
     initComponent: function() {
         var me = this;
+        this.cbUserGridRoles = this.onCreateRoleComboBox();
         Ext.applyIf(me, {
             columns: [
                 {
@@ -20,16 +21,12 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     sortable : false,
                     width: 75,
                     dataIndex: 'role',
-                    editor: {
-                        xtype:'combobox',
-                        allowBlank:true,
-                        store:'Roles',
-                        displayField:'role',
-                        editable:false
-                    }
+                    editor: this.cbUserGridRoles
+
                 },
                 {
                     xtype:'actioncolumn',
+                    name: 'userGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
@@ -37,20 +34,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER,
-                            handler: function(grid, rowIndex, colIndex) {
-                                Ext.MessageBox.confirm(
-                                    'Confirm',
-                                    Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function(argButton){
-                                        if(argButton == 'yes')
-                                        {
-                                            grid.getStore().removeAt(rowIndex);
-                                        }
-                                    },
-                                    this
-                                );
-                            }
+                            tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER
                         }
                     ]
                 }
@@ -64,5 +48,18 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
         });
 
         me.callParent(arguments);
+    },
+
+    onCreateRoleComboBox: function(){
+        var tmpComboBox = Ext.create('Ext.form.field.ComboBox',{
+            name: 'cbUserGridRoles',
+            allowBlank:true,
+            store:'Roles',
+            displayField:'name',
+            queryMode:'local',
+            editable:false
+        });
+
+        return tmpComboBox;
     }
 });

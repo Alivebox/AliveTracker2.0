@@ -7,14 +7,13 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
         var me = this;
 
         Ext.applyIf(me, {
-            store: Ext.data.StoreManager.lookup('LogBook'),
             columns:[
                 {
                     xtype:'gridcolumn',
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
-                    dataIndex:'project'
+                    dataIndex:'project_name'
                 },
                 {
                     xtype:'gridcolumn',

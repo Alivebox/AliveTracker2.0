@@ -5,13 +5,13 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
 
     initComponent: function() {
         var me = this;
-        this.userscombo = this.getUsersCombo();
+        this.autoCompleteBox = this.getAutoCompleteBox();
         this.items = [
             {
                 xtype: 'container',
                 layout: 'hbox',
                 items: [
-                    this.userscombo,
+                    this.autoCompleteBox,
                     {
                         xtype: 'button',
                         id: 'btnAddUser',
@@ -24,7 +24,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
                 ]
             },
             {
-                xtype: 'usersGrid',
+                xtype: 'usersgrid',
                 store: 'GroupUsers',
                 name: 'usersGrid'
             },
@@ -43,42 +43,28 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
         me.callParent(arguments);
     },
 
-    getUsersCombo: function(){
-        var tmpTypeahead = Ext.create('Ext.form.field.ComboBox',{
-            triggerAction:'all',
-            typeAhead:true,
-            mode:'remote',
-            minChars:2,
-            forceSelection:true,
-            hideTrigger:true,
-            store: 'Users',
-            valueField: 'name',
-            displayField: 'name',
-            enableKeyEvents: true,
-            lastQuery: '',
+    getAutoCompleteBox: function(){
+        var tmpAutoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
+            displayField: 'email',
+            store: Ext.getStore('NewUsers'),
             listeners: {
                 scope: this,
-                'keyup': 'onComboKeyUp',
-                'beforequery': function(queryEvent) {
-                    queryEvent.combo.onLoad();
-                    // prevent doQuery from firing and clearing out my filter.
-                    queryEvent.combo.expand();
-                    return false;
-                }
+                executeSearch: this.onExecuteSearch
             }
         });
 
-        return tmpTypeahead;
-    },
-
-    onComboKeyUp: function(){
-        this.fireEvent('comboUsersKeyUp', this.userscombo.getRawValue());
+        return tmpAutoCompleteBox;
     },
 
     onAddUserClick: function(){
-        this.fireEvent('addUserClick');
+        this.fireEvent('addUserClick',this.autoCompleteBox.getValue());
     },
+
     onSaveGroupUsers: function(){
         this.fireEvent('saveGroupUsers');
+    },
+
+    onExecuteSearch: function(){
+        this.fireEvent('comboUsersKeyUp', this.autoCompleteBox.getValue(),this.autoCompleteBox);
     }
 });
