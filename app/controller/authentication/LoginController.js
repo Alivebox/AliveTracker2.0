@@ -45,10 +45,12 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     },
 
     onLoginSuccess: function(argRecord){
+        debugger;
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
+
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 

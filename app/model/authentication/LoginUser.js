@@ -18,6 +18,10 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
             type:'string'
         },
         {
+            name:'changePassword',
+            type:'boolean'
+        },
+        {
             name:'permissions',
             type:'array'
         }

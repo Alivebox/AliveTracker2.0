@@ -23,6 +23,7 @@ Ext.application({
 
     controllers: [
         'authentication.ForgotPasswordController',
+        'authentication.ResetPasswordController',
         'authentication.LoginController',
         'authentication.RegisterController',
         'group.AddUsersGroupController',
