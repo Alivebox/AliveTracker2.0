@@ -104,7 +104,6 @@ Ext.Loader.addClassPathMappings({
   "AliveTracker.view.home.HomeBelongGroupsViewer": [],
   "AliveTracker.ux.ItemSelector": [],
   "Framework.core.EventBus": [],
-  "Framework.ux.view.TabViewsContainer": [],
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.DataView.LabelEditor": [],
   "Ext.ux.grid.filter.StringFilter": [],
@@ -330,9 +329,6 @@ Ext.Loader.addClassPathMappings({
     "widget.itemselector"
   ],
   "Framework.core.EventBus": [],
-  "Framework.ux.view.TabViewsContainer": [
-    "widget.tabviewscontainer"
-  ],
   "Ext.ux.GroupTabPanel": [
     "widget.grouptabpanel"
   ],
