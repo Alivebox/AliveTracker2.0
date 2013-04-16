@@ -45,12 +45,16 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     },
 
     onLoginSuccess: function(argRecord){
-        debugger;
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
 
+        if(argRecord.data.entity_status === AliveTracker.defaults.Constants.TO_CHANGE_PASSWORD){
+            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.RESET_PASSWORD_UPDATE);
+            Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
+            return;
+        }
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
