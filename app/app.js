@@ -31,6 +31,7 @@ Ext.application({
         'projects.LogBookController',
         'reports.ReportsController',
         'users.AssignUsersToProjectsController',
+        'users.UserProfileController',
         'header.HeaderController',
         'MainController'
     ],

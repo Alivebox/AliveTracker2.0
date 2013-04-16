@@ -7,10 +7,18 @@ Ext.define('AliveTracker.view.header.HeaderView', {
         this.items = [
             {
                 xtype: 'button',
-                text: 'User Profile'
+                text: 'User Profile',
+                listeners: {
+                    scope: this,
+                    click: this.onUserProfile
+                }
             }
         ];
         this.callParent(arguments);
+    },
+
+    onUserProfile: function(){
+        this.fireEvent('showUserProfile');
     }
 
 });

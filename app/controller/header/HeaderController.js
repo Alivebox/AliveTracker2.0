@@ -7,6 +7,15 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
     ],
 
     init: function(){
+        this.control({
+            'headerview': {
+                showUserProfile: this.showUserProfile
+            }
+        });
+    },
+
+    showUserProfile: function(){
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
     }
 
 });
