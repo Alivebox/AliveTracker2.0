@@ -60,6 +60,34 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'button',
+                text:Locales.AliveTracker.REPORTS_LABEL_PREVIEW,
+                listeners:{
+                    scope:this,
+                    click:this.onShowPreview
+                }
+            },
+            {
+                xtype: 'gridpanel',
+                itemId: 'gridReports',
+                hidden: true,
+                store: 'Reports',
+                columns: [
+                    {
+                        header: 'Project',
+                        dataIndex: 'project'
+                    },
+                    {
+                        header: 'Activity',
+                        dataIndex: 'activity'
+                    },
+                    {
+                        header: 'Date',
+                        dataIndex: 'date'
+                    }
+                ]
+            },
+            {
+                xtype:'button',
                 text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
                 formBind:true,
                 listeners:{
@@ -80,6 +108,9 @@ Ext.define('AliveTracker.view.reports.Reports', {
     },
     onLoadUsersStore:function () {
         this.fireEvent('loadUsersStore');
+    },
+    onShowPreview:function () {
+        this.fireEvent('showPreview');
     }
 
 });
