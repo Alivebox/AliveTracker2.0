@@ -135,32 +135,29 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onShowPreview: function(){
+        var tmpGroup = Ext.state.Manager.get('groupId');
+        var tmpProject = this.getCmbProject().value;
+        var tmpUser = this.getCmbUser().value;
+        var tmpDateRange = this.getCmbDateRange().value;
+        var tmpStartDate = this.getDateRange().getStartValue();
+        var tmpEndDate = this.getDateRange().getEndValue();
         var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm',{
-            group: Ext.state.Manager.get('groupId'),
-            project: this.getCmbProject().value,
-            user: this.getCmbUser().value,
-            dateRangeOption:this.getCmbDateRange().value,
-            startDate:this.getDateRange().getStartValue(),
-            endDate:this.getDateRange().getEndValue()
+            group: tmpGroup,
+            project: tmpProject,
+            user: tmpUser,
+            dateRangeOption:tmpDateRange,
+            startDate:tmpStartDate,
+            endDate:tmpEndDate
         });
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange,tmpStartDate,tmpEndDate);
         tmpModel.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.LOG_LIST_REPORT
         })
-        debugger;
-        tmpModel.save({
-            scope:this,
-            urlOverride: AliveTracker.defaults.WebServices.LOG_LIST_REPORT,
-            callback:this.saveReportCallback
-        });
-        debugger;
-    },
-
-    onLoadGridStore: function(){
         var tmpReportsStore = Ext.getStore('Reports');
         tmpReportsStore.load({
             scope: this,
-            urlOverride: AliveTracker.defaults.WebServices.LOG_LIST_REPORT,
+            urlOverride:tmpUrl,
             callback: this.onLoadPreviewRecords
         });
     },
