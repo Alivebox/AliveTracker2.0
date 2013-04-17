@@ -34,13 +34,13 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     onLoadFields: function(){
         var tmpEmail = this.getEmail();
         tmpEmail.setValue(Framework.core.SecurityManager.getCurrentUsername());
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USER,Framework.core.SecurityManager.getCurrentUsername());
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
         var tmpUser = Ext.create('AliveTracker.model.User',{
             email: tmpEmail
         });
         tmpUser.setProxy({
             type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.GET_USER
+            url: AliveTracker.defaults.WebServices.GET_ALL_USERS
         })
         tmpUser.save({
             scope: this,
@@ -58,7 +58,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     onSaveUserProfile: function(){
         //var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
         var tmpEmail = this.getEmail().value;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USER,Framework.core.SecurityManager.getCurrentUsername());
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
         var tmpUser = Ext.create('AliveTracker.model.User',{
             email: tmpEmail
         });

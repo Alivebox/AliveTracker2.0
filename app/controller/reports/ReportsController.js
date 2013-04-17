@@ -135,9 +135,30 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onShowPreview: function(){
+        var tmpGroup = Ext.state.Manager.get('groupId');
+        var tmpProject = this.getCmbProject().value;
+        var tmpUser = this.getCmbUser().value;
+        var tmpDateRange = this.getCmbDateRange().value;
+        var tmpStartDate = this.getDateRange().getStartValue();
+        var tmpEndDate = this.getDateRange().getEndValue();
+        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm',{
+            group: tmpGroup,
+            project: tmpProject,
+            user: tmpUser,
+            dateRangeOption:tmpDateRange,
+            startDate:tmpStartDate,
+            endDate:tmpEndDate
+        });
+        debugger;
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
+        tmpModel.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.LOG_LIST_REPORT
+        })
         var tmpReportsStore = Ext.getStore('Reports');
         tmpReportsStore.load({
             scope: this,
+            urlOverride:tmpUrl,
             callback: this.onLoadPreviewRecords
         });
     },
