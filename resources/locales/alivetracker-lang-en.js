@@ -26,6 +26,7 @@ Ext.define('Locales.AliveTracker', {
          * Reset Password
          */
         SUCCESS_RESET_PASSWORD: 'We send you an e-mail with your new password',
+        RESET_PASSWORD_UPDATE: 'We have scheduled a password change',
         RESET_PASSWORD_LABEL: 'Reset Password',
         /**
          * Password Verification  View
@@ -52,6 +53,11 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
         REPORTS_LABEL_EXPORT: 'Export',
+        /**
+         * Header View
+         */
+        HEADER_USER_PROFILE: 'User Profile',
+        HEADER_LOG_OUT: 'Logout',
         /**
          * Home View
          */

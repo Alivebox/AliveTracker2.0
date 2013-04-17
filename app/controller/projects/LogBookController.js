@@ -123,7 +123,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpLogArray = [];
         tmpLogArray = this.getItemsFromStore(Ext.getStore('Logs'));
         if(tmpLogArray.length == 0){
-            debugger;
             Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.NO_DATA_TO_SAVE);
             return;
         }

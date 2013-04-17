@@ -23,6 +23,7 @@ Ext.application({
 
     controllers: [
         'authentication.ForgotPasswordController',
+        'authentication.ResetPasswordController',
         'authentication.LoginController',
         'authentication.RegisterController',
         'group.AddUsersGroupController',
@@ -31,6 +32,7 @@ Ext.application({
         'projects.LogBookController',
         'reports.ReportsController',
         'users.AssignUsersToProjectsController',
+        'users.UserProfileController',
         'header.HeaderController',
         'MainController'
     ],

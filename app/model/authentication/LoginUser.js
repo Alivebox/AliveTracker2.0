@@ -18,6 +18,10 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
             type:'string'
         },
         {
+            name:'entity_status',
+            type:'int'
+        },
+        {
             name:'permissions',
             type:'array'
         }
