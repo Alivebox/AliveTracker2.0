@@ -32,6 +32,7 @@ Ext.define('Locales.AliveTracker', {
          */
         PROFILE_LABEL_EMAIL: 'Email',
         PROFILE_LABEL_NAME: 'Name',
+        PROFILE_LABEL_PASSWORD: 'Password',
         /**
          * Register  View
          */
@@ -52,6 +53,7 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
         REPORTS_LABEL_EXPORT: 'Export',
+        REPORTS_LABEL_PREVIEW: 'Preview',
         /**
          * Home View
          */

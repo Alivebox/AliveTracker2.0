@@ -8,13 +8,15 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     models:[
         'Project',
-        'User'
+        'User',
+        'reports.Report'
     ],
 
     stores:[
         'Projects',
         'Users',
-        'LogReport'
+        'LogReport',
+        'Reports'
     ],
 
     refs: [
@@ -37,6 +39,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         {
             ref: 'dateRange',
             selector: 'reportsform [itemId=dateRangeReports]'
+        },
+        {
+            ref: 'gridPreview',
+            selector: 'reportsform [itemId=gridReports]'
         }
     ],
 
@@ -48,7 +54,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             'reportsform': {
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
-                loadUsersStore: this.loadUsersStore
+                loadUsersStore: this.loadUsersStore,
+                showPreview: this.onShowPreview
             }
         });
     },
@@ -125,6 +132,19 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             callback: function(){
             }
         });
+    },
+
+    onShowPreview: function(){
+        var tmpReportsStore = Ext.getStore('Reports');
+        tmpReportsStore.load({
+            scope: this,
+            callback: this.onLoadPreviewRecords
+        });
+    },
+
+    onLoadPreviewRecords: function(){
+        var tmpGridReports = this.getGridPreview();
+        tmpGridReports.setVisible(true);
     }
 
 });
