@@ -149,7 +149,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             startDate:tmpStartDate,
             endDate:tmpEndDate
         });
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange,tmpStartDate,tmpEndDate);
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
         tmpModel.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.LOG_LIST_REPORT

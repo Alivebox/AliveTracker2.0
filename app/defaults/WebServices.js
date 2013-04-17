@@ -25,6 +25,6 @@ Ext.define('AliveTracker.defaults.WebServices',{
         DELETE_PROJECT: '/ws/alivews/projects/deleteProject/{0}',
         DELETE_USER: '/ws/alivews/main/users/delete/{0}/group/{1}',
         LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/',
-        LOG_LIST_REPORT: '/ws/alivews/logs/listReport/group/{0}/project/{1}/user/{2}/range/{3}/start/{4}/end/{5}/'
+        LOG_LIST_REPORT: '/ws/alivews/logs/listReport/group/{0}/project/{1}/user/{2}/range/{3}/'
     }
 });
