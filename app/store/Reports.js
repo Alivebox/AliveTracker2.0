@@ -4,6 +4,6 @@ Ext.define('AliveTracker.store.Reports', {
 
     id: 'roleStore',
     autoLoad: false,
-    model: 'AliveTracker.model.reports.Report'
+    model: 'AliveTracker.model.reports.ReportForm'
 
 });

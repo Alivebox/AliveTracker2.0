@@ -135,9 +135,32 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onShowPreview: function(){
+        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm',{
+            group: Ext.state.Manager.get('groupId'),
+            project: this.getCmbProject().value,
+            user: this.getCmbUser().value,
+            dateRangeOption:this.getCmbDateRange().value,
+            startDate:this.getDateRange().getStartValue(),
+            endDate:this.getDateRange().getEndValue()
+        });
+        tmpModel.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.LOG_LIST_REPORT
+        })
+        debugger;
+        tmpModel.save({
+            scope:this,
+            urlOverride: AliveTracker.defaults.WebServices.LOG_LIST_REPORT,
+            callback:this.saveReportCallback
+        });
+        debugger;
+    },
+
+    onLoadGridStore: function(){
         var tmpReportsStore = Ext.getStore('Reports');
         tmpReportsStore.load({
             scope: this,
+            urlOverride: AliveTracker.defaults.WebServices.LOG_LIST_REPORT,
             callback: this.onLoadPreviewRecords
         });
     },
