@@ -26,6 +26,7 @@ Ext.define('Locales.AliveTracker', {
          * Reset Password
          */
         SUCCESS_RESET_PASSWORD: 'We send you an e-mail with your new password',
+        RESET_PASSWORD_UPDATE: 'We have scheduled a password change',
         RESET_PASSWORD_LABEL: 'Reset Password',
         /**
          * Password Verification  View

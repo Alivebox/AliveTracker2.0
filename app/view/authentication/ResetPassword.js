@@ -16,7 +16,7 @@ Ext.define('AliveTracker.view.authentication.ResetPassword', {
         this.callParent(arguments);
     },
     onResetPasswordClick:function () {
-        this.fireEvent('resetPasswordClick',this);
+        this.fireEvent('resetPassword',this);
     }
 
 });
