@@ -74,11 +74,15 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 columns: [
                     {
                         header: 'Project',
-                        dataIndex: 'project'
+                        dataIndex: 'project_name'
                     },
                     {
                         header: 'Activity',
                         dataIndex: 'activity'
+                    },
+                    {
+                        header: 'Time',
+                        dataIndex: 'time'
                     },
                     {
                         header: 'Date',
