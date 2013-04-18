@@ -4,10 +4,13 @@ Ext.define('AliveTracker.defaults.WebServices',{
         WEB_SERVICES_SERVER: '/ws/alivews/',
         USER_AUTHENTICATION: '/ws/alivews/main/',
         USER_FORGOT_PASSWORD: '/ws/alivews/main/forgotPassword/',
+        USER_RESET_PASSWORD: '/ws/alivews/main/resetPassword/',
         GET_USER_AUTH: '/ws/alivews/main/user/',
         GET_USERS_GROUP: '/ws/alivews/users/group/{0}',
         GET_USERS_GROUP_AND_PROJECT: '/ws/alivews/main/user/group/{0}/project/{1}',
         GET_ALL_USERS: '/ws/alivews/main/users/{0}',
+        SAVE_USER: '/ws/alivews/main/register/',
+        UPDATE_USER: '/ws/alivews/main/user/{0}',
         GROUP_CREATE_GROUP: '/ws/alivews/groups/createGroup/',
         SAVE_GROUP: '/ws/alivews/groups/',
         UPDATE_GROUP_USER: '/ws/alivews/groups/updateUser/',
@@ -21,6 +24,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GET_ROLES: '/ws/alivews/roles/',
         DELETE_PROJECT: '/ws/alivews/projects/deleteProject/{0}',
         DELETE_USER: '/ws/alivews/main/users/delete/{0}/group/{1}',
-        LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/'
+        LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/',
+        LOG_LIST_REPORT: '/ws/alivews/logs/listReport/group/{0}/project/{1}/user/{2}/range/{3}/'
     }
 });

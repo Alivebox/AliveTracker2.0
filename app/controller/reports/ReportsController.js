@@ -8,13 +8,15 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     models:[
         'Project',
-        'User'
+        'User',
+        'reports.Report'
     ],
 
     stores:[
         'Projects',
         'Users',
-        'LogReport'
+        'LogReport',
+        'Reports'
     ],
 
     refs: [
@@ -37,6 +39,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         {
             ref: 'dateRange',
             selector: 'reportsform [itemId=dateRangeReports]'
+        },
+        {
+            ref: 'gridPreview',
+            selector: 'reportsform [itemId=gridReports]'
         }
     ],
 
@@ -48,7 +54,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             'reportsform': {
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
-                loadUsersStore: this.loadUsersStore
+                loadUsersStore: this.loadUsersStore,
+                showPreview: this.onShowPreview
             }
         });
     },
@@ -125,6 +132,29 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             callback: function(){
             }
         });
+    },
+
+    onShowPreview: function(){
+        var tmpGroup = Ext.state.Manager.get('groupId');
+        var tmpProject = this.getCmbProject().value;
+        var tmpUser = this.getCmbUser().value;
+        var tmpDateRange = this.getCmbDateRange().value;
+        var tmpStartDate = this.getDateRange().getStartValue();
+        var tmpEndDate = this.getDateRange().getEndValue();
+        debugger;
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
+        var tmpReportsStore = Ext.getStore('Reports');
+        tmpReportsStore.load({
+            scope: this,
+            urlOverride:tmpUrl,
+            callback: this.onLoadPreviewRecords
+        });
+    },
+
+    onLoadPreviewRecords: function(argRecords, argOperation, argSuccess){
+        debugger;
+        var tmpGridReports = this.getGridPreview();
+        tmpGridReports.setVisible(true);
     }
 
 });

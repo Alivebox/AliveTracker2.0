@@ -8,6 +8,10 @@ Ext.define('AliveTracker.model.authentication.ForgotPassword', {
         {
             name:'email',
             type:'string'
+        },
+        {
+            name:'token',
+            type:'string'
         }
     ],
     proxy: {

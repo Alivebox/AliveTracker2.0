@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.authentication.LoginUser', {
+Ext.define('AliveTracker.model.reports.Report', {
 
     extend:'Ext.data.Model',
 
@@ -10,24 +10,25 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
             type:'int'
         },
         {
-            name:'email',
+            name:'project_name',
             type:'string'
         },
         {
-            name:'password',
+            name:'activity',
             type:'string'
         },
         {
-            name:'entity_status',
-            type:'int'
+            name:'time',
+            type:'string'
         },
         {
-            name:'permissions',
-            type:'array'
+            name:'date',
+            type:'string'
         }
     ],
+
     proxy: {
         type: 'restproxy',
-        url:  AliveTracker.defaults.WebServices.USER_AUTHENTICATION
+        url: AliveTracker.defaults.WebServices.LOG_LIST_REPORT
     }
 });

@@ -26,12 +26,14 @@ Ext.define('Locales.AliveTracker', {
          * Reset Password
          */
         SUCCESS_RESET_PASSWORD: 'Te enviamos un correo con tu nueva contraseña',
+        RESET_PASSWORD_UPDATE: 'Te tenemos programado un cambio de contraseña',
         RESET_PASSWORD_LABEL: 'Restablecer contraseña',
         /**
          * Password Verification  View
          */
         PROFILE_LABEL_EMAIL: 'Email',
         PROFILE_LABEL_NAME: 'Nombre',
+        PROFILE_LABEL_PASSWORD: 'Contraseña',
         /**
          * Register  View
          */
@@ -52,6 +54,12 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Ultimas 2 semanas',
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Ultimo mes',
         REPORTS_LABEL_EXPORT: 'Exportar',
+        REPORTS_LABEL_PREVIEW: 'Vista Previa',
+        /**
+         * Header View
+         */
+        HEADER_USER_PROFILE: 'Perfil de Usuario',
+        HEADER_LOG_OUT: 'Cerrar sesión',
         /**
          * Home View
          */

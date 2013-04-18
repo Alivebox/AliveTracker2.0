@@ -53,6 +53,13 @@
                 "permissions": [
                     "viewGroupDetail"
                 ]
+            },
+            {
+                "name": "userProfilePage",
+                "package": "AliveTracker.view.users.UserProfile",
+                "permissions": [
+                    "viewHome"
+                ]
             }
         ]
     }
