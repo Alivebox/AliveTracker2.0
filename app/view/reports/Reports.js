@@ -67,6 +67,16 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 }
             },
             {
+                xtype:'button',
+                text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
+                formBind:true,
+                listeners:{
+                    scope:this,
+                    click:this.onExportReportClick
+                }
+
+            },
+            {
                 xtype: 'gridpanel',
                 itemId: 'gridReports',
                 hidden: true,
@@ -89,16 +99,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         dataIndex: 'date'
                     }
                 ]
-            },
-            {
-                xtype:'button',
-                text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
-                formBind:true,
-                listeners:{
-                    scope:this,
-                    click:this.onExportReportClick
-                }
-
             }
         ];
         this.callParent(arguments);

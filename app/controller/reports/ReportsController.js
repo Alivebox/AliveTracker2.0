@@ -139,10 +139,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpProject = this.getCmbProject().value;
         var tmpUser = this.getCmbUser().value;
         var tmpDateRange = this.getCmbDateRange().value;
-        var tmpStartDate = this.getDateRange().getStartValue();
-        var tmpEndDate = this.getDateRange().getEndValue();
-        debugger;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
+        var tmpBaseUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
+        var tmpUrl = this.buildDateQueryString(this.getDateRange().getStartValue(), this.getDateRange().getEndValue(), tmpBaseUrl)
         var tmpReportsStore = Ext.getStore('Reports');
         tmpReportsStore.load({
             scope: this,
@@ -152,9 +150,18 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onLoadPreviewRecords: function(argRecords, argOperation, argSuccess){
-        debugger;
-        var tmpGridReports = this.getGridPreview();
-        tmpGridReports.setVisible(true);
+        if(!argSuccess || argRecords.length <= 0){
+            this.getGridPreview().setVisible(false);
+            return;
+        }
+        this.getGridPreview().setVisible(true);
+    },
+
+    buildDateQueryString: function(argStartDate, argEndDate, argUrl){
+        if(argStartDate && argEndDate){
+            argUrl+= '?'+Ext.Object.toQueryString({startDate: argStartDate, endDate: argEndDate});
+        }
+        return argUrl;
     }
 
 });
