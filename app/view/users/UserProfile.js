@@ -5,19 +5,32 @@ Ext.define('AliveTracker.view.users.UserProfile', {
     initComponent: function() {
         this.items = [
             {
-                xtype: 'textfield',
-                itemId: 'nameProfile',
-                fieldLabel: Locales.AliveTracker.PROFILE_LABEL_NAME
-            },
-            {
-                xtype: 'textfield',
-                itemId: 'emailProfile',
-                readOnly: true,
-                fieldLabel: Locales.AliveTracker.PROFILE_LABEL_EMAIL,
-                listeners:{
-                    scope:this,
-                    afterrender:this.onLoadFields
-                }
+                xtype: 'formcontainer',
+                modelClassName: 'AliveTracker.model.User',
+                itemId: 'userform',
+                defaultType: 'textfield',
+                items: [
+                    {
+                        fieldLabel: Locales.AliveTracker.PROFILE_LABEL_NAME,
+                        name: 'name'
+                    },
+                    {
+                        fieldLabel: Locales.AliveTracker.PROFILE_LABEL_EMAIL,
+                        name: 'email',
+                        readOnly: true,
+                        listeners: {
+                            scope: this,
+                            afterrender: this.onLoadFields
+                        }
+                    },
+                    {
+                        fieldLabel: Locales.AliveTracker.PASSWORD_VERIFICATION_LABEL_PASSWORD,
+                        name: 'password',
+                        hidden: true,
+                        itemId: 'passwordProfile',
+                        inputType:'password'
+                    }
+                ]
             },
             {
                 xtype: 'button',
@@ -26,13 +39,6 @@ Ext.define('AliveTracker.view.users.UserProfile', {
                     scope:this,
                     click:this.onShowPassword
                 }
-            },
-            {
-                xtype: 'textfield',
-                itemId: 'passwordProfile',
-                hidden: true,
-                fieldLabel: Locales.AliveTracker.PASSWORD_VERIFICATION_LABEL_PASSWORD,
-                inputType:'password'
             },
             {
                 xtype: 'button',

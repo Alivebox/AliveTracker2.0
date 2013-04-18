@@ -8,16 +8,12 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     refs: [
         {
-            ref:'name',
-            selector:'userprofile [itemId=nameProfile]'
+            ref:'userForm',
+            selector:'userprofile [itemId=userform]'
         },
         {
-            ref: 'email',
-            selector: 'userprofile [itemId=emailProfile]'
-        },
-        {
-            ref: 'password',
-            selector: 'userprofile [itemId=passwordProfile]'
+            ref:'password',
+            selector:'userprofile [itemId=passwordProfile]'
         }
     ],
 
@@ -31,18 +27,18 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         });
     },
 
+    tmpUser: null,
+
     onLoadFields: function(){
-        var tmpEmail = this.getEmail();
-        tmpEmail.setValue(Framework.core.SecurityManager.getCurrentUsername());
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
-        var tmpUser = Ext.create('AliveTracker.model.User',{
-            email: tmpEmail
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USER,Framework.core.SecurityManager.getCurrentUsername());
+        this.tmpUser = Ext.create('AliveTracker.model.User',{
+            email: Framework.core.SecurityManager.getCurrentUsername()
         });
-        tmpUser.setProxy({
+        this.tmpUser.setProxy({
             type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.GET_ALL_USERS
+            url: AliveTracker.defaults.WebServices.GET_USER
         })
-        tmpUser.save({
+        this.tmpUser.save({
             scope: this,
             success: this.onLoadSuccess,
             urlOverride: tmpUrl
@@ -50,43 +46,22 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     },
 
     onLoadSuccess: function(argRecord){
-        var tmpName = this.getName();
-        var name = argRecord.getData().name;
-        tmpName.setValue(name);
+        var tmpForm = this.getUserForm();
+        var tmpPasswordField = this.getPassword();
+        tmpForm.loadRecord(this.tmpUser);
+        tmpPasswordField.setValue("");
     },
 
     onSaveUserProfile: function(){
-        //var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
-        var tmpEmail = this.getEmail().value;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
-        var tmpUser = Ext.create('AliveTracker.model.User',{
-            email: tmpEmail
-        });
-        tmpUser.save({
-            scope: this,
-            success: this.onLoginSuccess,
-            urlOverride: tmpUrl
-        });
-    },
-
-    onLoginSuccess: function(argRecord){
-        var tmpPassword = this.getPassword().value;
-        var tmpName = this.getName().value;
-        var tmpEmail = this.getEmail().value;
-        var tmpId = argRecord.getId();
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,tmpId);
-        if(tmpPassword.length > 0){
-            var tmpUser = Ext.create('AliveTracker.model.User',{
-                id: tmpId,
-                email: tmpEmail,
-                name: tmpName
-            });
-        }
-        tmpUser.setProxy({
+        var tmpForm = this.getUserForm();
+        var tmpRecord = tmpForm.getRecord();
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.tmpUser.getData().id);
+        this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+        this.tmpUser.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.UPDATE_USER
         })
-        tmpUser.save({
+        this.tmpUser.save({
             scope: this,
             urlOverride: tmpUrl
         });
