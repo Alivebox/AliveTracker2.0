@@ -71,10 +71,12 @@ Ext.define('Locales.AliveTracker', {
         HOME_LABEL_CANCEL: 'Cancel',
         HOME_LABEL_INSERT: 'Insert',
         HOME_LABEL_MY_GROUPS:'My Groups',
+        HOME_LABEL_GROUPS:'Groups',
         HOME_LABEL_NEW_GROUP:'New Group',
         HOME_LABEL_NEW: 'New',
         HOME_LABEL_BELONG_GROUPS:'Groups I belong to',
         HOME_LABEL_NO_GROUPS: 'No groups created',
+        HOME_LABEL_ACTIONS: 'Actions',
         /**
          * Group Detail View
          */

@@ -1,32 +1,44 @@
 Ext.define('AliveTracker.view.home.HomeBelongGroupsViewer', {
 
-    extend:'Ext.view.View',
-    xtype:'homebelonggroupsviewer',
-    requires : [
-        'Ext.ux.DataView.DragSelector'
-    ],
+    extend:'Ext.grid.Panel',
+    xtype:'homegroupsviewer',
     initComponent: function(){
-        Ext.applyIf(this,{
-            tpl: [
-                '<tpl for=".">',
-                '<div style="margin-bottom: 10px;width: 60px;height: 60px; float: left;" class="thumb-wrap">' +
-                    '<div class="thumb"> ' +
-                    '<img id="{id}" class="belongGroupImage" src="http://src.sencha.io/60/60/{logo_url}" title="{description}"/>' +
-                    '</div>',
-                        '<label for="name">{name}</label>' +
-                    '</div>' +
-                '</tpl>' +
-                    '<div class="x-clear"></div></br></br>'
-            ],
-            itemSelector: 'div.thumb-wrap',
-            emptyText: Locales.AliveTracker.HOME_LABEL_NO_GROUPS,
-            trackOver: true,
-            overItemCls: 'x-item-over',
-            plugins: [
-                Ext.create('Ext.ux.DataView.DragSelector', {})
+        Ext.applyIf(this, {
+            columns:[
+                {
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.HOME_LABEL_BELONG_GROUPS,
+                    sortable:false,
+                    dataIndex:'name'
+                },
+                {
+                    xtype:'actioncolumn',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.HOME_LABEL_ACTIONS,
+                    sortable:false,
+                    align : 'center',
+                    items:[
+                        {
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            handler: function(grid, rowIndex, colIndex) {
+                                Ext.MessageBox.confirm(
+                                    'Confirm',
+                                    Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
+                                    function(argButton){
+                                        if(argButton == 'yes')
+                                        {
+                                            grid.getStore().removeAt(rowIndex);
+                                        }
+                                    },
+                                    this
+                                );
+                            }
+                        }
+                    ]
+                }
             ]
         });
         this.callParent(arguments);
     }
-
 });

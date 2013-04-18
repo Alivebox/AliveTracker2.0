@@ -38,7 +38,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     init:function () {
         this.control({
             'homeview': {
-                onShowCreateNewGroup: this.onCreateNewGroup
+                onShowCreateNewGroup: this.onCreateNewGroup,
+                onShowGroupPage: this.onShowGroupPage,
+                onShowBelongGroupPage: this.onShowBelongGroupPage
             },
             'homegroupsviewer': {
                 afterrender: this.onHomeGroupsAfterRender
@@ -52,6 +54,19 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             }
         });
     },
+
+    onShowGroupPage: function(agrComponent, argRow, argIndex){
+        var tmpModel = argIndex;
+        this.onShowGroupDetailView(tmpModel.getData().id);
+
+    },
+
+    onShowBelongGroupPage: function(agrComponent, argRow, argIndex){
+        var tmpModel = argIndex;
+        this.onShowBelongGroupDetailView(tmpModel.getData().id);
+
+    },
+
 
     onHomeGroupsInfoLoad:function () {
         var tmpGroupsDTO = Ext.getStore('GroupsDTO');
@@ -80,9 +95,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
     onHomeGroupsAfterRender: function(agrAbstractComponent){
         this.onHomeGroupsInfoLoad();
-        var tmpEl = agrAbstractComponent.getEl();
-        tmpEl.on('click', this.onConfirmDeleteDialog, this, {delegate: '.deleteGroup'});
-        tmpEl.on('click', this.onShowGroupDetailView, this, {delegate: '.groupImage'});
     },
 
     onHomeBelongGroupsAfterRender: function(agrAbstractComponent){
@@ -91,9 +103,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         tmpEl.on('click', tmpMe.onShowBelongGroupDetailView, tmpMe, {delegate: '.belongGroupImage'});
     },
 
-    onShowGroupDetailView: function(agrAbstractComponent, argElement){
+    onShowGroupDetailView: function(argElement){
         this.selectedGroupElement = argElement;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,this.selectedGroupElement.id);
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,this.selectedGroupElement);
         var tmpProjectStore = Ext.getStore('Projects');
         tmpProjectStore.load({
                 scope: this,
@@ -107,14 +119,14 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         if( !argSuccess){
             return;
         }
-        Ext.state.Manager.set('groupId',this.selectedGroupElement.id);
+        Ext.state.Manager.set('groupId',this.selectedGroupElement);
         this.navigateToGroupView('Groups', this.selectedGroupElement);
     },
 
     /**
      * Show GroupDetailView when user click on the imagen in home
      * */
-    onShowBelongGroupDetailView: function(agrAbstractComponent, argElement){
+    onShowBelongGroupDetailView: function(argElement){
         this.navigateToGroupView('BelongGroups', argElement);
     },
 
@@ -124,7 +136,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * */
     navigateToGroupView: function(agrStore, argElement){
         var tmpGroupsStore = Ext.getStore(agrStore);
-        var tmpModel = tmpGroupsStore.findRecord('id', argElement.getAttribute('id'));
+        var tmpModel = tmpGroupsStore.findRecord('id', argElement);
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 

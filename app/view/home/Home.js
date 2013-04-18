@@ -4,59 +4,41 @@ Ext.define('AliveTracker.view.home.Home', {
     xtype:'homeview',
 
     initComponent:function () {
-        var tmpMyGroupsHeader = this.getMyGroupsHeader();
         var tmpGroupsViewer = this.getGroupsViewer();
-        var tmpBelongGroups = this.getBelongGroupsHeader();
         var tmpBelongGroupsViewer = this.getBelongGroupsViewer();
         this.items = [
-            tmpMyGroupsHeader,
-            tmpGroupsViewer,
-            tmpBelongGroups,
-            tmpBelongGroupsViewer
+            {
+                xtype:'label',
+                text: Locales.AliveTracker.HOME_LABEL_GROUPS
+            },
+            {
+                xtype:'container',
+                layout: 'hbox',
+                items: [
+                    tmpGroupsViewer,
+                    tmpBelongGroupsViewer
+                ]
+            },
+            {
+                xtype:'button',
+                text:Locales.AliveTracker.HOME_LABEL_NEW,
+                listeners: {
+                    scope: this,
+                    click: 'onCreateNewGroup'
+                }
+            }
         ];
         this.callParent(arguments);
-    },
-
-    getMyGroupsHeader:function () {
-        var tmpMyGroupsHeader = {
-            xtype:'container',
-            layout:'column',
-            items:[
-                {
-                    xtype:'label',
-                    text: Locales.AliveTracker.HOME_LABEL_MY_GROUPS
-                },
-                {
-                    xtype:'button',
-                    text:Locales.AliveTracker.HOME_LABEL_NEW,
-                    listeners: {
-                        scope: this,
-                        click: 'onCreateNewGroup'
-                    }
-                }
-            ]
-        };
-        return tmpMyGroupsHeader;
-    },
-
-    getBelongGroupsHeader:function () {
-        var tmpBelongGroupsHeader = {
-            xtype:'container',
-            layout:'column',
-            items:[
-                {
-                    xtype:'label',
-                    text: Locales.AliveTracker.HOME_LABEL_BELONG_GROUPS
-                }
-            ]
-        };
-        return tmpBelongGroupsHeader;
     },
 
     getGroupsViewer:function () {
         var tmpGroupsViewer = {
             xtype: 'homegroupsviewer',
-            store: 'Groups'
+            store:'Groups',
+            listeners: {
+                scope: this,
+                select: 'onSelectRow'
+            }
         };
         return tmpGroupsViewer;
     },
@@ -64,13 +46,25 @@ Ext.define('AliveTracker.view.home.Home', {
     getBelongGroupsViewer:function () {
         var tmpBelongGroupsViewer = {
             xtype: 'homebelonggroupsviewer',
-            store: 'BelongGroups'
+            store: 'BelongGroups',
+            listeners: {
+                scope: this,
+                select: 'onSelectRowBelongGroups'
+            }
         };
         return tmpBelongGroupsViewer;
     },
 
     onCreateNewGroup: function() {
         this.fireEvent('onShowCreateNewGroup', this);
+    },
+
+    onSelectRow: function(agrComponent, record, index) {
+        this.fireEvent('onShowGroupPage',this, agrComponent, record, index);
+    },
+
+    onSelectRowBelongGroups: function(agrComponent, record, index) {
+        this.fireEvent('onShowBelongGroupPage',this, agrComponent, record, index);
     }
 
 });
