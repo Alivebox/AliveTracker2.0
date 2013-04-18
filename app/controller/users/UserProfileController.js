@@ -47,29 +47,30 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onLoadSuccess: function(argRecord){
         var tmpForm = this.getUserForm();
-        var tmpPasswordField = this.getPassword();
         tmpForm.loadRecord(this.tmpUser);
-        tmpPasswordField.setValue("");
     },
 
     onSaveUserProfile: function(){
         var tmpForm = this.getUserForm();
-        var tmpRecord = tmpForm.getRecord();
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.tmpUser.getData().id);
-        this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
-        this.tmpUser.setProxy({
-            type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.UPDATE_USER
-        })
-        this.tmpUser.save({
-            scope: this,
-            urlOverride: tmpUrl
-        });
+        if( tmpForm.isValid() ){
+            var tmpRecord = tmpForm.getRecord();
+            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.tmpUser.getData().id);
+            this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+            this.tmpUser.setProxy({
+                type: 'restproxy',
+                url: AliveTracker.defaults.WebServices.UPDATE_USER
+            })
+            this.tmpUser.save({
+                scope: this,
+                urlOverride: tmpUrl
+            });
+        }
     },
 
     onShowPasswordField: function(){
         var tmpPasswordField = this.getPassword();
         tmpPasswordField.setVisible(true);
+        tmpPasswordField.setValue("");
     }
 
 });

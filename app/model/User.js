@@ -36,12 +36,7 @@ Ext.define('AliveTracker.model.User', {
             type: 'length',
             field: 'password',
             min: 8,
-            message: 'First name must be at least 8 characters'
-        },
-        {
-            type: 'presence',
-            field: 'password',
-            message: 'Password is required'
+            message: 'Password must be at least 8 characters'
         }
     ],
 
