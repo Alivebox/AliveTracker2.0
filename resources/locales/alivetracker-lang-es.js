@@ -103,11 +103,13 @@ Ext.define('Locales.AliveTracker', {
          * Success Messages
          */
         SUCCESS_MESSAGE: 'Éxito',
+        SUCCESS_SAVE_GROUP: 'Grupo guardado',
         /**
          * Warning Messages
          */
         WARNING_MESSAGE: 'Advertencia',
         NO_DATA_TO_SAVE: 'No hay datos para guardar',
+        USER_EXISTS: 'Usuario ya asignado al grupo',
         /**
          * AddUsersGroup View
          */

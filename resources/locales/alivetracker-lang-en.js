@@ -31,8 +31,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Password Verification  View
          */
-        PROFILE_LABEL_EMAIL: 'Email',
-        PROFILE_LABEL_NAME: 'Name',
+   ROFILE_LABEL_NAME: 'Name',
         PROFILE_LABEL_PASSWORD: 'Password',
         /**
          * Register  View
@@ -52,14 +51,8 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_DAY_DATERANGE_DESCRIPTION: 'Last day',
         REPORTS_LAST_SEVEN_DAYS_DATERANGE_DESCRIPTION: 'Last 7 days',
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
-        REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Last month',
-        REPORTS_LABEL_EXPORT: 'Export',
+        REPORTS_LAST_MONTH_DATERAORTS_LABEL_EXPORT: 'Export',
         REPORTS_LABEL_PREVIEW: 'Preview',
-        /**
-         * Header View
-         */
-        HEADER_USER_PROFILE: 'User Profile',
-        HEADER_LOG_OUT: 'Logout',
         /**
          * Home View
          */
@@ -76,7 +69,6 @@ Ext.define('Locales.AliveTracker', {
         HOME_LABEL_NEW: 'New',
         HOME_LABEL_BELONG_GROUPS:'Groups I belong to',
         HOME_LABEL_NO_GROUPS: 'No groups created',
-        HOME_LABEL_ACTIONS: 'Actions',
         /**
          * Group Detail View
          */
@@ -104,15 +96,13 @@ Ext.define('Locales.AliveTracker', {
          * Success Messages
          */
         SUCCESS_MESSAGE: 'Success',
+        SUCCESS_SAVE_GROUP: 'Group Saved',
         /**
          * Warning Messages
          */
         WARNING_MESSAGE: 'Warning',
         NO_DATA_TO_SAVE: 'No data to save',
-        /**
-         * AddUsersGroup View
-         */
-        ADD_USERS_GROUP_LABEL_ADD_USER: 'Add User',
+        USER_EXISTS: 'User already assigned to this group',
         /**
          * Projects View
          */

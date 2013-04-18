@@ -146,7 +146,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         }
         else
         {
-            alert('This user is already assigned to this project')
+            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.USER_EXISTS);
         }
     },
 
