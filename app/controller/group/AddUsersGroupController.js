@@ -146,7 +146,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         }
         else
         {
-            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.USER_EXISTS);
+        Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.USER_EXISTS);
         }
     },
 
@@ -178,5 +178,6 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
             url: AliveTracker.defaults.WebServices.UPDATE_GROUP_USER
         });
         this.getUsersGrid().cbUserGridRoles.clear;
+        Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SAVE_GROUP);
     }
 });

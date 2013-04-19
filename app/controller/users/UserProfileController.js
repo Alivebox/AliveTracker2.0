@@ -64,6 +64,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
                 scope: this,
                 urlOverride: tmpUrl
             });
+            Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SAVE_PROFILE);
         }
     },
 

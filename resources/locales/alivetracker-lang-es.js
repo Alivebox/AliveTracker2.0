@@ -104,6 +104,7 @@ Ext.define('Locales.AliveTracker', {
          */
         SUCCESS_MESSAGE: 'Éxito',
         SUCCESS_SAVE_GROUP: 'Grupo guardado',
+        SUCCESS_SAVE_PROFILE: 'Perfil Guardado',
         /**
          * Warning Messages
          */
