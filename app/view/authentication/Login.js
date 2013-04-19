@@ -31,8 +31,6 @@ Ext.define('AliveTracker.view.authentication.Login', {
                     {
                         xtype:'button',
                         text:Locales.AliveTracker.LOGIN_LABEL_LOGIN,
-                        formBind: true,
-                        disabled: true,
                         listeners:{
                             scope:this,
                             click:this.onLoginClick
