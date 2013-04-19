@@ -60,7 +60,7 @@ Ext.define('AliveTracker.view.users.UserProfile', {
         this.fireEvent('editProfile');
     },
 
-    onShowPassword:function () {
-        this.fireEvent('showPasswordField');
+    onShowPassword:function (tmpButton) {
+        this.fireEvent('showPasswordField', tmpButton);
     }
 });

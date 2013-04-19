@@ -52,10 +52,13 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onSaveUserProfile: function(){
         var tmpForm = this.getUserForm();
+        var tmpPasswordField = this.getPassword();
         if( tmpForm.isValid() ){
             var tmpRecord = tmpForm.getRecord();
             var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.tmpUser.getData().id);
-            this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+            if(!tmpPasswordField.isHidden()){
+                this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+            }
             this.tmpUser.setProxy({
                 type: 'restproxy',
                 url: AliveTracker.defaults.WebServices.UPDATE_USER
@@ -68,7 +71,8 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         }
     },
 
-    onShowPasswordField: function(){
+    onShowPasswordField: function(tmpButton){
+        tmpButton.setVisible(false);
         var tmpPasswordField = this.getPassword();
         tmpPasswordField.setVisible(true);
         tmpPasswordField.setValue("");
