@@ -5,6 +5,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         USER_AUTHENTICATION: '/ws/alivews/main/',
         USER_FORGOT_PASSWORD: '/ws/alivews/main/forgotPassword/',
         USER_RESET_PASSWORD: '/ws/alivews/main/resetPassword/',
+        USER_LOG_OUT: '/ws/alivews/main/logout/',
         GET_USER_AUTH: '/ws/alivews/main/user/',
         GET_USERS_GROUP: '/ws/alivews/users/group/{0}',
         GET_USERS_GROUP_AND_PROJECT: '/ws/alivews/main/user/group/{0}/project/{1}',
