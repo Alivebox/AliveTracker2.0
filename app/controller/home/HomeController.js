@@ -120,7 +120,17 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             return;
         }
         Ext.state.Manager.set('groupId',this.selectedGroupElement);
+        this.onLoadUsersGroup();
         this.navigateToGroupView('Groups', this.selectedGroupElement);
+    },
+
+    onLoadUsersGroup: function(){
+        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
     },
 
     /**

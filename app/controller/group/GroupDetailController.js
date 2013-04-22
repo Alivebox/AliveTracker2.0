@@ -104,9 +104,15 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     createProjectPopUp: function(argTitle){
-    this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-    this.addProjectPopup.title = argTitle;
-    this.addProjectPopup.show();
-    return this.addProjectPopup;
+        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
+        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+        this.addProjectPopup.title = argTitle;
+        this.addProjectPopup.show();
+        return this.addProjectPopup;
     }
 });
