@@ -20,13 +20,8 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     xtype:'gridcolumn',
                     menuDisabled:true,
                     align:'center',
-                    text:Locales.AliveTracker.GROUP_PROJECT_LABEL_MEMBERS
-                },
-                {
-                    xtype:'gridcolumn',
-                    menuDisabled:true,
-                    align:'center',
-                    text:Locales.AliveTracker.GROUP_PROJECT_LABEL_CREATED
+                    text:Locales.AliveTracker.GROUP_PROJECT_LABEL_CREATED,
+                    dataIndex:'created'
                 },
                 {
                     xtype:'actioncolumn',
