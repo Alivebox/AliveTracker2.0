@@ -14,8 +14,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         this.control({
             'loginform':{
                 beforerender: this.onBeforeRender,
-                login:this.onLoginAction,
-                showForgotPassword:this.onNavigateToForgotPasswordView
+                login:this.onLoginAction
             }
         });
     },
@@ -70,8 +69,10 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         return argUser;
     },
 
-    onNavigateToForgotPasswordView:function () {
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'forgotPasswordPage');
-    }
+//    onShowForgotPasswordPopup:function () {
+//        this.forgotPasswordPopup = Ext.create('AliveTracker.view.authentication.ForgotPassword');
+//        this.forgotPasswordPopup.title = Locales.AliveTracker.FORGOT_PASSWORD_LABEL;
+//        this.forgotPasswordPopup.show();
+//    }
 
 });
