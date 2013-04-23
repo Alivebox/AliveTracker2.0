@@ -36,6 +36,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         {
             ref:'projectModelForm',
             selector:'assignuserstoprojectsview form[name=projectModelForm]'
+        },
+        {
+            ref:'usersTab',
+            selector:'groupdetailform [itemId=usersTab]'
+        },
+        {
+            ref:'GroupTab',
+            selector:'groupdetailform [itemId=GroupTab]'
         }
     ],
 

@@ -36,7 +36,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         });
         this.currentUser.setProxy({
             type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.GET_USER
+            url: AliveTracker.defaults.WebServices.GET_ALL_USERS
         })
         this.currentUser.save({
             scope: this,

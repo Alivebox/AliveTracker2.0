@@ -7,6 +7,7 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
         this.items = [
             {
                 xtype: 'tabcontainer',
+                itemId: 'GroupTab',
                 items: [
                     {
                         xtype:'logbook',
