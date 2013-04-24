@@ -7,3 +7,6 @@ $theme-name: 'theme';
 @import 'ext4/default/all';
 @import 'views/main/defaults';
 @import 'views/authentication/loginregister';
+@import 'views/header/header';
+@import 'views/home/home';
+@import 'views/home/homeBelongGroups';

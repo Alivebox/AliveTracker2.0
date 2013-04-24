@@ -2,24 +2,28 @@ Ext.define('AliveTracker.view.header.HeaderView', {
 
     extend: 'Ext.Container',
     xtype: 'headerview',
-
+    cls: 'header',
     initComponent: function() {
         this.items = [
             {
                 xtype: 'button',
-                text: Locales.AliveTracker.HEADER_USER_PROFILE,
+                cls:'logout-btn',
+                listeners: {
+                    scope: this,
+                    click: this.onLogout
+                }
+            },
+            {
+                xtype: 'button',
+                cls:'profile-btn',
                 listeners: {
                     scope: this,
                     click: this.onUserProfile
                 }
             },
             {
-                xtype: 'button',
-                text: Locales.AliveTracker.HEADER_LOG_OUT,
-                listeners: {
-                    scope: this,
-                    click: this.onLogout
-                }
+                xtype:'image',
+                cls:'logo'
             }
         ];
         this.callParent(arguments);

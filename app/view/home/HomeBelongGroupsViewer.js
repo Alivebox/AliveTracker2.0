@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.home.HomeBelongGroupsViewer', {
 
     extend:'Ext.grid.Panel',
     xtype:'homegroupsviewer',
+    cls:'homeBelongGroups',
     initComponent: function(){
         Ext.applyIf(this, {
             columns:[

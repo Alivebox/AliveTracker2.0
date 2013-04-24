@@ -20,7 +20,6 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
     },
 
     logout: function(){
-        debugger;
         var tmpUser = Ext.create('AliveTracker.model.authentication.LoginUser');
         tmpUser.save({
             scope: this,

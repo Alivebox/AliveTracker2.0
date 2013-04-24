@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.home.Home', {
 
     extend:'Ext.container.Container',
     xtype:'homeview',
+    cls:'home',
 
     initComponent:function () {
         var tmpGroupsViewer = this.getGroupsViewer();
@@ -9,7 +10,8 @@ Ext.define('AliveTracker.view.home.Home', {
         this.items = [
             {
                 xtype:'label',
-                text: Locales.AliveTracker.HOME_LABEL_GROUPS
+                text: Locales.AliveTracker.HOME_LABEL_GROUPS,
+                cls:'home-title'
             },
             {
                 xtype:'container',
@@ -22,6 +24,7 @@ Ext.define('AliveTracker.view.home.Home', {
             {
                 xtype:'button',
                 text:Locales.AliveTracker.HOME_LABEL_NEW,
+                cls:'all-views-button',
                 listeners: {
                     scope: this,
                     click: 'onCreateNewGroup'
