@@ -3,6 +3,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Forgot Password View
          */
+        FORGOT_PASSWORD_LABEL: 'Olvidé mi contraseña',
         FORGOT_PASSWORD_LABEL_MAIL: 'Email',
         FORGOT_PASSWORD_LABEL_RESET_INSTRUCTION:'Enviarme las instrucciones para restaurar contraseña',
         /**

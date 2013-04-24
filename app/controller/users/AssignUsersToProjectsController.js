@@ -76,8 +76,8 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         }
         else {
             var tmpGroupUsers = Ext.getStore('GroupUsers');
-            for(var tmpCont=0; tmpCont < tmpGroupUsers.data.items.length; tmpCont++){
-                var tmpUser = tmpGroupUsers.data.items[tmpCont].data;
+            for(var tmpCont=0; tmpCont < tmpGroupUsers.getCount(); tmpCont++){
+                var tmpUser = tmpGroupUsers.getAt(tmpCont);
                 tmpProjectUsers.add(tmpUser);
                 tmpProjectUsers.commitChanges();
             }

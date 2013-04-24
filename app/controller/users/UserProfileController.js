@@ -27,18 +27,18 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         });
     },
 
-    tmpUser: null,
+    currentUser: null,
 
     onLoadFields: function(){
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USER,Framework.core.SecurityManager.getCurrentUsername());
-        this.tmpUser = Ext.create('AliveTracker.model.User',{
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
+        this.currentUser = Ext.create('AliveTracker.model.User',{
             email: Framework.core.SecurityManager.getCurrentUsername()
         });
-        this.tmpUser.setProxy({
+        this.currentUser.setProxy({
             type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.GET_USER
+            url: AliveTracker.defaults.WebServices.GET_ALL_USERS
         })
-        this.tmpUser.save({
+        this.currentUser.save({
             scope: this,
             success: this.onLoadSuccess,
             urlOverride: tmpUrl
@@ -47,7 +47,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onLoadSuccess: function(argRecord){
         var tmpForm = this.getUserForm();
-        tmpForm.loadRecord(this.tmpUser);
+        tmpForm.loadRecord(this.currentUser);
     },
 
     onSaveUserProfile: function(){
@@ -55,15 +55,15 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         var tmpPasswordField = this.getPassword();
         if( tmpForm.isValid() ){
             var tmpRecord = tmpForm.getRecord();
-            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.tmpUser.getData().id);
+            var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.currentUser.getData().id);
             if(!tmpPasswordField.isHidden()){
-                this.tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+                this.currentUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
             }
-            this.tmpUser.setProxy({
+            this.currentUser.setProxy({
                 type: 'restproxy',
                 url: AliveTracker.defaults.WebServices.UPDATE_USER
             })
-            this.tmpUser.save({
+            this.currentUser.save({
                 scope: this,
                 urlOverride: tmpUrl
             });

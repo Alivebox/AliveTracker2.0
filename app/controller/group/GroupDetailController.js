@@ -36,6 +36,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         {
             ref:'projectModelForm',
             selector:'assignuserstoprojectsview form[name=projectModelForm]'
+        },
+        {
+            ref:'usersTab',
+            selector:'groupdetailform [itemId=usersTab]'
+        },
+        {
+            ref:'GroupTab',
+            selector:'groupdetailform [itemId=GroupTab]'
         }
     ],
 
@@ -104,9 +112,15 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     createProjectPopUp: function(argTitle){
-    this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-    this.addProjectPopup.title = argTitle;
-    this.addProjectPopup.show();
-    return this.addProjectPopup;
+        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
+        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
+        this.addProjectPopup.title = argTitle;
+        this.addProjectPopup.show();
+        return this.addProjectPopup;
     }
 });

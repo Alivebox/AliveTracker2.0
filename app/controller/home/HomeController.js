@@ -43,7 +43,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
                 onShowBelongGroupPage: this.onShowBelongGroupPage
             },
             'homegroupsviewer': {
-                afterrender: this.onHomeGroupsAfterRender
+                afterrender: this.onHomeGroupsAfterRender,
+                onDeleteGroup: this.onConfirmDeleteDialog
             },
             'homebelonggroupsviewer': {
                 afterrender: this.onHomeBelongGroupsAfterRender
@@ -135,34 +136,71 @@ Ext.define("AliveTracker.controller.home.HomeController", {
      * Parameter defines the store that you want to extract the model
      * */
     navigateToGroupView: function(agrStore, argElement){
+        this.onLoadUsersGroup();
+        this.onLoadRolesStore();
+        this.onGetPermissions();
         var tmpGroupsStore = Ext.getStore(agrStore);
         var tmpModel = tmpGroupsStore.findRecord('id', argElement);
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 
-    onDeleteGroup: function(argElement){
-        var tmpGroupStore = Ext.getStore('Groups');
-        var tmpGroup = tmpGroupStore.findRecord('id', argElement.getAttribute('id'));
+    onLoadUsersGroup: function(){
+        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
+    },
+
+    onLoadRolesStore: function(){
+        var tmpRoleStore = Ext.getStore('Roles');
+        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
+        tmpRoleStore.load({
+            scope: this,
+            urlOverride: tmpUrlOverride
+        });
+    },
+
+    onGetPermissions: function(){
+        var tmpPermissionsArray = [];
+        var tmpGroupsStore = Ext.getStore('Groups');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
+        tmpGroupsStore.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS
+        });
+        tmpGroupsStore.load({
+            scope: this,
+            urlOverride:  tmpUrl
+        });
+    },
+
+
+    onDeleteGroup: function(argGroupId,argStore){
+        var tmpGroupStore = Ext.getStore(argStore);
+        var tmpGroup = tmpGroupStore.findRecord('id', argGroupId);
         tmpGroup.setProxy({
             type: 'restproxy',
-            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argGroupId)
         });
         tmpGroup.destroy({
             scope: this,
-            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argElement.getAttribute('id'))
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argGroupId)
         });
-        tmpGroupStore.removeAt(tmpGroupStore.find('id', argElement.getAttribute('id')));
+        tmpGroupStore.removeAt(tmpGroupStore.find('id', argGroupId));
         tmpGroupStore.commitChanges();
     },
 
-    onConfirmDeleteDialog: function(argEvent, argElement) {
+    onConfirmDeleteDialog: function(argRowIndex,argStore) {
+        var tmpGroupId = Ext.getStore(argStore).getAt(argRowIndex).get('id');
         Ext.MessageBox.confirm(
             'Confirm',
             Locales.AliveTracker.HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE,
             function(argButton){
                 if(argButton == 'yes')
                 {
-                    this.onDeleteGroup(argElement)
+                    this.onDeleteGroup(tmpGroupId,argStore)
                 }
             },
             this
@@ -183,20 +221,23 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     saveGroup: function(argEvent){
-        var tmpForm = argEvent.getComponent(0).getComponent(0).items.items;
         var tmpGroupModel = this.onCreateModelFromGroupModelValues();
-        var tmpGroupStore = Ext.getStore('Groups');
         tmpGroupModel.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_GROUP
         });
         tmpGroupModel.save({
             scope: this,
-            urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP
+            urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
+            success: this.saveGroupCallback
         });
-        tmpGroupStore.add(tmpGroupModel);
-        tmpGroupStore.commitChanges();
         this.closeWindows(argEvent);
+    },
+
+    saveGroupCallback: function(argRecord){
+        var tmpGroupStore = Ext.getStore('Groups');
+        tmpGroupStore.add(argRecord);
+        tmpGroupStore.commitChanges();
     },
 
     onCreateGroupResult: function(argRecords,argOperation,argSuccess){

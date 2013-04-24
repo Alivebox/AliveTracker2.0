@@ -21,18 +21,9 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            scope: this,
                             handler: function(grid, rowIndex, colIndex) {
-                                Ext.MessageBox.confirm(
-                                    'Confirm',
-                                    Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function(argButton){
-                                        if(argButton == 'yes')
-                                        {
-                                            grid.getStore().removeAt(rowIndex);
-                                        }
-                                    },
-                                    this
-                                );
+                                 this.onDeleteGroup(rowIndex,this.getStore());
                             }
                         }
                     ]
@@ -40,6 +31,10 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
             ]
         });
         this.callParent(arguments);
+    },
+
+    onDeleteGroup: function(argRowIndex,argStore){
+        this.fireEvent('onDeleteGroup', argRowIndex,argStore);
     }
 });
 

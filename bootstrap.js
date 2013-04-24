@@ -386,7 +386,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.ux.event.Maker": [],
   "Ext.ux.DataView.Draggable": [],
   "AliveTracker.view.authentication.ForgotPassword": [
-    "widget.forgotpasswordform"
+    "widget.forgotpasswordpopup"
   ],
   "Ext.ux.TabCloseMenu": [
     "plugin.tabclosemenu"
