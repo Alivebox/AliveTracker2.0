@@ -221,20 +221,23 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     saveGroup: function(argEvent){
-        var tmpForm = argEvent.getComponent(0).getComponent(0).items.items;
         var tmpGroupModel = this.onCreateModelFromGroupModelValues();
-        var tmpGroupStore = Ext.getStore('Groups');
         tmpGroupModel.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_GROUP
         });
         tmpGroupModel.save({
             scope: this,
-            urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP
+            urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
+            success: this.saveGroupCallback
         });
-        tmpGroupStore.add(tmpGroupModel);
-        tmpGroupStore.commitChanges();
         this.closeWindows(argEvent);
+    },
+
+    saveGroupCallback: function(argRecord){
+        var tmpGroupStore = Ext.getStore('Groups');
+        tmpGroupStore.add(argRecord);
+        tmpGroupStore.commitChanges();
     },
 
     onCreateGroupResult: function(argRecords,argOperation,argSuccess){
