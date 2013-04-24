@@ -3,14 +3,15 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     extend: "Ext.app.Controller",
 
     views: [
-        'authentication.ForgotPassword'
+        'authentication.ForgotPassword',
+        'authentication.Login'
     ],
 
     refs: [
 
         {
             ref: 'email',
-            selector: 'forgotpasswordform [itemId=emailForgotPasswordView]'
+            selector: 'forgotpasswordpopup [itemId=emailForgotPasswordView]'
         }
     ],
     /**
@@ -18,9 +19,12 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
      */
     init: function(){
         this.control({
-            'forgotpasswordform': {
+            'forgotpasswordpopup': {
                 sendResetInstructions: this.onSendResetInstructions
 
+            },
+            'loginform':{
+                showForgotPassword:this.onShowForgotPasswordPopup
             }
         });
     },
@@ -37,5 +41,11 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     onSendResetInstructionsResult: function(argRecord){
         Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_EMAIL_INSTRUCTION);
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'loginPage');
+        this.forgotPasswordPopup.hide();
+    },
+    onShowForgotPasswordPopup:function () {
+        this.forgotPasswordPopup = Ext.create('AliveTracker.view.authentication.ForgotPassword');
+        this.forgotPasswordPopup.title = Locales.AliveTracker.FORGOT_PASSWORD_LABEL;
+        this.forgotPasswordPopup.show();
     }
 });

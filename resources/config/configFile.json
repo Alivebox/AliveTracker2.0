@@ -26,11 +26,6 @@
                 "hideHeader": true
             },
             {
-                "name": "forgotPasswordPage",
-                "package": "AliveTracker.view.authentication.ForgotPassword",
-                "hideHeader": true
-            },
-            {
                 "name": "resetPasswordPage",
                 "package": "AliveTracker.view.authentication.ResetPassword",
                 "hideHeader": true
