@@ -24,6 +24,7 @@ Ext.define('AliveTracker.view.home.Home', {
             {
                 xtype:'button',
                 text:Locales.AliveTracker.HOME_LABEL_NEW,
+                cls:'all-views-button',
                 listeners: {
                     scope: this,
                     click: 'onCreateNewGroup'
