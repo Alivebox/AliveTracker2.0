@@ -15,10 +15,6 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         {
             ref: 'password',
             selector: 'registerform [itemId=passwordRegister]'
-        },
-        {
-            ref:'newsletterselected',
-            selector:'registerform [itemId=newsletterSelectedRegister]'
         }
     ],
 
@@ -39,9 +35,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     onRegisterAction:function () {
         var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
         var tmpEmail = this.getEmail().value;
-        var tmpNewsletterSelected = this.getNewsletterselected().value;
-
-        var tmpNewUsersStore = Ext.getStore('NewUsers');
+        var tmpNewUsersStore = Ext.getStore('users.NewUsers');
         var tmpUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
             email: tmpEmail,
             password: tmpPassword
