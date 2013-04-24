@@ -1,0 +1,63 @@
+@import '../main/defaults.scss';
+
+.loginregister-view-main-container {
+  background-color: $loginbackgroundcolor;
+  width: 100%;
+  height: 1200px;
+}
+
+.loginregister-view {
+  background-image: url(../images/SignIn-bgr.png);
+  background-repeat: no-repeat;
+  width: 64%;
+  align: 'center';
+  height: 514px;
+  margin-left: 18%;
+}
+
+.loginregister-forms {
+  color: $formsfontcolor;
+  background-image: none;
+  background-color: $loginbackgroundcolor;
+  border-radius: 4px;
+}
+
+.login-view-container{
+  margin-left: 38.3%;
+  margin-top: 49px;
+}
+
+.loginregister-field{
+  width: 34%;
+}
+
+.loginregister-field .x-form-item-body input{
+  height: 30px;
+}
+
+.loginregister-short-field{
+  width: 0.932%;
+}
+
+.loginregister-short-field .x-form-item-body input{
+  height: 30px;
+}
+
+.loginregister-elements{
+  margin-top: 8px;
+}
+
+.loginregister-button{
+  border-radius: 4px;
+  border-color: $buttonbordercolor;
+  margin-left: 5px;
+  height: 30px;
+  background: $buttonbackgroundcolor;
+  color: white;
+}
+
+.loginregister-button .x-btn-center span {
+  color: $whitetextcolor;
+  font-weight:900;
+  font-size: 12px;
+}

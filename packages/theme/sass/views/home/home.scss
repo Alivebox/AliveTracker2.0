@@ -1,0 +1,14 @@
+@import '../main/defaults.scss';
+
+.home {
+  margin: 10px;
+  padding: 15px;
+  border-color: $panelbordercolor;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.home-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
