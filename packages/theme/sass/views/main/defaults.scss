@@ -1,5 +1,23 @@
 $loginbackgroundcolor: #222222;
-$buttonbackgroundcolor: #8CA33A;
+$buttonbordercolor: #728336;
 $whitetextcolor: #FFFFFF;
+$formsbackgroundcolor: #DDDCD6;
 $formsfontcolor: #666666;
-$txtfontcolor: #989899;
+$labelfontcolor: #A8A8A8;
+$linkfontcolor: #8F8F8F;
+
+.all-views-button{
+  border-radius: 4px;
+  border-color: $buttonbordercolor;
+  margin-left: 5px;
+  height: 30px;
+  background: -moz-linear-gradient(top,  #a5be4e 1%, #8ca33a 50%, #8ca33a 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top,  #a5be4e 1%,#8ca33a 50%,#8ca33a 100%); /* Chrome10+,Safari5.1+ */
+
+}
+
+.all-views-button .x-btn-center span {
+  color: $whitetextcolor;
+  font-weight:900;
+  font-size: 12px;
+}
