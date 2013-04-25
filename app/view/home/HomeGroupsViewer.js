@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
 
     extend:'Ext.grid.Panel',
     xtype:'homegroupsviewer',
+    cls:'homeGroups',
     initComponent: function(){
         Ext.applyIf(this, {
             columns:[
@@ -20,7 +21,6 @@ Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             scope: this,
                             handler: function(grid, rowIndex, colIndex) {
                                  this.onDeleteGroup(rowIndex,this.getStore());
