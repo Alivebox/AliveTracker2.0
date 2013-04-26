@@ -2,12 +2,14 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
 
     extend: 'Ext.Container',
     xtype: 'groupdetailform',
+    cls:'groupDetail',
 
     initComponent: function(){
         this.items = [
             {
                 xtype: 'tabcontainer',
                 itemId: 'GroupTab',
+                cls:'groupTab',
                 items: [
                     {
                         xtype:'logbook',

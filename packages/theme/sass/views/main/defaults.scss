@@ -1,3 +1,4 @@
+$defaultbackgroundcolor: #FFFFFF;
 $loginbackgroundcolor: #222222;
 $buttonbackgroundcolor: #8CA33A;
 $buttonheaderbackgroundcolor: #4A4A4A;
@@ -24,6 +25,7 @@ $grid-header-color: #fff;
 $font-family: "Helvetica Neue", Arial, Verdana, sans-serif !default;
 $supports-gradients: true !default;
 $grid-header-background-gradient: 'glossy';
+$background-main-container: #F0F0F0;
 
 .all-views-button{
   border-radius: 4px;
@@ -40,10 +42,6 @@ $grid-header-background-gradient: 'glossy';
   font-size: 12px;
 }
 
-.all-views-table {
-
-}
-
 .x-form-invalid-field, textarea.x-form-invalid-field  {
   border-color: #CC3300;
 }
@@ -51,4 +49,10 @@ $grid-header-background-gradient: 'glossy';
 .x-border-box .x-form-text{
   height: 30px;
 }
+
+.main-container {
+  background-color: $background-main-container;
+}
+
+
 
