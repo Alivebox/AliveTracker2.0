@@ -37,14 +37,9 @@
 }
 
 .groupTab .x-toolbar .x-over{
-  background: #c0de59; /* Old browsers */
-  background: -moz-linear-gradient(top,  #c0de59 0%, #acbc71 0%, #92ab3c 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c0de59), color-stop(0%,#acbc71), color-stop(100%,#92ab3c)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #c0de59 0%,#acbc71 0%,#92ab3c 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #c0de59 0%,#acbc71 0%,#92ab3c 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #c0de59 0%,#acbc71 0%,#92ab3c 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #c0de59 0%,#acbc71 0%,#92ab3c 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0de59', endColorstr='#92ab3c',GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, #a4be07 32%, #7aa10c 57%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a4be07), color-stop(57%, #7aa10c)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a4be07 32%, #7aa10c 57%); /* Chrome10+,Safari5.1+ */
 }
 
 .groupTab .x-toolbar .x-btn .x-btn-inner{
