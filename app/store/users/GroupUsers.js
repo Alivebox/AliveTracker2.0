@@ -1,8 +1,8 @@
-Ext.define('AliveTracker.store.GroupUsers', {
+Ext.define('AliveTracker.store.users.GroupUsers', {
 
     extend: 'Ext.data.Store',
     autoLoad: false,
-    model: 'AliveTracker.model.User',
+    model: 'AliveTracker.model.users.User',
 
     proxy: {
         type: 'restproxy',

@@ -10,17 +10,9 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         'users.UsersList'
     ],
     insert: true,
-    models:[
-        'User',
-        'Role'
-    ],
 
     stores:[
-        'Users',
-        'Roles',
-        'AssignedUsers',
-        'ProjectDetails',
-        'ProjectUsers'
+        'projects.ProjectDetails'
     ],
 
     refs:[
@@ -60,11 +52,11 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onLoadAssignUsersStore: function(){
-        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
         tmpAssignedUsersStore.removeAll();
-        var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
+        var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
         tmpProjectDetailStore.removeAll();
-        var tmpProjectUsers = Ext.getStore('ProjectUsers');
+        var tmpProjectUsers = Ext.getStore('users.ProjectUsers');
         tmpProjectUsers.removeAll();
         if(!this.insert){
             var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,Ext.state.Manager.get('projectId'));
@@ -75,7 +67,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             });
         }
         else {
-            var tmpGroupUsers = Ext.getStore('GroupUsers');
+            var tmpGroupUsers = Ext.getStore('users.GroupUsers');
             for(var tmpCont=0; tmpCont < tmpGroupUsers.getCount(); tmpCont++){
                 var tmpUser = tmpGroupUsers.getAt(tmpCont);
                 tmpProjectUsers.add(tmpUser);
@@ -86,11 +78,11 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     onLoadProjectStoreResult: function(argRecords,argOperation,argSuccess){
         if(argSuccess) {
-            var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+            var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
             var tmpUserList = argRecords[0].data.users;
-            var tmpProjectDetailStore = Ext.getStore('ProjectDetails');
-            var tmpProjectUsers = Ext.getStore('ProjectUsers');
-            var tmpGroupUsers = Ext.getStore('GroupUsers');
+            var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
+            var tmpProjectUsers = Ext.getStore('users.ProjectUsers');
+            var tmpGroupUsers = Ext.getStore('users.GroupUsers');
             tmpProjectDetailStore.add(argRecords[0].data);
             for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
                 tmpAssignedUsersStore.add(tmpUserList[tmpCont])
@@ -116,13 +108,13 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     /**This method will save all users assigned to projects changes*/
     onSaveUsersToProjectChanges: function(argPopUp, argWindow){
-        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
         var tmpProjectForm = this.getProjectModelForm().getValues();
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
-        var tmpProject = Ext.create('AliveTracker.model.Project', {
+        var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
             name: tmpProjectForm.name,
             description: tmpProjectForm.description,
             users: tmpAssignArray
@@ -135,21 +127,21 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             scope: this,
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId'))
         });
-        var tmpProjectStore = Ext.getStore('Projects')
+        var tmpProjectStore = Ext.getStore('projects.Projects')
         tmpProjectStore.add(tmpProject);
         tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
     },
 
     onUpdateUsersToProjectChanges: function(argPopUp, argWindow){
-        var tmpAssignedUsersStore = Ext.getStore('AssignedUsers');
+        var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
         var tmpProjectForm = this.getProjectModelForm().getValues();
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
         var tmpProjectModel = this.getProjectModelForm().getRecord();
-        var tmpProject = Ext.create('AliveTracker.model.Project', {
+        var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
             id: tmpProjectModel.data.id,
             name: tmpProjectForm.name,
             description: tmpProjectForm.description,
@@ -163,7 +155,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             scope: this,
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId'))
         });
-        var tmpProjectStore = Ext.getStore('Projects');
+        var tmpProjectStore = Ext.getStore('projects.Projects');
         tmpProjectStore.remove(tmpProjectStore.findRecord('id', tmpProject.data.id));
         tmpProjectStore.add(tmpProject);
         tmpProjectStore.commitChanges();

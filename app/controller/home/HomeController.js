@@ -3,21 +3,21 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     extend:"Ext.app.Controller",
 
     models:[
-        'Group',
-        'BelongGroup'
+        'groups.Group',
+        'groups.BelongGroup'
     ],
 
     stores:[
-        'Groups',
-        'BelongGroups',
-        'GroupsDTO'
+        'groups.Groups',
+        'groups.BelongGroups',
+        'groups.GroupsDTO'
     ],
 
     views: [
         'home.Home',
         'home.AddGroupPopUp',
-        'home.HomeBelongGroupsViewer',
-        'home.HomeGroupsViewer'
+        'home.HomeBelongGroupsGrid',
+        'home.HomeGroupsGrid'
     ],
 
     refs:[
@@ -39,14 +39,14 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         this.control({
             'homeview': {
                 onShowCreateNewGroup: this.onCreateNewGroup,
-                onShowGroupPage: this.onShowGroupPage,
+                groupSelected: this.onShowGroupPage,
                 onShowBelongGroupPage: this.onShowBelongGroupPage
             },
-            'homegroupsviewer': {
+            'homegroupsgrid': {
                 afterrender: this.onHomeGroupsAfterRender,
                 onDeleteGroup: this.onConfirmDeleteDialog
             },
-            'homebelonggroupsviewer': {
+            'homebelonggroupsgrid': {
                 afterrender: this.onHomeBelongGroupsAfterRender
             },
             "addgrouppopup": {
@@ -56,10 +56,9 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         });
     },
 
-    onShowGroupPage: function(agrComponent, argRow, argIndex){
-        var tmpModel = argIndex;
+    onShowGroupPage: function(argRecord){
+        var tmpModel = argRecord;
         this.onShowGroupDetailView(tmpModel.getData().id);
-
     },
 
     onShowBelongGroupPage: function(agrComponent, argRow, argIndex){
@@ -70,7 +69,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
 
     onHomeGroupsInfoLoad:function () {
-        var tmpGroupsDTO = Ext.getStore('GroupsDTO');
+        var tmpGroupsDTO = Ext.getStore('groups.GroupsDTO');
         tmpGroupsDTO.load({
             scope: this,
             callback: this.onLoadMyGroupsResult
@@ -79,11 +78,11 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
     onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
         if(argSuccess){
-            var tmpBelongGroups = Ext.getStore('BelongGroups');
+            var tmpBelongGroups = Ext.getStore('groups.BelongGroups');
             tmpBelongGroups.removeAll();
             var tmpBelongGroupsList = argRecords[0].data.belongToGroups;
             var tmpGroupsList = argRecords[0].data.myGroups;
-            var tmpGroups = Ext.getStore('Groups');
+            var tmpGroups = Ext.getStore('groups.Groups');
             tmpGroups.removeAll();
             for (var tmpCont = 0; tmpCont <= tmpBelongGroupsList.length-1; tmpCont++){
                 tmpBelongGroups.add(tmpBelongGroupsList[tmpCont])
@@ -107,7 +106,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     onShowGroupDetailView: function(argElement){
         this.selectedGroupElement = argElement;
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,this.selectedGroupElement);
-        var tmpProjectStore = Ext.getStore('Projects');
+        var tmpProjectStore = Ext.getStore('projects.Projects');
         tmpProjectStore.load({
                 scope: this,
                 callback: this.onProjectDetailResult,
@@ -121,14 +120,14 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             return;
         }
         Ext.state.Manager.set('groupId',this.selectedGroupElement);
-        this.navigateToGroupView('Groups', this.selectedGroupElement);
+        this.navigateToGroupView('groups.Groups', this.selectedGroupElement);
     },
 
     /**
      * Show GroupDetailView when user click on the imagen in home
      * */
     onShowBelongGroupDetailView: function(argElement){
-        this.navigateToGroupView('BelongGroups', argElement);
+        this.navigateToGroupView('groups.BelongGroups', argElement);
     },
 
     /**
@@ -145,7 +144,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onLoadUsersGroup: function(){
-        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
             scope: this,
@@ -154,7 +153,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     onLoadRolesStore: function(){
-        var tmpRoleStore = Ext.getStore('Roles');
+        var tmpRoleStore = Ext.getStore('roles.Roles');
         var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
         tmpRoleStore.load({
             scope: this,
@@ -164,7 +163,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
     onGetPermissions: function(){
         var tmpPermissionsArray = [];
-        var tmpGroupsStore = Ext.getStore('Groups');
+        var tmpGroupsStore = Ext.getStore('groups.Groups');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
         tmpGroupsStore.setProxy({
             type: 'restproxy',
@@ -214,7 +213,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     getAddGroupPopUp: function(argElement){
         var tmpAddEditGroupPopUp = Ext.create('AliveTracker.view.home.AddGroupPopUp');
         var tmpGroupForm = this.getGroupModelForm();
-        var tmpModel = Ext.create('AliveTracker.model.Group');
+        var tmpModel = Ext.create('AliveTracker.model.groups.Group');
         tmpGroupForm.loadRecord(tmpModel);
         tmpAddEditGroupPopUp.show();
         return tmpAddEditGroupPopUp;
@@ -235,7 +234,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     saveGroupCallback: function(argRecord){
-        var tmpGroupStore = Ext.getStore('Groups');
+        var tmpGroupStore = Ext.getStore('groups.Groups');
         tmpGroupStore.add(argRecord);
         tmpGroupStore.commitChanges();
     },
@@ -247,7 +246,7 @@ Ext.define("AliveTracker.controller.home.HomeController", {
 
     onCreateModelFromGroupModelValues: function(){
         var tmpItem = this.getGroupModelForm().getValues();
-        var tmpModel = Ext.create('AliveTracker.model.Group', {
+        var tmpModel = Ext.create('AliveTracker.model.groups.Group', {
             name: tmpItem.name,
             description: tmpItem.description,
             logo_url: tmpItem.logo_url,

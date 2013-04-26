@@ -10,10 +10,13 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                 layout:'column',
                 items:[
                     {
-                        xtype:'datepickerfield',
+                        xtype:'datepicker',
                         name:'date',
                         itemId:'datepickerLogBook',
+                        width: '300px',
+                        minHeight: '300px',
                         allowBlank:false,
+                        showToday: false,
                         format:'Y-m-d',
                         listeners:{
                             scope:this,
@@ -30,7 +33,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                             {
                                 xtype:'logbookgrid',
                                 itemId:'logbookgrid',
-                                store:'Logs'
+                                store:'projects.Logs'
                             },
                             {
                                 xtype:'label',

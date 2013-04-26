@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.store.LogReport', {
+Ext.define('AliveTracker.store.reports.LogReport', {
 
     extend: 'Ext.data.Store',
 

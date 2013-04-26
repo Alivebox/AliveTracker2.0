@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.GroupDTO', {
+Ext.define('AliveTracker.model.groups.GroupDTO', {
 
     extend:'Ext.data.Model',
 
@@ -13,6 +13,11 @@ Ext.define('AliveTracker.model.GroupDTO', {
             name:'myGroups',
             type:'arraylist'
         }
-    ]
+    ],
+
+    proxy: {
+        type: 'restproxy',
+        url:  AliveTracker.defaults.WebServices.GET_GROUPS_BY_USER
+    }
 
 });

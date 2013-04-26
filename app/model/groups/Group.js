@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.Group', {
+Ext.define('AliveTracker.model.groups.Group', {
 
     extend:'Ext.data.Model',
 

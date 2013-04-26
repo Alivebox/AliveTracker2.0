@@ -35,7 +35,7 @@ Ext.define('AliveTracker.view.users.UserRolesGrid', {
                     editor: {
                         xtype:'combobox',
                         allowBlank:true,
-                        store:'Roles',
+                        store:'roles.Roles',
                         displayField:'name',
                         queryMode:'local',
                         editable:false

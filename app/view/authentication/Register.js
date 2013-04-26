@@ -35,29 +35,36 @@ Ext.define('AliveTracker.view.authentication.Register', {
                     }]
             },
             {
-                xtype:'textfield',
-                itemId:'emailRegister',
-                cls: 'loginregister-field',
-                fieldCls: 'loginregister-forms',
-                emptyText: Locales.AliveTracker.REGISTER_LABEL_EMAIL,
-                allowBlank:false,
-                maxLength:50,
-                vtype:'email'
-            },
-            {
-                xtype: 'container',
-                cls: 'loginregister-elements'
-            },
-            {
-                xtype:'textfield',
-                itemId:'passwordRegister',
-                cls: 'loginregister-field',
-                fieldCls: 'loginregister-forms',
-                emptyText: Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
-                allowBlank:false,
-                maxLength:20,
-                minLength:8,
-                inputType:'password'
+                xtype: 'formcontainer',
+                modelClassName: 'AliveTracker.model.authentication.LoginUser',
+                itemId: 'registerFormContainer',
+                defaultType: 'textfield',
+                items: [
+                    {
+                        name: 'email',
+                        itemId:'emailRegister',
+                        cls: 'loginregister-field',
+                        fieldCls: 'loginregister-forms',
+                        emptyText: Locales.AliveTracker.REGISTER_LABEL_EMAIL,
+                        allowBlank:false,
+                        maxLength:50,
+                        vtype:'email'
+                    },
+                    {
+                        xtype: 'container',
+                        cls: 'loginregister-elements'
+                    },
+                    {
+                        name: 'password',
+                        itemId:'passwordRegister',
+                        cls: 'loginregister-field',
+                        fieldCls: 'loginregister-forms',
+                        emptyText: Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
+                        allowBlank:false,
+                        maxLength:20,
+                        inputType:'password'
+                    }
+                ]
             }
         ];
         this.callParent(arguments);

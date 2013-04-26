@@ -8,8 +8,8 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     ],
 
     stores: [
-        'GroupUsers',
-        'NewUsers'
+        'users.GroupUsers',
+        'users.NewUsers'
     ],
 
     refs: [
@@ -81,7 +81,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     deleteUser: function(argUser){
-        var tmpProjectUserStore = Ext.getStore('GroupUsers');
+        var tmpProjectUserStore = Ext.getStore('users.GroupUsers');
         argUser.setProxy({
             type: 'restproxy',
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_USER, argUser.data.id, Ext.state.Manager.get('groupId'))
@@ -100,7 +100,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     onLoadRolesStore: function(){
-        var tmpRoleStore = Ext.getStore('Roles');
+        var tmpRoleStore = Ext.getStore('roles.Roles');
         var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
         tmpRoleStore.load({
             scope: this,
@@ -109,7 +109,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     onLoadUserListStore: function() {
-        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
             scope: this,
@@ -121,8 +121,8 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         this.currentSearchValue = argData;
         var tmpUser = null;
         var tmpExistUser = null;
-        var tmpNewUsersStore = Ext.getStore('NewUsers');
-        var tmpProjectUserStore = Ext.getStore('GroupUsers');
+        var tmpNewUsersStore = Ext.getStore('users.NewUsers');
+        var tmpProjectUserStore = Ext.getStore('users.GroupUsers');
         var userExists = false;
         for(var tmpIndex=0;tmpIndex < tmpNewUsersStore.getCount();tmpIndex++){
             tmpUser = tmpNewUsersStore.getAt(tmpIndex);
@@ -157,13 +157,13 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     },
 
     onUpdateGroupUsers: function(){
-        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpUsersGroupStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpUsersGroupStore.data.items[tmpCont].data)
         }
 
-        var tmpGroup = Ext.create('AliveTracker.model.Group', {
+        var tmpGroup = Ext.create('AliveTracker.model.groups.Group', {
             id: Ext.state.Manager.get('groupId'),
             users: tmpAssignArray
         });

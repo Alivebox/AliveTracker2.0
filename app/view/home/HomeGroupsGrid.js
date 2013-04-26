@@ -1,7 +1,7 @@
-Ext.define('AliveTracker.view.home.HomeGroupsViewer', {
+Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
 
     extend:'Ext.grid.Panel',
-    xtype:'homegroupsviewer',
+    xtype:'homegroupsgrid',
     initComponent: function(){
         Ext.applyIf(this, {
             columns:[

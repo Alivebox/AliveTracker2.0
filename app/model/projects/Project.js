@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.Project', {
+Ext.define('AliveTracker.model.projects.Project', {
 
     extend:'Ext.data.Model',
 

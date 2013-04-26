@@ -19,7 +19,8 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                     },
                     {
                         xtype: 'addusersgroup',
-                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS,
+                        itemId: 'usersTab'
                     },
                     {
                         xtype: 'reportsform',

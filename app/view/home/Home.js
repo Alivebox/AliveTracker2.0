@@ -4,9 +4,15 @@ Ext.define('AliveTracker.view.home.Home', {
     xtype:'homeview',
     cls:'home',
 
+    requires: [
+        'AliveTracker.view.home.AddGroupPopUp',
+        'AliveTracker.view.home.HomeBelongGroupsGrid',
+        'AliveTracker.view.home.HomeGroupsGrid'
+    ],
+
     initComponent:function () {
-        var tmpGroupsViewer = this.getGroupsViewer();
-        var tmpBelongGroupsViewer = this.getBelongGroupsViewer();
+        var tmpGroupsGrid = this.getGroupsGrid();
+        var tmpBelongGroupsGrid = this.getBelongGroupsGrid();
         this.items = [
             {
                 xtype:'label',
@@ -17,8 +23,8 @@ Ext.define('AliveTracker.view.home.Home', {
                 xtype:'container',
                 layout: 'hbox',
                 items: [
-                    tmpGroupsViewer,
-                    tmpBelongGroupsViewer
+                    tmpGroupsGrid,
+                    tmpBelongGroupsGrid
                 ]
             },
             {
@@ -34,36 +40,36 @@ Ext.define('AliveTracker.view.home.Home', {
         this.callParent(arguments);
     },
 
-    getGroupsViewer:function () {
-        var tmpGroupsViewer = {
-            xtype: 'homegroupsviewer',
-            store:'Groups',
+    getGroupsGrid:function () {
+        var tmpGroupsGird = {
+            xtype: 'homegroupsgrid',
+            store:'groups.Groups',
             listeners: {
                 scope: this,
                 select: 'onSelectRow'
             }
         };
-        return tmpGroupsViewer;
+        return tmpGroupsGird;
     },
 
-    getBelongGroupsViewer:function () {
-        var tmpBelongGroupsViewer = {
-            xtype: 'homebelonggroupsviewer',
-            store: 'BelongGroups',
+    getBelongGroupsGrid:function () {
+        var tmpBelongGroupsGrid = {
+            xtype: 'homebelonggroupsgrid',
+            store: 'groups.BelongGroups',
             listeners: {
                 scope: this,
                 select: 'onSelectRowBelongGroups'
             }
         };
-        return tmpBelongGroupsViewer;
+        return tmpBelongGroupsGrid;
     },
 
     onCreateNewGroup: function() {
         this.fireEvent('onShowCreateNewGroup', this);
     },
 
-    onSelectRow: function(agrComponent, record, index) {
-        this.fireEvent('onShowGroupPage',this, agrComponent, record, index);
+    onSelectRow: function(agrComponent, argRecord) {
+        this.fireEvent('groupSelected',argRecord);
     },
 
     onSelectRowBelongGroups: function(agrComponent, record, index) {

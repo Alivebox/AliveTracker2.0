@@ -5,7 +5,8 @@ Ext.define('Locales.AliveTracker', {
          */
         FORGOT_PASSWORD_LABEL: 'Forgot my password',
         FORGOT_PASSWORD_LABEL_MAIL: 'Email',
-        FORGOT_PASSWORD_LABEL_RESET_INSTRUCTION:'Send me reset instructions',
+        FORGOT_PASSWORD_LABEL_SEND: 'Send',
+        FORGOT_PASSWORD_LABEL_RESET_INSTRUCTION:'Send me instructions!',
         /**
          * Login View
          */
@@ -13,7 +14,8 @@ Ext.define('Locales.AliveTracker', {
         LOGIN_LABEL_PASSWORD: 'Password',
         LOGIN_LABEL_LOGIN: 'Login',
         LOGIN_LABEL_SIGNUP: 'Sign-Up',
-        LOGIN_LABEL_FORGOT_PASSWORD: 'forgot password',
+        LOGIN_LABEL_FORGOT_PASSWORD: 'Forgot password',
+        LOGIN_LABEL_REMEMBER_ME: 'Remember me',
         /**
          * Password Verification  View
          */
@@ -40,7 +42,8 @@ Ext.define('Locales.AliveTracker', {
         REGISTER_LABEL_EMAIL: 'Email',
         REGISTER_LABEL_NEWSLETTER: 'Sign me up for newsletter',
         REGISTER_LABEL_PASSWORD: 'Password',
-        REGISTER_LABEL_REGISTER_NOW:'Register now',
+        REGISTER_LABEL_REGISTER_NOW:'Sign up',
+        REGISTER_LABEL_NEW: 'New to alivetracker?',
         /**
          * Reports View
          */
@@ -136,6 +139,12 @@ Ext.define('Locales.AliveTracker', {
          * VTypesOverrides
          */
         VTYPES_OVERRIDE_MESSAGE_DATERANGE:'Start date must be less than end date',
-        VTYPES_OVERRIDE_MESSAGE_PASSWORD:'Passwords do not match'
+        VTYPES_OVERRIDE_MESSAGE_PASSWORD:'Passwords do not match',
+        /**
+         * Validation Labels
+         */
+        VALIDATION_LABEL_EMAIL_REQUIRED: 'Email is required',
+        VALIDATION_LABEL_EMAIL_FORMAT: 'This field must be an email address "user@domain.com"',
+        VALIDATION_LABEL_PASSWORD_MIN_LENGTH: 'Password must be at least 8 characters'
 	}
 });

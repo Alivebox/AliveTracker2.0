@@ -6,7 +6,7 @@ Ext.define('AliveTracker.view.users.UserProfile', {
         this.items = [
             {
                 xtype: 'formcontainer',
-                modelClassName: 'AliveTracker.model.User',
+                modelClassName: 'AliveTracker.model.users.User',
                 itemId: 'userform',
                 defaultType: 'textfield',
                 items: [

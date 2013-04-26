@@ -7,6 +7,13 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         'authentication.Login'
     ],
 
+    refs: [
+        {
+            ref:'loginForm',
+            selector:'loginform [itemId=loginFormContainer]'
+        }
+    ],
+
     models: [
         'authentication.LoginUser'
     ],
@@ -31,17 +38,17 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
-    onLoginAction:function (argUsername,argPassword) {
-        argPassword = Framework.util.MD5Util.calcMD5(argPassword);
-        var tmpUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
-            email: argUsername,
-            password: argPassword
-        });
-        tmpUser.save({
-            scope: this,
-            success: this.onLoginSuccess,
-            urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
-        });
+    onLoginAction:function () {
+        var tmpLoginForm = this.getLoginForm();
+        if(tmpLoginForm.isValid()){
+            var tmpUser = tmpLoginForm.getRecord();
+            tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpUser.getData().password));
+            tmpUser.save({
+                scope: this,
+                success: this.onLoginSuccess,
+                urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
+            });
+        }
     },
 
     onLoginSuccess: function(argRecord){
@@ -68,12 +75,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         ];
         argUser.set('permissions',tmpDefaultPermissions);
         return argUser;
-    },
-
-//    onShowForgotPasswordPopup:function () {
-//        this.forgotPasswordPopup = Ext.create('AliveTracker.view.authentication.ForgotPassword');
-//        this.forgotPasswordPopup.title = Locales.AliveTracker.FORGOT_PASSWORD_LABEL;
-//        this.forgotPasswordPopup.show();
-//    }
+    }
 
 });

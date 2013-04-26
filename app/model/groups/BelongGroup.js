@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.model.BelongGroup', {
+Ext.define('AliveTracker.model.groups.BelongGroup', {
 
     extend:'Ext.data.Model',
 
@@ -21,15 +21,6 @@ Ext.define('AliveTracker.model.BelongGroup', {
             name:'logo_url',
             type:'string'
         }
-    ],
-
-    proxy: {
-        type: 'ajax',
-        url: 'resources/data/belongGroups.json',
-        reader: {
-            type: 'json',
-            root: 'data'
-        }
-    }
+    ]
 
 });

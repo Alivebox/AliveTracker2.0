@@ -10,3 +10,6 @@ $theme-name: 'theme';
 @import 'views/header/header';
 @import 'views/home/home';
 @import 'views/home/homeBelongGroups';
+@import 'views/authentication/forgotpassword';
+@import 'views/home/addgrouppopup';
+@import 'views/project/datepicker';

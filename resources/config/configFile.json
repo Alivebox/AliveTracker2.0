@@ -21,7 +21,7 @@
         "views": [
             {
                 "name": "loginPage",
-                "package": "AliveTracker.view.authentication.Login",
+                "package": "AliveTracker.view.authentication.LoginRegister",
                 "default": true,
                 "hideHeader": true
             },

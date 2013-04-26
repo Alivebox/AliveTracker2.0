@@ -25,7 +25,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             },
             {
                 xtype: 'usersgrid',
-                store: 'GroupUsers',
+                store: 'users.GroupUsers',
                 name: 'usersGrid'
             },
             {
@@ -46,7 +46,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
     getAutoCompleteBox: function(){
         var tmpAutoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
             displayField: 'email',
-            store: Ext.getStore('NewUsers'),
+            store: Ext.getStore('users.NewUsers'),
             listeners: {
                 scope: this,
                 executeSearch: this.onExecuteSearch

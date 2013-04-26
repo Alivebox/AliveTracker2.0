@@ -9,7 +9,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
             {
                 xtype:'combobox',
                 itemId:'projectReports',
-                store: 'Projects',
+                store: 'projects.Projects',
                 queryMode: 'local',
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
@@ -26,7 +26,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 itemId:'userReports',
                 allowBlank:false,
                 fieldLabel: Locales.AliveTracker.REPORTS_LABEL_USER,
-                store:'Users',
+                store:'users.Users',
                 queryMode: 'local',
                 displayField:'email',
                 valueField: 'id',
@@ -80,7 +80,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 xtype: 'gridpanel',
                 itemId: 'gridReports',
                 hidden: true,
-                store: 'Reports',
+                store: 'reports.Reports',
                 columns: [
                     {
                         header: 'Project',

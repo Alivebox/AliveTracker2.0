@@ -7,16 +7,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     ],
 
     models:[
-        'Project',
-        'User',
         'reports.Report'
     ],
 
     stores:[
-        'Projects',
-        'Users',
-        'LogReport',
-        'Reports'
+        'users.Users',
+        'reports.LogReport',
+        'reports.Reports'
     ],
 
     refs: [
@@ -112,7 +109,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      */
     loadUsersStore: function(){
         var tmpProjectId = this.getCmbProject();
-        var tmpUsersStore = Ext.getStore('Users');
+        var tmpUsersStore = Ext.getStore('users.Users');
         var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
         tmpUsersStore.load({
             scope: this,
@@ -127,7 +124,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Loads the Groups store
      */
     loadGoupsStore: function(){
-        var tmpGroupsStore = Ext.getStore('Groups');
+        var tmpGroupsStore = Ext.getStore('groups.Groups');
         tmpGroupsStore.load({
             callback: function(){
             }
@@ -141,7 +138,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpDateRange = this.getCmbDateRange().value;
         var tmpBaseUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
         var tmpUrl = this.buildDateQueryString(this.getDateRange().getStartValue(), this.getDateRange().getEndValue(), tmpBaseUrl)
-        var tmpReportsStore = Ext.getStore('Reports');
+        var tmpReportsStore = Ext.getStore('reports.Reports');
         tmpReportsStore.load({
             scope: this,
             urlOverride:tmpUrl,

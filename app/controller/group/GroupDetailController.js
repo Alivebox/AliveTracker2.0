@@ -15,17 +15,15 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     ],
 
     models:[
-        'User',
-        'Project',
-        'Role'
+        'users.User',
+        'roles.Role'
     ],
 
     stores:[
-        'Users',
-        'Projects',
-        'Roles',
-        'AssignedUsers',
-        'ProjectUsers'
+        'users.Users',
+        'users.AssignedUsers',
+        'users.ProjectUsers',
+        'roles.Roles'
     ],
 
     refs: [
@@ -50,6 +48,9 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     init: function(){
         this.control(
             {
+                'groupdetailform': {
+                    beforerender : this.AllowTabs
+                },
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
                 },
@@ -57,6 +58,12 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                     click: this.onProjectGridActionIdAction
                 }
             });
+    },
+
+    AllowTabs: function(){
+        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
+        //var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
+        //this.getGroupTab().setTabsToDisableByIndexes(1,true);
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
@@ -80,7 +87,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onDeleteGroup: function(argProject){
-        var tmpProjectStore = Ext.getStore('Projects');
+        var tmpProjectStore = Ext.getStore('projects.Projects');
         argProject.setProxy({
             type: 'restproxy',
             urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
@@ -112,7 +119,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     createProjectPopUp: function(argTitle){
-        var tmpUsersGroupStore = Ext.getStore('GroupUsers');
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
             scope: this,

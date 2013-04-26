@@ -7,7 +7,10 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     ],
 
     refs: [
-
+        {
+            ref:'registerForm',
+            selector:'registerform [itemId=registerFormContainer]'
+        },
         {
             ref: 'email',
             selector: 'registerform [itemId=emailRegister]'
@@ -33,24 +36,23 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
      * Handles the logic of the register action
      */
     onRegisterAction:function () {
-        var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
-        var tmpEmail = this.getEmail().value;
-        var tmpNewUsersStore = Ext.getStore('users.NewUsers');
-        var tmpUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
-            email: tmpEmail,
-            password: tmpPassword
-        });
-        tmpUser.setProxy({
-            type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.SAVE_USER
-        });
-        tmpUser.save({
-            scope: this,
-            success: this.onLoginUser,
-            urlOverride: AliveTracker.defaults.WebServices.SAVE_USER
-        });
-        tmpNewUsersStore.add(tmpUser);
-        tmpNewUsersStore.commitChanges();
+        var tmpRegisterForm = this.getRegisterForm();
+        if(tmpRegisterForm.isValid()){
+            var tmpUser = tmpRegisterForm.getRecord();
+            tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpUser.getData().password));
+            var tmpNewUsersStore = Ext.getStore('users.NewUsers');
+            tmpUser.setProxy({
+                type: 'restproxy',
+                url: AliveTracker.defaults.WebServices.SAVE_USER
+            });
+            tmpUser.save({
+                scope: this,
+                success: this.onLoginUser,
+                urlOverride: AliveTracker.defaults.WebServices.SAVE_USER
+            });
+            tmpNewUsersStore.add(tmpUser);
+            tmpNewUsersStore.commitChanges();
+        }
     },
 
     onLoginUser: function(){

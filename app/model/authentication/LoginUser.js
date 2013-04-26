@@ -22,10 +22,30 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
             type:'int'
         },
         {
-            name:'permissions',
-            type:'array'
+            name:'idpermission',
+            type:'int'
         }
     ],
+
+    validations: [
+        {
+            type: 'presence',
+            field: 'email',
+            message: 'Email is required'
+        },
+        {
+            type: 'email',
+            field: 'email',
+            message: 'Este campo debe ser una dirección de correo electrónico con el formato "usuario@dominio.com"'
+        },
+        {
+            type: 'length',
+            field: 'password',
+            min: 8,
+            message: 'Password must be at least 8 characters'
+        }
+    ],
+
     proxy: {
         type: 'restproxy',
         url:  AliveTracker.defaults.WebServices.USER_AUTHENTICATION

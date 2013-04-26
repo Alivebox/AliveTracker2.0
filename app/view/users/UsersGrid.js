@@ -54,7 +54,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
         var tmpComboBox = Ext.create('Ext.form.field.ComboBox',{
             name: 'cbUserGridRoles',
             allowBlank:true,
-            store:'Roles',
+            store:'roles.Roles',
             displayField:'name',
             queryMode:'local',
             editable:false

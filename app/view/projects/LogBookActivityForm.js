@@ -27,7 +27,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
             labelAlign: 'top',
             displayField: 'name',
             valueField: 'id',
-            store: 'Projects',
+            store: 'projects.Projects',
             editable: false,
             queryMode:'local'
         };

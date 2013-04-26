@@ -1,0 +1,42 @@
+@import '../main/defaults.scss';
+
+table.x-datepicker-inner td:hover, table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled td:hover .x-datepicker-disabled a:hover{
+  background-color: $overcalendarcolor;
+  color: $whitetextcolor;
+  text-decoration: none !important;
+}
+
+table.x-datepicker-inner td {
+   border: 1px solid $bordercalendar;
+   height: 35px;
+}
+
+table.x-datepicker-inner a {
+  padding: 0px;
+  text-align: center;
+}
+
+table.x-datepicker-inner .x-datepicker-selected a {
+  background: $selectedcalendarcolor;
+  border: 1px solid $selectedcalendarcolor;
+  color: $whitetextcolor;
+}
+
+table.x-datepicker-inner .x-datepicker-selected{
+  background-color: $selectedcalendarcolor;
+}
+
+.x-datepicker-header {
+  background: -moz-linear-gradient(top, #e4e4e4 23%, #c7c7c7 59%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,#e4e4e4), color-stop(59%,#c7c7c7)); /* Chrome,Safari4+ */
+  height: 40px;
+  position: relative;
+}
+
+table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
+  color: $fontdayscalendar;
+}
+
+.x-datepicker-prevday{
+  background: $panelbordercolor;
+}

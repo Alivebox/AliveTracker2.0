@@ -31,7 +31,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onLoadFields: function(){
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
-        this.currentUser = Ext.create('AliveTracker.model.User',{
+        this.currentUser = Ext.create('AliveTracker.model.users.User',{
             email: Framework.core.SecurityManager.getCurrentUsername()
         });
         this.currentUser.setProxy({

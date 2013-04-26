@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
     cls: 'add-group-pop-up-view',
-    height: 250,
+    height: 280,
     width: 300,
     header: false,
     resizable: false,
@@ -55,6 +55,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                                 fieldCls: 'add-group-pop-up-view-forms',
                                 name:'name',
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
+                                labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
                                 allowBlank:false,
                                 maxLength:300
@@ -65,6 +66,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                                 fieldCls: 'add-group-pop-up-view-forms',
                                 name:'description',
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
+                                labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
                                 allowBlank:false,
                                 maxLength:300
@@ -75,17 +77,18 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                                 fieldCls: 'add-group-pop-up-view-forms',
                                 name:'web_site_url',
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_WEBSITE,
+                                labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_WEBSITE,
                                 allowBlank:false,
                                 maxLength:300,
                                 vtype: 'url'
                             },
-                            this.logoUrlTextField
+                            this.logoUrlTextField,
+                            this.submitButton
                         ]
                     }
                 ]
-            },
-            this.submitButton
+            }
         ],
             this.callParent(arguments);
     },
@@ -100,8 +103,8 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     onCreateSubmitButton: function(){
         var tmpSubmitButton = Ext.create('Ext.Button',{
             name: 'submitButton',
-            cls: 'all-views-button',
-            margin: {left:15},
+            cls: 'all-views-button add-group-pop-up-button-align',
+            //disabledCls: 'add-group-pop-up-view-disabled-button',
             text: Locales.AliveTracker.HOME_LABEL_INSERT,
             formBind: true,
             disabled: true,
@@ -133,6 +136,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
             fieldCls: 'add-group-pop-up-view-forms',
             name:'logo_url',
             fieldLabel: Locales.AliveTracker.HOME_LABEL_LOGO_URL,
+            labelCls: 'add-group-pop-up-view-label',
             emptyText: Locales.AliveTracker.HOME_LABEL_LOGO_URL,
             allowBlank:false,
             maxLength:300,

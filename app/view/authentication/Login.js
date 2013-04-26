@@ -5,47 +5,56 @@ Ext.define('AliveTracker.view.authentication.Login', {
     initComponent:function () {
         this.items = [
             {
-                xtype:'textfield',
-                itemId:'userNameLoginView',
-                cls: 'loginregister-field',
-                fieldCls: 'loginregister-forms',
-                emptyText: Locales.AliveTracker.LOGIN_LABEL_USERNAME,
-                allowBlank:false,
-                maxLength:50,
-                vtype:'email'
-            },
-            {
-                xtype: 'container',
-                cls: 'loginregister-elements',
-                layout: {
-                    type: 'hbox'
-                },
-
+                xtype: 'formcontainer',
+                modelClassName: 'AliveTracker.model.authentication.LoginUser',
+                itemId: 'loginFormContainer',
+                defaultType: 'textfield',
                 items: [
                     {
-                        xtype:'textfield',
-                        itemId:'passwordLoginView',
-                        cls: 'loginregister-short-field',
+                        name: 'email',
+                        itemId:'userNameLoginView',
+                        cls: 'loginregister-field',
                         fieldCls: 'loginregister-forms',
-                        emptyText: Locales.AliveTracker.LOGIN_LABEL_PASSWORD,
+                        emptyText: Locales.AliveTracker.LOGIN_LABEL_USERNAME,
                         allowBlank:false,
-                        maxLength:20,
-                        minLength: 8,
-                        inputType:'password',
-                        listeners:{
-                            scope:this,
-                            specialkey:this.onLoginEnter
-                        }
+                        maxLength:50,
+                        vtype:'email'
                     },
                     {
-                        xtype:'button',
-                        text:Locales.AliveTracker.LOGIN_LABEL_LOGIN,
-                        cls: 'loginregister-button',
-                        listeners:{
-                            scope:this,
-                            click:this.onLoginClick
-                        }
-                    }]
+                        xtype: 'container',
+                        cls: 'loginregister-elements',
+                        layout: {
+                            type: 'hbox'
+                        },
+
+                        items: [
+                            {
+                                xtype:'textfield',
+                                name: 'password',
+                                itemId:'passwordLoginView',
+                                cls: 'loginregister-short-field',
+                                fieldCls: 'loginregister-forms',
+                                emptyText: Locales.AliveTracker.LOGIN_LABEL_PASSWORD,
+                                allowBlank:false,
+                                maxLength:20,
+                                minLength: 8,
+                                inputType:'password',
+                                listeners:{
+                                    scope:this,
+                                    specialkey:this.onLoginEnter
+                                }
+                            },
+                            {
+                                xtype:'button',
+                                text:Locales.AliveTracker.LOGIN_LABEL_LOGIN,
+                                cls: 'loginregister-button',
+                                listeners:{
+                                    scope:this,
+                                    click:this.onLoginClick
+                                }
+                            }]
+                    }
+                ]
             },
             {
                 xtype: 'container',
@@ -94,15 +103,11 @@ Ext.define('AliveTracker.view.authentication.Login', {
         this.fireEvent('showForgotPassword',this);
     },
     onLoginClick:function () {
-        var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
-        var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
-        this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
+        this.fireEvent('login');
     },
     onLoginEnter:function (field, e) {
         if(e.getKey() == e.ENTER){
-            var tmpUsernameField = this.down('textfield[itemId=userNameLoginView]');
-            var tmpPasswordField = this.down('textfield[itemId=passwordLoginView]');
-            this.fireEvent('login',tmpUsernameField.getValue(),tmpPasswordField.getValue());
+            this.fireEvent('login');
         }
     }
 });
