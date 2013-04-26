@@ -1,7 +1,6 @@
 Ext.define('AliveTracker.view.home.HomeBelongGroupsGrid', {
 
     extend:'Ext.grid.Panel',
-    xtype:'homegroupsviewer',
     cls:'homeBelongGroups',
     xtype:'homebelonggroupsgrid',
     initComponent: function(){
