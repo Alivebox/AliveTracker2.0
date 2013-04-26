@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
 
     extend: 'Ext.Container',
     xtype: 'groupprojects',
+    cls:'groupDetail',
 
     initComponent:function () {
         this.items = [

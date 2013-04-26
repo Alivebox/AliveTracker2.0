@@ -117,7 +117,8 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'New Project',
         PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Edit Project',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Activity',
-        PROJECTS_COLUMN_HEADER_TIME: 'Time(h)',
+        PROJECTS_COLUMN_HEADER_TIME: 'Time',
+        PROJECTS_COLUMN_HEADER_ACTIONS: 'Actions',
         PROJECTS_LABEL_SAVE:'Save',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
         /**

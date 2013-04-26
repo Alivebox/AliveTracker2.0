@@ -1,0 +1,11 @@
+@import '../main/defaults.scss';
+
+.groupdetail-view-form{
+  background-color: $backgroundforms;
+  background-image: none;
+  color: $formsfontcolor;
+}
+
+.x-btn button .x-btn-icon{
+  margin-top: 4px;
+}
