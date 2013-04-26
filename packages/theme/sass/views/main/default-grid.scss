@@ -1,0 +1,71 @@
+@import '../main/defaults.scss';
+
+
+.x-column-header {
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
+  border-right: 1px solid $panel-body-border-color;
+  border-left: 0 none;
+  border-top: 0 none;
+  border-bottom: 0 none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .3);
+  font: 12px $font-family;
+  background: #ececec; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ececec 0%, #dbdce2 37%, #dbdada 49%, #dddfe3 60%, #ececec 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ececec), color-stop(37%,#dbdce2), color-stop(49%,#dbdada), color-stop(60%,#dddfe3), color-stop(100%,#ececec)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ececec 0%,#dbdce2 37%,#dbdada 49%,#dddfe3 60%,#ececec 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ececec 0%,#dbdce2 37%,#dbdada 49%,#dddfe3 60%,#ececec 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ececec 0%,#dbdce2 37%,#dbdada 49%,#dddfe3 60%,#ececec 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ececec 0%,#dbdce2 37%,#dbdada 49%,#dddfe3 60%,#ececec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#ececec',GradientType=0 ); /* IE6-9 */
+}
+
+.x-grid-cell {
+  font-size: 12px !important;
+  color: #4d4d4d;
+}
+
+.x-grid-row-alt .x-grid-cell {
+  background-color: #F7F7F7;
+}
+
+.x-grid-row-over .x-grid-cell {
+  background-color: #BFD181;
+}
+
+.x-grid-row-over .x-grid-cell {
+  background-color: #BFD181;
+}
+
+.x-grid-row-over .x-action-col-cell {
+  background-image: url(../images/delete.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x-action-col-cell{
+  background-image: url(../images/delete_dis.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x-grid-header-ct {
+  cursor: default;
+  zoom: 1;
+  padding: 0;
+  border: 1px solid $panel-body-border-color;
+  border-bottom-color: $grid-header-background-color;
+}
+
+.x-panel .x-grid-body {
+  border-color: $panel-body-border-color !important;
+  border-style: solid;
+  border-width: 1px;
+  border-top-color: $grid-header-background-color;
+}
+
+.x-panel-default {
+  border-color: $panelbordercolor;
+}
+
