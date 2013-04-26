@@ -9,12 +9,21 @@ $formsfontcolor: #666666;
 $txtfontcolor: #989899;
 $buttonbordercolor: #728336;
 $panelbordercolor: #BBBBBB;
+$grid-header-background-color: #BBBBBB;
+$panel-body-border-color: #BBBBBB;
+$grid-font-color: #BBBBBB;
+$panel-body-background-color: #232d38;
 $labelfontcolor: #A8A8A8;
 $linkfontcolor: #8F8F8F;
 $overcalendarcolor: #98B044;
 $selectedcalendarcolor: #5A5A5A;
 $bordercalendar: #BBBBBB;
 $fontdayscalendar: #6B6B6B;
+$grid-header-background-color: #373c4b;
+$grid-header-color: #fff;
+$font-family: "Helvetica Neue", Arial, Verdana, sans-serif !default;
+$supports-gradients: true !default;
+$grid-header-background-gradient: 'glossy';
 
 .all-views-button{
   border-radius: 4px;
@@ -30,6 +39,7 @@ $fontdayscalendar: #6B6B6B;
   font-weight:900;
   font-size: 12px;
 }
+<<<<<<< HEAD
 
 .all-views-table {
 
@@ -42,3 +52,5 @@ $fontdayscalendar: #6B6B6B;
 .x-border-box .x-form-text{
   height: 30px;
 }
+=======
+>>>>>>> 25da9a48f7452f55a6afc2e64dfd689f8a2cd9ab
