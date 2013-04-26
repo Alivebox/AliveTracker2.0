@@ -30,7 +30,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         },
         {
             ref:'totalTime',
-            selector:'logbook label[itemId=totalTime]'
+            selector:'logbook [itemId=totalTime]'
         },
         {
             ref:'logBookActivityForm',
@@ -88,7 +88,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpStore.each(function (record) {
             tmpTotal += record.data.time;
         }, this);
-        this.getTotalTime().setText(Locales.AliveTracker.PROJECTS_LABEL_TOTAL + ': ' + tmpTotal + ' h');
+        this.getTotalTime().setValue(tmpTotal);
     },
     loadGroupStore:function () {
         var tmpGroupsStore = Ext.getStore('Groups');

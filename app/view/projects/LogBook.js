@@ -13,10 +13,12 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         xtype:'datepicker',
                         name:'date',
                         itemId:'datepickerLogBook',
-                        width: '300px',
+                        width: '315px',
                         minHeight: '300px',
                         allowBlank:false,
                         showToday: false,
+                        startDay: 0,
+                        disableAnim: true,
                         format:'Y-m-d',
                         listeners:{
                             scope:this,
@@ -36,13 +38,18 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                                 store:'projects.Logs'
                             },
                             {
-                                xtype:'label',
+                                xtype:'textfield',
                                 itemId:'totalTime',
-                                text:Locales.AliveTracker.PROJECTS_LABEL_TOTAL
+                                fieldLabel: Locales.AliveTracker.PROJECTS_LABEL_TOTAL,
+                                cls: 'logbook-view-form-align',
+                                fieldCls: 'logbook-view-form',
+                                readOnly: true,
+                                width:'50px'
                             },
                             {
                                 xtype:'button',
                                 itemId:'saveLogHistory',
+                                cls: 'all-views-button',
                                 text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
                                 listeners:{
                                     scope:this,

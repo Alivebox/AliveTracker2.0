@@ -17,8 +17,9 @@ $labelfontcolor: #A8A8A8;
 $linkfontcolor: #8F8F8F;
 $overcalendarcolor: #98B044;
 $selectedcalendarcolor: #5A5A5A;
-$bordercalendar: #BBBBBB;
+$bordercolor: #BBBBBB;
 $fontdayscalendar: #6B6B6B;
+$backgroundforms: #EBEBEB;
 $grid-header-background-color: #373c4b;
 $grid-header-color: #fff;
 $font-family: "Helvetica Neue", Arial, Verdana, sans-serif !default;
@@ -50,5 +51,6 @@ $grid-header-background-gradient: 'glossy';
 
 .x-border-box .x-form-text{
   height: 30px;
+  border-radius: 4px;
 }
 

@@ -22,6 +22,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpProjectComboBox = {
             xtype: 'combobox',
             itemId: 'logProjectComboBox',
+            fieldCls: 'groupdetail-view-form',
             allowBlank: false,
             fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
             labelAlign: 'top',
@@ -38,6 +39,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpActivityTextField = {
             xtype: 'textfield',
             itemId:'txtActivity',
+            fieldCls: 'groupdetail-view-form',
             fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
             labelAlign: 'top',
             allowBlank:false,
@@ -51,6 +53,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpNumberTextField = {
             xtype: 'numberfield',
             width:50,
+            fieldCls: 'groupdetail-view-form',
             allowNegative:false,
             allowBlank:false,
             fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
@@ -68,6 +71,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpAddActivityButton = {
             xtype: 'button',
             name: 'include',
+            cls: 'all-views-button',
             text: null,
             icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
             listeners: {

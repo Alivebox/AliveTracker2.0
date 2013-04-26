@@ -13,6 +13,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
+                    align : 'center',
                     dataIndex:'project_name'
                 },
                 {
@@ -20,6 +21,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
                     sortable:false,
+                    align : 'center',
                     dataIndex:'activity',
                     editor: {
                         xtype: 'textfield',
@@ -27,24 +29,11 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     }
                 },
                 {
-                    xtype:'gridcolumn',
-                    menuDisabled:true,
-                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
-                    sortable:false,
-                    dataIndex:'time',
-                    editor: {
-                        xtype: 'numberfield',
-                        allowBlank: false,
-                        maxValue: 24,
-                        minValue: 1
-                    }
-                },
-                {
                     xtype:'actioncolumn',
                     menuDisabled:true,
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIONS,
                     sortable:false,
                     align : 'center',
-                    width: 25,
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
@@ -63,6 +52,20 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype:'gridcolumn',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
+                    sortable:false,
+                    align : 'center',
+                    dataIndex:'time',
+                    editor: {
+                        xtype: 'numberfield',
+                        allowBlank: false,
+                        maxValue: 24,
+                        minValue: 1
+                    }
                 }
             ],
             selType: 'rowmodel',
