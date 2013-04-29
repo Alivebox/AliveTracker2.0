@@ -13,7 +13,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         xtype:'datepicker',
                         name:'date',
                         itemId:'datepickerLogBook',
-                        width: '315px',
+                        width: '17%',
                         minHeight: '300px',
                         allowBlank:false,
                         showToday: false,
