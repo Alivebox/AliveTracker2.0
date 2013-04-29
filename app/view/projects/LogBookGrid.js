@@ -2,6 +2,8 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
     extend:'Ext.grid.Panel',
     xtype:'logbookgrid',
+    cls: 'logbook-grid-container',
+    height: 215,
 
     initComponent:function () {
         var me = this;
@@ -13,6 +15,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
+                    flex: 3,
                     align : 'center',
                     dataIndex:'project_name'
                 },
@@ -21,6 +24,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
                     sortable:false,
+                    flex: 6,
                     align : 'center',
                     dataIndex:'activity',
                     editor: {
@@ -33,6 +37,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIONS,
                     sortable:false,
+                    flex: 1,
                     align : 'center',
                     items:[
                         {
@@ -58,6 +63,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
                     sortable:false,
+                    flex: 1,
                     align : 'center',
                     dataIndex:'time',
                     editor: {

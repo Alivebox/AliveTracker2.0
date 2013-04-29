@@ -112,7 +112,7 @@ Ext.define('Locales.AliveTracker', {
          * Projects View
          */
         PROJECTS_LABEL_LOG_BOOK: 'Log Book',
-        PROJECTS_LABEL_TOTAL: 'Total',
+        PROJECTS_LABEL_TOTAL: 'Total Time',
         PROJECTS_COLUMN_HEADER_PROJECT: 'Project',
         PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'New Project',
         PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Edit Project',
