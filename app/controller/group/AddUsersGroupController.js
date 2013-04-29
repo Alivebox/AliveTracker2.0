@@ -42,7 +42,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     executeUsersSearch: function(argDataToFilter,argAutoCompleteBox){
         this.currentSearchValue = argDataToFilter;
-        var tmpNewUsersStore = Ext.getStore('NewUsers');
+        var tmpNewUsersStore = Ext.getStore('users.NewUsers');
         var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,this.currentSearchValue);
         if(this.currentSearchValue.length > 0)
         {

@@ -6,7 +6,7 @@ $buttonbordercolor: #728336;
 $whitetextcolor: #FFFFFF;
 $blackcolor: #000000;
 $formsbackgroundcolor: #DDDCD6;
-$formsfontcolor: #666666;
+$formsfontcolor: #BBBBBB;
 $txtfontcolor: #989899;
 $buttonbordercolor: #728336;
 $panelbordercolor: #BBBBBB;
@@ -19,8 +19,9 @@ $linkfontcolor: #8F8F8F;
 $overcalendarcolor: #98B044;
 $selectedcalendarcolor: #5A5A5A;
 $bordercolor: #BBBBBB;
+$bordertopcolor: #C7C7C7;
 $fontdayscalendar: #6B6B6B;
-$backgroundforms: #EBEBEB;
+$backgroundforms: #F0F0F0;
 $grid-header-background-color: #373c4b;
 $grid-header-color: #fff;
 $font-family: "Helvetica Neue", Arial, Verdana, sans-serif !default;
@@ -54,6 +55,10 @@ $background-main-container: #F0F0F0;
 
 .x-border-box .x-form-text{
   height: 30px;
+}
+
+.x-column-header-inner {
+  line-height: 30px;
 }
 
 .main-container {
