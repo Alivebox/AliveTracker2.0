@@ -19,6 +19,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     text: Locales.AliveTracker.HOME_LABEL_ACTIONS,
                     sortable:false,
                     align : 'center',
+                    tdCls: 'custom-delete-column',
                     items:[
                         {
                             scope: this,

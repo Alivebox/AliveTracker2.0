@@ -9,6 +9,7 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
             {
                 xtype: 'button',
                 text: Locales.AliveTracker.GROUP_PROJECT_LABEL_NEW_PROJECT,
+                cls:'',
                 listeners:{
                     scope: this,
                     click: this.onAddProjectClick
