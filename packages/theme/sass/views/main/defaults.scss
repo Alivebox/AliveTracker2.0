@@ -32,9 +32,14 @@ $background-main-container: #F0F0F0;
   border-radius: 4px;
   border-color: $buttonbordercolor;
   height: 30px;
-  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%); /* FF3.6+ */
+  background: #a5be4e; /* Old browsers */
+  background: -moz-linear-gradient(top,  #a5be4e 32%, #8ca33a 57%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(32%,#a5be4e), color-stop(57%,#8ca33a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #a5be4e 32%,#8ca33a 57%); /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* IE10+ */
+  background: linear-gradient(to bottom,  #a5be4e 32%,#8ca33a 57%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 ); /* IE6-9 */
 }
 
 .all-views-button .x-btn-center span {
@@ -49,7 +54,6 @@ $background-main-container: #F0F0F0;
 
 .x-border-box .x-form-text{
   height: 30px;
-  border-radius: 4px;
 }
 
 .main-container {

@@ -2,7 +2,6 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
 
     extend: 'Ext.container.Container',
     xtype: 'logbookactivityform',
-    layout: 'column',
 
     initComponent: function(){
         this.projectCombobox = this.createProjectComboBox();
@@ -10,10 +9,34 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         this.timeTextField = this.createTimeTextField();
         this.addActivityButton = this.createAddActivityButton();
         this.items = [
-            this.projectCombobox,
-            this.activityTextField,
-            this.timeTextField,
-            this.addActivityButton
+            {
+                xtype: 'container',
+                cls: 'logbook-label-container',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'label',
+                        text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
+                        cls: 'logbook-label'
+                    },
+                    {
+                        xtype: 'label',
+                        text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
+                        cls: 'logbook-label'
+                    }
+                ]
+            },
+            {
+                xtype: 'container',
+                cls: 'logbook-fields-container',
+                layout: 'hbox',
+                items: [
+                    this.projectCombobox,
+                    this.activityTextField,
+                    this.timeTextField,
+                    this.addActivityButton
+                ]
+            }
         ];
         this.callParent(arguments);
     },
@@ -22,14 +45,14 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpProjectComboBox = {
             xtype: 'combobox',
             itemId: 'logProjectComboBox',
-            fieldCls: 'groupdetail-view-form',
+            fieldCls: 'logbook-view-project-form',
+            cls: 'logbook-form-align',
             allowBlank: false,
-            fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
-            labelAlign: 'top',
             displayField: 'name',
             valueField: 'id',
             store: 'projects.Projects',
             editable: false,
+            width: '29.5%',
             queryMode:'local'
         };
         return tmpProjectComboBox;
@@ -39,11 +62,10 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpActivityTextField = {
             xtype: 'textfield',
             itemId:'txtActivity',
-            fieldCls: 'groupdetail-view-form',
-            fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
-            labelAlign: 'top',
+            fieldCls: 'logbook-view-form',
+            cls: 'logbook-form-align',
             allowBlank:false,
-            width: 500,
+            width: '65%',
             maxLength:300
         };
         return tmpActivityTextField;
@@ -53,16 +75,15 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpNumberTextField = {
             xtype: 'numberfield',
             width:50,
-            fieldCls: 'groupdetail-view-form',
+            fieldCls: 'logbook-view-form',
+            cls: 'logbook-form-align',
             allowNegative:false,
             allowBlank:false,
-            fieldLabel: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
-            labelAlign: 'top',
-            value:1,
+            value:00,
             itemId:'time',
             maxValue: 24,
             minValue: 1,
-            editable: false
+            hideTrigger: true
         };
         return tmpNumberTextField;
     },
@@ -71,7 +92,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpAddActivityButton = {
             xtype: 'button',
             name: 'include',
-            cls: 'all-views-button',
+            cls: 'all-views-button logbook-add-button',
             text: null,
             icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
             listeners: {

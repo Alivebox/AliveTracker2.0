@@ -27,6 +27,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                     },
                     {
                         xtype:'container',
+                        cls: 'logbook-container',
                         items:[
                             {
                                 xtype:'logbookactivityform',
@@ -38,27 +39,45 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                                 store:'projects.Logs'
                             },
                             {
-                                xtype:'textfield',
-                                itemId:'totalTime',
-                                fieldLabel: Locales.AliveTracker.PROJECTS_LABEL_TOTAL,
-                                cls: 'logbook-view-form-align',
-                                fieldCls: 'logbook-view-form',
-                                readOnly: true,
-                                width:'50px'
-                            },
-                            {
-                                xtype:'button',
-                                itemId:'saveLogHistory',
-                                cls: 'all-views-button',
-                                text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
-                                listeners:{
-                                    scope:this,
-                                    click:this.onSaveAll
-                                }
+                                xtype: 'container',
+                                layout: 'hbox',
+                                cls: 'logbook-total-container',
+                                items: [
+                                    {
+                                        xtype: 'label',
+                                        text: Locales.AliveTracker.PROJECTS_LABEL_TOTAL,
+                                        cls: 'logbook-total-label'
+                                    },
+                                    {
+                                        xtype: 'numberfield',
+                                        itemId:'totalTime',
+                                        cls: 'logbook-view-form-align',
+                                        fieldCls: 'logbook-view-form',
+                                        editable: false,
+                                        hideTrigger: true,
+                                        width:50
+                                    }
+                                ]
                             }
                         ]
                     }
 
+                ]
+            },
+            {
+                xtype:'container',
+                cls: 'logbook-save-container',
+                items:[
+                    {
+                        xtype:'button',
+                        itemId:'saveLogHistory',
+                        cls: 'all-views-button logbook-button',
+                        text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
+                        listeners:{
+                            scope:this,
+                            click:this.onSaveAll
+                        }
+                    }
                 ]
             }
         ];

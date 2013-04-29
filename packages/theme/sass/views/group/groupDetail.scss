@@ -4,7 +4,10 @@
   margin: 10px;
 }
 
-.btn-add-project{
+.project-add-button{
+  width:30px;
+  margin-top: 10px;
+  float: right;
 
 }
 
@@ -13,7 +16,7 @@
   background-color: $defaultbackgroundcolor;
 }
 
-.groupTab .x-column-inner{
+.groupTab .x-container.x-container-default.x-layout-fit{
   border-color: $panelbordercolor;
   border-style: solid;
   border-width: 1px;

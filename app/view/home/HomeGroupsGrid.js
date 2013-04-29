@@ -11,7 +11,8 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.HOME_LABEL_MY_GROUPS,
                     sortable:false,
-                    dataIndex:'name'
+                    dataIndex:'name',
+                    flex: 1
                 },
                 {
                     xtype:'actioncolumn',
@@ -20,6 +21,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     sortable:false,
                     align : 'center',
                     tdCls: 'custom-delete-column',
+                    flex: 0.5,
                     items:[
                         {
                             scope: this,

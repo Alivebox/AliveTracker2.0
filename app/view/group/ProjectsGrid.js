@@ -35,9 +35,11 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                     flex:0.5,
                     items:[
                         {
+                            icon:AliveTracker.defaults.Constants.EDIT_GRID_ROW_BUTTON,
                             tooltip:Locales.AliveTracker.GROUP_DETAIL_EDIT_USER_OF_PROJECT
                         },
                         {
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             tooltip:AliveTracker.defaults.Constants.GROUP_DETAIL_REMOVE_USER_OF_PROJECT
                         }
                     ]

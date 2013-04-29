@@ -11,7 +11,8 @@ Ext.define('AliveTracker.view.home.HomeBelongGroupsGrid', {
                     menuDisabled:true,
                     text: Locales.AliveTracker.HOME_LABEL_BELONG_GROUPS,
                     sortable:false,
-                    dataIndex:'name'
+                    dataIndex:'name',
+                    flex: 1
                 }
             ]
         });

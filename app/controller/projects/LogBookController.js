@@ -54,6 +54,9 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             },
             'logbookactivityform': {
                 addActivity:this.onAddNewActivity
+            },
+            'logbookgrid':{
+                deleteLog: this.onShowDeleteConfirm
             }
         });
     },
@@ -146,5 +149,18 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             tmpArray.push(argStore.data.items[i].data)
         }
         return tmpArray;
+    },
+    onShowDeleteConfirm: function(){
+        debugger;
+        Ext.MessageBox.confirm('Confirm', Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),this.deleteCallback, this);
+    },
+    deleteCallback:function(argButton){
+        debugger;
+        if(argButton == 'yes'){
+            grid.getStore().removeAt(rowIndex);
+        }
+    },
+    onDeleteLog:function(argRecord){
+        debugger;
     }
 });
