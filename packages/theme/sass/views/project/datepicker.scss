@@ -1,29 +1,29 @@
 @import '../main/defaults.scss';
 
-.x-datepicker {
+.logbook-datepicker{
   border-radius: 10px;
   border-style: none;
   margin: 10px;
 }
 
-table.x-datepicker-inner {
+.logbook-datepicker table.x-datepicker-inner {
   background-color: $backgroundforms;
   border-radius: 0 0 10px 10px;
   padding: 5%;
 }
 
-table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled a:hover{
+.logbook-datepicker table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled a:hover{
   background-color: $overcalendarcolor;
   color: $whitetextcolor;
   text-decoration: none !important;
 }
 
-table.x-datepicker-inner td {
+.logbook-datepicker table.x-datepicker-inner td {
    border: 1px solid $bordercolor;
    height: 35px;
 }
 
-table.x-datepicker-inner a {
+.logbook-datepicker table.x-datepicker-inner a {
   padding: 0px;
   text-align: center;
   height: 34px;
@@ -31,31 +31,31 @@ table.x-datepicker-inner a {
   padding: 6px;
 }
 
-table.x-datepicker-inner th {
+.logbook-datepicker table.x-datepicker-inner th {
   background: $backgroundforms;
   text-align: center;
   color: $fontdayscalendar;
 }
 
-table.x-datepicker-inner th span {
+.logbook-datepicker table.x-datepicker-inner th span {
   padding-right: 0px;
 }
 
-table.x-datepicker-inner .x-datepicker-selected a {
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a {
   background: $selectedcalendarcolor;
   border: 1px solid $selectedcalendarcolor;
   color: $whitetextcolor;
 }
 
-table.x-datepicker-inner .x-datepicker-selected a:hover {
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a:hover {
   background-color: $overcalendarcolor
 }
 
-table.x-datepicker-inner .x-datepicker-selected{
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected{
   background-color: $selectedcalendarcolor;
 }
 
-.x-datepicker-header {
+.logbook-datepicker .x-datepicker-header {
   background: -moz-linear-gradient(top, #e4e4e4 23%, #c7c7c7 59%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,#e4e4e4), color-stop(59%,#c7c7c7)); /* Chrome,Safari4+ */
   border-color: white;
@@ -66,25 +66,25 @@ table.x-datepicker-inner .x-datepicker-selected{
   position: relative;
 }
 
-.x-datepicker-prev a {
+.logbook-datepicker .x-datepicker-prev a {
   background-image: url("../images/arrow_left.png");
   margin-top: 100%;
 }
 
-.x-datepicker-next a {
+.logbook-datepicker .x-datepicker-next a {
   background-image: url("../images/arrow_right.png");
   margin-top: 100%;
 }
 
-table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
   color: $fontdayscalendar;
 }
 
-.x-datepicker-active {
+.logbook-datepicker .x-datepicker-active {
   background-color: $whitetextcolor;
 }
 
-.x-datepicker-prevday{
+.logbook-datepicker .x-datepicker-prevday{
   background: $panelbordercolor;
 }
 
