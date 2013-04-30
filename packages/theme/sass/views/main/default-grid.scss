@@ -38,16 +38,41 @@
   background-color: #BFD181;
 }
 
-.x-grid-row-over .x-action-col-cell {
+.x-grid-row-over .custom-delete-column {
   background-image: url(../images/delete.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.x-action-col-cell{
+.x-grid-row .custom-delete-column {
   background-image: url(../images/delete_dis.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.x-grid-row-over .custom-edit-column {
+  background-image: url(../images/edit.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.x-grid-row .custom-edit-column {
+  background-image: url(../images/edit_dis.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.projectTab .x-grid-row .x-action-col-cell .x-grid-cell-inner .x-action-col-0{
+  background-image: url(../images/delete_dis.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.projectTab .x-grid-row .x-action-col-cell .x-grid-cell-inner .x-action-col-1{
+  background-image: url(../images/delete_dis.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 15px;
 }
 
 .x-grid-header-ct {

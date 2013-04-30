@@ -42,22 +42,12 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     align : 'center',
                     items:[
                         {
-                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
-                            handler: function(grid, rowIndex, colIndex) {
-                                Ext.MessageBox.confirm(
-                                    'Confirm',
-                                    Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-                                    function(argButton){
-                                        if(argButton == 'yes')
-                                        {
-                                            grid.getStore().removeAt(rowIndex);
-                                        }
-                                    },
-                                    this
-                                );
-                            }
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON
                         }
-                    ]
+                    ],
+                    listeners: {
+                        click: this.onDeleteLog
+                    }
                 },
                 {
                     xtype:'gridcolumn',
@@ -85,6 +75,11 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
         });
 
         me.callParent(arguments);
+    },
+
+    onDeleteLog: function(arGrid, argRowIndex, argColumnIndex, argE){
+        debugger;
+        this.fireEvent('deleteLog', arGrid, argRowIndex, argE);
     }
 
  });
