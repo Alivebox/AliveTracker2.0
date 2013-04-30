@@ -3,7 +3,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
     extend:'Ext.grid.Panel',
     xtype:'logbookgrid',
     cls: 'logbook-grid-container',
-    height: 215,
+    height: 235,
 
     initComponent:function () {
         var me = this;

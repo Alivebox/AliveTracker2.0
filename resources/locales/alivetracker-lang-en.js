@@ -49,6 +49,7 @@ Ext.define('Locales.AliveTracker', {
          */
         REPORTS_LABEL_GROUP: 'Group',
         REPORTS_LABEL_PROJECT: 'Project',
+        REPORTS_LABEL_SELECT: '--Select--',
         REPORTS_LABEL_USER: 'User',
         REPORTS_LABEL_DATERANGE:'Date Range',
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Customized',
@@ -120,6 +121,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_TIME: 'Time',
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Actions',
         PROJECTS_LABEL_SAVE:'Save',
+        PROJECTS_LABEL_SELECT:'--Select--',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
         /**
          * Users View

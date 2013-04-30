@@ -47,7 +47,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
             itemId: 'logProjectComboBox',
             fieldCls: 'logbook-view-project-form',
             cls: 'logbook-form-align',
-            emptyText: '--Select--',
+            emptyText: Locales.AliveTracker.PROJECTS_LABEL_SELECT,
             allowBlank: false,
             displayField: 'name',
             valueField: 'id',

@@ -57,11 +57,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         });
     },
 
-    onDateRangeComboSelection: function(argValue, argField){
-        if(argValue == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
-            argField.setHiddenProperty(false);
+    onDateRangeComboSelection: function(){
+        var tmpValue = this.getCmbDateRange().value;
+        var tmpField = this.getDateRange();
+        if(tmpValue == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
+            tmpField.setHiddenProperty(false);
         }else{
-            argField.setHiddenProperty(true);
+            tmpField.setHiddenProperty(true);
         }
     },
 

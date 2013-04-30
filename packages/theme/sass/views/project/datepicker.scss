@@ -62,18 +62,18 @@ table.x-datepicker-inner .x-datepicker-selected{
   border-radius: 10px 10px 0 0;
   border-style: solid;
   border-width: 0 0 1px;
-  height: 40px;
+  height: 60px;
   position: relative;
 }
 
 .x-datepicker-prev a {
   background-image: url("../images/arrow_left.png");
-  margin-top: 50%;
+  margin-top: 100%;
 }
 
 .x-datepicker-next a {
   background-image: url("../images/arrow_right.png");
-  margin-top: 50%;
+  margin-top: 100%;
 }
 
 table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
