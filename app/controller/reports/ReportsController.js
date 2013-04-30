@@ -19,7 +19,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     refs: [
         {
             ref: 'reportsform',
-            selector: 'reportsform'
+            selector: 'reportsform [itemId=reportFormContainer]'
         },
         {
             ref: 'cmbProject',
@@ -71,18 +71,14 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
      * Exports the report
      */
     onExportReport: function(){
-        var tmpReportsFormBasic = this.getReportsform().getForm();
-        if( !tmpReportsFormBasic.isValid() ){
+        var tmpReportsForm = this.getReportsform();
+        if( !tmpReportsForm.isValid() ){
             return;
         }
-        var tmpModel = Ext.create('AliveTracker.model.reports.ReportForm',{
-            group: Ext.state.Manager.get('groupId'),
-            project: this.getCmbProject().value,
-            user: this.getCmbUser().value,
-            dateRangeOption:this.getCmbDateRange().value,
-            startDate:this.getDateRange().getStartValue(),
-            endDate:this.getDateRange().getEndValue()
-        });
+        var tmpModel = tmpReportsForm.getRecord();
+        tmpModel.set('group',Ext.state.Manager.get('groupId'));
+        tmpModel.set('startDate',this.getDateRange().getStartValue());
+        tmpModel.set('endDate',this.getDateRange().getEndValue());
         tmpModel.save({
             scope:this,
             callback:this.saveReportCallback
@@ -134,6 +130,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     },
 
     onShowPreview: function(){
+        var tmpReportsForm = this.getReportsform();
+        if( !tmpReportsForm.isValid() ){
+            return;
+        }
         var tmpGroup = Ext.state.Manager.get('groupId');
         var tmpProject = this.getCmbProject().value;
         var tmpUser = this.getCmbUser().value;

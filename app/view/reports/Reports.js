@@ -2,25 +2,30 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     extend:'Ext.container.Container',
     xtype:'reportsform',
-    layout:'anchor',
 
     initComponent:function () {
         this.items = [
             {
-                xtype: 'container',
+                xtype: 'formcontainer',
+                modelClassName: 'AliveTracker.model.reports.ReportForm',
                 layout: 'hbox',
+                itemId: 'reportFormContainer',
                 items: [
+                    {
+                        xtype: 'label',
+                        cls: 'report-label',
+                        text: Locales.AliveTracker.REPORTS_LABEL_PROJECT
+                    },
                     {
                         xtype:'combobox',
                         itemId:'projectReports',
+                        name: 'project',
                         cls: 'report-form-align',
                         fieldCls: 'report-form',
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         store: 'projects.Projects',
                         queryMode: 'local',
                         allowBlank:false,
-                        fieldLabel: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
-                        labelCls: 'report-label',
                         displayField:'name',
                         valueField: 'id',
                         editable:false,
@@ -31,14 +36,18 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         }
                     },
                     {
+                        xtype: 'label',
+                        cls: 'report-label',
+                        text: Locales.AliveTracker.REPORTS_LABEL_USER
+                    },
+                    {
                         xtype:'combobox',
                         itemId:'userReports',
+                        name: 'user',
                         cls: 'report-form-align',
                         fieldCls: 'report-form',
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         allowBlank:false,
-                        fieldLabel: Locales.AliveTracker.REPORTS_LABEL_USER,
-                        labelCls: 'report-label',
                         store:'users.Users',
                         queryMode: 'local',
                         displayField:'email',
@@ -47,14 +56,19 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         width: 400
                     },
                     {
+                        xtype: 'label',
+                        cls: 'report-label',
+                        text: Locales.AliveTracker.REPORTS_LABEL_DATERANGE
+                    },
+                    {
                         xtype:'combobox',
                         itemId:'dateRangeComboReports',
+                        cls: 'report-form-date',
                         fieldCls: 'report-form',
                         name:'dateRangeComboReports',
                         allowBlank:false,
-                        fieldLabel:Locales.AliveTracker.REPORTS_LABEL_DATERANGE,
-                        labelCls: 'report-label',
                         editable:false,
+                        width: 300,
                         store:[
                             [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
                             [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
@@ -85,7 +99,35 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 }
             },
             {
+                xtype: 'gridpanel',
+                itemId: 'gridReports',
+                cls: 'report-grid-container',
+                height: 400,
+                store: 'reports.Reports',
+                columns: [
+                    {
+                        header: 'Project',
+                        cls: 'report-grid-column',
+                        dataIndex: 'project_name',
+                        flex: 1
+                    },
+                    {
+                        header: 'Activity',
+                        cls: 'report-grid-activity-column',
+                        dataIndex: 'activity',
+                        flex: 3
+                    },
+                    {
+                        header: 'Date',
+                        cls: 'report-grid-column',
+                        dataIndex: 'date',
+                        flex: 1
+                    }
+                ]
+            },
+            {
                 xtype:'button',
+                cls: 'all-views-button report-button-align',
                 text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
                 formBind:true,
                 listeners:{
@@ -93,30 +135,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     click:this.onExportReportClick
                 }
 
-            },
-            {
-                xtype: 'gridpanel',
-                itemId: 'gridReports',
-                hidden: true,
-                store: 'reports.Reports',
-                columns: [
-                    {
-                        header: 'Project',
-                        dataIndex: 'project_name'
-                    },
-                    {
-                        header: 'Activity',
-                        dataIndex: 'activity'
-                    },
-                    {
-                        header: 'Time',
-                        dataIndex: 'time'
-                    },
-                    {
-                        header: 'Date',
-                        dataIndex: 'date'
-                    }
-                ]
             }
         ];
         this.callParent(arguments);

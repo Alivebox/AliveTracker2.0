@@ -6,7 +6,7 @@ $buttonheaderbackgroundcolor: #4A4A4A;
 $buttonbordercolor: #728336;
 $whitetextcolor: #FFFFFF;
 $blackcolor: #000000;
-$formsbackgroundcolor: #DDDCD6;
+$formsbackgroundcolor: #F0F0F0;
 $formsfontcolor: #BBBBBB;
 $txtfontcolor: #989899;
 $buttonbordercolor: #728336;
@@ -60,6 +60,21 @@ $background-main-container: #F0F0F0;
 
 .x-column-header-inner {
   line-height: 30px;
+}
+
+.x-boundlist {
+  border-color: $bordertopcolor;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+.x-boundlist-item-over {
+  background-color: #BFD181;
 }
 
 .main-container {
