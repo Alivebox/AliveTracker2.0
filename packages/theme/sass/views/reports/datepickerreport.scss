@@ -79,3 +79,9 @@ table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-da
 .x-datepicker-prevday{
   background: $panelbordercolor;
 }
+
+.date-trigger{
+  background-color: $whitetextcolor;
+  background-image: url("../images/calendar.png");
+  border-style: none;
+}

@@ -22,6 +22,11 @@ Ext.define('AliveTracker.view.header.HeaderView', {
                 }
             },
             {
+                xtype: 'label',
+                itemId: 'usernamelabel',
+                cls: 'username-label'
+            },
+            {
                 xtype:'image',
                 cls:'logo',
                 listeners:{

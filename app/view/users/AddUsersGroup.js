@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.group.AddUsersGroup', {
+Ext.define('AliveTracker.view.users.AddUsersGroup', {
 
     extend: 'Ext.Container',
     xtype: 'addusersgroup',
@@ -9,13 +9,16 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
         this.items = [
             {
                 xtype: 'container',
+                cls: 'add-user-container',
                 layout: 'hbox',
                 items: [
                     this.autoCompleteBox,
                     {
                         xtype: 'button',
                         id: 'btnAddUser',
-                        text: Locales.AliveTracker.ADD_USERS_GROUP_LABEL_ADD_USER,
+                        cls: 'all-views-button add-users-group-button',
+                        icon:AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
+                        iconAlign:'center',
                         listeners: {
                             scope: this,
                             'click' : 'onAddUserClick'
@@ -25,14 +28,15 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
             },
             {
                 xtype: 'usersgrid',
+                cls: 'add-user-grid-container',
+                height: 400,
                 store: 'users.GroupUsers',
                 name: 'usersGrid'
             },
             {
                 xtype:'button',
+                cls: 'all-views-button add-users-group-save-button',
                 text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
-                icon:AliveTracker.defaults.Constants.SAVE_ELEMENT_BUTTON,
-                iconAlign:'right',
                 listeners:{
                     scope:this,
                     click:this.onSaveGroupUsers
@@ -46,6 +50,7 @@ Ext.define('AliveTracker.view.group.AddUsersGroup', {
     getAutoCompleteBox: function(){
         var tmpAutoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
             displayField: 'email',
+            cls: 'add-users-group-form',
             store: Ext.getStore('users.NewUsers'),
             listeners: {
                 scope: this,

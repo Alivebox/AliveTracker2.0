@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.group.GroupProjects', {
+Ext.define('AliveTracker.view.projects.GroupProjects', {
 
     extend: 'Ext.Container',
     xtype: 'groupprojects',
@@ -6,12 +6,6 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
 
     initComponent:function () {
         this.items = [
-            {
-                xtype: 'projectgrid',
-                itemId: 'groupProjectGrid',
-                queryMode: 'local',
-                store: 'projects.Projects'
-            },
             {
                 xtype: 'button',
                 cls: 'all-views-button project-add-button',
@@ -21,6 +15,14 @@ Ext.define('AliveTracker.view.group.GroupProjects', {
                     scope: this,
                     click: this.onAddProjectClick
                 }
+            },
+            {
+                xtype: 'projectgrid',
+                cls: 'project-grid-container',
+                height: 400,
+                itemId: 'groupProjectGrid',
+                queryMode: 'local',
+                store: 'projects.Projects'
             }
         ];
         this.callParent(arguments);

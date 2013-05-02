@@ -33,7 +33,7 @@ Ext.define('AliveTracker.view.home.Home', {
                 cls:'all-views-button',
                 listeners: {
                     scope: this,
-                    click: 'onCreateNewGroup'
+                    click: 'onAddButtonClick'
                 }
             }
         ];
@@ -64,8 +64,8 @@ Ext.define('AliveTracker.view.home.Home', {
         return tmpBelongGroupsGrid;
     },
 
-    onCreateNewGroup: function() {
-        this.fireEvent('onShowCreateNewGroup', this);
+    onAddButtonClick: function() {
+        this.fireEvent('addGroup', this);
     },
 
     onSelectRow: function(agrComponent, argRecord) {
@@ -73,7 +73,7 @@ Ext.define('AliveTracker.view.home.Home', {
     },
 
     onSelectRowBelongGroups: function(agrComponent, record, index) {
-        this.fireEvent('onShowBelongGroupPage',this, agrComponent, record, index);
+        this.fireEvent('belongGroupSelected',this, agrComponent, record, index);
     }
 
 });
