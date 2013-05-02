@@ -3,7 +3,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     extend: "Ext.app.Controller",
 
     views: [
-        'group.AddUsersGroup',
+        'users.AddUsersGroup',
         'users.UsersGrid'
     ],
 

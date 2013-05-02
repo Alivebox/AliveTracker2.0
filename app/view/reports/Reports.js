@@ -83,20 +83,22 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     },
                     {
                         xtype:'daterange',
+                        cls: 'report-daterange',
                         itemId:'dateRangeReports',
                         name:'dateRangeReports',
                         allowBlank:true,
                         hidden:true
+                    },
+                    {
+                        xtype:'button',
+                        cls: 'all-views-button report-button-align',
+                        text:Locales.AliveTracker.REPORTS_LABEL_PREVIEW,
+                        listeners:{
+                            scope:this,
+                            click:this.onShowPreview
+                        }
                     }
                 ]
-            },
-            {
-                xtype:'button',
-                text:Locales.AliveTracker.REPORTS_LABEL_PREVIEW,
-                listeners:{
-                    scope:this,
-                    click:this.onShowPreview
-                }
             },
             {
                 xtype: 'gridpanel',
@@ -107,6 +109,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 columns: [
                     {
                         header: 'Project',
+                        menuDisabled:true,
                         cls: 'report-grid-column',
                         dataIndex: 'project_name',
                         flex: 1
@@ -119,6 +122,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     },
                     {
                         header: 'Date',
+                        menuDisabled:true,
                         cls: 'report-grid-column',
                         dataIndex: 'date',
                         flex: 1

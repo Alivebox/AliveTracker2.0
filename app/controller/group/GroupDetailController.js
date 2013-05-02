@@ -4,14 +4,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     views:[
         'group.GroupDetail',
-        'group.GroupProjects',
-        'group.ProjectsGrid',
+        'projects.GroupProjects',
+        'projects.ProjectsGrid',
         'users.UserRolesAssignmentPopUp'
     ],
 
     requires : [
         'AliveTracker.view.users.UsersGrid',
-        'AliveTracker.view.group.GroupProjects'
+        'AliveTracker.view.projects.GroupProjects'
     ],
 
     models:[

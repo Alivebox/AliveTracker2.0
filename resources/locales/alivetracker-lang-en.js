@@ -92,7 +92,7 @@ Ext.define('Locales.AliveTracker', {
         GROUP_PROJECT_LABEL_NAME: 'Name',
         GROUP_PROJECT_LABEL_MEMBERS: 'Members',
         GROUP_PROJECT_LABEL_CREATED: 'Created',
-        GROUP_PROJECT_LABEL_BUTTONS: 'Buttons',
+        GROUP_PROJECT_LABEL_ACTIONS: 'Actions',
         /**
          * Confirmation Messages
          */
@@ -123,6 +123,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_LABEL_SAVE:'Save',
         PROJECTS_LABEL_SELECT:'--Select--',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
+        NEW_PROJECT_LABEL: 'New Project',
         /**
          * Users View
          */

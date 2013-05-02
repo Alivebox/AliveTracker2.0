@@ -2,14 +2,15 @@ Ext.define('AliveTracker.view.users.UsersList', {
 
     extend:'Ext.grid.Panel',
     xtype:'userslist',
+    cls: 'userlist-container',
     hideHeaders:true,
     multiSelect:true,
     scroll:'vertical',
     resizeble: false,
     maxHeight: 150,
     minHeight: 150,
-    maxWidth: 200,
-    minWidth: 200,
+    maxWidth: 225,
+    minWidth: 225,
 
     initComponent:function () {
         var me = this;

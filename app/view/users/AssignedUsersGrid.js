@@ -1,15 +1,16 @@
-Ext.define('AliveTracker.view.users.UserRolesGrid', {
+Ext.define('AliveTracker.view.users.AssignedUsersGrid', {
 
     extend: 'Ext.grid.Panel',
-    xtype: 'userrolesgrid',
+    xtype: 'assignedusersgrid',
+    cls: 'userlist-container',
     hideHeaders:true,
     multiSelect:true,
     scroll:'vertical',
     resizeble: false,
     maxHeight: 150,
     minHeight: 150,
-    maxWidth: 250,
-    minWidth: 250,
+    maxWidth: 225,
+    minWidth: 225,
 
 
     initComponent: function() {

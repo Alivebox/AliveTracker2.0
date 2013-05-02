@@ -9,27 +9,32 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
             columns: [
                 {
                     xtype: 'gridcolumn',
+                    cls: 'user-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable : false,
+                    flex: 2,
                     dataIndex: 'name'
                 },
                 {
                     xtype: 'gridcolumn',
+                    cls: 'user-grid-role-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.USERS_LABEL_ROLE,
                     sortable : false,
-                    width: 75,
+                    flex: 5,
                     dataIndex: 'role',
                     editor: this.cbUserGridRoles
 
                 },
                 {
                     xtype:'actioncolumn',
+                    cls: 'user-grid-column',
                     name: 'userGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
                     sortable:false,
+                    flex: 1,
                     align : 'center',
                     items:[
                         {

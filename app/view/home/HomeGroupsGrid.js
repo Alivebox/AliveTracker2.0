@@ -8,6 +8,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
             columns:[
                 {
                     xtype:'gridcolumn',
+                    cls: 'home-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.HOME_LABEL_MY_GROUPS,
                     sortable:false,
@@ -16,6 +17,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                 },
                 {
                     xtype:'actioncolumn',
+                    cls: 'home-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.HOME_LABEL_ACTIONS,
                     sortable:false,

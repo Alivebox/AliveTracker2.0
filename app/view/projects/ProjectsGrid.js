@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.group.ProjectsGrid', {
+Ext.define('AliveTracker.view.projects.ProjectsGrid', {
 
     extend:'Ext.grid.Panel',
     xtype:'projectgrid',
@@ -10,6 +10,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
             columns:[
                 {
                     xtype:'gridcolumn',
+                    cls: 'project-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_NAME,
                     sortable:false,
@@ -19,6 +20,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                 },
                 {
                     xtype:'gridcolumn',
+                    cls: 'project-grid-created-column',
                     menuDisabled:true,
                     align:'center',
                     text:Locales.AliveTracker.GROUP_PROJECT_LABEL_CREATED,
@@ -27,6 +29,7 @@ Ext.define('AliveTracker.view.group.ProjectsGrid', {
                 },
                 {
                     xtype:'actioncolumn',
+                    cls: 'project-grid-column',
                     id: 'projectGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,

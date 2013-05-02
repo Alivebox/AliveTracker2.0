@@ -1,20 +1,6 @@
 @import '../main/defaults.scss';
 
-.report-form{
-  background-color: $backgroundforms;
-  background-image: none;
-  border-radius: 4px 0px 0px 4px;
-  border-style: none;
-  border-top-color: $bordertopcolor;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-right-color: $bordertopcolor;
-  border-right-style: solid;
-  border-right-width: 1px;
-  color: $formsfontcolor;
-}
-
-.report-date-form{
+.add-users-group-form .x-form-text, textarea.x-form-field {
   background-color: $backgroundforms;
   background-image: none;
   border-radius: 4px;
@@ -23,48 +9,30 @@
   border-top-style: solid;
   border-top-width: 1px;
   color: $formsfontcolor;
+  width: 200px;
 }
 
-.report-form-align{
-  margin-right: 30px;
-  margin-top: 20px;
+.add-users-group-button{
+  width: 30px;
+  margin-top: 0px;
 }
 
-.report-form-date{
-  margin-right: 60px;
-  margin-top: 20px;
+.add-users-group-save-button{
+  float: right;
+  margin-top: 10px;
 }
 
-.report-daterange{
-  margin-right: 30px;
-}
-
-.report-label{
-  color: $blackcolor;
-  font-size: 16px;
-  margin-top: 24px;
-  margin-right: 10px;
-}
-
-.report-icons{
-  margin-top: 5px;
-  margin-right: 10px;
-}
-
-.report-date-container{
+.add-user-container{
+  float: right;
   margin-bottom: 10px;
+  width: 235px;
 }
 
-.report-grid-container{
-  margin-top: 20px;
+.add-user-grid-container{
+  clear: both;
 }
 
-.report-button-align{
-  float:right;
-  margin-top: 20px;
-}
-
-.report-grid-column .x-column-header-inner{
+.user-grid-column .x-column-header-inner{
   background: #ececec; /* Old browsers */
   background: -moz-linear-gradient(top,  #ececec 6%, #dbdada 43%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,#ececec), color-stop(43%,#dbdada)); /* Chrome,Safari4+ */
@@ -75,7 +43,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 ); /* IE6-9 */
 }
 
-.report-grid-activity-column .x-column-header-inner{
+.user-grid-role-column .x-column-header-inner{
   background: #d1d1d1; /* Old browsers */
   background: -moz-linear-gradient(top,  #d1d1d1 22%, #c2c1c1 63%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#d1d1d1), color-stop(63%,#c2c1c1)); /* Chrome,Safari4+ */

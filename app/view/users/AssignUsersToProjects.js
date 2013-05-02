@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
     extend:'Ext.container.Container',
     xtype:'assignuserstoprojectsview',
     requires:[
-        'AliveTracker.view.users.UserRolesGrid',
+        'AliveTracker.view.users.AssignedUsersGrid',
         'AliveTracker.view.users.UsersList'
     ],
     initComponent:function () {
@@ -10,23 +10,26 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
             {
                 xtype: 'form',
                 name: 'projectModelForm',
+                cls: 'project-users-popup-view-form-container',
                 items: [
                     {
                         xtype:'textfield',
                         name:'name',
+                        cls: 'project-users-popup-view-forms-align',
+                        fieldCls: 'project-users-popup-view-forms',
+                        labelCls: 'project-users-popup-view-label',
                         allowBlank:false,
                         fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
-                        maxLength:25,
-                        width:350
+                        maxLength:250
                     },
                     {
-                        xtype:'textareafield',
-                        grow:true,
+                        xtype:'textfield',
                         name:'description',
+                        cls: 'project-users-popup-view-forms-align',
+                        fieldCls: 'project-users-popup-view-forms',
+                        labelCls: 'project-users-popup-view-label',
                         fieldLabel:Locales.AliveTracker.USERS_LABEL_DESCRIPTION,
-                        maxLength:250,
-                        width:350,
-                        anchor:'90%'
+                        maxLength:250
                     }
                 ]
             },
@@ -41,11 +44,14 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     },
                     {
                         xtype:'container',
+                        cls: 'project-arrow-buttons-container',
+                        layout: 'vbox',
                         items:[
                             {
                                 xtype:'button',
                                 layout:'vbox',
                                 text:null,
+                                cls: 'project-arrow-button',
                                 icon:AliveTracker.defaults.Constants.RIGHT_ARROW_BUTTON,
                                 listeners:{
                                     scope: this,
@@ -55,6 +61,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                             {
                                 xtype:'button',
                                 text:null,
+                                cls: 'project-arrow-button',
                                 icon:AliveTracker.defaults.Constants.LEFT_ARROW_BUTTON,
                                 listeners:{
                                     scope: this,
@@ -64,8 +71,8 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                         ]
                     },
                     {
-                        xtype:'userrolesgrid',
-                        name:'userrolesgrid',
+                        xtype:'assignedusersgrid',
+                        name:'assignedusersgrid',
                         store:'users.AssignedUsers'
                     }
                 ]
@@ -77,6 +84,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     {
                         xtype:'button',
                         name:'save',
+                        cls: 'all-views-button project-button-align',
                         text: Locales.AliveTracker.USERS_LABEL_SAVE,
                         listeners:{
                             scope:this,
@@ -87,6 +95,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     {
                         xtype:'button',
                         name:'cancel',
+                        cls: 'project-cancel-button',
                         text:Locales.AliveTracker.USERS_LABEL_CANCEL,
                         listeners:{
                             scope:this,

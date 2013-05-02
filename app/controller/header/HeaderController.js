@@ -6,14 +6,27 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
         'header.HeaderView'
     ],
 
+    refs: [
+        {
+            ref: 'userlabel',
+            selector: 'headerview [itemId=usernamelabel]'
+        }
+    ],
+
     init: function(){
         this.control({
             'headerview': {
+                beforeshow: this.showUsername,
                 showUserProfile: this.showUserProfile,
                 logout:this.logout,
                 logoClick: this.showHomePage
             }
         });
+    },
+
+    showUsername: function(){
+        var tmpUserLabel = this.getUserlabel();
+        tmpUserLabel.setText(Framework.core.SecurityManager.getCurrentUsername());
     },
 
     showUserProfile: function(){

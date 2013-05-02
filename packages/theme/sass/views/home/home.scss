@@ -22,3 +22,13 @@
   background: -webkit-linear-gradient(top,  #a5be4e 1%,#8ca33a 50%,#8ca33a 100%); /* Chrome10+,Safari5.1+ */
 }
 
+.home-grid-column .x-column-header-inner{
+  background: #ececec; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ececec 6%, #dbdada 43%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6%,#ececec), color-stop(43%,#dbdada)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ececec 6%,#dbdada 43%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ececec 6%,#dbdada 43%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ececec 6%,#dbdada 43%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ececec 6%,#dbdada 43%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 ); /* IE6-9 */
+}

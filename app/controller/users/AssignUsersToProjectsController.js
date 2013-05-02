@@ -5,7 +5,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     views: [
         'users.AssignUsersToProjects',
         'users.UserRolesAssignmentPopUp',
-        'users.UserRolesGrid',
+        'users.AssignedUsersGrid',
         'users.UsersGrid',
         'users.UsersList'
     ],
@@ -22,7 +22,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         },
         {
             ref:'userRolesGrid',
-            selector:'assignuserstoprojectsview [name=userrolesgrid]'
+            selector:'assignuserstoprojectsview [name=assignedusersgrid]'
         },
         {
             ref:'assignUsersToProjectsView',
