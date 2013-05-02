@@ -11,6 +11,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                 items:[
                     {
                         xtype:'datepicker',
+                        cls: 'logbook-datepicker',
                         name:'date',
                         itemId:'datepickerLogBook',
                         width: '17%',
@@ -65,20 +66,14 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                 ]
             },
             {
-                xtype:'container',
-                cls: 'logbook-save-container',
-                items:[
-                    {
-                        xtype:'button',
-                        itemId:'saveLogHistory',
-                        cls: 'all-views-button logbook-button',
-                        text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
-                        listeners:{
-                            scope:this,
-                            click:this.onSaveAll
-                        }
-                    }
-                ]
+                xtype:'button',
+                itemId:'saveLogHistory',
+                cls: 'all-views-button logbook-button',
+                text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
+                listeners:{
+                    scope:this,
+                    click:this.onSaveAll
+                }
             }
         ];
         this.callParent(arguments);

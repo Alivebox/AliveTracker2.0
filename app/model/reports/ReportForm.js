@@ -35,6 +35,18 @@ Ext.define('AliveTracker.model.reports.ReportForm', {
         }
 
     ],
+
+    validations: [
+        {
+            type: 'presence',
+            field: 'project'
+        },
+        {
+            type: 'presence',
+            field: 'user'
+        }
+    ],
+
     proxy: {
         type: 'restproxy',
         url: AliveTracker.defaults.WebServices.LOG_EXPORT_REPORT

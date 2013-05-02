@@ -10,13 +10,18 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
         this.control({
             'headerview': {
                 showUserProfile: this.showUserProfile,
-                logout:this.logout
+                logout:this.logout,
+                logoClick: this.showHomePage
             }
         });
     },
 
     showUserProfile: function(){
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
+    },
+
+    showHomePage: function(){
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
     },
 
     logout: function(){

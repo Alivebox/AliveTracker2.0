@@ -50,6 +50,7 @@ Ext.define('Locales.AliveTracker', {
          */
         REPORTS_LABEL_GROUP: 'Grupo',
         REPORTS_LABEL_PROJECT: 'Proyecto',
+        REPORTS_LABEL_SELECT: '--Seleccionar--',
         REPORTS_LABEL_USER: 'Usuario',
         REPORTS_LABEL_DATERANGE:'Rango de fechas',
         REPORTS_CUSTOM_DATERANGE_DESCRIPTION: 'Personalizado',
@@ -130,6 +131,7 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_TIME: 'Tiempo',
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Acciones',
         PROJECTS_LABEL_SAVE:'Guardar',
+        PROJECTS_LABEL_SELECT:'--Seleccionar--',
         PROJECTS_LOG_SAVE_SUCCESS:'Guardado exitoso',
         /**
          * Users View

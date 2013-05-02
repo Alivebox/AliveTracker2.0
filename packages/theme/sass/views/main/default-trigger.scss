@@ -18,3 +18,11 @@
 .x-form-trigger-wrap-focus .x-form-trigger {
   background-position: center;
 }
+
+.x-form-trigger-wrap-focus .x-form-trigger {
+  border-bottom-color: $bordertopcolor;
+}
+
+.x-form-trigger-over {
+  border-bottom-color: $bordertopcolor;
+}

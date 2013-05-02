@@ -23,7 +23,13 @@ Ext.define('AliveTracker.view.header.HeaderView', {
             },
             {
                 xtype:'image',
-                cls:'logo'
+                cls:'logo',
+                listeners:{
+                    el: {
+                        scope: this,
+                        click: this.onLogoClick
+                    }
+                }
             }
         ];
         this.callParent(arguments);
@@ -33,5 +39,8 @@ Ext.define('AliveTracker.view.header.HeaderView', {
     },
     onLogout: function(){
         this.fireEvent('logout');
+    },
+    onLogoClick: function(){
+        this.fireEvent('logoClick');
     }
 });
