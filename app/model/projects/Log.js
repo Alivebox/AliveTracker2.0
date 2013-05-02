@@ -33,6 +33,9 @@ Ext.define('AliveTracker.model.projects.Log', {
     ],
     proxy: {
         type: 'restproxy',
-        url: AliveTracker.defaults.WebServices.LOG_CREATE_LOGS
+        api: {
+            create: AliveTracker.defaults.WebServices.LOG_CREATE_LOGS,
+            destroy: AliveTracker.defaults.WebServices.LOG_DELETE
+        }
     }
 });

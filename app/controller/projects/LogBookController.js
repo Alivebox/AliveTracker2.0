@@ -150,17 +150,27 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         }
         return tmpArray;
     },
-    onShowDeleteConfirm: function(){
-        debugger;
-        Ext.MessageBox.confirm('Confirm', Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),this.deleteCallback, this);
+    onShowDeleteConfirm: function(argGrid, argIndex){
+        this.toDeleteIndex = argIndex;
+        Ext.MessageBox.confirm('Confirm', Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),this.deleteConfirmCallback, this);
     },
-    deleteCallback:function(argButton){
+    deleteConfirmCallback:function(argButton){
         debugger;
         if(argButton == 'yes'){
-            grid.getStore().removeAt(rowIndex);
+            var tmpLog = Ext.getStore('projects.Logs').getAt(this.toDeleteIndex);
+            if(tmpLog.data.id === 0){
+                Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
+                return;
+            }
+            tmpLog.destroy({
+                scope: this,
+                overrideUrl: Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_DELETE, tmpLog.data.id),
+                success: this.onDeleteCallback
+            });
         }
     },
-    onDeleteLog:function(argRecord){
+    onDeleteCallback:function(argResult){
         debugger;
+        Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
     }
 });

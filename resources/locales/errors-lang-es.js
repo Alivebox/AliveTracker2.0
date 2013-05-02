@@ -24,8 +24,8 @@ Ext.define('Locales.ErrorCodes', {
         ERROR313: 'No tienes suficientes permisos para ver los reportes del proyecto y del usuario ',
         ERROR400: 'El usuario no existe',
         ERROR500: 'El proyecto no existe',
-        ERROR600: 'El role no existe'
-
+        ERROR600: 'El role no existe',
+        ERROR700: 'El log no existe'
     }
 
 });

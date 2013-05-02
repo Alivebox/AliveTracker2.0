@@ -25,10 +25,8 @@ Ext.define('Locales.ErrorCodes', {
         ERROR313: 'User is not allowed to view reports for that project and that user',
         ERROR400: 'User does not exist',
         ERROR500: 'Project does not exist',
-        ERROR600: 'Role does not exist'
-
-
-
+        ERROR600: 'Role does not exist',
+        ERROR700: 'Log does not exist'
     }
 
 });
