@@ -58,7 +58,7 @@ Ext.define('AliveTracker.view.home.Home', {
             store: 'groups.BelongGroups',
             listeners: {
                 scope: this,
-                select: 'onSelectRowBelongGroups'
+                select: 'onSelectRow'
             }
         };
         return tmpBelongGroupsGrid;
@@ -68,12 +68,8 @@ Ext.define('AliveTracker.view.home.Home', {
         this.fireEvent('addGroup', this);
     },
 
-    onSelectRow: function(agrComponent, argRecord) {
+    onSelectRow: function(argComponent, argRecord) {
         this.fireEvent('groupSelected',argRecord);
-    },
-
-    onSelectRowBelongGroups: function(agrComponent, record, index) {
-        this.fireEvent('belongGroupSelected',this, agrComponent, record, index);
     }
 
 });

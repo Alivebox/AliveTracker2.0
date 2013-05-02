@@ -40,7 +40,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             'homeview': {
                 beforerender: this.loadHomeGroups,
                 groupSelected: this.onGroupSelected,
-                belongGroupSelected: this.onBelongGroupSelected,
                 addGroup: this.onCreateNewGroup
             },
             'homegroupsgrid': {
@@ -83,12 +82,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         this.onShowGroupDetailView(tmpModel.getData().id);
     },
 
-    onBelongGroupSelected: function(agrComponent, argRow, argIndex){
-        var tmpModel = argIndex;
-        this.onShowBelongGroupDetailView(tmpModel.getData().id);
-
-    },
-
     onShowGroupDetailView: function(argElement){
         this.selectedGroupElement = argElement;
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,this.selectedGroupElement);
@@ -106,10 +99,6 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             return;
         }
         Ext.state.Manager.set('groupId',this.selectedGroupElement);
-        this.loadGroupData();
-    },
-
-    onShowBelongGroupDetailView: function(argElement){
         this.loadGroupData();
     },
 
