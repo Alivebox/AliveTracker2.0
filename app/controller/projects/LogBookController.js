@@ -114,11 +114,14 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.getLogBookActivityField().setValue('');
         this.getLogBookTimeTextField().setValue(1);
     },
-    onDatePickerChange:function () {
+    onReloadLogStore: function (){
         Ext.getStore('projects.Logs').removeAll();
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
         this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
+    },
+    onDatePickerChange:function () {
+        this.onReloadLogStore();
     },
     onSaveLogHistory:function () {
         var tmpLogArray = [];
@@ -139,6 +142,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     },
     saveCallback: function(record, operation){
         if(operation.success){
+            this.onReloadLogStore();
             Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.PROJECTS_LOG_SAVE_SUCCESS);
             return;
         }
@@ -155,22 +159,20 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         Ext.MessageBox.confirm('Confirm', Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),this.deleteConfirmCallback, this);
     },
     deleteConfirmCallback:function(argButton){
-        debugger;
         if(argButton == 'yes'){
             var tmpLog = Ext.getStore('projects.Logs').getAt(this.toDeleteIndex);
-            if(tmpLog.data.id === 0){
+            if(tmpLog.phantom){
                 Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
                 return;
             }
             tmpLog.destroy({
                 scope: this,
-                overrideUrl: Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_DELETE, tmpLog.data.id),
+                urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_DELETE, tmpLog.data.id),
                 success: this.onDeleteCallback
             });
         }
     },
     onDeleteCallback:function(argResult){
-        debugger;
         Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
     }
 });
