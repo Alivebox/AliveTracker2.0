@@ -6,6 +6,7 @@ $theme-name: 'theme';
 @import 'compass';
 @import 'ext4/default/all';
 @import 'views/main/defaults';
+@import 'views/main/windows';
 @import 'views/main/default-grid';
 @import 'views/main/default-trigger';
 @import 'views/authentication/loginregister';
