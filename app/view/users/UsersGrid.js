@@ -29,7 +29,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 },
                 {
                     xtype:'actioncolumn',
-                    cls: 'user-grid-column',
+                    cls: 'user-delete-column',
                     name: 'userGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_ACTIONS,

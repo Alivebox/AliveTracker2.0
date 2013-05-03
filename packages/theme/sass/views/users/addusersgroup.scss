@@ -53,3 +53,7 @@
   background: linear-gradient(to bottom,  #d1d1d1 22%,#c2c1c1 63%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#c2c1c1',GradientType=0 ); /* IE6-9 */
 }
+
+.user-delete-column .x-grid-cell.x-action-col-cell{
+  background: purple;
+}
