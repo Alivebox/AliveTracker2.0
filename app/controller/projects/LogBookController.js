@@ -163,6 +163,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             var tmpLog = Ext.getStore('projects.Logs').getAt(this.toDeleteIndex);
             if(tmpLog.phantom){
                 Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
+                this.onTotalTimeUpdate();
                 return;
             }
             tmpLog.destroy({
@@ -174,5 +175,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     },
     onDeleteCallback:function(argResult){
         Ext.getStore('projects.Logs').removeAt(this.toDeleteIndex);
+        this.onTotalTimeUpdate();
     }
 });

@@ -114,9 +114,11 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
+        var tmpDate = this.getCurrentDate();
         var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
             name: tmpProjectForm.name,
             description: tmpProjectForm.description,
+            created: tmpDate,
             users: tmpAssignArray
         });
         tmpProject.setProxy({
@@ -131,6 +133,20 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         tmpProjectStore.add(tmpProject);
         tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
+    },
+
+    getCurrentDate: function(){
+        var tmpDate = new Date().getDate();
+        if(tmpDate < 10){
+            tmpDate = '0'+tmpDate;
+        }
+        var tmpMonth = new Date().getMonth()+1;
+        if(tmpMonth < 10){
+            tmpMonth = '0'+tmpMonth;
+        }
+        var tmpYear = new Date().getFullYear();
+        var tmpFullDate = tmpYear+'-'+tmpMonth+'-'+tmpDate;
+        return tmpFullDate;
     },
 
     onUpdateUsersToProjectChanges: function(argPopUp, argWindow){

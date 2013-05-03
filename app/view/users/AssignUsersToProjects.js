@@ -53,6 +53,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                                 text:null,
                                 cls: 'project-arrow-button',
                                 icon:AliveTracker.defaults.Constants.RIGHT_ARROW_BUTTON,
+                                iconAlign: 'center',
                                 listeners:{
                                     scope: this,
                                     click: this.onAddElement
@@ -63,6 +64,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                                 text:null,
                                 cls: 'project-arrow-button',
                                 icon:AliveTracker.defaults.Constants.LEFT_ARROW_BUTTON,
+                                iconAlign: 'center',
                                 listeners:{
                                     scope: this,
                                     click: this.onRemoveElement
