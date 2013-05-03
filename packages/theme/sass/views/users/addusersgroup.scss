@@ -1,5 +1,9 @@
 @import '../main/defaults.scss';
 
+.user-grid{
+
+}
+
 .add-users-group-form .x-form-text, textarea.x-form-field {
   background-color: $backgroundforms;
   background-image: none;
@@ -54,6 +58,8 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d1d1d1', endColorstr='#c2c1c1',GradientType=0 ); /* IE6-9 */
 }
 
-.user-delete-column .x-grid-cell.x-action-col-cell{
-  background: purple;
+.x-grid-cell .x-action-col-cell.x-grid-cell-last{
+  background-image: url(../images/delete_dis.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }

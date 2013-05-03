@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
 
     extend: 'Ext.grid.Panel',
     xtype: 'usersgrid',
+    cls:'user-grid',
     initComponent: function() {
         var me = this;
         this.cbUserGridRoles = this.onCreateRoleComboBox();
@@ -29,7 +30,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 },
                 {
                     xtype:'actioncolumn',
-                    cls: 'user-delete-column',
+                    cls: 'user-grid-column',
                     name: 'userGridActionId',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_ACTIONS,
@@ -38,6 +39,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     align : 'center',
                     items:[
                         {
+                            cls:'custom-delete-column',
                             tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER
                         }
                     ]
