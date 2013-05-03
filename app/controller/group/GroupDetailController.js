@@ -49,7 +49,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.control(
             {
                 'groupdetailform': {
-                    beforerender : this.loadPermissionsStore
+                    beforerender : this.loadStores
                 },
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
@@ -58,6 +58,20 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                     click: this.onProjectGridActionIdAction
                 }
             });
+    },
+
+    loadStores: function(){
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
+        if(!this.isEmpty(tmpUsersGroupStore)){
+            this.loadPermissionsStore();
+            return;
+        }
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl,
+            callback: this.loadPermissionsStore
+        });
     },
 
     loadPermissionsStore: function(){
