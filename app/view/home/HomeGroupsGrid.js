@@ -27,6 +27,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     items:[
                         {
                             scope: this,
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             handler: function(grid, rowIndex, colIndex) {
                                  this.onDeleteGroup(rowIndex,this.getStore());
                             }

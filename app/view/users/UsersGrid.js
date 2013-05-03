@@ -40,6 +40,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     tdCls: 'custom-delete-column',
                     items:[
                         {
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
                             tooltip: Locales.AliveTracker.GROUP_DETAIL_REMOVE_USER
                         }
                     ]
