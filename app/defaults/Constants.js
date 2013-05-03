@@ -1,7 +1,8 @@
 Ext.define('AliveTracker.defaults.Constants',{
 
     statics: {
-        PROFILE_LOGO_URL: 'resources/icons/user.png',
+        PROFILE_LOGO: 'resources/images/profile.png',
+        LOGOUT_LOGO: 'resources/images/logout.png',
         ADD_ELEMENT_BUTTON: 'resources/images/add.png',
         SAVE_ELEMENT_BUTTON: 'resources/icons/save.png',
         FILE_ELEMENT_BUTTON: 'resources/icons/file.png',

@@ -10,7 +10,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     stores:[
         'groups.Groups',
         'groups.BelongGroups',
-        'groups.GroupsDTO'
+        'groups.GroupsDTO',
+        'users.LoginUsers'
     ],
 
     views: [
@@ -127,14 +128,13 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     loadPermissions: function(){
-        var tmpPermissionsArray = [];
-        var tmpGroupsStore = Ext.getStore('groups.Groups');
+        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
-        tmpGroupsStore.setProxy({
+        tmpLoginUsersStore.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS
         });
-        tmpGroupsStore.load({
+        tmpLoginUsersStore.load({
             scope: this,
             urlOverride:  tmpUrl,
             callback: this.showGroupDetailPage

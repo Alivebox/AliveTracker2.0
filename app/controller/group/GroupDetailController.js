@@ -49,7 +49,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.control(
             {
                 'groupdetailform': {
-                    beforerender : this.AllowTabs
+                    beforerender : this.loadPermissionsStore
                 },
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
@@ -60,10 +60,28 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             });
     },
 
-    AllowTabs: function(){
+    loadPermissionsStore: function(){
+        if(!this.userHasAllPermissions()){
+            this.getGroupTab().setTabsToDisableByIndexes(1,true);
+            this.getGroupTab().setTabsToDisableByIndexes(2,true);
+        }
+    },
+
+    isEmpty: function(argStore){
+        var tmpStore = Ext.getStore(argStore);
+        if(tmpStore.getCount() > 0){
+            return false;
+        }
+        return true;
+    },
+
+    userHasAllPermissions: function(){
         var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
-        //var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
-        //this.getGroupTab().setTabsToDisableByIndexes(1,true);
+        var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
+        if(tmpIdPermission == 1){
+            return true;
+        }
+        return false;
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {

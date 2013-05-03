@@ -32,7 +32,7 @@ Ext.define('AliveTracker.view.projects.ProjectsGrid', {
                     cls: 'project-grid-column',
                     id: 'projectGridActionId',
                     menuDisabled:true,
-                    text: Locales.AliveTracker.GROUP_PROJECT_LABEL_BUTTONS,
+                    text: Locales.AliveTracker.GROUP_PROJECT_LABEL_ACTIONS,
                     sortable:false,
                     align:'center',
                     flex:0.5,

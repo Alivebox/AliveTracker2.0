@@ -108,7 +108,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     loadUsersStore: function(){
         var tmpProjectId = this.getCmbProject();
         var tmpUsersStore = Ext.getStore('users.Users');
-        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
+        if(this.userHasAllPermissions()){
+            var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
+        }
+        else{
+            var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Framework.core.SecurityManager.getCurrentUsername());
+        }
+
         tmpUsersStore.load({
             scope: this,
             urlOverride:  tmpStoreUrl,
@@ -116,6 +122,15 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                 console.log(records);
             }
         });
+    },
+
+    userHasAllPermissions: function(){
+        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
+        var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
+        if(tmpIdPermission == 1){
+            return true;
+        }
+        return false;
     },
 
     /**

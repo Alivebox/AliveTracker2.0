@@ -4,11 +4,5 @@ Ext.define('AliveTracker.store.users.LoginUsers', {
 
     id: 'loginUserStore',
     autoLoad: false,
-    model: 'AliveTracker.model.authentication.LoginUser',
-
-    proxy: {
-        type: 'restproxy',
-        url:  AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS
-    }
-
+    model: 'AliveTracker.model.authentication.LoginUser'
 });

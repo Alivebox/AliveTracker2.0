@@ -2,10 +2,8 @@
 
 .x-window-default {
   background-color: $defaultbackgroundcolor;
-  border-color: $defaultbackgroundcolor;
-  border-radius: 10px;
-  border-style: solid;
-  padding: 15px;
+  border-radius: 15px;
+  border-style: none;
 }
 
 .x-message-box .x-window-body {
