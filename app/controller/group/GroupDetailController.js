@@ -49,7 +49,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.control(
             {
                 'groupdetailform': {
-                    beforerender : this.loadPermissionsStore
+                    beforerender : this.loadStores
                 },
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp
@@ -60,11 +60,42 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             });
     },
 
-    loadPermissionsStore: function(){
-        if(!this.userHasAllPermissions()){
-            this.getGroupTab().setTabsToDisableByIndexes(1,true);
-            this.getGroupTab().setTabsToDisableByIndexes(2,true);
+    loadStores: function(){
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
+        if(!this.isEmpty(tmpUsersGroupStore)){
+            this.loadPermissionsStore();
+            return;
         }
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl,
+            callback: this.loadPermissionsStore
+        });
+    },
+
+    loadPermissionsStore: function(){
+        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
+        if(!this.isEmpty(tmpLoginUsersStore)){
+            var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
+            this.setPermissions(tmpIdPermission);
+            return;
+        }
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
+        tmpLoginUsersStore.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS
+        });
+        tmpLoginUsersStore.load({
+            scope: this,
+            urlOverride:  tmpUrl,
+            callback: this.getPermissionId
+        });
+    },
+
+    getPermissionId: function(argRecord){
+        var tmpIdPermission = argRecord[0].getData().idpermission;
+        this.setPermissions(tmpIdPermission);
     },
 
     isEmpty: function(argStore){
@@ -75,10 +106,16 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         return true;
     },
 
-    userHasAllPermissions: function(){
-        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
-        var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
-        if(tmpIdPermission == 1){
+    setPermissions: function(argRecord){
+        if(!this.userHasAllPermissions(argRecord)){
+            this.getGroupTab().setTabsToDisableByIndexes(1,true);
+            this.getGroupTab().setTabsToDisableByIndexes(2,true);
+        }
+    },
+
+    userHasAllPermissions: function(argRecord){
+
+        if(argRecord == 1){
             return true;
         }
         return false;
