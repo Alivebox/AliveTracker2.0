@@ -6,6 +6,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     width: 300,
     header: false,
     resizable: false,
+    modal: true,
     renderTo: Ext.getBody(),
     insert: true,
     initComponent:function () {

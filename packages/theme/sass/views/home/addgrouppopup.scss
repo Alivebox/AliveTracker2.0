@@ -18,10 +18,14 @@
 }
 
 .add-group-pop-up-view-forms{
-  color: $formsfontcolor;
+  background-color: $backgroundforms;
   background-image: none;
-  background-color: $formsbackgroundcolor;
   border-radius: 4px;
+  border-style: none;
+  border-top-color: $bordertopcolor;
+  border-top-style: solid;
+  border-top-width: 1px;
+  color: $formsfontcolor;
 }
 
 .add-group-pop-up-view-forms-align{
@@ -39,7 +43,3 @@
    padding: 3px 0 0;
 }
 
-.add-group-pop-up-view-disabled-button{
-  background: red;
-  color: white;
-}

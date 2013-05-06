@@ -8,12 +8,13 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
     initComponent:function () {
         this.items = [
             {
-                xtype: 'form',
-                name: 'projectModelForm',
+                xtype: 'formcontainer',
+                itemId: 'projectModelForm',
+                modelClassName: 'AliveTracker.model.projects.Project',
                 cls: 'project-users-popup-view-form-container',
+                defaultType: 'textfield',
                 items: [
                     {
-                        xtype:'textfield',
                         name:'name',
                         cls: 'project-users-popup-view-forms-align',
                         fieldCls: 'project-users-popup-view-forms',
@@ -23,7 +24,6 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                         maxLength:250
                     },
                     {
-                        xtype:'textfield',
                         name:'description',
                         cls: 'project-users-popup-view-forms-align',
                         fieldCls: 'project-users-popup-view-forms',

@@ -27,6 +27,13 @@ Ext.define('AliveTracker.model.projects.Project', {
         }
     ],
 
+    validations: [
+        {
+            type: 'presence',
+            field: 'name'
+        }
+    ],
+
     proxy: {
         type: 'restproxy',
         url: AliveTracker.defaults.WebServices.GET_PROJECTS + AliveTracker.defaults.WebServices.GROUP_ID

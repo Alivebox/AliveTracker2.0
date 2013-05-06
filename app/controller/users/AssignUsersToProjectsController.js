@@ -30,7 +30,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         },
         {
             ref:'projectModelForm',
-            selector:'assignuserstoprojectsview form[name=projectModelForm]'
+            selector:'assignuserstoprojectsview [itemId=projectModelForm]'
         }
     ],
 
@@ -99,28 +99,28 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     },
 
     onSubmitProjectAction: function(argPopUp, argWindow){
-        if(this.insert){
-            this.onSaveUsersToProjectChanges(argPopUp, argWindow);
-            return;
+        var tmpForm = this.getProjectModelForm();
+        if(tmpForm.isValid()){
+            if(this.insert){
+                this.onSaveUsersToProjectChanges(argPopUp, argWindow, tmpForm);
+                return;
+            }
+            this.onUpdateUsersToProjectChanges(argPopUp, argWindow, tmpForm);
         }
-        this.onUpdateUsersToProjectChanges(argPopUp, argWindow);
     },
 
     /**This method will save all users assigned to projects changes*/
-    onSaveUsersToProjectChanges: function(argPopUp, argWindow){
+    onSaveUsersToProjectChanges: function(argPopUp, argWindow, argForm){
         var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
-        var tmpProjectForm = this.getProjectModelForm().getValues();
+        var tmpRecord = argForm.getRecord();
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
         var tmpDate = this.getCurrentDate();
-        var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
-            name: tmpProjectForm.name,
-            description: tmpProjectForm.description,
-            created: tmpDate,
-            users: tmpAssignArray
-        });
+        var tmpProject = tmpRecord;
+        tmpProject.set('created',tmpDate);
+        tmpProject.set('users',tmpAssignArray);
         tmpProject.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_PROJECT
