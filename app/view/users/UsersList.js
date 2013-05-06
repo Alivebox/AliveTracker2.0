@@ -22,7 +22,7 @@ Ext.define('AliveTracker.view.users.UsersList', {
                     menuDisabled:true,
                     text:Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable:false,
-                    width: 200,
+                    flex: 1,
                     dataIndex:'name'
                 }
             ]

@@ -14,13 +14,17 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         {
             ref:'password',
             selector:'userprofile [itemId=passwordProfile]'
+        },
+        {
+            ref:'passwordContainer',
+            selector:'userprofile [itemId=passwordContainer]'
         }
     ],
 
     init: function(){
         this.control({
             'userprofile':{
-                loadFields: this.onLoadFields,
+                beforerender: this.onLoadFields,
                 editProfile:this.onSaveUserProfile,
                 showPasswordField: this.onShowPasswordField
             }
@@ -73,8 +77,9 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onShowPasswordField: function(tmpButton){
         tmpButton.setVisible(false);
+        var tmpPasswordContainer = this.getPasswordContainer();
         var tmpPasswordField = this.getPassword();
-        tmpPasswordField.setVisible(true);
+        tmpPasswordContainer.setVisible(true);
         tmpPasswordField.setValue("");
     }
 

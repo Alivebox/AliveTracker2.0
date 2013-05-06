@@ -49,8 +49,14 @@ table.x-datepicker-inner .x-datepicker-selected{
 }
 
 .x-datepicker-header {
-  background: -moz-linear-gradient(top, #e4e4e4 23%, #c7c7c7 59%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,#e4e4e4), color-stop(59%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: #e4e4e4; /* Old browsers */
+  background: -moz-linear-gradient(top,  #e4e4e4 16%, #c7c7c7 82%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(16%,#e4e4e4), color-stop(82%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e4e4e4 16%,#c7c7c7 82%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#c7c7c7',GradientType=0 ); /* IE6-9 */
   border-color: white;
   border-style: solid;
   border-width: 0 0 1px;
@@ -84,4 +90,12 @@ table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-da
   background-color: $whitetextcolor;
   background-image: url("../images/calendar.png");
   border-style: none;
+}
+
+.x-datepicker-month .x-btn-split-right {
+  background-image: none;
+}
+
+.x-btn-split {
+  display: inline;
 }

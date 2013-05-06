@@ -56,8 +56,14 @@
 }
 
 .logbook-datepicker .x-datepicker-header {
-  background: -moz-linear-gradient(top, #e4e4e4 23%, #c7c7c7 59%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(23%,#e4e4e4), color-stop(59%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: #e4e4e4; /* Old browsers */
+  background: -moz-linear-gradient(top,  #e4e4e4 16%, #c7c7c7 82%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(16%,#e4e4e4), color-stop(82%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e4e4e4 16%,#c7c7c7 82%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#c7c7c7',GradientType=0 ); /* IE6-9 */
   border-color: white;
   border-radius: 10px 10px 0 0;
   border-style: solid;
@@ -88,3 +94,26 @@
   background: $panelbordercolor;
 }
 
+.logbook-datepicker .x-btn-center span {
+  color: $blackcolor;
+  font-weight:900;
+  font-size: 20px;
+}
+
+.logbook-datepicker .x-btn .x-btn-center .x-btn-inner {
+  height: 50px;
+}
+
+.logbook-datepicker .x-datepicker-month {
+  height: 60px;
+}
+
+.logbook-datepicker .x-datepicker-month .x-btn-split-right {
+  background-image: none;
+  height: 60px;
+}
+
+.logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
+  height: 50px;
+  line-height: 42px;
+}
