@@ -153,14 +153,14 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         return tmpFullDate;
     },
 
-    onUpdateUsersToProjectChanges: function(argPopUp, argWindow){
+    onUpdateUsersToProjectChanges: function(argPopUp, argWindow, argForm){
         var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
-        var tmpProjectForm = this.getProjectModelForm().getValues();
+        var tmpProjectForm = argForm;
         var tmpAssignArray = [];
         for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
         }
-        var tmpProjectModel = this.getProjectModelForm().getRecord();
+        var tmpProjectModel = argForm.getRecord();
         var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
             id: tmpProjectModel.data.id,
             name: tmpProjectForm.name,
