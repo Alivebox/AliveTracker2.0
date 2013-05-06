@@ -3,9 +3,8 @@
 .x-window-default {
   background-color: $defaultbackgroundcolor;
   border-color: $defaultbackgroundcolor;
-  border-radius: 5px;
-  border-style: solid;
-  padding: 15px;
+  border-radius: 15px;
+  border-style: none;
 }
 
 .x-message-box .x-window-body {
@@ -88,7 +87,7 @@
   margin: 0;
 }
 
-.x-container.x-box-item.x-container-default {
-  left: 0 !important;
-  width: 380px !important;
-}
+//.x-container.x-box-item.x-container-default {
+//  left: 0 !important;
+//  width: 380px !important;
+//}
