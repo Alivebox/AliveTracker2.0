@@ -108,8 +108,8 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     setPermissions: function(argRecord){
         if(!this.userHasAllPermissions(argRecord)){
-            this.getGroupTab().setTabsToDisableByIndexes(1,true,false);
-            this.getGroupTab().setTabsToDisableByIndexes(2,true,false);
+            this.getGroupTab().setTabsVisibilityByIndex(1,false);
+            this.getGroupTab().setTabsVisibilityByIndex(2,false);
         }
     },
 

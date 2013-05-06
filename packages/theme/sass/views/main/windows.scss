@@ -35,20 +35,6 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 ); /* IE6-9 */
 }
 
-.x-toolbar-footer .x-btn-default-small-over{
-  border-radius: 4px;
-  border-color: $buttonbordercolor;
-  height: 30px;
-  background: #a5be4e; /* Old browsers */
-  background: -moz-linear-gradient(top, #acbe06 32%, #7aa10c 57%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%,#acbe06), color-stop(57%,#7aa10c)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #acbe06 32%,#7aa10c 57%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #acbe06 32%,#7aa10c 57%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #acbe06 32%,#7aa10c 57%); /* IE10+ */
-  background: linear-gradient(to bottom,  #acbe06 32%,#7aa10c 57%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acbe06', endColorstr='#7aa10c',GradientType=0 ); /* IE6-9 */
-}
-
 .x-toolbar-footer .x-btn-default-small .x-btn-inner{
   background-repeat: no-repeat;
   color: $whitetextcolor;
