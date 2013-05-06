@@ -127,12 +127,16 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         });
         tmpProject.save({
             scope: this,
-            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId'))
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.SAVE_PROJECT,Ext.state.Manager.get('groupId')),
+            success: this.onSaveProjectCallback
         });
-        var tmpProjectStore = Ext.getStore('projects.Projects')
-        tmpProjectStore.add(tmpProject);
-        tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
+    },
+
+    onSaveProjectCallback: function(argRecord){
+        var tmpProjectStore = Ext.getStore('projects.Projects')
+        tmpProjectStore.add(argRecord);
+        tmpProjectStore.commitChanges();
     },
 
     getCurrentDate: function(){

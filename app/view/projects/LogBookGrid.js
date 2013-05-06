@@ -65,9 +65,9 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     }
                 }
             ],
-            selType: 'rowmodel',
+            selType: 'cellmodel',
             plugins: [
-                Ext.create('Ext.grid.plugin.RowEditing', {
+                Ext.create('Ext.grid.plugin.CellEditing', {
                     clicksToEdit: 2
                 })
             ]
