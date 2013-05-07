@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
     cls: 'add-group-pop-up-view',
-    height: 280,
+    height: 250,
     width: 300,
     header: false,
     resizable: false,
