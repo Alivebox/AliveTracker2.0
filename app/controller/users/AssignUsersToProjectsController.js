@@ -100,7 +100,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     onSubmitProjectAction: function(argPopUp, argWindow){
         var tmpForm = this.getProjectModelForm();
-        if(tmpForm.isValid()){
+        if(tmpForm.isValid() && this.isAdminAssigned()){
             if(this.insert){
                 this.onSaveUsersToProjectChanges(argPopUp, argWindow, tmpForm);
                 return;
@@ -113,10 +113,7 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
     onSaveUsersToProjectChanges: function(argPopUp, argWindow, argForm){
         var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
         var tmpRecord = argForm.getRecord();
-        var tmpAssignArray = [];
-        for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
-            tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
-        }
+        var tmpAssignArray = this.getAssignedUsersArray(tmpAssignedUsersStore);
         var tmpDate = this.getCurrentDate();
         var tmpProject = tmpRecord;
         tmpProject.set('created',tmpDate);
@@ -153,20 +150,26 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         return tmpFullDate;
     },
 
+    isAdminAssigned: function(){
+        var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
+        for(var tmpIndex=0;tmpIndex < tmpAssignedUsersStore.getCount();tmpIndex++){
+            var tmpUser = tmpAssignedUsersStore.getAt(tmpIndex);
+            if(tmpUser.get('role')=='admin'){
+                return true;
+            }
+        }
+        Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.NO_ADMIN_ASSIGNED);
+        return false;
+    },
+
     onUpdateUsersToProjectChanges: function(argPopUp, argWindow, argForm){
         var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
         var tmpProjectForm = argForm;
-        var tmpAssignArray = [];
-        for(var tmpCont=0; tmpCont < tmpAssignedUsersStore.data.items.length; tmpCont++){
-            tmpAssignArray.push(tmpAssignedUsersStore.data.items[tmpCont].data)
-        }
+        var tmpAssignArray = this.getAssignedUsersArray(tmpAssignedUsersStore);
         var tmpProjectModel = argForm.getRecord();
-        var tmpProject = Ext.create('AliveTracker.model.projects.Project', {
-            id: tmpProjectModel.data.id,
-            name: tmpProjectForm.name,
-            description: tmpProjectForm.description,
-            users: tmpAssignArray
-        });
+        var tmpProject = tmpProjectModel;
+        tmpProject.set('id',tmpProjectModel.getData().id);
+        tmpProject.set('users',tmpAssignArray);
         tmpProject.setProxy({
             type: 'restproxy',
             url: AliveTracker.defaults.WebServices.SAVE_PROJECT
@@ -180,6 +183,21 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
         tmpProjectStore.add(tmpProject);
         tmpProjectStore.commitChanges();
         this.onCancelUsersToProjectChanges(argWindow);
+    },
+
+    getAssignedUsersArray: function(argStore){
+        var tmpAssignArray = [];
+        for(var tmpCont=0; tmpCont < argStore.data.items.length; tmpCont++){
+            tmpAssignArray.push(argStore.data.items[tmpCont].data)
+        }
+        var tmpProjectUsersStore = Ext.getStore('users.ProjectUsers');
+        for(var tmpIndex=0;tmpIndex < tmpProjectUsersStore.getCount();tmpIndex++){
+            var tmpUser = tmpProjectUsersStore.getAt(tmpIndex);
+            if(tmpUser.get('role')=='admin'){
+                tmpAssignArray.push(tmpUser.getData())
+            }
+        }
+        return tmpAssignArray;
     },
 
     /**This method will cancel all users assigned to projects changes*/

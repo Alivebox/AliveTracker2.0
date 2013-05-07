@@ -32,7 +32,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         width: 400,
                         listeners:{
                             scope:this,
-                            select:this.onLoadUsersStore
+                            select:this.onGroupSelected
                         }
                     },
                     {
@@ -150,8 +150,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
     onDateRangeComboChanged:function () {
         this.fireEvent('dateRangeComboSelection');
     },
-    onLoadUsersStore:function () {
-        this.fireEvent('loadUsersStore');
+    onGroupSelected:function () {
+        this.fireEvent('groupSelected');
     },
     onShowPreview:function () {
         this.fireEvent('showPreview');

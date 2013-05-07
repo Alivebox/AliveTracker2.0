@@ -13,7 +13,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     stores:[
         'users.Users',
         'reports.LogReport',
-        'reports.Reports'
+        'reports.Reports',
+        'projects.ProjectDetails'
     ],
 
     refs: [
@@ -51,7 +52,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             'reportsform': {
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
-                loadUsersStore: this.loadUsersStore,
+                groupSelected: this.loadAssignedUsersStore,
                 showPreview: this.onShowPreview
             }
         });
@@ -105,10 +106,45 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     /**
      * Loads the Users store
      */
+    loadAssignedUsersStore: function(){
+        var tmpProjectId = this.getCmbProject().value;
+        var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
+        tmpProjectDetailStore.removeAll();
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,tmpProjectId);
+        tmpProjectDetailStore.load({
+            scope: this,
+            urlOverride: tmpUrl,
+            callback: this.loadProjectStoreResult
+        });
+    },
+
+    loadProjectStoreResult: function(argRecords,argOperation,argSuccess){
+        if(argSuccess) {
+            var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
+            tmpAssignedUsersStore.removeAll();
+            var tmpUserList = argRecords[0].data.users;
+            var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
+            var tmpProjectUsers = Ext.getStore('users.ProjectUsers');
+            var tmpGroupUsers = Ext.getStore('users.GroupUsers');
+            tmpProjectDetailStore.add(argRecords[0].data);
+            for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
+                tmpAssignedUsersStore.add(tmpUserList[tmpCont])
+            }
+            for(var tmpCont=0; tmpCont < tmpGroupUsers.data.items.length; tmpCont++){
+                var tmpUser = tmpGroupUsers.data.items[tmpCont].data;
+                if(tmpAssignedUsersStore.getById(tmpUser.id) == null){
+                    tmpProjectUsers.add(tmpUser);
+                    tmpProjectUsers.commitChanges();
+                }
+            }
+            this.loadUsersStore();
+        }
+    },
+
     loadUsersStore: function(){
         var tmpProjectId = this.getCmbProject();
         var tmpUsersStore = Ext.getStore('users.Users');
-        if(this.userHasAllPermissions()){
+        if(this.userHasAllPermissions() || this.isProjectAdmin(Framework.core.SecurityManager.getCurrentUsername())){
             var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
         }
         else{
@@ -117,10 +153,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
         tmpUsersStore.load({
             scope: this,
-            urlOverride:  tmpStoreUrl,
-            callback: function(records, operation, success) {
-                console.log(records);
-            }
+            urlOverride:  tmpStoreUrl
         });
     },
 
@@ -132,6 +165,18 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         }
         return false;
     },
+
+    isProjectAdmin: function(argEmail){
+        var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
+        for(var tmpIndex=0;tmpIndex < tmpAssignedUsersStore.getCount();tmpIndex++){
+            var tmpUser = tmpAssignedUsersStore.getAt(tmpIndex);
+            if(tmpUser.get('name')==argEmail && tmpUser.get('role')=='admin'){
+                return true;
+            }
+        }
+        return false;
+    },
+
 
     /**
      * Loads the Groups store
