@@ -7,6 +7,7 @@ Ext.define('Sandbox.view.tabcontainertest.TabContainerTest', {
         this.items = [
             {
                 xtype: 'tabcontainer',
+                itemId: 'tabcontainer',
                 listeners: {
                     scope: this,
                     tabchange: function(argTabIndex,argTab){
@@ -42,9 +43,22 @@ Ext.define('Sandbox.view.tabcontainertest.TabContainerTest', {
                         ]
                     }
                 ]
+            },
+            {
+                xtype: 'button',
+                text: 'Select third tab',
+                listeners: {
+                    scope: this,
+                    click: this.onSelectThirdClick
+                }
             }
         ];
         this.callParent(arguments);
+    },
+
+    onSelectThirdClick: function(){
+        var tmpTabContainer = this.down('tabcontainer');
+        tmpTabContainer.setActiveTabByIndex(2);
     }
 
 });
