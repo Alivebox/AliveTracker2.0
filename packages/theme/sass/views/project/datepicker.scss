@@ -95,8 +95,7 @@
 }
 
 .logbook-datepicker .x-btn-center span {
-  color: $blackcolor;
-  font-weight:900;
+  color: $blackcolor !important;
   font-size: 16px;
 }
 
@@ -110,7 +109,7 @@
 
 .logbook-datepicker .x-datepicker-month .x-btn-split-right {
   background-image: none;
-  height: 60px;
+  height: 50px;
 }
 
 .logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
