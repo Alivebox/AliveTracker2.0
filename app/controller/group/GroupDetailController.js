@@ -61,26 +61,38 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     loadStores: function(){
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS, Ext.state.Manager.get('groupId'));
+        var tmpProjectStore = Ext.getStore('projects.Projects');
+        tmpProjectStore.load({
+                scope: this,
+                urlOverride: tmpUrl,
+                callback: this.loadGroupUsers
+            }
+        );
+    },
+
+    loadGroupUsers: function(){
         var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
-        if(!this.isEmpty(tmpUsersGroupStore)){
-            this.loadPermissionsStore();
-            return;
-        }
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
             scope: this,
             urlOverride:  tmpUrl,
+            callback: this.loadRolesStore
+        });
+    },
+
+    loadRolesStore: function(){
+        var tmpRoleStore = Ext.getStore('roles.Roles');
+        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
+        tmpRoleStore.load({
+            scope: this,
+            urlOverride: tmpUrlOverride,
             callback: this.loadPermissionsStore
         });
     },
 
     loadPermissionsStore: function(){
         var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
-        if(!this.isEmpty(tmpLoginUsersStore)){
-            var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
-            this.setPermissions(tmpIdPermission);
-            return;
-        }
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
         tmpLoginUsersStore.setProxy({
             type: 'restproxy',
@@ -114,7 +126,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     userHasAllPermissions: function(argRecord){
-
         if(argRecord == 1){
             return true;
         }

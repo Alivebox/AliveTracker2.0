@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
 
     extend:'Ext.grid.Panel',
     xtype:'homegroupsgrid',
+    itemId: 'mygroupsgrid',
     cls:'homeGroups',
     initComponent: function(){
         Ext.applyIf(this, {
@@ -13,7 +14,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     text: Locales.AliveTracker.HOME_LABEL_MY_GROUPS,
                     sortable:false,
                     dataIndex:'name',
-                    flex: 1
+                    flex: 2
                 },
                 {
                     xtype:'actioncolumn',
@@ -23,7 +24,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                     sortable:false,
                     align : 'center',
                     tdCls: 'custom-delete-column',
-                    flex: 0.5,
+                    flex: 1,
                     items:[
                         {
                             scope: this,
@@ -33,6 +34,22 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
                             }
                         }
                     ]
+                },
+                {
+                    xtype: 'checkcolumn',
+                    dataIndex: 'default_group',
+                    renderer: function(value) {
+                        return "<input type='radio' name = 'primaryRadio' " + (value ? "checked='checked'" : "") + ">";
+                    },
+                    cls: 'home-grid-column',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.HOME_LABEL_DEFAULT,
+                    sortable:false,
+                    align : 'center',
+                    listeners:{
+                        scope: this,
+                        checkchange:this.onSelectRadio
+                    }
                 }
             ]
         });
@@ -41,6 +58,11 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
 
     onDeleteGroup: function(argRowIndex,argStore){
         this.fireEvent('onDeleteGroup', argRowIndex,argStore);
+    },
+
+    onSelectRadio: function(argComponent,argSelectedRow){
+        var tmpStore = this.getStore();
+        this.fireEvent('defaultGroupSelected', argSelectedRow, tmpStore);
     }
 });
 

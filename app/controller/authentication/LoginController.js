@@ -54,15 +54,20 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     onLoginSuccess: function(argRecord){
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
+        var tmpDefaultGroup = tmpCurrentUser.data.default_group;
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
-
         if(argRecord.data.entity_status === AliveTracker.defaults.Constants.TO_CHANGE_PASSWORD){
             Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.RESET_PASSWORD_UPDATE);
             Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
             return;
         }
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+        if(tmpDefaultGroup == 0){
+            Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'homePage');
+            return;
+        }
+        Ext.state.Manager.set('groupId',tmpDefaultGroup);
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 
     addDefaultPermissions: function(argUser){

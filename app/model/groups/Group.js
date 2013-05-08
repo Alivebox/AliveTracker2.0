@@ -28,6 +28,10 @@ Ext.define('AliveTracker.model.groups.Group', {
         {
             name:'users',
             type:'arraylist'
+        },
+        {
+            name: 'default_group',
+            type: 'boolean'
         }
     ]
 

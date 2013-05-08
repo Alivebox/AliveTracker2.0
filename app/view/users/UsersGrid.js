@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                     text: Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable : false,
                     flex: 2,
-                    dataIndex: 'name'
+                    dataIndex: 'email'
                 },
                 {
                     xtype: 'gridcolumn',

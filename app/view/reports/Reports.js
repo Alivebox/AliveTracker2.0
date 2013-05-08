@@ -110,12 +110,14 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         header: 'Project',
                         menuDisabled:true,
+                        sortable: false,
                         cls: 'report-grid-column',
                         dataIndex: 'project_name',
                         flex: 1
                     },
                     {
                         header: 'Activity',
+                        menuDisabled:true,
                         cls: 'report-grid-activity-column',
                         dataIndex: 'activity',
                         flex: 3
@@ -123,6 +125,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         header: 'Date',
                         menuDisabled:true,
+                        sortable: false,
                         cls: 'report-grid-column',
                         dataIndex: 'date',
                         flex: 1

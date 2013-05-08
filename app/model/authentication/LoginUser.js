@@ -24,6 +24,10 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
         {
             name:'idpermission',
             type:'int'
+        },
+        {
+            name: 'default_group',
+            type: 'int'
         }
     ],
 

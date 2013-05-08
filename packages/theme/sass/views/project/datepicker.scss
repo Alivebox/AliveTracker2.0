@@ -104,7 +104,7 @@
 }
 
 .logbook-datepicker .x-datepicker-month {
-  height: 60px;
+  height: 50px;
 }
 
 .logbook-datepicker .x-datepicker-month .x-btn-split-right {
@@ -114,5 +114,5 @@
 
 .logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
   height: 50px;
-  line-height: 42px;
+  padding: 7px;
 }

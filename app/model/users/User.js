@@ -24,6 +24,10 @@ Ext.define('AliveTracker.model.users.User', {
         {
             name: 'role',
             type: 'string'
+        },
+        {
+            name: 'default_group',
+            type: 'int'
         }
     ],
 

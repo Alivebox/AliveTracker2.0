@@ -83,5 +83,20 @@ $background-main-container: #F0F0F0;
   background-color: $background-main-container;
 }
 
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
 
-
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}

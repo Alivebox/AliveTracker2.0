@@ -20,6 +20,10 @@ Ext.define('AliveTracker.model.groups.BelongGroup', {
         {
             name:'logo_url',
             type:'string'
+        },
+        {
+            name: 'default_group',
+            type: 'boolean'
         }
     ]
 

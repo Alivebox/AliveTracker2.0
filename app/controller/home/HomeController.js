@@ -36,6 +36,8 @@ Ext.define("AliveTracker.controller.home.HomeController", {
         }
     ],
 
+    currentDefaultGroup: 0,
+
     init:function () {
         this.control({
             'homeview': {
@@ -44,7 +46,11 @@ Ext.define("AliveTracker.controller.home.HomeController", {
                 addGroup: this.onCreateNewGroup
             },
             'homegroupsgrid': {
-                onDeleteGroup: this.onConfirmDeleteDialog
+                onDeleteGroup: this.onConfirmDeleteDialog,
+                defaultGroupSelected: this.onDefaultGroupSelected
+            },
+            'homebelonggroupsgrid':{
+                defaultGroupSelected: this.onDefaultGroupSelected
             },
             "addgrouppopup": {
                 onSaveAction: this.saveGroup,
@@ -54,6 +60,17 @@ Ext.define("AliveTracker.controller.home.HomeController", {
     },
 
     loadHomeGroups:function () {
+        var tmpStore = Ext.getStore('users.LoginUsers');
+        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Framework.core.SecurityManager.getCurrentUsername());
+        tmpStore.load({
+            scope: this,
+            urlOverride: tmpStoreUrl,
+            callback: this.loadGroupsDTO
+        });
+    },
+
+    loadGroupsDTO:function (argRecord) {
+        this.currentDefaultGroup = argRecord[0].data.default_group;
         var tmpGroupsDTO = Ext.getStore('groups.GroupsDTO');
         tmpGroupsDTO.load({
             scope: this,
@@ -70,79 +87,60 @@ Ext.define("AliveTracker.controller.home.HomeController", {
             var tmpGroups = Ext.getStore('groups.Groups');
             tmpGroups.removeAll();
             for (var tmpCont = 0; tmpCont <= tmpBelongGroupsList.length-1; tmpCont++){
-                tmpBelongGroups.add(tmpBelongGroupsList[tmpCont])
+                var tmpBelongGroup = tmpBelongGroupsList[tmpCont];
+                if(tmpBelongGroup.id==this.currentDefaultGroup){
+                    tmpBelongGroup.default_group=true;
+                }
+                tmpBelongGroups.add(tmpBelongGroup)
             }
             for (var tmpCont = 0; tmpCont <= tmpGroupsList.length-1; tmpCont++){
-                tmpGroups.add(tmpGroupsList[tmpCont])
+                var tmpGroup = tmpGroupsList[tmpCont];
+                if(tmpGroup.id==this.currentDefaultGroup){
+                    tmpGroup.default_group=true;
+                }
+                tmpGroups.add(tmpGroup)
             }
         }
     },
 
     onGroupSelected: function(argRecord){
-        var tmpModel = argRecord;
-        this.onShowGroupDetailView(tmpModel.getData().id);
+        Ext.state.Manager.set('groupId',argRecord.getData().id)
+        this.showGroupDetailPage();
     },
 
-    onShowGroupDetailView: function(argElement){
-        this.selectedGroupElement = argElement;
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,this.selectedGroupElement);
-        var tmpProjectStore = Ext.getStore('projects.Projects');
-        tmpProjectStore.load({
-                scope: this,
-                callback: this.onProjectDetailResult,
-                urlOverride: tmpUrl
-            }
-        );
+    showGroupDetailPage: function(){
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 
-    onProjectDetailResult: function(argRecords,argOperation,argSuccess){
-        if( !argSuccess){
-            return;
-        }
-        Ext.state.Manager.set('groupId',this.selectedGroupElement);
-        this.loadGroupData();
-    },
-
-    loadGroupData: function(){
-        this.loadUsersGroup();
-    },
-
-    loadUsersGroup: function(){
+    onDefaultGroupSelected: function(argRowIndex, argStore){
+        var tmpGroup = argStore.getAt(argRowIndex);
+        tmpGroup.set('default_group',true);
+        var tmpGroup = argStore.getAt(argRowIndex);
+        var tmpGroupId = tmpGroup.get('id');
+        this.currentDefaultGroup = tmpGroupId;
         var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, tmpGroupId);
         tmpUsersGroupStore.load({
             scope: this,
             urlOverride:  tmpUrl,
-            callback: this.loadRolesStore
+            callback: this.saveDefaultGroup
         });
     },
 
-    loadRolesStore: function(){
-        var tmpRoleStore = Ext.getStore('roles.Roles');
-        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
-        tmpRoleStore.load({
+    saveDefaultGroup: function(){
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
+        for(var tmpIndex=0;tmpIndex < tmpUsersGroupStore.getCount();tmpIndex++){
+            var tmpUser = tmpUsersGroupStore.getAt(tmpIndex);
+            if(tmpUser.get('name')==Framework.core.SecurityManager.getCurrentUsername()){
+                break;
+            }
+        }
+        tmpUser.set('default_group',this.currentDefaultGroup);
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_DEFAULT_GROUP,tmpUser.get('id'));
+        tmpUser.save({
             scope: this,
-            urlOverride: tmpUrlOverride,
-            callback: this.loadPermissions
+            urlOverride: tmpUrl
         });
-    },
-
-    loadPermissions: function(){
-        var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS,Ext.state.Manager.get('groupId'));
-        tmpLoginUsersStore.setProxy({
-            type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.GET_GROUP_PERMISSIONS
-        });
-        tmpLoginUsersStore.load({
-            scope: this,
-            urlOverride:  tmpUrl,
-            callback: this.showGroupDetailPage
-        });
-    },
-
-    showGroupDetailPage: function(agrStore, argElement){
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 
     onDeleteGroup: function(argGroupId,argStore){
