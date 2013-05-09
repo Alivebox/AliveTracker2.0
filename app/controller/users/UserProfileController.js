@@ -56,7 +56,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
 
     onSaveUserProfile: function(){
         var tmpForm = this.getUserForm();
-        var tmpPasswordField = this.getPassword();
+        var tmpPasswordField = this.getPasswordContainer();
         if( tmpForm.isValid() ){
             var tmpRecord = tmpForm.getRecord();
             var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.currentUser.getData().id);

@@ -43,24 +43,28 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         {
             ref:'logBookTimeTextField',
             selector:'logbookactivityform [itemId=time]'
+        },
+        {
+            ref: 'logsform',
+            selector: 'logbookactivityform [itemId=logFormContainer]'
         }
     ],
     init:function () {
         this.control({
             'logbook':{
-                afterrender:this.onAfterRender,
-                datePickerChanged:this.onDatePickerChange,
-                saveLogHistory:this.onSaveLogHistory
+                beforerender:this.onBeforeRender,
+                datePickerChanged:this.onDatePickerChange
             },
             'logbookactivityform': {
                 addActivity:this.onAddNewActivity
             },
             'logbookgrid':{
-                deleteLog: this.onShowDeleteConfirm
+                deleteLog: this.onShowDeleteConfirm,
+                editCell: this.onEditCell
             }
         });
     },
-    onAfterRender:function(){
+    onBeforeRender:function(){
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
         this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
@@ -101,7 +105,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         });
     },
     onAddNewActivity:function (argActivity) {
-        if( Ext.isEmpty(argActivity) ){
+        var test = !this.isTimeValid();
+        if(!this.getLogsform().isValid() || !this.isTimeValid()){
             return;
         }
         argActivity.set("group", Ext.state.Manager.get('groupId'));
@@ -109,20 +114,35 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpLogBookStore.add(argActivity);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
+        this.onSaveLogHistory();
     },
+
+    isTimeValid: function(){
+        var tmpTime = this.getLogBookTimeTextField().getValue();
+        if(tmpTime > 24 || tmpTime < 0){
+            return false;
+        }
+        return true;
+    },
+
     onClearUsersSelection:function () {
-        this.getLogBookActivityField().setValue('');
-        this.getLogBookTimeTextField().setValue(1);
+        var tmpActivityField = this.getLogBookActivityField();
+        tmpActivityField.setValue('');
+        this.getLogBookTimeTextField().setValue(0);
+        tmpActivityField.focus();
     },
+
     onReloadLogStore: function (){
         Ext.getStore('projects.Logs').removeAll();
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
         this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
     },
+
     onDatePickerChange:function () {
         this.onReloadLogStore();
     },
+
     onSaveLogHistory:function () {
         var tmpLogArray = [];
         tmpLogArray = this.getItemsFromStore(Ext.getStore('projects.Logs'));
@@ -135,18 +155,9 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             group: Ext.state.Manager.get('groupId'),
             activities:tmpLogArray
         });
-        tmpLogBook.save({
-            scope: this,
-            callback: this.saveCallback
-        });
+        tmpLogBook.save();
     },
-    saveCallback: function(record, operation){
-        if(operation.success){
-            this.onReloadLogStore();
-            Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.PROJECTS_LOG_SAVE_SUCCESS);
-            return;
-        }
-    },
+
     getItemsFromStore:function (argStore){
         var tmpArray = [];
         for(var i=0; i < argStore.data.items.length; i++){
@@ -154,6 +165,22 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         }
         return tmpArray;
     },
+
+    onEditCell: function(argRecord){
+        var tmpLogId = argRecord.record.data.id;
+        var tmpActivity = argRecord.record.data.activity;
+        var tmpTime = argRecord.record.data.time;
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_LOG,tmpLogId);
+        var tmpLogBook = Ext.create('AliveTracker.model.projects.Log', {
+            id: tmpLogId,
+            activity: tmpActivity,
+            time: tmpTime
+        });
+        tmpLogBook.save({
+            urlOverride:tmpUrl
+        });
+    },
+
     onShowDeleteConfirm: function(argGrid, argIndex){
         this.toDeleteIndex = argIndex;
         Ext.MessageBox.confirm('Confirm', Ext.util.Format.format( Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),this.deleteConfirmCallback, this);

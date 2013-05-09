@@ -59,16 +59,21 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     dataIndex:'time',
                     editor: {
                         xtype: 'numberfield',
-                        allowBlank: false,
+                        enableKeyEvents: true,
+                        hideTrigger: true,
                         maxValue: 24,
-                        minValue: 1
+                        minValue: 0
                     }
                 }
             ],
             selType: 'cellmodel',
             plugins: [
                 Ext.create('Ext.grid.plugin.CellEditing', {
-                    clicksToEdit: 2
+                    clicksToEdit: 2,
+                    listeners:{
+                        scope: this,
+                        edit: this.onEditCell
+                    }
                 })
             ]
         });
@@ -78,7 +83,10 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
     onDeleteLog: function(arGrid, argRowIndex){
         this.fireEvent('deleteLog', arGrid, argRowIndex);
-    }
+    },
 
+    onEditCell: function(argGrid, argRecord){
+        this.fireEvent('editCell', argRecord);
+    }
  });
 

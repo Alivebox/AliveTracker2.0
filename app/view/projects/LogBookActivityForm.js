@@ -23,11 +23,18 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
                         cls: 'logbook-label'
+                    },
+                    {
+                        xtype: 'label',
+                        text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
+                        cls: 'logbook-time-label'
                     }
                 ]
             },
             {
-                xtype: 'container',
+                xtype: 'formcontainer',
+                itemId: 'logFormContainer',
+                modelClassName: 'AliveTracker.model.projects.Log',
                 cls: 'logbook-fields-container',
                 layout: 'hbox',
                 items: [
@@ -44,11 +51,11 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
     createProjectComboBox: function(){
         var tmpProjectComboBox = {
             xtype: 'combobox',
+            name: 'project',
             itemId: 'logProjectComboBox',
             fieldCls: 'logbook-view-project-form',
             cls: 'logbook-form-align',
             emptyText: Locales.AliveTracker.PROJECTS_LABEL_SELECT,
-            allowBlank: false,
             displayField: 'name',
             valueField: 'id',
             store: 'projects.Projects',
@@ -63,9 +70,9 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpActivityTextField = {
             xtype: 'textfield',
             itemId:'txtActivity',
+            name: 'activity',
             fieldCls: 'logbook-view-form',
             cls: 'logbook-form-align',
-            allowBlank:false,
             width: '65%',
             maxLength:300
         };
@@ -75,16 +82,20 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
     createTimeTextField: function() {
         var tmpNumberTextField = {
             xtype: 'numberfield',
+            name: 'time',
             width:50,
             fieldCls: 'logbook-view-form',
             cls: 'logbook-form-align',
             allowNegative:false,
-            allowBlank:false,
             value:00,
             itemId:'time',
             maxValue: 24,
-            minValue: 1,
-            hideTrigger: true
+            minValue: 0,
+            hideTrigger: true,
+            listeners:{
+                scope:this,
+                specialkey:this.onEnterKeyPressed
+            }
         };
         return tmpNumberTextField;
     },
@@ -94,7 +105,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
             xtype: 'button',
             name: 'include',
             cls: 'all-views-button logbook-add-button',
-            text: null,
+            tooltip: Locales.AliveTracker.PROJECTS_ADD_BUTTON,
             icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
             listeners: {
                 scope: this,
@@ -107,6 +118,13 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
     onAddNewActivity:function() {
         var tmpActivity = this.getValue();
         this.fireEvent('addActivity', tmpActivity);
+    },
+
+    onEnterKeyPressed:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            var tmpActivity = this.getValue();
+            this.fireEvent('addActivity', tmpActivity);
+        }
     },
 
     getValue: function(){

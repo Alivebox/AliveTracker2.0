@@ -31,6 +31,18 @@ Ext.define('AliveTracker.model.projects.Log', {
             type:'float'
         }
     ],
+
+    validations: [
+        {
+            type: 'presence',
+            field: 'project'
+        },
+        {
+            type: 'presence',
+            field: 'activity'
+        }
+    ],
+
     proxy: {
         type: 'restproxy',
         api: {
