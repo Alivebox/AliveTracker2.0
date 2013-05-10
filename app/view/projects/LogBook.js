@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
 
     extend:'Ext.container.Container',
     xtype:'logbook',
+    cls: 'main-containers',
 
     initComponent:function () {
         this.items = [
@@ -64,24 +65,11 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                     }
 
                 ]
-            },
-            {
-                xtype:'button',
-                itemId:'saveLogHistory',
-                cls: 'all-views-button logbook-button',
-                text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
-                listeners:{
-                    scope:this,
-                    click:this.onSaveAll
-                }
             }
         ];
         this.callParent(arguments);
     },
 
-    onSaveAll:function () {
-        this.fireEvent('saveLogHistory', this);
-    },
     onDateSelectedAction:function () {
         this.fireEvent('datePickerChanged', this);
     }

@@ -49,7 +49,11 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
             selType: 'cellmodel',
             plugins: [
                 Ext.create('Ext.grid.plugin.CellEditing', {
-                 clicksToEdit: 1
+                    clicksToEdit: 1,
+                    listeners:{
+                        scope: this,
+                        edit: this.onEditCell
+                    }
                 })
             ]
         });
@@ -68,5 +72,9 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
         });
 
         return tmpComboBox;
+    },
+
+    onEditCell: function(){
+        this.fireEvent('editCell');
     }
 });

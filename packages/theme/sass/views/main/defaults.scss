@@ -81,6 +81,7 @@ $background-main-container: #F0F0F0;
 
 .main-container {
   background-color: $background-main-container;
+
 }
 
 .x-grid-cell-checkcolumn .x-grid-cell-inner {
@@ -99,4 +100,13 @@ $background-main-container: #F0F0F0;
 }
 .x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
   padding-top: 3px;
+}
+
+.x-tip {
+  background-color: #BFD181;
+  border-color:$buttonbordercolor;
+}
+
+.main-containers{
+  min-height: 500px;
 }

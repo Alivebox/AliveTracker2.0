@@ -120,10 +120,12 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_NEW_PROJECT: 'New Project',
         PROJECTS_COLUMN_HEADER_EDIT_PROJECT: 'Edit Project',
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Activity',
-        PROJECTS_COLUMN_HEADER_TIME: 'Time',
+        PROJECTS_COLUMN_HEADER_TIME: 'Hours',
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Actions',
         PROJECTS_LABEL_SAVE:'Save',
         PROJECTS_LABEL_SELECT:'--Select--',
+        ACTIVITY_ADD_BUTTON:'Add activity',
+        PROJECTS_ADD_BUTTON:'Add proyect',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
         NEW_PROJECT_LABEL: 'New Project',
         /**
@@ -136,6 +138,7 @@ Ext.define('Locales.AliveTracker', {
         USERS_LABEL_ROLES_MANAGER:'Users and Roles manager',
         USERS_LABEL_NAME:'Name',
         USERS_LABEL_ROLE: 'Role',
+        USERS_ADD_BUTTON:'Add user',
         /**
          * DateRange View
          */

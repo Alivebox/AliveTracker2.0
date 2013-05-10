@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
 
     extend: 'Ext.Container',
     xtype: 'groupprojects',
-    cls:'groupDetail',
+    cls:'groupDetail main-containers',
 
     initComponent:function () {
         this.items = [
@@ -11,6 +11,7 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
                 cls: 'all-views-button project-add-button',
                 text: null,
                 icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
+                tooltip: Locales.AliveTracker.PROJECTS_ADD_BUTTON,
                 listeners:{
                     scope: this,
                     click: this.onAddProjectClick
@@ -28,9 +29,6 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
         this.callParent(arguments);
     },
 
-    /**
-     * Fire a event to GroupDetailController
-     * */
     onAddProjectClick: function(){
         this.fireEvent('addProject');
     }

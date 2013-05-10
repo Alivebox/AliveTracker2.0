@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
 
     extend: 'Ext.Container',
     xtype: 'addusersgroup',
+    cls: 'main-containers',
 
     initComponent: function() {
         var me = this;
@@ -18,6 +19,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
                         id: 'btnAddUser',
                         cls: 'all-views-button add-users-group-button',
                         icon:AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
+                        tooltip: Locales.AliveTracker.USERS_ADD_BUTTON,
                         iconAlign:'center',
                         listeners: {
                             scope: this,
@@ -32,15 +34,6 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
                 height: 400,
                 store: 'users.GroupUsers',
                 name: 'usersGrid'
-            },
-            {
-                xtype:'button',
-                cls: 'all-views-button add-users-group-save-button',
-                text:Locales.AliveTracker.PROJECTS_LABEL_SAVE,
-                listeners:{
-                    scope:this,
-                    click:this.onSaveGroupUsers
-                }
             }
         ];
 
@@ -49,12 +42,15 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
 
     getAutoCompleteBox: function(){
         var tmpAutoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
+            itemId: 'autoCompleteBox',
             displayField: 'email',
             cls: 'add-users-group-form',
+            invalidCls: 'add-users-group-form-invalid',
             store: Ext.getStore('users.NewUsers'),
             listeners: {
                 scope: this,
-                executeSearch: this.onExecuteSearch
+                executeSearch: this.onExecuteSearch,
+                specialkey:this.onEnterPressed
             }
         });
 
@@ -65,11 +61,13 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
         this.fireEvent('addUserClick',this.autoCompleteBox.getValue());
     },
 
-    onSaveGroupUsers: function(){
-        this.fireEvent('saveGroupUsers');
-    },
-
     onExecuteSearch: function(){
         this.fireEvent('comboUsersKeyUp', this.autoCompleteBox.getValue(),this.autoCompleteBox);
+    },
+
+    onEnterPressed:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            this.fireEvent('addUserClick',this.autoCompleteBox.getValue());
+        }
     }
 });

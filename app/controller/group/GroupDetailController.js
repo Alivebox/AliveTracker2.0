@@ -108,6 +108,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     getPermissionId: function(argRecord){
         var tmpIdPermission = argRecord[0].getData().idpermission;
         this.setPermissions(tmpIdPermission);
+        this.getGroupTab().setVisible(true);
     },
 
     isEmpty: function(argStore){

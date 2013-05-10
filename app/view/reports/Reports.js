@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     extend:'Ext.container.Container',
     xtype:'reportsform',
+    cls: 'main-containers',
 
     initComponent:function () {
         this.items = [
@@ -25,7 +26,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         store: 'projects.Projects',
                         queryMode: 'local',
-                        allowBlank:false,
                         displayField:'name',
                         valueField: 'id',
                         editable:false,
@@ -47,7 +47,6 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         cls: 'report-form-align',
                         fieldCls: 'report-form',
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
-                        allowBlank:false,
                         store:'users.Users',
                         queryMode: 'local',
                         displayField:'email',
