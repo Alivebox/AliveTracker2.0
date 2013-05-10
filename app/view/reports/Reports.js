@@ -2,6 +2,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     extend:'Ext.container.Container',
     xtype:'reportsform',
+    cls: 'main-containers',
 
     initComponent:function () {
         this.items = [

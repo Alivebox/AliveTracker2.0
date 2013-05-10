@@ -134,7 +134,8 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Acciones',
         PROJECTS_LABEL_SAVE:'Guardar',
         PROJECTS_LABEL_SELECT:'--Seleccionar--',
-        PROJECTS_ADD_BUTTON:'Agregar actividad',
+        ACTIVITY_ADD_BUTTON:'Agregar actividad',
+        PROJECTS_ADD_BUTTON:'Agregar proyecto',
         PROJECTS_LOG_SAVE_SUCCESS:'Guardado exitoso',
         NEW_PROJECT_LABEL: 'Nuevo Proyecto',
         /**
@@ -147,6 +148,7 @@ Ext.define('Locales.AliveTracker', {
         USERS_LABEL_ROLES_MANAGER:'Administrador de usuarios y roles',
         USERS_LABEL_NAME:'Nombre',
         USERS_LABEL_ROLE: 'Rol',
+        USERS_ADD_BUTTON:'Agregar usuario',
         /**
          * DateRange View
          */

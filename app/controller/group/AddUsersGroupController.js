@@ -14,12 +14,12 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
 
     refs: [
         {
-            ref: 'addUsersCombo',
-            selector: 'addusersgroup #usersCombo'
-        },
-        {
             ref: 'usersGrid',
             selector: 'usersgrid'
+        },
+        {
+            ref: 'autoComplete',
+            selector:'addusersgroup [itemId=autoCompleteBox]'
         }
 
     ],
@@ -29,14 +29,40 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     init: function(){
         this.control({
             'addusersgroup': {
-                afterrender: this.onAddUserPopUpAfterRender,
+                beforerender: this.onAddUserPopUpBeforeRender,
                 comboUsersKeyUp: this.executeUsersSearch,
-                addUserClick: this.addUser,
-                saveGroupUsers: this.onUpdateGroupUsers
+                addUserClick: this.addUser
             },
             'usersgrid actioncolumn[name=userGridActionId]': {
                 click: this.onUserGridActionIdAction
+            },
+            'usersgrid':{
+                editCell: this.onUpdateGroupUsers
             }
+        });
+    },
+
+    onAddUserPopUpBeforeRender: function() {
+        this.onLoadUserListStore();
+        this.getAutoComplete().focus(false, 200);
+    },
+
+    onLoadUserListStore: function() {
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+        tmpUsersGroupStore.load({
+            scope: this,
+            urlOverride:  tmpUrl,
+            callback: this.onLoadRolesStore
+        });
+    },
+
+    onLoadRolesStore: function(){
+        var tmpRoleStore = Ext.getStore('roles.Roles');
+        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
+        tmpRoleStore.load({
+            scope: this,
+            urlOverride: tmpUrlOverride
         });
     },
 
@@ -94,60 +120,44 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         tmpProjectUserStore.commitChanges();
     },
 
-    onAddUserPopUpAfterRender: function() {
-        this.onLoadUserListStore();
-        this.onLoadRolesStore();
-    },
-
-    onLoadRolesStore: function(){
-        var tmpRoleStore = Ext.getStore('roles.Roles');
-        var tmpUrlOverride = AliveTracker.defaults.WebServices.GET_ROLES;
-        tmpRoleStore.load({
-            scope: this,
-            urlOverride: tmpUrlOverride
-        });
-    },
-
-    onLoadUserListStore: function() {
-        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
-        tmpUsersGroupStore.load({
-            scope: this,
-            urlOverride:  tmpUrl
-        });
-    },
-
     addUser:function(argData){
         this.currentSearchValue = argData;
-        var tmpUser = null;
-        var tmpExistUser = null;
+        var tmpAddUser = null;
         var tmpNewUsersStore = Ext.getStore('users.NewUsers');
         var tmpProjectUserStore = Ext.getStore('users.GroupUsers');
-        var userExists = false;
         for(var tmpIndex=0;tmpIndex < tmpNewUsersStore.getCount();tmpIndex++){
-            tmpUser = tmpNewUsersStore.getAt(tmpIndex);
+            var tmpUser = tmpNewUsersStore.getAt(tmpIndex);
             if(tmpUser.get('email')==this.currentSearchValue)
             {
+                tmpAddUser = tmpUser;
                 break;
             }
         }
-        for(tmpIndex=0;tmpIndex < tmpProjectUserStore.getCount();tmpIndex++){
-            tmpExistUser = tmpProjectUserStore.getAt(tmpIndex);
-            if(tmpUser.get('id')==tmpExistUser.get('id'))
+        if(!tmpAddUser){
+            this.getAutoComplete().markInvalid();
+            return;
+        }
+        if(this.userExists(tmpAddUser))
+        {
+            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.USER_EXISTS);
+            return;
+        }
+        tmpUser.set('role','dev');
+        tmpProjectUserStore.add(tmpUser);
+        tmpProjectUserStore.commitChanges();
+        this.onUpdateGroupUsers();
+    },
+
+    userExists: function(argValue){
+        var tmpProjectUserStore = Ext.getStore('users.GroupUsers');
+        for(var tmpIndex=0;tmpIndex < tmpProjectUserStore.getCount();tmpIndex++){
+            var tmpExistUser = tmpProjectUserStore.getAt(tmpIndex);
+            if(argValue.get('id')==tmpExistUser.get('id'))
             {
-                userExists=true;
+                return true;
             }
         }
-        if(!userExists)
-        {
-            tmpUser.set('role','dev');
-            tmpProjectUserStore.add(tmpUser);
-            tmpProjectUserStore.commitChanges();
-        }
-        else
-        {
-        Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.USER_EXISTS);
-        }
+        return false;
     },
 
     getAddUserPopUp: function(){
@@ -159,6 +169,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
     onUpdateGroupUsers: function(){
         var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpAssignArray = [];
+        var tmpAutoComplete = this.getAutoComplete();
         for(var tmpCont=0; tmpCont < tmpUsersGroupStore.data.items.length; tmpCont++){
             tmpAssignArray.push(tmpUsersGroupStore.data.items[tmpCont].data)
         }
@@ -178,6 +189,7 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
             url: AliveTracker.defaults.WebServices.UPDATE_GROUP_USER
         });
         this.getUsersGrid().cbUserGridRoles.clear;
-        Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SAVE_GROUP);
+        tmpAutoComplete.setValue("");
+        tmpAutoComplete.focus();
     }
 });

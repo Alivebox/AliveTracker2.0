@@ -105,7 +105,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
             xtype: 'button',
             name: 'include',
             cls: 'all-views-button logbook-add-button',
-            tooltip: Locales.AliveTracker.PROJECTS_ADD_BUTTON,
+            tooltip: Locales.AliveTracker.ACTIVITY_ADD_BUTTON,
             icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
             listeners: {
                 scope: this,

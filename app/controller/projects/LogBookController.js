@@ -41,6 +41,10 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             selector:'logbookactivityform [itemId=txtActivity]'
         },
         {
+            ref:'logBookProjectCombo',
+            selector:'logbookactivityform [itemId=logProjectComboBox]'
+        },
+        {
             ref:'logBookTimeTextField',
             selector:'logbookactivityform [itemId=time]'
         },
@@ -68,6 +72,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
         this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
+        this.getLogBookProjectCombo().focus(false, 1000);
         if(Ext.getStore('projects.Projects').count() === 0){
             this.populateProjectStore();
         }
