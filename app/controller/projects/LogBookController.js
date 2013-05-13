@@ -69,6 +69,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             }
         });
     },
+
     onBeforeRender:function(){
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);

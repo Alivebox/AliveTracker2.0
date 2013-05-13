@@ -2,7 +2,6 @@ Ext.define('AliveTracker.view.projects.LogBook', {
 
     extend:'Ext.container.Container',
     xtype:'logbook',
-    cls: 'main-containers',
 
     initComponent:function () {
         this.items = [
