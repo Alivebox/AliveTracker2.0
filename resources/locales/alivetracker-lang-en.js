@@ -127,6 +127,7 @@ Ext.define('Locales.AliveTracker', {
         ACTIVITY_ADD_BUTTON:'Add activity',
         PROJECTS_ADD_BUTTON:'Add proyect',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
+        PROJECT_REMOVE_ACTIVITY: 'Remove activity',
         NEW_PROJECT_LABEL: 'New Project',
         /**
          * Users View

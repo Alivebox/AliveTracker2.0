@@ -47,6 +47,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     items:[
                         {
                             icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            tooltip: Locales.AliveTracker.PROJECT_REMOVE_ACTIVITY,
                             scope:this,
                             handler: this.onDeleteLog
                         }

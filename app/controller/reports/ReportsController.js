@@ -204,17 +204,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpReportsStore = Ext.getStore('reports.Reports');
         tmpReportsStore.load({
             scope: this,
-            urlOverride:tmpUrl,
-            callback: this.onLoadPreviewRecords
+            urlOverride:tmpUrl
         });
-    },
-
-    onLoadPreviewRecords: function(argRecords, argOperation, argSuccess){
-        if(!argSuccess || argRecords.length <= 0){
-            this.getGridPreview().setVisible(false);
-            return;
-        }
-        this.getGridPreview().setVisible(true);
     },
 
     changeColumnBackground: function(argColumn){
