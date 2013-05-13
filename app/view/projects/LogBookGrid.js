@@ -4,6 +4,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
     xtype:'logbookgrid',
     cls: 'logbook-grid-container',
     height: 235,
+    columnLines: true,
 
     initComponent:function () {
         var me = this;
@@ -21,15 +22,18 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                 },
                 {
                     xtype:'gridcolumn',
-                    cls: 'logbook-grid-activity-column',
+                    cls: 'logbook-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
-                    sortable:false,
                     flex: 6,
                     dataIndex:'activity',
                     editor: {
                         xtype: 'textfield',
                         allowBlank: false
+                    },
+                    listeners:{
+                        scope: this,
+                        headerclick: this.onSortColumn
                     }
                 },
                 {
@@ -87,6 +91,10 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
     onEditCell: function(argGrid, argRecord){
         this.fireEvent('editCell', argRecord);
+    },
+
+    onSortColumn: function(argCt, argColumn){
+        this.fireEvent('sortColumn',argColumn);
     }
  });
 

@@ -56,6 +56,9 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                 },
                 'actioncolumn#projectGridActionId': {
                     click: this.onProjectGridActionIdAction
+                },
+                'projectgrid':{
+                    sortColumn: this.changeColumnBackground
                 }
             });
     },
@@ -196,5 +199,10 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.addProjectPopup.title = argTitle;
         this.addProjectPopup.show();
         return this.addProjectPopup;
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('project-grid-column');
+        argColumn.addCls('project-grid-sort-column');
     }
 });

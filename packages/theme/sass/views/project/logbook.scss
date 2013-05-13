@@ -1,18 +1,18 @@
 @import '../main/defaults.scss';
 
-.logbook-container{
-  margin: 10px;
+.logbook-container {
+  margin: 10px 10px 10px 25px;
   width: 80%;
 }
 
 .logbook-label-container{
-  padding-left: 10px;
-  padding-right: 10px;
   padding-top: 10px;
 }
 
 .logbook-fields-container{
   padding: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .logbook-view-form{
@@ -62,14 +62,12 @@
 .logbook-label{
   color: $blackcolor;
   font-size: 16px;
-  margin-left: 5px;
-  margin-right: 375px;
+  margin-right: 20px;
 }
 
 .logbook-time-label{
   color: $blackcolor;
   font-size: 16px;
-  margin-left: 495px;
 }
 
 .logbook-total-label{
@@ -82,6 +80,8 @@
 .logbook-grid-container{
   border-color: $bordercolor;
   margin: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 .logbook-grid-column .x-column-header-inner{
@@ -95,7 +95,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 ); /* IE6-9 */
 }
 
-.logbook-grid-activity-column .x-column-header-inner{
+.logbook-grid-sort-column .x-column-header-inner{
   background: #d1d1d1; /* Old browsers */
   background: -moz-linear-gradient(top,  #d1d1d1 22%, #c2c1c1 63%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(22%,#d1d1d1), color-stop(63%,#c2c1c1)); /* Chrome,Safari4+ */
@@ -107,6 +107,7 @@
 }
 
 .logbook-total-container{
-  margin-left: 88.8%;
+  width: 160px;
+  float: right;
 }
 

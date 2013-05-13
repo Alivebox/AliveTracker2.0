@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
 
     extend: 'Ext.Container',
     xtype: 'addusersgroup',
-    cls: 'main-containers',
+    cls: 'users-container',
 
     initComponent: function() {
         var me = this;

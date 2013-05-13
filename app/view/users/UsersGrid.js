@@ -3,6 +3,7 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'usersgrid',
     cls:'user-grid',
+    columnLines: true,
     initComponent: function() {
         var me = this;
         this.cbUserGridRoles = this.onCreateRoleComboBox();
@@ -19,14 +20,16 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    cls: 'user-grid-role-column',
+                    cls: 'user-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.USERS_LABEL_ROLE,
-                    sortable : false,
                     flex: 5,
                     dataIndex: 'role',
-                    editor: this.cbUserGridRoles
-
+                    editor: this.cbUserGridRoles,
+                    listeners:{
+                        scope: this,
+                        headerclick: this.onSortColumn
+                    }
                 },
                 {
                     xtype:'actioncolumn',
@@ -76,5 +79,9 @@ Ext.define('AliveTracker.view.users.UsersGrid', {
 
     onEditCell: function(){
         this.fireEvent('editCell');
+    },
+
+    onSortColumn: function(argCt, argColumn){
+        this.fireEvent('sortColumn',argColumn);
     }
 });

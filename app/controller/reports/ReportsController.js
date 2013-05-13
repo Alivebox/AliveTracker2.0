@@ -53,7 +53,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
                 groupSelected: this.loadAssignedUsersStore,
-                showPreview: this.onShowPreview
+                showPreview: this.onShowPreview,
+                sortColumn: this.changeColumnBackground
             }
         });
     },
@@ -214,6 +215,11 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             return;
         }
         this.getGridPreview().setVisible(true);
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('report-grid-column');
+        argColumn.addCls('report-grid-sort-column');
     },
 
     buildDateQueryString: function(argStartDate, argEndDate, argUrl){

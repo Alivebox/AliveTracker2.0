@@ -2,8 +2,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     extend:'Ext.container.Container',
     xtype:'reportsform',
-    cls: 'main-containers',
-
+    cls: 'reports-container',
     initComponent:function () {
         this.items = [
             {
@@ -103,6 +102,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 xtype: 'gridpanel',
                 itemId: 'gridReports',
                 cls: 'report-grid-container',
+                columnLines: true,
                 height: 400,
                 store: 'reports.Reports',
                 columns: [
@@ -117,8 +117,12 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         header: 'Activity',
                         menuDisabled:true,
-                        cls: 'report-grid-activity-column',
+                        cls: 'report-grid-column',
                         dataIndex: 'activity',
+                        listeners:{
+                            scope: this,
+                            headerclick: this.onSortColumn
+                        },
                         flex: 3
                     },
                     {
@@ -157,6 +161,9 @@ Ext.define('AliveTracker.view.reports.Reports', {
     },
     onShowPreview:function () {
         this.fireEvent('showPreview');
+    },
+    onSortColumn: function(argCt, argColumn){
+        this.fireEvent('sortColumn',argColumn);
     }
 
 });

@@ -17,17 +17,20 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
+                        width: '29.5%',
                         cls: 'logbook-label'
                     },
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
+                        width: '63.5%',
                         cls: 'logbook-label'
                     },
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
-                        cls: 'logbook-time-label'
+                        cls: 'logbook-time-label',
+                        width: '8%'
                     }
                 ]
             },
@@ -83,7 +86,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         var tmpNumberTextField = {
             xtype: 'numberfield',
             name: 'time',
-            width:50,
+            width:'3.5%',
             fieldCls: 'logbook-view-form',
             cls: 'logbook-form-align',
             allowNegative:false,
@@ -105,6 +108,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
             xtype: 'button',
             name: 'include',
             cls: 'all-views-button logbook-add-button',
+            width:'2%',
             tooltip: Locales.AliveTracker.ACTIVITY_ADD_BUTTON,
             icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
             listeners: {

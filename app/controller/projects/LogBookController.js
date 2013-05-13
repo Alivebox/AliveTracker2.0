@@ -64,7 +64,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             },
             'logbookgrid':{
                 deleteLog: this.onShowDeleteConfirm,
-                editCell: this.onEditCell
+                editCell: this.onEditCell,
+                sortColumn: this.changeColumnBackground
             }
         });
     },
@@ -184,6 +185,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpLogBook.save({
             urlOverride:tmpUrl
         });
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('logbook-grid-column');
+        argColumn.addCls('logbook-grid-sort-column');
     },
 
     onShowDeleteConfirm: function(argGrid, argIndex){
