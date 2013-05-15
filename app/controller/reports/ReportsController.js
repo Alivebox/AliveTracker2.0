@@ -54,7 +54,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                 dateRangeComboSelection: this.onDateRangeComboSelection,
                 groupSelected: this.loadAssignedUsersStore,
                 showPreview: this.onShowPreview,
-                sortColumn: this.changeColumnBackground
+                sortColumn: this.changeColumnBackground,
             }
         });
     },
@@ -94,14 +94,6 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                             Ext.Object.toQueryString({group:tmpReport.group,user:tmpReport.user,project:tmpReport.project,
                                                       dateRangeOption:tmpReport.dateRangeOption,startDate:tmpReport.startDate,endDate:tmpReport.endDate}));
         }
-    },
-
-    /**
-     * Initializes components listeners
-     */
-    onReportsAfterRender: function(){
-        this.loadUsersStore();
-        this.loadGoupsStore();
     },
 
     /**
@@ -176,18 +168,6 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             }
         }
         return false;
-    },
-
-
-    /**
-     * Loads the Groups store
-     */
-    loadGoupsStore: function(){
-        var tmpGroupsStore = Ext.getStore('groups.Groups');
-        tmpGroupsStore.load({
-            callback: function(){
-            }
-        });
     },
 
     onShowPreview: function(){

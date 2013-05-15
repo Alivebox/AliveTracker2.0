@@ -1,7 +1,7 @@
 @import '../main/defaults.scss';
 
 .logbook-container {
-  margin: 10px 10px 10px 25px;
+  margin: 10px;
   width: 80%;
 }
 
@@ -78,10 +78,10 @@
 }
 
 .logbook-grid-container{
-  border-color: $bordercolor;
-  margin: 10px;
-  margin-right: 0px;
-  margin-left: 0px;
+  border-right-style: solid;
+  border-width: 1px;
+  margin: 10px 0;
+  width: 100%;
 }
 
 .logbook-grid-column .x-column-header-inner{

@@ -56,7 +56,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     init:function () {
         this.control({
             'logbook':{
-                beforerender:this.onBeforeRender,
                 datePickerChanged:this.onDatePickerChange
             },
             'logbookactivityform': {
@@ -70,24 +69,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         });
     },
 
-    onBeforeRender:function(){
-        var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
-        this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
-        this.getLogBookProjectCombo().focus(false, 1000);
-        if(Ext.getStore('projects.Projects').count() === 0){
-            this.populateProjectStore();
-        }
-    },
-    populateProjectStore: function(){
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,Ext.state.Manager.get('groupId'));
-        var tmpProjectStore = Ext.getStore('projects.Projects');
-        tmpProjectStore.load({
-                scope: this,
-                urlOverride: tmpUrl
-            }
-        );
-    },
     populateLogsStore:function (argUrl, argCallback){
         var tmpLogsStore = Ext.getStore('projects.Logs');
         tmpLogsStore.load({
@@ -112,7 +93,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         });
     },
     onAddNewActivity:function (argActivity) {
-        var test = !this.isTimeValid();
         if(!this.getLogsform().isValid() || !this.isTimeValid()){
             return;
         }
@@ -126,7 +106,9 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
 
     isTimeValid: function(){
         var tmpTime = this.getLogBookTimeTextField().getValue();
-        if(tmpTime > 24 || tmpTime < 0){
+        var tmpBeforeTotal = this.getTotalTime().getValue();
+        var tmpAfterTotal = tmpTime+tmpBeforeTotal;
+        if(tmpTime > 24 || tmpTime < 0 || tmpAfterTotal > 24){
             return false;
         }
         return true;

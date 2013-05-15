@@ -30,6 +30,7 @@ Ext.application({
         'authentication.RegisterController',
         'group.AddUsersGroupController',
         'group.GroupDetailController',
+        'group.MainGroupController',
         'home.HomeController',
         'projects.LogBookController',
         'reports.ReportsController',

@@ -81,7 +81,6 @@ $background-main-container: #F0F0F0;
 
 .main-container {
   background-color: $background-main-container;
-
 }
 
 .x-grid-cell-checkcolumn .x-grid-cell-inner {
@@ -109,10 +108,5 @@ $background-main-container: #F0F0F0;
 
 .x-column-header-sort-DESC .x-column-header-text {
   background-image: url("../images/arrow_down.png");
-  background-position: right;
-}
-
-.x-column-header-sort-ASC .x-column-header-text {
-  background-image: url("../images/arrow_up.png");
   background-position: right;
 }

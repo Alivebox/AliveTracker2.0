@@ -10,6 +10,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 modelClassName: 'AliveTracker.model.reports.ReportForm',
                 layout: 'hbox',
                 itemId: 'reportFormContainer',
+                cls: 'report-form-container',
                 items: [
                     {
                         xtype: 'label',
@@ -28,7 +29,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         displayField:'name',
                         valueField: 'id',
                         editable:false,
-                        width: 400,
+                        width: '22%',
                         listeners:{
                             scope:this,
                             select:this.onGroupSelected
@@ -51,7 +52,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         displayField:'email',
                         valueField: 'id',
                         editable:false,
-                        width: 400
+                        width: '22%'
                     },
                     {
                         xtype: 'label',
@@ -63,10 +64,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         itemId:'dateRangeComboReports',
                         cls: 'report-form-date',
                         fieldCls: 'report-form',
-                        name:'dateRangeComboReports',
-                        allowBlank:false,
+                        emptyText: Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION,
+                        name:'dateRangeOption',
                         editable:false,
-                        width: 300,
+                        width: '20%',
                         store:[
                             [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
                             [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],

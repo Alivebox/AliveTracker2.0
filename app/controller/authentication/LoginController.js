@@ -35,7 +35,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         if( !Framework.core.SecurityManager.isUserLogged()){
             return;
         }
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'groupDetailPage');
     },
 
     onLoginAction:function () {
@@ -54,7 +54,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
     onLoginSuccess: function(argRecord){
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
-        var tmpDefaultGroup = tmpCurrentUser.data.default_group;
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
         if(argRecord.data.entity_status === AliveTracker.defaults.Constants.TO_CHANGE_PASSWORD){
@@ -62,11 +61,6 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
             Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
             return;
         }
-        if(tmpDefaultGroup == 0){
-            Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'homePage');
-            return;
-        }
-        Ext.state.Manager.set('groupId',tmpDefaultGroup);
         Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE,'groupDetailPage');
     },
 

@@ -23,7 +23,11 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
                 height: 400,
                 itemId: 'groupProjectGrid',
                 queryMode: 'local',
-                store: 'projects.Projects'
+                store: 'projects.Projects',
+                listeners: {
+                    scope: this,
+                    itemdblclick: this.onRowDblclick
+                }
             }
         ];
         this.callParent(arguments);
@@ -31,5 +35,9 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
 
     onAddProjectClick: function(){
         this.fireEvent('addProject');
+    },
+
+    onRowDblclick: function(argGrid, argRecord, argItem, argRow){
+        this.fireEvent('rowDblclick',argGrid,argRow);
     }
 });
