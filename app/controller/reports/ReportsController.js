@@ -54,7 +54,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                 dateRangeComboSelection: this.onDateRangeComboSelection,
                 groupSelected: this.loadAssignedUsersStore,
                 showPreview: this.onShowPreview,
-                sortColumn: this.changeColumnBackground,
+                sortColumn: this.changeColumnBackground
             }
         });
     },

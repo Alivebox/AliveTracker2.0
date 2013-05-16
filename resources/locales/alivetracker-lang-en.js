@@ -61,7 +61,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Home View
          */
-        HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the project?',
+        HOME_DELETE_GROUP_CONFIRMATION_MESSAGE: 'Are you sure you want to delete this group?',
         HOME_LABEL_GROUP_NAME: 'Group name',
         HOME_LABEL_DESCRIPTION: 'Description',
         HOME_LABEL_WEBSITE: 'Website URL',

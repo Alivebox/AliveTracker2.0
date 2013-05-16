@@ -2,14 +2,26 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     extend: "Ext.app.Controller",
 
+    models:[
+        'groups.Group',
+        'groups.BelongGroup'
+    ],
+
+    stores:[
+        'groups.Groups',
+        'groups.BelongGroups',
+        'groups.GroupsDTO',
+        'users.LoginUsers'
+    ],
+
     views:[
         'group.GroupDetail',
         'group.GroupsView',
-        'projects.GroupProjects',
+        'group.BelongGroupsView',
+        'group.Groups',
+        'group.AddGroupPopUp',
         'projects.LogBookActivityForm',
-        'projects.ProjectsGrid',
-        'projects.LogBook',
-        'users.UserRolesAssignmentPopUp'
+        'projects.LogBook'
     ],
 
     requires : [
@@ -17,48 +29,70 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         'AliveTracker.view.projects.GroupProjects'
     ],
 
-    models:[
-        'users.User',
-        'roles.Role'
-    ],
-
-    stores:[
-        'users.Users',
-        'users.AssignedUsers',
-        'users.ProjectUsers',
-        'roles.Roles'
-    ],
-
     refs: [
         {
-            ref:'assignUsersToProjectsView',
-            selector:'assignuserstoprojectsview'
+            ref:'datepicker',
+            selector:'logbook [itemId=datepickerLogBook]'
         },
         {
-            ref:'projectModelForm',
-            selector:'assignuserstoprojectsview [itemId=projectModelForm]'
+            ref:'totalTime',
+            selector:'logbook [itemId=totalTime]'
         },
         {
             ref:'GroupTab',
             selector:'groupdetailform [itemId=GroupTab]'
+        },
+        {
+            ref:'GroupsView',
+            selector:'groupdetailform [itemId=groupsView]'
+        },
+        {
+            ref:'BelongGroupsView',
+            selector:'groupdetailform [itemId=belongGroupsView]'
+        },
+        {
+            ref:'logBookActivityField',
+            selector:'logbookactivityform [itemId=txtActivity]'
+        },
+        {
+            ref:'logBookProjectCombo',
+            selector:'logbookactivityform [itemId=logProjectComboBox]'
+        },
+        {
+            ref:'logBookTimeTextField',
+            selector:'logbookactivityform [itemId=time]'
+        },
+        {
+            ref: 'cmbProject',
+            selector: 'reportsform [itemId=projectReports]'
+        },
+        {
+            ref: 'cmbUser',
+            selector: 'reportsform [itemId=userReports]'
+        },
+        {
+            ref: 'cmbDateRange',
+            selector: 'reportsform [itemId=dateRangeComboReports]'
+        },
+        {
+            ref: 'dateRange',
+            selector: 'reportsform [itemId=dateRangeReports]'
+        },
+        {
+            ref:'groupModelForm',
+            selector:'addgrouppopup form[name=groupModelForm]'
         }
     ],
 
     init: function(){
         this.control(
             {
-                'groupdetailform': {
-                    beforerender : this.loadStores
+                'groups': {
+                    beforerender : this.loadStores,
+                    addGroup: this.createNewGroup
                 },
-                'groupprojects': {
-                    addProject : this.onShowProjectPopUp,
-                    rowDblclick: this.showEditProjectPopUp
-                },
-                'actioncolumn#projectGridActionId': {
-                    click: this.onProjectGridActionIdAction
-                },
-                'projectgrid':{
-                    sortColumn: this.changeColumnBackground
+                "addgrouppopup": {
+                    onSaveAction: this.saveGroup
                 }
             });
     },
@@ -94,6 +128,49 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                 tmpGroups.add(tmpGroup)
             }
         }
+        this.loadEvents();
+    },
+
+    loadEvents: function(){
+        var tmpItemDisplayEl = this.getGroupsView().getEl();
+        var tmpBelongGroupDisplay = this.getBelongGroupsView().getEl();
+        var tmpGroupsStore = Ext.getStore('groups.Groups');
+        var tmpBelongGroupsStore = Ext.getStore('groups.BelongGroups');
+        for(var tmpIndex=0; tmpIndex < tmpGroupsStore.getCount(); tmpIndex++){
+            var tmpGroup = tmpGroupsStore.getAt(tmpIndex);
+            tmpItemDisplayEl.on('click', this.onGroupSelected, this, { delegate: '#'+ tmpGroup.get('id') });
+            tmpItemDisplayEl.on('click', this.showEditGroupPopUp, this, { delegate: '#btnEdit'+ tmpGroup.get('id') });
+            tmpItemDisplayEl.on('click', this.onConfirmDeleteDialog, this, { delegate: '#btnDelete'+ tmpGroup.get('id') });
+            tmpItemDisplayEl.on('mouseover', this.showDivButtons, this, { delegate: '#div'+ tmpGroup.get('id') });
+            tmpItemDisplayEl.on('mouseout', this.hideDivButtons, this, { delegate: '#div'+ tmpGroup.get('id') });
+        }
+        for(var tmpIndex=0; tmpIndex < tmpBelongGroupsStore.getCount(); tmpIndex++){
+            var tmpBelongGroup = tmpBelongGroupsStore.getAt(tmpIndex);
+            tmpBelongGroupDisplay.on('click', this.onGroupSelected, this, { delegate: '#'+ tmpBelongGroup.get('id') });
+        }
+        this.loadDefaultGroup(tmpGroupsStore,tmpBelongGroupsStore);
+    },
+
+    loadDefaultGroup: function(argGroupsStore, argBelongGroupsStore){
+        if(argGroupsStore.getCount() > 0){
+            Ext.state.Manager.set('groupId',argGroupsStore.getAt(0).data.id);
+            this.loadProjects();
+            return;
+        }
+        if(argBelongGroupsStore.getCount() > 0){
+            Ext.state.Manager.set('groupId',argBelongGroupsStore.getAt(0).data.id);
+            this.loadProjects();
+            return;
+        }
+    },
+
+    loadNewButtonsEvents: function(argId){
+        var tmpItemDisplayEl = this.getGroupsView().getEl();
+        tmpItemDisplayEl.on('click', this.onGroupSelected, this, { delegate: '#'+ argId });
+        tmpItemDisplayEl.on('click', this.showEditGroupPopUp, this, { delegate: '#btnEdit'+ argId });
+        tmpItemDisplayEl.on('click', this.onConfirmDeleteDialog, this, { delegate: '#btnDelete'+ argId });
+        tmpItemDisplayEl.on('mouseover', this.showDivButtons, this, { delegate: '#div'+ argId });
+        tmpItemDisplayEl.on('mouseout', this.hideDivButtons, this, { delegate: '#div'+ argId });
     },
 
     loadProjects: function(){
@@ -164,81 +241,198 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         return false;
     },
 
-    isEmpty: function(argStore){
-        var tmpStore = Ext.getStore(argStore);
-        if(tmpStore.getCount() > 0){
-            return false;
-        }
-        return true;
+    onGroupSelected: function(argEvent,argButton){
+        var tmpGroupTab = this.getGroupTab();
+        var tmpGroupId = argButton.id;
+        Ext.state.Manager.set('groupId',tmpGroupId);
+        this.reloadLogStore();
+        this.clearLogBookFields();
+        this.clearReportFields();
+        tmpGroupTab.onSetFirstTabSelected();
+        tmpGroupTab.setVisible(false);
+        this.loadProjects();
     },
 
-    onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
-        var tmpRec = argGrid.getStore().getAt(argRow);
-        var tmpAction = argEvent.target.getAttribute('class');
-        if (tmpAction.indexOf("x-action-col-0") != -1) {
-            this.showEditProjectPopUp(argGrid,argRow);
-        }
-        else if (tmpAction.indexOf("x-action-col-1") != -1) {
-            this.onConfirmDeleteProject(argGrid,argRow);
-        }
-
+    reloadLogStore: function (){
+        Ext.getStore('projects.Logs').removeAll();
+        var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
+        this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
     },
 
-    showEditProjectPopUp: function(argGrid,argRow){
-        var tmpProjectModel = argGrid.store.getAt(argRow);
-        Ext.state.Manager.set('projectId',tmpProjectModel.data.id);
-        AliveTracker.assignUsersToProjectsController.insert = false;
-        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_EDIT_PROJECT);
-        this.getProjectModelForm().loadRecord(tmpProjectModel);
-    },
-
-    onDeleteGroup: function(argProject){
-        var tmpProjectStore = Ext.getStore('projects.Projects');
-        argProject.setProxy({
-            type: 'restproxy',
-            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
-        });
-        argProject.destroy({
+    populateLogsStore:function (argUrl, argCallback){
+        var tmpLogsStore = Ext.getStore('projects.Logs');
+        tmpLogsStore.load({
             scope: this,
-            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_PROJECT,argProject.data.id)
+            urlOverride: argUrl,
+            callback: argCallback
         });
-        tmpProjectStore.removeAt(tmpProjectStore.find('id', argProject.data.id));
-        tmpProjectStore.commitChanges();
     },
 
-    onConfirmDeleteProject: function(argGrid,argRow) {
+    onTotalTimeUpdate:function () {
+        var tmpTotal = 0;
+        var tmpStore = Ext.getStore('projects.Logs');
+        tmpStore.each(function (record) {
+            tmpTotal += record.data.time;
+        }, this);
+        this.getTotalTime().setValue(tmpTotal);
+    },
+
+    clearLogBookFields: function(){
+        this.getLogBookProjectCombo().setValue(Locales.AliveTracker.PROJECTS_LABEL_SELECT);
+        this.getLogBookActivityField().setValue("");
+        this.getLogBookTimeTextField().setValue(0);
+    },
+
+    clearReportFields: function(){
+        this.getCmbProject().setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
+        this.getCmbUser().setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
+        this.getCmbDateRange().setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
+        Ext.getStore('reports.Reports').removeAll();
+    },
+
+    showDivButtons: function(argEvent, argDiv){
+        var tmpDivId = 'divButtons'+argDiv.attributes[1].value;
+        var tmpDiv = Ext.get(tmpDivId)
+        tmpDiv.setVisible(true);
+    },
+
+    hideDivButtons: function(argEvent, argDiv){
+        var tmpDivId = 'divButtons'+argDiv.attributes[1].value;
+        var tmpDiv = Ext.get(tmpDivId)
+        tmpDiv.setVisible(false);
+    },
+
+    createNewGroup: function(){
+        this.addEditGroupPopUp = this.getAddGroupPopUp(true, null);
+    },
+
+    getAddGroupPopUp: function(argElement){
+        var tmpAddEditGroupPopUp = Ext.create('AliveTracker.view.group.AddGroupPopUp');
+        var tmpGroupForm = this.getGroupModelForm();
+        var tmpModel = Ext.create('AliveTracker.model.groups.Group');
+        tmpGroupForm.loadRecord(tmpModel);
+        tmpAddEditGroupPopUp.show();
+        return tmpAddEditGroupPopUp;
+    },
+
+    saveGroup: function(argEvent){
+        var tmpGroupModel = this.onCreateModelFromGroupModelValues();
+        var tmpId = tmpGroupModel.data.id;
+        tmpGroupModel.setProxy({
+            type: 'restproxy',
+            url: AliveTracker.defaults.WebServices.SAVE_GROUP
+        });
+        if(tmpId==0){
+            tmpGroupModel.save({
+                scope: this,
+                urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
+                success: this.saveGroupCallback
+            });
+        }
+        else{
+            tmpGroupModel.save({
+                scope: this,
+                urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
+                success: this.editGroupCallback
+            });
+        }
+        this.closeWindows(argEvent);
+    },
+
+    onCreateModelFromGroupModelValues: function(){
+        var tmpItem = this.getGroupModelForm().getValues();
+        var tmpModel = Ext.create('AliveTracker.model.groups.Group', {
+            id: tmpItem.id,
+            name: tmpItem.name,
+            description: tmpItem.description,
+            logo_url: tmpItem.logo_url,
+            web_site_url: tmpItem.web_site_url
+        });
+        return tmpModel;
+    },
+
+    saveGroupCallback: function(argRecord){
+        var tmpGroupStore = Ext.getStore('groups.Groups');
+        tmpGroupStore.add(argRecord);
+        tmpGroupStore.commitChanges();
+        this.loadNewButtonsEvents(argRecord.data.id);
+    },
+
+    editGroupCallback: function(argRecord){
+        var tmpGroupStore = Ext.getStore('groups.Groups');
+        for(var tmpIndex=0; tmpIndex < tmpGroupStore.getCount(); tmpIndex++){
+            var tmpGroup = tmpGroupStore.getAt(tmpIndex);
+            if(tmpGroup.get('id')==argRecord.data.id){
+                tmpGroup=argRecord;
+                break;
+            }
+        }
+        tmpGroupStore.removeAt(tmpIndex);
+        tmpGroupStore.insert(tmpIndex,tmpGroup);
+        tmpGroupStore.commitChanges();
+    },
+    onConfirmDeleteDialog: function(argEvent,argButton) {
+        var tmpGroupId=argButton.name;
         Ext.MessageBox.confirm(
             'Confirm',
-            Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
-            function (argButton) {
-                if (argButton == 'yes') {
-                    this.onDeleteGroup(argGrid.store.getAt(argRow));
+            Locales.AliveTracker.HOME_DELETE_GROUP_CONFIRMATION_MESSAGE,
+            function(argButton){
+                if(argButton == 'yes')
+                {
+                    this.onDeleteGroup(tmpGroupId)
                 }
             },
             this
         );
     },
 
-    onShowProjectPopUp: function(){
-        AliveTracker.assignUsersToProjectsController.insert = true;
-        var tmpProjectPopUp = this.createProjectPopUp(Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NEW_PROJECT);
-    },
-
-    createProjectPopUp: function(argTitle){
-        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
-        tmpUsersGroupStore.load({
-            scope: this,
-            urlOverride:  tmpUrl
+    onDeleteGroup: function(argGroupId){
+        var tmpGroupStore = Ext.getStore('groups.Groups');
+        var tmpGroup = tmpGroupStore.findRecord('id', argGroupId);
+        var tmpGroupTab = this.getGroupTab();
+        tmpGroup.setProxy({
+            type: 'restproxy',
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argGroupId)
         });
-        this.addProjectPopup = Ext.create('AliveTracker.view.users.UserRolesAssignmentPopUp');
-        this.addProjectPopup.title = argTitle;
-        this.addProjectPopup.show();
-        return this.addProjectPopup;
+        tmpGroup.destroy({
+            scope: this,
+            urlOverride: Ext.util.Format.format(AliveTracker.defaults.WebServices.DELETE_GROUP,argGroupId)
+        });
+        tmpGroupStore.removeAt(tmpGroupStore.find('id', argGroupId));
+        if(argGroupId==Ext.state.Manager.get('groupId')){
+            tmpGroupTab.setVisible(false);
+        }
+        tmpGroupStore.commitChanges();
     },
 
-    changeColumnBackground: function(argColumn){
-        argColumn.removeCls('project-grid-column');
-        argColumn.addCls('project-grid-sort-column');
+    findGroupRecord: function(argGroupId){
+        var tmpGroupsStore = Ext.getStore('groups.Groups');
+        for(var tmpIndex=0; tmpIndex < tmpGroupsStore.getCount(); tmpIndex++){
+            var tmpGroup = tmpGroupsStore.getAt(tmpIndex);
+            if(tmpGroup.get('id')==argGroupId){
+                return tmpGroup;
+            }
+        }
+    },
+
+    showEditGroupPopUp: function(argEvent,argButton){
+        var tmpGroupId=argButton.name;
+        var tmpGroupModel = this.findGroupRecord(tmpGroupId);
+        this.getGroupPopUp(tmpGroupModel);
+    },
+
+    closeWindows: function(argEvent){
+        var tmpWindow = argEvent;
+        tmpWindow.close();
+    },
+
+    getGroupPopUp: function(argModel){
+        var tmpAddEditGroupPopUp = Ext.create('AliveTracker.view.group.AddGroupPopUp');
+        var tmpGroupForm = this.getGroupModelForm();
+        var tmpModel = Ext.create('AliveTracker.model.groups.Group');
+        tmpGroupForm.loadRecord(argModel);
+        tmpAddEditGroupPopUp.show();
+        return tmpAddEditGroupPopUp;
     }
 });

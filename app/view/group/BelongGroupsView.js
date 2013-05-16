@@ -1,7 +1,7 @@
-Ext.define('AliveTracker.view.group.GroupsView', {
+Ext.define('AliveTracker.view.group.BelongGroupsView', {
 
     extend: 'Ext.view.View',
-    xtype : 'groupsview',
+    xtype : 'belonggroupsview',
     requires: ['Ext.data.Store'],
     imageViewSelectionMode: undefined,
     allowDeselect: true,
@@ -13,12 +13,8 @@ Ext.define('AliveTracker.view.group.GroupsView', {
 
     tpl: [
         '<tpl for=".">',
-            '<div id="div{id}" name="{id}" class="groups-view-div">',
+            '<div class="groups-view-div">',
                 '<a href="#groupDetailPage" id="{id}" class="groups-name-labels">{name}</a>',
-                '<div id="divButtons{id}" class="div-groups-buttons" hidden=true>',
-                    '<button type="button" class="groups-edit-button" id="btnEdit{id}" name="{id}"></button>',
-                    '<button type="button" class="groups-delete-button" id="btnDelete{id}" name="{id}"></button>',
-                '</div>',
             '</div>',
         '</tpl>'
     ],

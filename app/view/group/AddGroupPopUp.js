@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.home.AddGroupPopUp', {
+Ext.define('AliveTracker.view.group.AddGroupPopUp', {
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
     cls: 'add-group-pop-up-view',
@@ -49,6 +49,11 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                         border: false,
                         name: 'groupModelForm',
                         items: [
+                            {
+                                xtype: 'textfield',
+                                name:'id',
+                                hidden: true
+                            },
                             {
                                 xtype: 'textfield',
                                 cls: 'add-group-pop-up-view-forms-align',
