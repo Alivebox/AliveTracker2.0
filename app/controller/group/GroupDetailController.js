@@ -154,11 +154,17 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     loadDefaultGroup: function(argGroupsStore, argBelongGroupsStore){
         if(argGroupsStore.getCount() > 0){
             Ext.state.Manager.set('groupId',argGroupsStore.getAt(0).data.id);
+            var groupId=  Ext.state.Manager.get('groupId').toString();
+            var tmpGroup = Ext.get(groupId);
+            tmpGroup.addCls('x-item-selected');
             this.loadProjects();
             return;
         }
         if(argBelongGroupsStore.getCount() > 0){
             Ext.state.Manager.set('groupId',argBelongGroupsStore.getAt(0).data.id);
+            var groupId=  Ext.state.Manager.get('groupId').toString();
+            var tmpGroup = Ext.get(groupId);
+            tmpGroup.addCls('x-item-selected');
             this.loadProjects();
             return;
         }
@@ -242,6 +248,11 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     onGroupSelected: function(argEvent,argButton){
+        var beforeGroupId=  Ext.state.Manager.get('groupId').toString();
+        var tmpBeforeGroup = Ext.get(beforeGroupId);
+        var tmpGroupSelected = Ext.get(argButton.id);
+        tmpBeforeGroup.removeCls('x-item-selected');
+        tmpGroupSelected.addCls('x-item-selected');
         var tmpGroupTab = this.getGroupTab();
         var tmpGroupId = argButton.id;
         Ext.state.Manager.set('groupId',tmpGroupId);
