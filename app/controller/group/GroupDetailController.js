@@ -251,7 +251,9 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         var beforeGroupId=  Ext.state.Manager.get('groupId').toString();
         var tmpBeforeGroup = Ext.get(beforeGroupId);
         var tmpGroupSelected = Ext.get(argButton.id);
-        tmpBeforeGroup.removeCls('x-item-selected');
+        if(tmpBeforeGroup){
+            tmpBeforeGroup.removeCls('x-item-selected');
+        }
         tmpGroupSelected.addCls('x-item-selected');
         var tmpGroupTab = this.getGroupTab();
         var tmpGroupId = argButton.id;
