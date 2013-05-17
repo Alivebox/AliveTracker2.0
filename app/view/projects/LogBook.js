@@ -53,6 +53,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                                         xtype: 'numberfield',
                                         itemId:'totalTime',
                                         fieldCls: 'logbook-view-form',
+                                        emptyText: '0',
                                         width: 50,
                                         editable: false,
                                         hideTrigger: true
