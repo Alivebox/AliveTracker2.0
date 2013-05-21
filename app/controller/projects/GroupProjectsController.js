@@ -39,7 +39,7 @@ Ext.define("AliveTracker.controller.projects.GroupProjectsController", {
                 },
                 'groupprojects': {
                     addProject : this.onShowProjectPopUp,
-                    rowDblclick: this.showEditProjectPopUp
+                    rowDoubleClick: this.showEditProjectPopUp
                 },
                 'projectgrid':{
                     sortColumn: this.changeColumnBackground
@@ -65,7 +65,7 @@ Ext.define("AliveTracker.controller.projects.GroupProjectsController", {
             Ext.util.Format.format(Locales.AliveTracker.GRID_DELETE_ROW_CONFIRMATION_MESSAGE),
             function (argButton) {
                 if (argButton == 'yes') {
-                    this.onDeleteProject(argGrid.store.getAt(argRow));
+                    this.deleteProject(argGrid.store.getAt(argRow));
                 }
             },
             this
@@ -80,7 +80,7 @@ Ext.define("AliveTracker.controller.projects.GroupProjectsController", {
         this.getProjectModelForm().loadRecord(tmpProjectModel);
     },
 
-    onDeleteProject: function(argProject){
+    deleteProject: function(argProject){
         var tmpProjectStore = Ext.getStore('projects.Projects');
         argProject.setProxy({
             type: 'restproxy',

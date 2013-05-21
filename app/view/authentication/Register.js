@@ -70,6 +70,6 @@ Ext.define('AliveTracker.view.authentication.Register', {
         this.callParent(arguments);
     },
     onRegisterActionClick:function () {
-        this.fireEvent('registerAction',this);
+        this.fireEvent('registerClick',this);
     }
 });

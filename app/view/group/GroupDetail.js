@@ -33,7 +33,6 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                         title: Locales.AliveTracker.GROUP_DETAIL_TITLE_REPORTS
                     }
                 ]
-
             }
         ];
         this.callParent(arguments);

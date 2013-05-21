@@ -100,7 +100,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
         this.callParent(arguments);
     },
     onForgotPasswordClick:function () {
-        this.fireEvent('showForgotPassword',this);
+        this.fireEvent('forgotPasswordClick',this);
     },
     onLoginClick:function () {
         this.fireEvent('login');

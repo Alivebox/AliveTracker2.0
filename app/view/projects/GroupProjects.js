@@ -26,7 +26,7 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
                 store: 'projects.Projects',
                 listeners: {
                     scope: this,
-                    itemdblclick: this.onRowDblclick
+                    itemdblclick: this.onRowDoubleClick
                 }
             }
         ];
@@ -37,7 +37,7 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
         this.fireEvent('addProject');
     },
 
-    onRowDblclick: function(argGrid, argRecord, argItem, argRow){
-        this.fireEvent('rowDblclick',argGrid,argRow);
+    onRowDoubleClick: function(argGrid, argRecord, argItem, argRow){
+        this.fireEvent('rowDoubleClick',argGrid,argRow);
     }
 });
