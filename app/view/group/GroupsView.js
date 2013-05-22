@@ -28,7 +28,6 @@ Ext.define('AliveTracker.view.group.GroupsView', {
     },
 
     onMouseOver: function(){
-        debugger;
     }
 
 
