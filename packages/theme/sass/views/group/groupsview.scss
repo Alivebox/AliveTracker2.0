@@ -17,13 +17,8 @@
   text-decoration: none;
 }
 
-.groups-view{
-  margin-left: 15px;
-}
-
 .belong-groups-view{
   margin-top: 10px;
-  margin-left: 15px;
 }
 
 .groups-line-container{
@@ -36,13 +31,38 @@
 }
 
 a.groups-name-labels:hover{
-  color:#dfeabb;
+  color:$blackcolor;
 }
 
 .x-item-over{
-
+  background-color: #dfeabb;
 }
 
-.x-item-selected a{
-  color:$buttonbackgroundcolor;
+.x-item-selected{
+  color: #BFD181;
+}
+
+.groups-view-div{
+  padding: 15px;
+}
+
+.div-groups-buttons{
+  float: right;
+}
+
+.groups-delete-button{
+  background-image: url(../images/delete.png);
+  background-color: transparent;
+  border-style: none;
+  height:16px;
+  width:16px;
+  margin-left: 10px;
+}
+
+.groups-edit-button{
+  background-image: url(../icons/edit.png);
+  background-color: transparent;
+  border-style: none;
+  height:16px;
+  width:16px;
 }

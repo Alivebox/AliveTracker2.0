@@ -64,7 +64,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         itemId:'dateRangeComboReports',
                         cls: 'report-form-date',
                         fieldCls: 'report-form',
-                        emptyText: Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION,
+                        emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         name:'dateRangeOption',
                         editable:false,
                         width: '20%',

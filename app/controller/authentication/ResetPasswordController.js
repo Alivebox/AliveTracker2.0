@@ -19,7 +19,6 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
     onResetPassword: function(){
         var tmpQueryString = document.location.href.split('?')[1];
         var tmpQueryStringObject = Ext.Object.fromQueryString(tmpQueryString);
-
         var tmpForgotPassword = Ext.create('AliveTracker.model.authentication.ForgotPassword',{email: tmpQueryStringObject.email, token: tmpQueryStringObject.token});
         tmpForgotPassword.save({
             scope: this,

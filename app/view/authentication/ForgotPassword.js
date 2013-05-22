@@ -5,6 +5,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     height: 140,
     width: 300,
     header: false,
+    modal: true,
     resizable: false,
 
     initComponent:function () {
@@ -48,14 +49,14 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                 text: Locales.AliveTracker.FORGOT_PASSWORD_LABEL_SEND,
                 listeners:{
                     scope:this,
-                    click:this.onSendResetInstructionsClick
+                    click:this.onSendInstructionsClick
                 }
             }
         ];
         this.callParent(arguments);
     },
-    onSendResetInstructionsClick:function () {
-        this.fireEvent('sendResetInstructions',this);
+    onSendInstructionsClick:function () {
+        this.fireEvent('sendInstructionsClick',this);
     },
 
     onClosePopUp: function(){
