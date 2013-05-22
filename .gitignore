@@ -6,3 +6,6 @@
 .sencha_backup*
 
 build-sass.xml
+
+packages/default/sass/.sass-cache/*
+packages/default/sass/.sass-cache
