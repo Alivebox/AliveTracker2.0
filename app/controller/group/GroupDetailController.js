@@ -4,8 +4,11 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
 
     views:[
         'group.GroupDetail',
+        'group.GroupsView',
         'projects.GroupProjects',
+        'projects.LogBookActivityForm',
         'projects.ProjectsGrid',
+        'projects.LogBook',
         'users.UserRolesAssignmentPopUp'
     ],
 
@@ -36,10 +39,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             selector:'assignuserstoprojectsview [itemId=projectModelForm]'
         },
         {
-            ref:'usersTab',
-            selector:'groupdetailform [itemId=usersTab]'
-        },
-        {
             ref:'GroupTab',
             selector:'groupdetailform [itemId=GroupTab]'
         }
@@ -52,15 +51,52 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
                     beforerender : this.loadStores
                 },
                 'groupprojects': {
-                    addProject : this.onShowProjectPopUp
+                    addProject : this.onShowProjectPopUp,
+                    rowDblclick: this.showEditProjectPopUp
                 },
                 'actioncolumn#projectGridActionId': {
                     click: this.onProjectGridActionIdAction
+                },
+                'projectgrid':{
+                    sortColumn: this.changeColumnBackground
                 }
             });
     },
 
-    loadStores: function(){
+    loadStores:function () {
+        var tmpGroupsDTO = Ext.getStore('groups.GroupsDTO');
+        tmpGroupsDTO.load({
+            scope: this,
+            callback: this.onLoadMyGroupsResult
+        });
+    },
+
+    onLoadMyGroupsResult:function(argRecords,argOperation,argSuccess){
+        if(argSuccess){
+            var tmpBelongGroups = Ext.getStore('groups.BelongGroups');
+            tmpBelongGroups.removeAll();
+            var tmpBelongGroupsList = argRecords[0].data.belongToGroups;
+            var tmpGroupsList = argRecords[0].data.myGroups;
+            var tmpGroups = Ext.getStore('groups.Groups');
+            tmpGroups.removeAll();
+            for (var tmpCont = 0; tmpCont <= tmpBelongGroupsList.length-1; tmpCont++){
+                var tmpBelongGroup = tmpBelongGroupsList[tmpCont];
+                if(tmpBelongGroup.id==this.currentDefaultGroup){
+                    tmpBelongGroup.default_group=true;
+                }
+                tmpBelongGroups.add(tmpBelongGroup)
+            }
+            for (var tmpCont = 0; tmpCont <= tmpGroupsList.length-1; tmpCont++){
+                var tmpGroup = tmpGroupsList[tmpCont];
+                if(tmpGroup.id==this.currentDefaultGroup){
+                    tmpGroup.default_group=true;
+                }
+                tmpGroups.add(tmpGroup)
+            }
+        }
+    },
+
+    loadProjects: function(){
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS, Ext.state.Manager.get('groupId'));
         var tmpProjectStore = Ext.getStore('projects.Projects');
         tmpProjectStore.load({
@@ -111,19 +147,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.getGroupTab().setVisible(true);
     },
 
-    isEmpty: function(argStore){
-        var tmpStore = Ext.getStore(argStore);
-        if(tmpStore.getCount() > 0){
-            return false;
-        }
-        return true;
-    },
-
     setPermissions: function(argRecord){
         if(!this.userHasAllPermissions(argRecord)){
             this.getGroupTab().setTabsVisibilityByIndex(1,false);
             this.getGroupTab().setTabsVisibilityByIndex(2,false);
+            return;
         }
+        this.getGroupTab().setTabsVisibilityByIndex(1,true);
+        this.getGroupTab().setTabsVisibilityByIndex(2,true);
     },
 
     userHasAllPermissions: function(argRecord){
@@ -131,6 +162,14 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             return true;
         }
         return false;
+    },
+
+    isEmpty: function(argStore){
+        var tmpStore = Ext.getStore(argStore);
+        if(tmpStore.getCount() > 0){
+            return false;
+        }
+        return true;
     },
 
     onProjectGridActionIdAction: function(argGrid,argCell,argRow,argCol,argEvent) {
@@ -196,5 +235,10 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         this.addProjectPopup.title = argTitle;
         this.addProjectPopup.show();
         return this.addProjectPopup;
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('project-grid-column');
+        argColumn.addCls('project-grid-sort-column');
     }
 });

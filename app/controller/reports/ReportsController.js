@@ -53,7 +53,8 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
                 groupSelected: this.loadAssignedUsersStore,
-                showPreview: this.onShowPreview
+                showPreview: this.onShowPreview,
+                sortColumn: this.changeColumnBackground,
             }
         });
     },
@@ -93,14 +94,6 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
                             Ext.Object.toQueryString({group:tmpReport.group,user:tmpReport.user,project:tmpReport.project,
                                                       dateRangeOption:tmpReport.dateRangeOption,startDate:tmpReport.startDate,endDate:tmpReport.endDate}));
         }
-    },
-
-    /**
-     * Initializes components listeners
-     */
-    onReportsAfterRender: function(){
-        this.loadUsersStore();
-        this.loadGoupsStore();
     },
 
     /**
@@ -177,18 +170,6 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         return false;
     },
 
-
-    /**
-     * Loads the Groups store
-     */
-    loadGoupsStore: function(){
-        var tmpGroupsStore = Ext.getStore('groups.Groups');
-        tmpGroupsStore.load({
-            callback: function(){
-            }
-        });
-    },
-
     onShowPreview: function(){
         var tmpReportsForm = this.getReportsform();
         if( !tmpReportsForm.isValid() ){
@@ -203,17 +184,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpReportsStore = Ext.getStore('reports.Reports');
         tmpReportsStore.load({
             scope: this,
-            urlOverride:tmpUrl,
-            callback: this.onLoadPreviewRecords
+            urlOverride:tmpUrl
         });
     },
 
-    onLoadPreviewRecords: function(argRecords, argOperation, argSuccess){
-        if(!argSuccess || argRecords.length <= 0){
-            this.getGridPreview().setVisible(false);
-            return;
-        }
-        this.getGridPreview().setVisible(true);
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('report-grid-column');
+        argColumn.addCls('report-grid-sort-column');
     },
 
     buildDateQueryString: function(argStartDate, argEndDate, argUrl){

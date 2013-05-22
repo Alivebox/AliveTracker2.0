@@ -1,0 +1,48 @@
+@import '../main/defaults.scss';
+
+.groups-add-button{
+  width: 30px;
+  margin-left: 130px;
+}
+
+.groups-label{
+  color: $blackcolor;
+  font-size: 16px;
+  margin-top: 9px;
+}
+
+.groups-name-labels{
+  color: $blackcolor;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.groups-view{
+  margin-left: 15px;
+}
+
+.belong-groups-view{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.groups-line-container{
+  border-style: solid;
+  border-color: $bordercolor;
+  border-width: 1px 0 0 0;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a.groups-name-labels:hover{
+  color:#dfeabb;
+}
+
+.x-item-over{
+
+}
+
+.x-item-selected a{
+  color:$buttonbackgroundcolor;
+}

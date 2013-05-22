@@ -5,6 +5,7 @@ Ext.define('AliveTracker.view.users.AssignedUsersGrid', {
     cls: 'userlist-container',
     hideHeaders:true,
     multiSelect:true,
+    columnLines: true,
     scroll:'vertical',
     resizeble: false,
     maxHeight: 150,

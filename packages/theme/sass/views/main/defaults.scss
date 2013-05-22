@@ -81,7 +81,6 @@ $background-main-container: #F0F0F0;
 
 .main-container {
   background-color: $background-main-container;
-
 }
 
 .x-grid-cell-checkcolumn .x-grid-cell-inner {
@@ -107,6 +106,7 @@ $background-main-container: #F0F0F0;
   border-color:$buttonbordercolor;
 }
 
-.main-containers{
-  min-height: 500px;
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("../images/arrow_down.png");
+  background-position: right;
 }

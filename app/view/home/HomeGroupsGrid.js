@@ -4,6 +4,7 @@ Ext.define('AliveTracker.view.home.HomeGroupsGrid', {
     xtype:'homegroupsgrid',
     itemId: 'mygroupsgrid',
     cls:'homeGroups',
+    columnLines: true,
     initComponent: function(){
         Ext.applyIf(this, {
             columns:[
