@@ -2,7 +2,6 @@ Ext.define('AliveTracker.view.projects.LogBook', {
 
     extend:'Ext.container.Container',
     xtype:'logbook',
-    cls: 'main-containers',
 
     initComponent:function () {
         this.items = [
@@ -53,11 +52,11 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                                     {
                                         xtype: 'numberfield',
                                         itemId:'totalTime',
-                                        cls: 'logbook-view-form-align',
                                         fieldCls: 'logbook-view-form',
+                                        emptyText: '0',
+                                        width: 50,
                                         editable: false,
-                                        hideTrigger: true,
-                                        width:50
+                                        hideTrigger: true
                                     }
                                 ]
                             }

@@ -27,7 +27,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     init:function () {
         this.control({
             'registerform':{
-                registerAction:this.onRegisterAction
+                registerClick:this.registerUser
 
             }
         });
@@ -35,19 +35,19 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     /**
      * Handles the logic of the register action
      */
-    onRegisterAction:function () {
+    registerUser:function () {
         var tmpRegisterForm = this.getRegisterForm();
+        var tmpNewUsersStore = Ext.getStore('users.NewUsers');
         if(tmpRegisterForm.isValid()){
             var tmpUser = tmpRegisterForm.getRecord();
             tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpUser.getData().password));
-            var tmpNewUsersStore = Ext.getStore('users.NewUsers');
             tmpUser.setProxy({
                 type: 'restproxy',
                 url: AliveTracker.defaults.WebServices.SAVE_USER
             });
             tmpUser.save({
                 scope: this,
-                success: this.onLoginUser,
+                success: this.loginUser,
                 urlOverride: AliveTracker.defaults.WebServices.SAVE_USER
             });
             tmpNewUsersStore.add(tmpUser);
@@ -55,7 +55,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         }
     },
 
-    onLoginUser: function(){
+    loginUser: function(){
         var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
         var tmpEmail = this.getEmail().value;
         var tmpLoginUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
@@ -74,7 +74,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'groupDetailPage');
     },
 
     addDefaultPermissions: function(argUser){

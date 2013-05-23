@@ -44,6 +44,10 @@ Ext.define('AliveTracker.model.reports.ReportForm', {
         {
             type: 'presence',
             field: 'user'
+        },
+        {
+            type: 'presence',
+            field: 'dateRangeOption'
         }
     ],
 

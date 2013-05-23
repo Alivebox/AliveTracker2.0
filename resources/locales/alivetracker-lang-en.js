@@ -61,7 +61,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Home View
          */
-        HOME_DELETE_PROJECT_CONFIRMATION_MESSAGE: 'Are you sure you want to delete the project?',
+        HOME_DELETE_GROUP_CONFIRMATION_MESSAGE: 'Are you sure you want to delete this group?',
         HOME_LABEL_GROUP_NAME: 'Group name',
         HOME_LABEL_DESCRIPTION: 'Description',
         HOME_LABEL_WEBSITE: 'Website URL',
@@ -85,7 +85,7 @@ Ext.define('Locales.AliveTracker', {
         GROUP_DETAIL_REMOVE_USER: 'Remove user from group',
         GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
         GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group',
-        GROUP_DETAIL_SHOW_TEAM_MEMBERS: 'Display team members',
+        GROUPS_ADD_BUTTON: 'Add Group',
         /**
          * Group Project View
          */
@@ -127,6 +127,7 @@ Ext.define('Locales.AliveTracker', {
         ACTIVITY_ADD_BUTTON:'Add activity',
         PROJECTS_ADD_BUTTON:'Add proyect',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
+        PROJECT_REMOVE_ACTIVITY: 'Remove activity',
         NEW_PROJECT_LABEL: 'New Project',
         /**
          * Users View

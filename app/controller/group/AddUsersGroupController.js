@@ -37,7 +37,8 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
                 click: this.onUserGridActionIdAction
             },
             'usersgrid':{
-                editCell: this.onUpdateGroupUsers
+                editCell: this.onUpdateGroupUsers,
+                sortColumn: this.changeColumnBackground
             }
         });
     },
@@ -164,6 +165,11 @@ Ext.define("AliveTracker.controller.group.AddUsersGroupController", {
         var tmpAddUserPopUp = Ext.create('AliveTracker.view.group.AddUsersGroupPopUp');
         tmpAddUserPopUp.show();
         return tmpAddUserPopUp;
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('user-grid-column');
+        argColumn.addCls('user-grid-sort-column');
     },
 
     onUpdateGroupUsers: function(){

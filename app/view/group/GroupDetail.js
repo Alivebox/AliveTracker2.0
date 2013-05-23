@@ -3,9 +3,13 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     extend: 'Ext.Container',
     xtype: 'groupdetailform',
     cls:'groupDetail',
+    layout: 'column',
 
     initComponent: function(){
         this.items = [
+            {
+                xtype: 'groups'
+            },
             {
                 xtype: 'tabcontainer',
                 itemId: 'GroupTab',
@@ -22,32 +26,16 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
                     },
                     {
                         xtype: 'addusersgroup',
-                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS,
-                        itemId: 'usersTab'
+                        title: Locales.AliveTracker.GROUP_DETAIL_TITLE_USERS
                     },
                     {
                         xtype: 'reportsform',
                         title: Locales.AliveTracker.GROUP_DETAIL_TITLE_REPORTS
                     }
                 ]
-
             }
         ];
         this.callParent(arguments);
-    },
-
-    /**
-     * Fire a event to GroupDetailController
-     * */
-    onManageUsersClick: function(){
-        this.fireEvent('manageUser');
-    },
-
-    /**
-     * Fire a event to GroupDetailController
-     * */
-    onAddProjectClick: function(){
-        this.fireEvent('addProject');
     }
 
- });
+});

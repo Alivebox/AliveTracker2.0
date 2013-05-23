@@ -32,10 +32,16 @@
 
 .logo {
   background-image: url(../images/logo.png);
+  background-color: transparent;
+  background-position: center;
+  border-style: none;
   width: 102px;
   height: 15px;
   margin: 10px 5px 5px 10px;
+}
 
+.logo .x-btn-default-small{
+  border-style: none;
 }
 
 .header {

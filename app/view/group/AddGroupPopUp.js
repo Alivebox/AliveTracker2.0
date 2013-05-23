@@ -1,4 +1,4 @@
-Ext.define('AliveTracker.view.home.AddGroupPopUp', {
+Ext.define('AliveTracker.view.group.AddGroupPopUp', {
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
     cls: 'add-group-pop-up-view',
@@ -11,7 +11,6 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
     insert: true,
     initComponent:function () {
         this.title = Locales.AliveTracker.HOME_LABEL_NEW_GROUP;
-        this.submitButton = this.onCreateSubmitButton();
         this.items = [
             {
                 xtype: 'container',
@@ -31,7 +30,7 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                         listeners: {
                             el: {
                                 scope: this,
-                                click: this.onClosePopUp
+                                click: this.onCloseWindow
                             }
                         }
                     }
@@ -49,6 +48,11 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                         border: false,
                         name: 'groupModelForm',
                         items: [
+                            {
+                                xtype: 'textfield',
+                                name:'id',
+                                hidden: true
+                            },
                             {
                                 xtype: 'textfield',
                                 cls: 'add-group-pop-up-view-forms-align',
@@ -82,8 +86,18 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
                                 maxLength:300,
                                 vtype: 'url'
                             },
-                            this.logoUrlTextField,
-                            this.submitButton
+                            {
+                                xtype: 'button',
+                                name: 'btnSaveProject',
+                                cls: 'all-views-button add-group-pop-up-button-align',
+                                text: Locales.AliveTracker.HOME_LABEL_INSERT,
+                                formBind: true,
+                                disabled: true,
+                                listeners: {
+                                    scope:this,
+                                    click: this.onSaveGroupClick
+                                }
+                            }
                         ]
                     }
                 ]
@@ -92,39 +106,12 @@ Ext.define('AliveTracker.view.home.AddGroupPopUp', {
             this.callParent(arguments);
     },
 
-    /**
-     * Fires an event to be caught by the controller
-     * */
-    onSubmitAction: function(){
-        this.fireEvent('onSaveAction', this);
+    onSaveGroupClick: function(){
+        this.fireEvent('saveGroup', this);
     },
 
-    onCreateSubmitButton: function(){
-        var tmpSubmitButton = Ext.create('Ext.Button',{
-            name: 'submitButton',
-            cls: 'all-views-button add-group-pop-up-button-align',
-            //disabledCls: 'add-group-pop-up-view-disabled-button',
-            text: Locales.AliveTracker.HOME_LABEL_INSERT,
-            formBind: true,
-            disabled: true,
-            listeners: {
-                scope:this,
-                click: this.onSubmitAction
-            }
-        });
-        return tmpSubmitButton;
-    },
-
-    /**
-     * Send a event to the controller to close windows
-     * */
-    onCloseWindows: function(){
-        this.fireEvent('onCloseWindows', this);
-    },
-
-    onClosePopUp: function(){
-        this.close();
+    onCloseWindow: function(){
+        this.fireEvent('closeWindow', this);
     }
-
  });
 

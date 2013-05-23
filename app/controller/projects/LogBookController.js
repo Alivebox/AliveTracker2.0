@@ -21,32 +21,12 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
 
     refs:[
         {
-            ref:'logBook',
-            selector:'logbook'
-        },
-        {
             ref:'datepicker',
             selector:'logbook [itemId=datepickerLogBook]'
         },
         {
             ref:'totalTime',
             selector:'logbook [itemId=totalTime]'
-        },
-        {
-            ref:'logBookActivityForm',
-            selector:'logbookactivityform'
-        },
-        {
-            ref:'logBookActivityField',
-            selector:'logbookactivityform [itemId=txtActivity]'
-        },
-        {
-            ref:'logBookProjectCombo',
-            selector:'logbookactivityform [itemId=logProjectComboBox]'
-        },
-        {
-            ref:'logBookTimeTextField',
-            selector:'logbookactivityform [itemId=time]'
         },
         {
             ref: 'logsform',
@@ -56,7 +36,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     init:function () {
         this.control({
             'logbook':{
-                beforerender:this.onBeforeRender,
                 datePickerChanged:this.onDatePickerChange
             },
             'logbookactivityform': {
@@ -64,28 +43,12 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             },
             'logbookgrid':{
                 deleteLog: this.onShowDeleteConfirm,
-                editCell: this.onEditCell
+                editCell: this.onEditCell,
+                sortColumn: this.changeColumnBackground
             }
         });
     },
-    onBeforeRender:function(){
-        var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
-        this.populateLogsStore(tmpUrl, this.onTotalTimeUpdate);
-        this.getLogBookProjectCombo().focus(false, 1000);
-        if(Ext.getStore('projects.Projects').count() === 0){
-            this.populateProjectStore();
-        }
-    },
-    populateProjectStore: function(){
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_PROJECTS,Ext.state.Manager.get('groupId'));
-        var tmpProjectStore = Ext.getStore('projects.Projects');
-        tmpProjectStore.load({
-                scope: this,
-                urlOverride: tmpUrl
-            }
-        );
-    },
+
     populateLogsStore:function (argUrl, argCallback){
         var tmpLogsStore = Ext.getStore('projects.Logs');
         tmpLogsStore.load({
@@ -109,31 +72,46 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             }
         });
     },
-    onAddNewActivity:function (argActivity) {
-        var test = !this.isTimeValid();
+    onAddNewActivity:function () {
         if(!this.getLogsform().isValid() || !this.isTimeValid()){
             return;
         }
-        argActivity.set("group", Ext.state.Manager.get('groupId'));
+        var tmpActivity = this.createActivityInstance();
+        tmpActivity.set("group", Ext.state.Manager.get('groupId'));
         var tmpLogBookStore = Ext.getStore('projects.Logs');
-        tmpLogBookStore.add(argActivity);
+        tmpLogBookStore.add(tmpActivity);
         this.onClearUsersSelection();
         this.onTotalTimeUpdate();
         this.onSaveLogHistory();
     },
 
+    createActivityInstance: function(){
+        var tmpProjectCombobox = this.getLogsform().down('combobox[itemId=logProjectComboBox]');
+        var tmpActivityTextField = this.getLogsform().down('textfield[itemId=txtActivity]');
+        var tmpTimeNumberField = this.getLogsform().down('numberfield[itemId=time]');
+        var tmpActivity = Ext.create('AliveTracker.model.projects.Log',{
+            project: tmpProjectCombobox.getValue(),
+            project_name: tmpProjectCombobox.getRawValue(),
+            activity: tmpActivityTextField.getValue(),
+            time: tmpTimeNumberField.getValue()
+        });
+        return tmpActivity;
+    },
+
     isTimeValid: function(){
-        var tmpTime = this.getLogBookTimeTextField().getValue();
-        if(tmpTime > 24 || tmpTime < 0){
+        var tmpTime = this.getLogsform().down('numberfield[itemId=time]').getValue();
+        var tmpBeforeTotal = this.getTotalTime().getValue();
+        var tmpAfterTotal = tmpTime+tmpBeforeTotal;
+        if(tmpTime > 24 || tmpTime < 0 || tmpAfterTotal > 24){
             return false;
         }
         return true;
     },
 
     onClearUsersSelection:function () {
-        var tmpActivityField = this.getLogBookActivityField();
+        var tmpActivityField = this.getLogsform().down('textfield[itemId=txtActivity]');
         tmpActivityField.setValue('');
-        this.getLogBookTimeTextField().setValue(0);
+        this.getLogsform().down('numberfield[itemId=time]').setValue(0);
         tmpActivityField.focus();
     },
 
@@ -184,6 +162,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpLogBook.save({
             urlOverride:tmpUrl
         });
+    },
+
+    changeColumnBackground: function(argColumn){
+        argColumn.removeCls('logbook-grid-column');
+        argColumn.addCls('logbook-grid-sort-column');
     },
 
     onShowDeleteConfirm: function(argGrid, argIndex){

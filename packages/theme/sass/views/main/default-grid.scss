@@ -31,16 +31,12 @@
 }
 
 .x-grid-row-over .x-grid-cell {
-  background-color: #BFD181;
+  background-color: #dfeabb;
 }
 
 .x-grid-row-selected .x-grid-cell {
   background-color: #BFD181 !important;
   border-color: $buttonbordercolor;
-}
-
-.x-grid-row-over .x-grid-cell {
-  background-color: #BFD181;
 }
 
 .x-grid-row-over .custom-delete-column {
@@ -65,6 +61,12 @@
   background-image: url(../images/edit_dis.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+
+.x-grid-with-row-lines .x-grid-cell {
+  border-top-width: 0px;
+  border-bottom-width: 0px;
 }
 
 .projectTab .x-grid-row .x-action-col-cell .x-grid-cell-inner .x-action-col-0{

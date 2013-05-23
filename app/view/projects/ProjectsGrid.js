@@ -3,6 +3,7 @@ Ext.define('AliveTracker.view.projects.ProjectsGrid', {
     extend:'Ext.grid.Panel',
     xtype:'projectgrid',
     cls: 'projectTab',
+    columnLines: true,
     initComponent:function () {
         var me = this;
 
@@ -20,11 +21,15 @@ Ext.define('AliveTracker.view.projects.ProjectsGrid', {
                 },
                 {
                     xtype:'gridcolumn',
-                    cls: 'project-grid-created-column',
+                    cls: 'project-grid-column',
                     menuDisabled:true,
                     align:'center',
                     text:Locales.AliveTracker.GROUP_PROJECT_LABEL_CREATED,
                     dataIndex:'created',
+                    listeners:{
+                        scope: this,
+                        headerclick: this.onSortColumn
+                    },
                     flex:2
                 },
                 {
@@ -57,5 +62,9 @@ Ext.define('AliveTracker.view.projects.ProjectsGrid', {
         });
 
         me.callParent(arguments);
+    },
+
+    onSortColumn: function(argCt, argColumn){
+        this.fireEvent('sortColumn',argColumn);
     }
 });
