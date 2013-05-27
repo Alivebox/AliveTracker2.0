@@ -26,7 +26,8 @@ Ext.define('Locales.ErrorCodes', {
         ERROR400: 'User does not exist',
         ERROR500: 'Project does not exist',
         ERROR600: 'Role does not exist',
-        ERROR700: 'Log does not exist'
+        ERROR700: 'Log does not exist',
+        ERROR800: 'Missing Params, Server Fail'
     }
 
 });
