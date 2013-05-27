@@ -1,18 +1,13 @@
 @import '../main/defaults.scss';
 
 .logbook-container {
-  margin: 10px;
+  margin-left: 10px;
   width: 80%;
 }
 
-.logbook-label-container{
-  padding-top: 10px;
-}
-
 .logbook-fields-container{
-  padding: 10px;
-  padding-right: 0px;
-  padding-left: 0px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .logbook-view-form{
@@ -41,7 +36,7 @@
 }
 
 .logbook-form-align{
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 .x-btn-icon {
@@ -57,6 +52,7 @@
 .logbook-add-button{
   width:30px;
   margin-top: 0px;
+  margin-left: 10px;
 }
 
 .logbook-label{
@@ -80,7 +76,7 @@
 .logbook-grid-container{
   border-right-style: solid;
   border-width: 1px;
-  margin: 10px 0;
+  margin-bottom: 10px;
   width: 100%;
 }
 

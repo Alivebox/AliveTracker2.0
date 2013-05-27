@@ -60,6 +60,8 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION: 'Ultimo mes',
         REPORTS_LABEL_EXPORT: 'Exportar',
         REPORTS_LABEL_PREVIEW: 'Vista Previa',
+        REPORTS_LABEL_ACTIVITY: 'Actividad',
+        REPORTS_LABEL_DATE: 'Fecha',
         /**
          * Header View
          */
@@ -86,7 +88,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Group Detail View
          */
-        GROUP_DETAIL_TITLE_LOG_BOOK: 'Bitacora',
+        GROUP_DETAIL_TITLE_LOG_BOOK: 'Bitácora',
         GROUP_DETAIL_TITLE_PROJECTS: 'Proyectos',
         GROUP_DETAIL_TITLE_USERS: 'Usuarios',
         GROUP_DETAIL_TITLE_REPORTS: 'Reportes',
@@ -133,13 +135,21 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Actividad',
         PROJECTS_COLUMN_HEADER_TIME: 'Horas',
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Acciones',
+        PROJECTS_COLUMN_HEADER_NOTES: 'Notas',
         PROJECTS_LABEL_SAVE:'Guardar',
         PROJECTS_LABEL_SELECT:'--Seleccionar--',
         ACTIVITY_ADD_BUTTON:'Agregar actividad',
         PROJECTS_ADD_BUTTON:'Agregar proyecto',
         PROJECTS_LOG_SAVE_SUCCESS:'Guardado exitoso',
         PROJECT_REMOVE_ACTIVITY: 'Eliminar actividad',
+        PROJECT_ADD_NOTES: 'Agregar notas',
         NEW_PROJECT_LABEL: 'Nuevo Proyecto',
+        ACTIVITY_ADD_NOTES_LABEL: 'Agregar Notas',
+        ACTIVITY_NOTE_LABEL: 'Nota',
+        ACTIVITY_NOTE_SAVE: 'Guardar',
+        ACTIVITY_NOTE_ADD: 'Agregar',
+        ACTIVITY_NOTE_EDIT: 'Editar',
+        ACTIVITY_REMOVE_NOTE: 'Eliminar nota',
         /**
          * Users View
          */

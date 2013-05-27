@@ -108,7 +108,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 store: 'reports.Reports',
                 columns: [
                     {
-                        header: 'Project',
+                        header: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
                         menuDisabled:true,
                         sortable: false,
                         cls: 'report-grid-column',
@@ -116,7 +116,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         flex: 1
                     },
                     {
-                        header: 'Activity',
+                        header: Locales.AliveTracker.REPORTS_LABEL_ACTIVITY,
                         menuDisabled:true,
                         cls: 'report-grid-column',
                         dataIndex: 'activity',
@@ -127,7 +127,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         flex: 3
                     },
                     {
-                        header: 'Date',
+                        header: Locales.AliveTracker.REPORTS_LABEL_DATE,
                         menuDisabled:true,
                         sortable: false,
                         cls: 'report-grid-column',

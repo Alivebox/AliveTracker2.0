@@ -23,12 +23,20 @@ Ext.define('AliveTracker.model.projects.Log', {
             persist: false
         },
         {
+            name:'date',
+            type:'date'
+        },
+        {
             name:'activity',
             type:'string'
         },
         {
             name:'time',
             type:'float'
+        },
+        {
+            name:'notes',
+            type:'array'
         }
     ],
 
@@ -46,7 +54,7 @@ Ext.define('AliveTracker.model.projects.Log', {
     proxy: {
         type: 'restproxy',
         api: {
-            create: AliveTracker.defaults.WebServices.LOG_CREATE_LOGS,
+            create: AliveTracker.defaults.WebServices.SAVE_LOG,
             destroy: AliveTracker.defaults.WebServices.LOG_DELETE
         }
     }

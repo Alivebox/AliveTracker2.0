@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         cls: 'logbook-datepicker',
                         name:'date',
                         itemId:'datepickerLogBook',
-                        width: '17%',
+                        width: '19.3%',
                         minHeight: '300px',
                         allowBlank:false,
                         showToday: false,
