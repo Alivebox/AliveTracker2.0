@@ -74,7 +74,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'groupDetailPage');
+        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     addDefaultPermissions: function(argUser){
