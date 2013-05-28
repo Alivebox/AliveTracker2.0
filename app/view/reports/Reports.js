@@ -2,15 +2,13 @@ Ext.define('AliveTracker.view.reports.Reports', {
 
     extend:'Ext.container.Container',
     xtype:'reportsform',
-    cls: 'reports-container',
     initComponent:function () {
         this.items = [
             {
                 xtype: 'formcontainer',
                 modelClassName: 'AliveTracker.model.reports.ReportForm',
-                layout: 'hbox',
+                layout: 'column',
                 itemId: 'reportFormContainer',
-                cls: 'report-form-container',
                 items: [
                     {
                         xtype: 'label',
@@ -29,7 +27,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         displayField:'name',
                         valueField: 'id',
                         editable:false,
-                        width: '22%',
+                        width: 230,
                         listeners:{
                             scope:this,
                             select:this.onGroupSelected
@@ -51,8 +49,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         queryMode: 'local',
                         displayField:'email',
                         valueField: 'id',
+                        width: 230,
                         editable:false,
-                        width: '22%'
                     },
                     {
                         xtype: 'label',
@@ -62,12 +60,12 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         xtype:'combobox',
                         itemId:'dateRangeComboReports',
-                        cls: 'report-form-date',
+                        cls: 'report-form-align',
                         fieldCls: 'report-form',
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         name:'dateRangeOption',
                         editable:false,
-                        width: '20%',
+                        width: 230,
                         store:[
                             [AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_CUSTOM_DATERANGE_DESCRIPTION],
                             [AliveTracker.defaults.Constants.REPORTS_LAST_DAY_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_DAY_DATERANGE_DESCRIPTION],
@@ -85,12 +83,11 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         cls: 'report-daterange',
                         itemId:'dateRangeReports',
                         name:'dateRangeReports',
-                        allowBlank:true,
                         hidden:true
                     },
                     {
                         xtype:'button',
-                        cls: 'all-views-button report-button-align',
+                        cls: 'all-views-button report-preview-button',
                         text:Locales.AliveTracker.REPORTS_LABEL_PREVIEW,
                         listeners:{
                             scope:this,
@@ -104,7 +101,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                 itemId: 'gridReports',
                 cls: 'report-grid-container',
                 columnLines: true,
-                height: 400,
+                height: 750,
                 store: 'reports.Reports',
                 columns: [
                     {

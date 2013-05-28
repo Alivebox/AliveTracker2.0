@@ -1,13 +1,5 @@
 @import '../main/defaults.scss';
 
-.report-form-container{
-  width:100%;
-}
-
-.reports-container{
-  padding: 10px;
-}
-
 .report-form{
   background-color: $backgroundforms;
   background-image: none;
@@ -35,12 +27,6 @@
 
 .report-form-align{
   margin-right: 30px;
-  margin-top: 20px;
-}
-
-.report-form-date{
-  margin-right: 60px;
-  margin-top: 20px;
 }
 
 .report-daterange{
@@ -50,7 +36,7 @@
 .report-label{
   color: $blackcolor;
   font-size: 16px;
-  margin-top: 24px;
+  margin-top: 6px;
   margin-right: 10px;
 }
 
@@ -59,17 +45,25 @@
   margin-right: 10px;
 }
 
+.report-date-field{
+  margin-right: 10px;
+}
+
 .report-date-container{
   margin-bottom: 10px;
 }
 
 .report-grid-container{
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .report-button-align{
   float:right;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.report-preview-button{
+  float:right;
 }
 
 .report-grid-column .x-column-header-inner{

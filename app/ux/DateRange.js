@@ -2,16 +2,13 @@ Ext.define('AliveTracker.ux.DateRange', {
 
     extend:'Ext.Container',
     xtype:'daterange',
-    mixins:{
-        labelable:'Ext.form.Labelable',
-        fieldAncestor:'Ext.form.FieldAncestor',
-        field:'Ext.form.field.Field'
-    },
+    layout: 'column',
 
     initComponent:function () {
         this.items = [
             {
                 xtype:'datefield',
+                cls: 'report-date-field',
                 name:'startdt',
                 itemId:'startdt',
                 endDateField:'enddt',
