@@ -23,6 +23,8 @@ Ext.define('AliveTracker.defaults.WebServices',{
         GET_LOGS_USER_GROUP_DATE: '/ws/alivews/logs/group/{0}/?{1}',
         LOG_CREATE_LOGS: '/ws/alivews/logs/',
         UPDATE_LOG: '/ws/alivews/log/{0}',
+        GET_LOG_NOTES: '/ws/alivews/log/notes/{0}',
+        SAVE_LOG: '/ws/alivews/log/',
         GET_USERS_PROJECTS: '/ws/alivews/projects/{0}',
         GET_ROLES: '/ws/alivews/roles/',
         DELETE_PROJECT: '/ws/alivews/projects/deleteProject/{0}',
@@ -30,6 +32,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/',
         LOG_LIST_REPORT: '/ws/alivews/logs/listReport/group/{0}/project/{1}/user/{2}/range/{3}/',
         LOG_DELETE: '/ws/alivews/logs/{0}/',
+        NOTE_DELETE: '/ws/alivews/note/{0}',
         GET_GROUP_PERMISSIONS: '/ws/alivews/main/permissions/group/{0}'
     }
 });

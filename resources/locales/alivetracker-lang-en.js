@@ -58,6 +58,8 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LAST_TWO_WEEKS_DATERANGE_DESCRIPTION: 'Last 2 weeks',
         REPORTS_LAST_MONTH_DATERAORTS_LABEL_EXPORT: 'Export',
         REPORTS_LABEL_PREVIEW: 'Preview',
+        REPORTS_LABEL_ACTIVITY: 'Actividad',
+        REPORTS_LABEL_DATE: 'Date',
         /**
          * Home View
          */
@@ -122,13 +124,21 @@ Ext.define('Locales.AliveTracker', {
         PROJECTS_COLUMN_HEADER_ACTIVITY: 'Activity',
         PROJECTS_COLUMN_HEADER_TIME: 'Hours',
         PROJECTS_COLUMN_HEADER_ACTIONS: 'Actions',
+        PROJECTS_COLUMN_HEADER_NOTES: 'Notes',
         PROJECTS_LABEL_SAVE:'Save',
         PROJECTS_LABEL_SELECT:'--Select--',
         ACTIVITY_ADD_BUTTON:'Add activity',
         PROJECTS_ADD_BUTTON:'Add proyect',
         PROJECTS_LOG_SAVE_SUCCESS:'Save Success',
         PROJECT_REMOVE_ACTIVITY: 'Remove activity',
+        PROJECT_ADD_NOTES: 'Add notes',
         NEW_PROJECT_LABEL: 'New Project',
+        ACTIVITY_ADD_NOTES_LABEL: 'Add Notes',
+        ACTIVITY_NOTE_LABEL: 'Note',
+        ACTIVITY_NOTE_SAVE: 'Save',
+        ACTIVITY_NOTE_ADD: 'Add',
+        ACTIVITY_NOTE_EDIT: 'Edit',
+        ACTIVITY_REMOVE_NOTE: 'Remove note',
         /**
          * Users View
          */

@@ -3,7 +3,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
     extend:'Ext.grid.Panel',
     xtype:'logbookgrid',
     cls: 'logbook-grid-container',
-    height: 235,
+    height: 256,
     columnLines: true,
 
     initComponent:function () {
@@ -37,23 +37,6 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     }
                 },
                 {
-                    xtype:'actioncolumn',
-                    cls: 'logbook-grid-column',
-                    menuDisabled:true,
-                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIONS,
-                    sortable:false,
-                    flex: 1,
-                    align : 'center',
-                    items:[
-                        {
-                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
-                            tooltip: Locales.AliveTracker.PROJECT_REMOVE_ACTIVITY,
-                            scope:this,
-                            handler: this.onDeleteLog
-                        }
-                    ]
-                },
-                {
                     xtype:'gridcolumn',
                     cls: 'logbook-grid-column',
                     menuDisabled:true,
@@ -69,6 +52,40 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                         maxValue: 24,
                         minValue: 0
                     }
+                },
+                {
+                    xtype:'actioncolumn',
+                    cls: 'logbook-grid-column',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_NOTES,
+                    sortable:false,
+                    flex: 1,
+                    align : 'center',
+                    items:[
+                        {
+                            icon:AliveTracker.defaults.Constants.ADD_NOTES_ICON,
+                            tooltip: Locales.AliveTracker.PROJECT_ADD_NOTES,
+                            scope:this,
+                            handler: this.onNotesIconClick
+                        }
+                    ]
+                },
+                {
+                    xtype:'actioncolumn',
+                    cls: 'logbook-grid-column',
+                    menuDisabled:true,
+                    text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIONS,
+                    sortable:false,
+                    flex: 1,
+                    align : 'center',
+                    items:[
+                        {
+                            icon:AliveTracker.defaults.Constants.REMOVE_GRID_ROW_BUTTON,
+                            tooltip: Locales.AliveTracker.PROJECT_REMOVE_ACTIVITY,
+                            scope:this,
+                            handler: this.onDeleteLog
+                        }
+                    ]
                 }
             ],
             selType: 'cellmodel',
@@ -88,6 +105,10 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
     onDeleteLog: function(arGrid, argRowIndex){
         this.fireEvent('deleteLog', arGrid, argRowIndex);
+    },
+
+    onNotesIconClick: function(arGrid, argRowIndex, argColIndex, argIcon, argEvent, argRecord){
+        this.fireEvent('notesIconClick', argRecord);
     },
 
     onEditCell: function(argGrid, argRecord){

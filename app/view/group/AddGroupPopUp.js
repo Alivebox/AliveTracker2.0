@@ -10,7 +10,6 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
     renderTo: Ext.getBody(),
     insert: true,
     initComponent:function () {
-        this.title = Locales.AliveTracker.HOME_LABEL_NEW_GROUP;
         this.items = [
             {
                 xtype: 'container',
@@ -38,7 +37,6 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
             },
             {
                 xtype: 'container',
-                id: 'addEditGroupContainer',
                 itemId: 'addEditGroupContainer',
                 name: 'homeGroup',
                 items: [

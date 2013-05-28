@@ -7,7 +7,6 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         this.items = [
             {
                 xtype: 'container',
-                cls: 'logbook-label-container',
                 layout: 'hbox',
                 items: [
                     {
@@ -19,7 +18,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
-                        width: '59.5%',
+                        width: '61%',
                         cls: 'logbook-label'
                     },
                     {
@@ -57,7 +56,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         name: 'activity',
                         fieldCls: 'logbook-view-form',
                         cls: 'logbook-form-align',
-                        width: '61%',
+                        width: '61.5%',
                         maxLength:300
                     },
                     {
@@ -65,9 +64,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         name: 'time',
                         width:'4%',
                         fieldCls: 'logbook-view-form',
-                        cls: 'logbook-form-align',
                         allowNegative:false,
-                        value: 0,
                         itemId: 'time',
                         maxValue: 24,
                         minValue: 0,

@@ -2,10 +2,8 @@
 /.idea
 /build
 /packages/theme/sass/.sass-cache
+/packages/theme/sass/.sass-cache/*
 
 .sencha_backup*
 
 build-sass.xml
-
-packages/default/sass/.sass-cache/*
-packages/default/sass/.sass-cache
