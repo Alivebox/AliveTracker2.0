@@ -47,7 +47,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
             });
             tmpUser.save({
                 scope: this,
-                success: this.loginUser,
+                success: this.onRegisterLoginSuccess,
                 urlOverride: AliveTracker.defaults.WebServices.SAVE_USER
             });
             tmpNewUsersStore.add(tmpUser);
@@ -55,26 +55,12 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         }
     },
 
-    loginUser: function(){
-        var tmpPassword = Framework.util.MD5Util.calcMD5(this.getPassword().value);
-        var tmpEmail = this.getEmail().value;
-        var tmpLoginUser = Ext.create('AliveTracker.model.authentication.LoginUser',{
-            email: tmpEmail,
-            password: tmpPassword
-        });
-        tmpLoginUser.save({
-            scope: this,
-            success: this.onLoginSuccess,
-            urlOverride: AliveTracker.defaults.WebServices.USER_AUTHENTICATION
-        });
-    },
-
-    onLoginSuccess: function(argRecord){
+    onRegisterLoginSuccess: function(argRecord){
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
         Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
         Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'groupDetailPage');
+        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     addDefaultPermissions: function(argUser){
