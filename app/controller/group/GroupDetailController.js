@@ -206,6 +206,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
             this.getGroupTab().setTabsVisibilityByIndex(1,true);
             this.getGroupTab().setTabsVisibilityByIndex(2,true);
         }
+        this.getGroupTab().onSetFirstTabSelected();
         this.getGroupTab().setVisible(true);
         this.reloadLogStore();
     },
