@@ -8,7 +8,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
 
     initComponent:function () {
         var me = this;
-
+        this.cmbProjects = this.createProjectsComboBox();
         Ext.applyIf(me, {
             columns:[
                 {
@@ -18,7 +18,8 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_PROJECT,
                     sortable:false,
                     flex: 3,
-                    dataIndex:'project_name'
+                    dataIndex:'project_name',
+                    editor: this.cmbProjects
                 },
                 {
                     xtype:'gridcolumn',
@@ -101,6 +102,18 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
         });
 
         me.callParent(arguments);
+    },
+
+    createProjectsComboBox: function(){
+        var tmpComboBox = Ext.create('Ext.form.field.ComboBox',{
+            name: 'cmbProjects',
+            store:'projects.Projects',
+            displayField: 'name',
+            queryMode:'local',
+            editable:false
+        });
+
+        return tmpComboBox;
     },
 
     onDeleteLog: function(arGrid, argRowIndex){

@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                 xtype: 'container',
                 cls: 'add-group-pop-up-view-container',
                 layout: {
-                    type: 'hbox'
+                    type: 'column'
                 },
                 items: [
                     {
@@ -25,6 +25,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                     },
                     {
                         xtype: 'image',
+                        cls: 'add-group-pop-up-close',
                         src: 'resources/images/delete.png',
                         listeners: {
                             el: {

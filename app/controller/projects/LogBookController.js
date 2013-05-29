@@ -170,15 +170,28 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpLogId = argRecord.record.data.id;
         var tmpActivity = argRecord.record.data.activity;
         var tmpTime = argRecord.record.data.time;
+        var tmpProjectName = argRecord.record.data.project_name;
+        var tmpProject = this.getProjectIdByName(tmpProjectName);
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_LOG,tmpLogId);
         var tmpLog = Ext.create('AliveTracker.model.projects.Log', {
             id: tmpLogId,
+            project: tmpProject,
             activity: tmpActivity,
             time: tmpTime
         });
         tmpLog.save({
             urlOverride:tmpUrl
         });
+    },
+
+    getProjectIdByName: function(argName){
+        var tmpProjectsStore = Ext.getStore('projects.Projects');
+        for(var tmpIndex=0; tmpIndex < tmpProjectsStore.getCount(); tmpIndex++){
+            var tmpProject = tmpProjectsStore.getAt(tmpIndex);
+            if(tmpProject.get('name')==argName){
+                return tmpProject.get('id');
+            }
+        }
     },
 
     changeColumnBackground: function(argColumn){
