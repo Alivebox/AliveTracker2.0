@@ -6,7 +6,7 @@ Ext.define('AliveTracker.view.authentication.LoginRegister', {
         this.items = [
             {
                 xtype: 'container',
-                cls: 'loginregister-view',
+                cls: 'loginregister-forms-container',
                 items: [
                     {
                         xtype:'loginform'

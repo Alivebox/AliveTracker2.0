@@ -1,7 +1,7 @@
 Ext.define('AliveTracker.view.authentication.Login', {
     extend:'Ext.container.Container',
     xtype:'loginform',
-    cls: 'login-view-container',
+    cls: 'login-form-container',
     initComponent:function () {
         this.items = [
             {
@@ -22,7 +22,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                     },
                     {
                         xtype: 'container',
-                        cls: 'loginregister-elements',
+                        cls: 'login-password-container',
                         layout: {
                             type: 'hbox'
                         },
@@ -58,31 +58,15 @@ Ext.define('AliveTracker.view.authentication.Login', {
             },
             {
                 xtype: 'container',
-                cls: 'loginregister-elements',
+                cls: 'login-forgotpassword-container',
                 layout: {
                     type: 'hbox'
                 },
 
                 items: [
                     {
-                        xtype: 'checkboxfield',
-                        cls: 'loginregister-checkbox'
-                    },
-                    {
-                        xtype: 'label',
-                        cls: 'loginregister-label',
-                        text: Locales.AliveTracker.LOGIN_LABEL_REMEMBER_ME
-                    },
-                    {
-                        xtype: 'label',
-                        cls: 'loginregister-label',
-                        margin: {left:10},
-                        text: '|'
-                    },
-                    {
                         xtype: 'box',
                         cls: 'loginregister-label',
-                        margin: {left:10},
                         autoEl: {
                             tag: 'a',
                             href: '#',
