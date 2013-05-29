@@ -1,12 +1,11 @@
 Ext.define('AliveTracker.view.authentication.Register', {
     extend:'Ext.container.Container',
     xtype:'registerform',
-    cls: 'register-view-container',
+    cls: 'register-form-container',
     initComponent:function () {
         this.items = [
             {
                 xtype: 'container',
-                cls: 'register-elements',
                 layout: {
                     type: 'hbox'
                 },
@@ -43,7 +42,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
                     {
                         name: 'email',
                         itemId:'emailRegister',
-                        cls: 'loginregister-field',
+                        cls: 'loginregister-field register-username-field',
                         fieldCls: 'loginregister-forms',
                         emptyText: Locales.AliveTracker.REGISTER_LABEL_EMAIL,
                         allowBlank:false,
@@ -51,13 +50,9 @@ Ext.define('AliveTracker.view.authentication.Register', {
                         vtype:'email'
                     },
                     {
-                        xtype: 'container',
-                        cls: 'loginregister-elements'
-                    },
-                    {
                         name: 'password',
                         itemId:'passwordRegister',
-                        cls: 'loginregister-field',
+                        cls: 'loginregister-field register-password-field',
                         fieldCls: 'loginregister-forms',
                         emptyText: Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
                         allowBlank:false,
