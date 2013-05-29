@@ -8,7 +8,6 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
             {
                 xtype: 'button',
                 cls: 'all-views-button project-add-button',
-                text: null,
                 icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
                 tooltip: Locales.AliveTracker.PROJECTS_ADD_BUTTON,
                 listeners:{

@@ -163,6 +163,8 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     loadGroupUsers: function(){
+        var tmpUsersStore = Ext.getStore('users.Users');
+        tmpUsersStore.removeAll();
         var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
         tmpUsersGroupStore.load({
@@ -265,13 +267,18 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     clearLogBookFields: function(){
         this.getLogbookForm().down('combobox[itemId=logProjectComboBox]').setValue(Locales.AliveTracker.PROJECTS_LABEL_SELECT);
         this.getLogbookForm().down('textfield[itemId=txtActivity]').setValue("");
-        this.getLogbookForm().down('numberfield[itemId=time]').setValue(0);
+        this.getLogbookForm().down('textfield[itemId=txtActivity]').setDisabled(true);
+        this.getLogbookForm().down('numberfield[itemId=time]').setValue(1);
     },
 
     clearReportFields: function(){
-        this.getReportForm().down('combobox[itemId=projectReports]').setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
-        this.getReportForm().down('combobox[itemId=userReports]').setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
-        this.getReportForm().down('combobox[itemId=dateRangeComboReports]').setValue(Locales.AliveTracker.REPORTS_LABEL_SELECT);
+        this.getReportForm().down('combobox[itemId=projectReports]').clearValue();
+        this.getReportForm().down('combobox[itemId=userReports]').clearValue();
+        this.getReportForm().down('combobox[itemId=userReports]').setDisabled(true);
+        this.getReportForm().down('combobox[itemId=dateRangeComboReports]').clearValue();
+        this.getReportForm().down('daterange[itemId=dateRangeReports]').down('datefield[itemId=startdt]').setValue("");
+        this.getReportForm().down('daterange[itemId=dateRangeReports]').down('datefield[itemId=enddt]').setValue("");
+        this.getReportForm().down('button[itemId=btnPreview]').setDisabled(true);
         Ext.getStore('reports.Reports').removeAll();
     },
 

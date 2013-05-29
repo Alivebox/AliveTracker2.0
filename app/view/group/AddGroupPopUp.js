@@ -61,6 +61,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
                                 allowBlank:false,
+                                regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },
                             {
@@ -71,7 +72,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
-                                allowBlank:false,
+                                allowBlank: false,
+                                regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },
                             {
