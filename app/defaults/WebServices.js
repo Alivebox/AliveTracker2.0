@@ -34,6 +34,5 @@ Ext.define('AliveTracker.defaults.WebServices',{
         LOG_DELETE: '/ws/alivews/logs/{0}/',
         NOTE_DELETE: '/ws/alivews/note/{0}',
         GET_GROUP_PERMISSIONS: '/ws/alivews/main/permissions/group/{0}',
-        SET_PASSWORD: '/ws/alivews/main/setPassword/'
     }
 });

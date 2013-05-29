@@ -55,13 +55,6 @@
                 "permissions": [
                     "viewHome"
                 ]
-            },
-            {
-                "name": "setPasswordPage",
-                "package": "AliveTracker.view.authentication.SetPassword",
-                "permissions": [
-                    "viewHome"
-                ]
             }
         ]
     }

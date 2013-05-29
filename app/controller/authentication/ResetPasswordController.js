@@ -3,20 +3,16 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
     extend: "Ext.app.Controller",
 
     views: [
-        'authentication.ResetPassword',
-        'authentication.SetPassword'
-    ],
-
-    models:[
-        'authentication.SetPassword'
+        'authentication.ResetPassword'
     ],
 
     refs: [
         {
             ref:'passwordVerification',
-            selector:'setpassword [itemId=passwordverification]'
+            selector:'resetpasswordform [itemId=passwordverification]'
         }
     ],
+
     /**
      * Initializes components listeners
      */
@@ -24,49 +20,42 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
         this.control({
             'resetpasswordform': {
                 resetPassword: this.onResetPassword
-            },
-            'setpassword': {
-                setPassword: this.onSetPassword
             }
         });
     },
     onResetPassword: function(){
-        var tmpQueryString = document.location.href.split('?')[1];
-        var tmpQueryStringObject = Ext.Object.fromQueryString(tmpQueryString);
-        var tmpForgotPassword = Ext.create('AliveTracker.model.authentication.ForgotPassword',{email: tmpQueryStringObject.email, token: tmpQueryStringObject.token});
-        tmpForgotPassword.save({
-            scope: this,
-            urlOverride: AliveTracker.defaults.WebServices.USER_RESET_PASSWORD,
-            callback: this.onResetPasswordCallback
-        });
-    },
-
-    onResetPasswordCallback: function(argRecord, argOperation){
-        if(argOperation.success){
-            Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_RESET_PASSWORD);
-            Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'loginPage');
-        }
-    },
-
-    onSetPassword: function(){
-        var tmpPasswordVerfication = this.getPasswordVerification();
-        if(!tmpPasswordVerfication.isValid()){
+        var tmpPasswordVerification = this.getPasswordVerification();
+        if( !tmpPasswordVerification.isValid() ){
             Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.SET_PASSWORD_INVALID);
             return;
         }
-        var tmpPassword = tmpPasswordVerfication.getValue();
-        var tmpModelSetPassword = Ext.create('AliveTracker.model.authentication.SetPassword',{
+        var tmpQueryString = document.location.href.split('?')[1];
+        var tmpQueryStringObject = Ext.Object.fromQueryString(tmpQueryString);
+        var tmpPassword = tmpPasswordVerification.getValue();
+        var tmpForgotPassword = Ext.create('AliveTracker.model.authentication.ForgotPassword',{
+            email: tmpQueryStringObject.email,
+            token: tmpQueryStringObject.token,
             password: Framework.util.MD5Util.calcMD5(tmpPassword)
         });
-        tmpModelSetPassword.save({
+        tmpForgotPassword.save({
             scope: this,
-            success: this.onSuccessSetPassword
+            urlOverride: AliveTracker.defaults.WebServices.USER_RESET_PASSWORD,
+            success: this.onResetPasswordCallback
         });
     },
 
-    onSuccessSetPassword: function(argRecord){
+    onResetPasswordCallback: function(argRecord){
+        var tmpUser = argRecord;
+        Framework.core.SecurityManager.logInUser(argRecord.data.email,this.getDefaultPermissions());
         Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SET_PASSWORD_SUCCESS_RESET);
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'groupDetailPage');
-    }
+        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
+    },
 
+    getDefaultPermissions: function(){
+        var tmpDefaultPermissions = [
+            'viewHome',
+            'viewGroupDetail'
+        ];
+        return tmpDefaultPermissions;
+    }
 });
