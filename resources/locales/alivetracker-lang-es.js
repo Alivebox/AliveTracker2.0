@@ -131,6 +131,7 @@ Ext.define('Locales.AliveTracker', {
          */
         WARNING_MESSAGE: 'Advertencia',
         NO_DATA_TO_SAVE: 'No hay datos para guardar',
+        NO_DATA_TO_SHOW: 'No hay datos para mostrar',
         USER_EXISTS: 'Usuario ya asignado al grupo',
         NO_ADMIN_ASSIGNED: 'El proyecto debe tener un administrador asignado',
         /**

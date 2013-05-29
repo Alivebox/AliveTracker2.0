@@ -3,18 +3,20 @@
 .add-group-pop-up-view .x-window-body{
   background-color: $whitetextcolor;
   border-radius: 15px;
+  padding: 10px;
 }
 
 .add-group-pop-up-view-container{
-  margin-top: 15px;
   margin-bottom: 10px;
+}
+
+.add-group-pop-up-close{
+  float: right;
 }
 
 .add-group-pop-up-view-txt {
   color: #515153;
   font-size: 16px;
-  margin-left: 13px;
-  width: 245px;
 }
 
 .add-group-pop-up-view-forms{
@@ -29,8 +31,11 @@
 }
 
 .add-group-pop-up-view-forms-align{
-  margin-left: 8px;
   margin-bottom: 10px;
+}
+
+.add-group-pop-up-view-forms-align .x-field-label-cell{
+  width: 200px;
 }
 
 .add-group-pop-up-button-align{

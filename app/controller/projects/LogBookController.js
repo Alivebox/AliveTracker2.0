@@ -63,7 +63,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
                 datePickerChanged:this.reloadLogStore
             },
             'logbookactivityform': {
-                addActivity:this.onAddNewActivity
+                addActivity:this.onAddNewActivity,
+                comboProjectSelected: this.enableActivityField
             },
             'logbookgrid':{
                 deleteLog: this.onShowDeleteConfirm,
@@ -94,11 +95,17 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.getTotalTime().setValue(tmpTotal);
     },
 
+    enableActivityField:function () {
+        var tmpActivityTextField = this.getLogsform().down('textfield[itemId=txtActivity]');
+        tmpActivityTextField.setDisabled(false);
+    },
+
     onAddNewActivity:function () {
         var tmpActivity = this.createActivityInstance();
+        var tmpActivityField = this.getLogsform().down('textfield[itemId=txtActivity]');
         var tmpLogsStore = Ext.getStore('projects.Logs');
         var tmpUrl = AliveTracker.defaults.WebServices.SAVE_LOG;
-        if(!this.getLogsform().isValid() || !this.isTimeValid()){
+        if(!this.getLogsform().isValid() || !this.isTimeValid() || !this.isFieldValid(tmpActivityField)){
             return;
         }
         tmpActivity.set("group", Ext.state.Manager.get('groupId'));
@@ -133,6 +140,13 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             return false;
         }
         return true;
+    },
+
+    isFieldValid: function(argField){
+        if(Ext.util.Format.trim(argField.value).length > 0){
+            return true;
+        }
+        return false;
     },
 
     onClearUsersSelection:function () {
@@ -170,15 +184,28 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpLogId = argRecord.record.data.id;
         var tmpActivity = argRecord.record.data.activity;
         var tmpTime = argRecord.record.data.time;
+        var tmpProjectName = argRecord.record.data.project_name;
+        var tmpProject = this.getProjectIdByName(tmpProjectName);
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_LOG,tmpLogId);
         var tmpLog = Ext.create('AliveTracker.model.projects.Log', {
             id: tmpLogId,
+            project: tmpProject,
             activity: tmpActivity,
             time: tmpTime
         });
         tmpLog.save({
             urlOverride:tmpUrl
         });
+    },
+
+    getProjectIdByName: function(argName){
+        var tmpProjectsStore = Ext.getStore('projects.Projects');
+        for(var tmpIndex=0; tmpIndex < tmpProjectsStore.getCount(); tmpIndex++){
+            var tmpProject = tmpProjectsStore.getAt(tmpIndex);
+            if(tmpProject.get('name')==argName){
+                return tmpProject.get('id');
+            }
+        }
     },
 
     changeColumnBackground: function(argColumn){
