@@ -3,7 +3,6 @@ Ext.define('AliveTracker.view.group.GroupDetail', {
     extend: 'Ext.Container',
     xtype: 'groupdetailform',
     cls:'groupDetail',
-    layout: 'column',
 
     initComponent: function(){
         this.items = [

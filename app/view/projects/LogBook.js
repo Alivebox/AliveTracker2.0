@@ -2,12 +2,12 @@ Ext.define('AliveTracker.view.projects.LogBook', {
 
     extend:'Ext.container.Container',
     xtype:'logbook',
+    cls: 'tab-container-child',
 
     initComponent:function () {
         this.items = [
             {
                 xtype:'container',
-                layout:'column',
                 items:[
                     {
                         xtype:'datepicker',
@@ -32,7 +32,8 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                         items:[
                             {
                                 xtype:'logbookactivityform',
-                                model: 'AliveTracker.model.projects.Log'
+                                model: 'AliveTracker.model.projects.Log',
+                                cls: 'logboog-activity-form-container'
                             },
                             {
                                 xtype:'logbookgrid',

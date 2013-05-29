@@ -1,19 +1,31 @@
 @import '../main/defaults.scss';
 
 .groupDetail{
-  margin: 10px;
+  height: 100%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.groupDetail .x-column-inner {
+  height: 100%;
 }
 
 .groups-main-container{
+  width: 260px;
+  position: absolute;
+  height: auto;
+  top: 45px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+
+  margin-right: 10px;
   background-color: $defaultbackgroundcolor;
   border-color: $panelbordercolor;
   border-style: solid;
   border-radius: 4px 4px 0 0;
   border-width: 1px;
-  margin-right: 10px;
-  min-height: 875px;
-  padding: 10px 10px 0;
-  width: 14%;
+  padding: 10px;
 }
 
 .groups-container{
@@ -22,9 +34,15 @@
 }
 
 .groupTab{
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 45px;
+  bottom: 10px;
+  left: 280px;
+  right: 10px;
   border: none;
   background-color: $defaultbackgroundcolor;
-  width: 85.3%;
 }
 
 .groupTab .x-container.x-container-default.x-layout-fit{
@@ -32,7 +50,13 @@
   border-style: solid;
   border-width: 1px;
   padding: 10px;
-  min-height: 850px;
+  position: absolute;
+  top: 25px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: auto;
 }
 
 .groupTab .x-toolbar{

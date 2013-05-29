@@ -1,13 +1,10 @@
 @import '../main/defaults.scss';
 
 .logbook-container {
-  margin-left: 10px;
-  width: 80%;
-}
-
-.logbook-fields-container{
-  margin-top: 10px;
-  margin-bottom: 8px;
+  position: absolute;
+  top: 0;
+  left: 310px;
+  right: 0;
 }
 
 .logbook-view-form{
@@ -107,3 +104,20 @@
   float: right;
 }
 
+.logboog-activity-form-container {
+  width: 100% !important;
+}
+
+.logbook-activity-form-labels-container {
+  width: 100% !important;
+}
+
+.logbook-fields-container {
+  width: 100% !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.logbook-fields-container x-box-inner {
+  width: 100% !important;
+}
