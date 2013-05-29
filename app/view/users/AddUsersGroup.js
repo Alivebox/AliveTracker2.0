@@ -2,7 +2,6 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
 
     extend: 'Ext.Container',
     xtype: 'addusersgroup',
-    cls: 'users-container',
 
     initComponent: function() {
         var me = this;
@@ -31,7 +30,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
             {
                 xtype: 'usersgrid',
                 cls: 'add-user-grid-container',
-                height: 400,
+                height: 786,
                 store: 'users.GroupUsers',
                 name: 'usersGrid'
             }

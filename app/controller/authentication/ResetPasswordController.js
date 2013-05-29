@@ -50,16 +50,18 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
 
     onSetPassword: function(){
         var tmpPasswordVerfication = this.getPasswordVerification();
-        if( tmpPasswordVerfication.isValid() ){
-            var tmpPassword = tmpPasswordVerfication.getValue();
-            var tmpModelSetPassword = Ext.create('AliveTracker.model.authentication.SetPassword',{
-                password: Framework.util.MD5Util.calcMD5(tmpPassword)
-            });
-            tmpModelSetPassword.save({
-                scope: this,
-                success: this.onSuccessSetPassword
-            });
+        if(!tmpPasswordVerfication.isValid()){
+            Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.SET_PASSWORD_INVALID);
+            return;
         }
+        var tmpPassword = tmpPasswordVerfication.getValue();
+        var tmpModelSetPassword = Ext.create('AliveTracker.model.authentication.SetPassword',{
+            password: Framework.util.MD5Util.calcMD5(tmpPassword)
+        });
+        tmpModelSetPassword.save({
+            scope: this,
+            success: this.onSuccessSetPassword
+        });
     },
 
     onSuccessSetPassword: function(argRecord){

@@ -49,5 +49,13 @@ Ext.define('AliveTracker.ux.PasswordVerification', {
             return null;
         }
         return tmpPassword.getValue();
+    },
+    isValid:function(){
+        var tmpPassword = this.getComponent('passwordProfile');
+        var tmpConfirmPassword = this.getComponent('confirmPasswordProfile');
+        if(tmpPassword.isValid() && tmpPassword.isValid()){
+            return true;
+        }
+        return false;
     }
 });

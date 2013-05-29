@@ -29,6 +29,7 @@ Ext.define('Locales.AliveTracker', {
          * Set Password
          */
         SET_PASSWORD_SUCCESS_RESET: 'Cambio de contraseña exitoso',
+        SET_PASSWORD_INVALID: 'Contraseña invalida, ingrese nuevamente su contraseña.',
         /**
          * Reset Password
          */
