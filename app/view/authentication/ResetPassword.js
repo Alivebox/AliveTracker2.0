@@ -6,6 +6,10 @@ Ext.define('AliveTracker.view.authentication.ResetPassword', {
     initComponent: function() {
         this.items = [
             {
+                xtype: 'label',
+                text: Locales.AliveTracker.RESET_PASSWORD_NEW
+            },
+            {
                 xtype: 'passwordverification',
                 itemId:'passwordverification'
             },
