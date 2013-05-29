@@ -54,15 +54,21 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         store: 'projects.Projects',
                         editable: false,
                         columnWidth:.20,
-                        queryMode:'local'
+                        queryMode:'local',
+                        listeners:{
+                            scope:this,
+                            select:this.onComboItemSelected
+                        }
                     },
                     {
                         xtype: 'textfield',
                         itemId:'txtActivity',
                         name: 'activity',
+                        disabled: true,
                         fieldCls: 'logbook-view-form',
                         cls: 'logbook-form-align',
                         columnWidth:.60,
+                        regex: /[a-zA-Z0-9]+/,
                         maxLength:300
                     },
                     {
@@ -72,8 +78,9 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         fieldCls: 'logbook-view-form',
                         allowNegative:false,
                         itemId: 'time',
+                        value: 1,
                         maxValue: 24,
-                        minValue: 0,
+                        minValue: 1,
                         hideTrigger: true,
                         listeners:{
                             scope:this,
@@ -82,7 +89,6 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                     },
                     {
                         xtype: 'button',
-                        name: 'include',
                         cls: 'all-views-button logbook-add-button',
                         maxWidth: 30,
                         minWidth: 30,
@@ -107,5 +113,10 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
         if(e.getKey() == e.ENTER){
             this.fireEvent('addActivity');
         }
+    },
+
+    onComboItemSelected: function(){
+        this.fireEvent('comboProjectSelected');
     }
+
 });

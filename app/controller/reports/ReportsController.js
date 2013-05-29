@@ -41,6 +41,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         {
             ref: 'gridPreview',
             selector: 'reportsform [itemId=gridReports]'
+        },
+        {
+            ref: 'exportButton',
+            selector: 'reportsform [itemId=btnExport]'
         }
     ],
 
@@ -50,13 +54,23 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     init: function(){
         this.control({
             'reportsform': {
+                beforeshow: this.onBeforeShow,
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
                 groupSelected: this.loadAssignedUsersStore,
                 showPreview: this.onShowPreview,
-                sortColumn: this.changeColumnBackground
+                sortColumn: this.changeColumnBackground,
+                comboItemSelected: this.enablePreviewButton
+            },
+            'daterange':{
+                dateSelected: this.enablePreviewButton
             }
         });
+    },
+
+    onBeforeShow: function(){
+        var tmpField = this.getDateRange();
+        tmpField.setHiddenProperty(true);
     },
 
     onDateRangeComboSelection: function(){
@@ -64,9 +78,9 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpField = this.getDateRange();
         if(tmpValue == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
             tmpField.setHiddenProperty(false);
-        }else{
-            tmpField.setHiddenProperty(true);
+            return;
         }
+        tmpField.setHiddenProperty(true);
     },
 
     /**
@@ -146,8 +160,13 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
         tmpUsersStore.load({
             scope: this,
-            urlOverride:  tmpStoreUrl
+            urlOverride:  tmpStoreUrl,
+            callback: this.enableUsersCombo
         });
+    },
+
+    enableUsersCombo: function(){
+        this.getCmbUser().setDisabled(false);
     },
 
     userHasAllPermissions: function(){
@@ -184,8 +203,36 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpReportsStore = Ext.getStore('reports.Reports');
         tmpReportsStore.load({
             scope: this,
-            urlOverride:tmpUrl
+            urlOverride:tmpUrl,
+            callback: this.onloadReportSuccess
         });
+    },
+
+    onloadReportSuccess: function(){
+        var tmpReportsStore = Ext.getStore('reports.Reports');
+        if(tmpReportsStore.getCount() > 0){
+            this.getExportButton().setDisabled(false);
+            return;
+        }
+        Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.NO_DATA_TO_SHOW);
+        this.getExportButton().setDisabled(true);
+    },
+
+    enablePreviewButton: function(){
+        var tmpReportsForm = this.getReportsform();
+        var tmpUser = this.getCmbUser().value;
+        var tmpDateRange = this.getCmbDateRange().value;
+        var tmpStartDate = this.getDateRange().getStartValue();
+        var tmpEndDate = this.getDateRange().getEndValue();
+        if(tmpDateRange && tmpUser || (tmpDateRange == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION)){
+            if(tmpDateRange == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
+                tmpReportsForm.down('button[itemId=btnPreview]').setDisabled(true);
+                if(!(tmpStartDate && tmpEndDate)){
+                    return;
+                }
+            }
+            tmpReportsForm.down('button[itemId=btnPreview]').setDisabled(false);
+        }
     },
 
     changeColumnBackground: function(argColumn){

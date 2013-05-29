@@ -15,7 +15,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                 xtype: 'container',
                 cls: 'add-group-pop-up-view-container',
                 layout: {
-                    type: 'hbox'
+                    type: 'column'
                 },
                 items: [
                     {
@@ -25,6 +25,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                     },
                     {
                         xtype: 'image',
+                        cls: 'add-group-pop-up-close',
                         src: 'resources/images/delete.png',
                         listeners: {
                             el: {
@@ -60,6 +61,7 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
                                 allowBlank:false,
+                                regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },
                             {
@@ -70,7 +72,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 fieldLabel: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
-                                allowBlank:false,
+                                allowBlank: false,
+                                regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },
                             {

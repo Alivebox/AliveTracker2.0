@@ -100,7 +100,8 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
 
     onSubmitProjectAction: function(argPopUp, argWindow){
         var tmpForm = this.getProjectModelForm();
-        if(tmpForm.isValid() && this.isAdminAssigned()){
+        var tmpProjectNameField = tmpForm.down('textfield[itemId=projectName]');
+        if(tmpForm.isValid() && this.isAdminAssigned() && this.isFieldValid(tmpProjectNameField)){
             if(this.insert){
                 this.onSaveUsersToProjectChanges(argPopUp, argWindow, tmpForm);
                 return;
@@ -159,6 +160,13 @@ Ext.define('AliveTracker.controller.users.AssignUsersToProjectsController', {
             }
         }
         Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.NO_ADMIN_ASSIGNED);
+        return false;
+    },
+
+    isFieldValid: function(argField){
+        if(Ext.util.Format.trim(argField.value).length > 0){
+            return true;
+        }
         return false;
     },
 

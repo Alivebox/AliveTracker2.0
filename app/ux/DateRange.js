@@ -12,6 +12,7 @@ Ext.define('AliveTracker.ux.DateRange', {
                 name:'startdt',
                 itemId:'startdt',
                 endDateField:'enddt',
+                editable: false,
                 vtype:'daterange',
                 hidden: this.hidden,
                 allowBlank: this.allowBlank,
@@ -20,9 +21,7 @@ Ext.define('AliveTracker.ux.DateRange', {
                 showToday: false,
                 listeners: {
                     scope: this,
-                    select: function(){
-                        this.fireEvent('validitychange');
-                    }
+                    select: this.onDateSelected
                 }
             },
             {
@@ -30,6 +29,7 @@ Ext.define('AliveTracker.ux.DateRange', {
                 name:'enddt',
                 itemId:'enddt',
                 startDateField:'startdt',
+                editable: false,
                 vtype:'daterange',
                 hidden: this.hidden,
                 allowBlank: this.allowBlank,
@@ -38,9 +38,7 @@ Ext.define('AliveTracker.ux.DateRange', {
                 showToday: false,
                 listeners: {
                     scope: this,
-                    select: function(){
-                        this.fireEvent('validitychange');
-                    }
+                    select: this.onDateSelected
                 }
             }
         ];
@@ -63,6 +61,16 @@ Ext.define('AliveTracker.ux.DateRange', {
             return null;
         }
         return "[{\"value\":\"" +tmpStartDate.getValue().toJSON()+ "\"},{\"value\":\""+tmpEndDate.getValue().toJSON()+"\"}]";
+    },
+
+    setStartValue:function (argValue) {
+        var tmpStartDate = this.getComponent('startdt');
+        tmpStartDate.value = argValue;
+    },
+
+    setEndValue:function (argValue) {
+        var tmpEndDate = this.getComponent('enddt');
+        tmpEndDate = argValue;
     },
 
     getStartValue:function (argValue) {
@@ -105,5 +113,10 @@ Ext.define('AliveTracker.ux.DateRange', {
         this.setVisible(!argValue);
         tmpStartDate.setVisible(!argValue);
         tmpEndDate.setVisible(!argValue);
+    },
+
+    onDateSelected: function(){
+        this.fireEvent('validitychange');
+        this.fireEvent('dateSelected');
     }
 });

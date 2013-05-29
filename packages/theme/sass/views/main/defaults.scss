@@ -111,8 +111,11 @@ $background-main-container: #F0F0F0;
   background-position: right;
 }
 
-
 .x-column-header-sort-ASC .x-column-header-text {
   background-image: url("../images/arrow_up.png");
   background-position: right;
+}
+
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
 }

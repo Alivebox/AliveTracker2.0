@@ -44,6 +44,7 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         name: 'user',
                         cls: 'report-form-align',
                         fieldCls: 'report-form',
+                        disabled: true,
                         emptyText: Locales.AliveTracker.REPORTS_LABEL_SELECT,
                         store:'users.Users',
                         queryMode: 'local',
@@ -51,6 +52,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
                         valueField: 'id',
                         width: 230,
                         editable:false,
+                        listeners:{
+                            scope: this,
+                            select: this.onComboItemSelected
+                        }
                     },
                     {
                         xtype: 'label',
@@ -74,8 +79,8 @@ Ext.define('AliveTracker.view.reports.Reports', {
                             [AliveTracker.defaults.Constants.REPORTS_LAST_MONTH_DATERANGE_OPTION, Locales.AliveTracker.REPORTS_LAST_MONTH_DATERANGE_DESCRIPTION]
                         ],
                         listeners:{
-                            scope:this,
-                            change:this.onDateRangeComboChanged
+                            scope: this,
+                            select: this.onDateRangeComboChanged
                         }
                     },
                     {
@@ -87,8 +92,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     },
                     {
                         xtype:'button',
+                        itemId: 'btnPreview',
                         cls: 'all-views-button report-preview-button',
                         text:Locales.AliveTracker.REPORTS_LABEL_PREVIEW,
+                        disabled: true,
                         listeners:{
                             scope:this,
                             click:this.onShowPreview
@@ -135,9 +142,10 @@ Ext.define('AliveTracker.view.reports.Reports', {
             },
             {
                 xtype:'button',
+                itemId: 'btnExport',
                 cls: 'all-views-button report-button-align',
                 text:Locales.AliveTracker.REPORTS_LABEL_EXPORT,
-                formBind:true,
+                disabled: true,
                 listeners:{
                     scope:this,
                     click:this.onExportReportClick
@@ -153,9 +161,13 @@ Ext.define('AliveTracker.view.reports.Reports', {
     },
     onDateRangeComboChanged:function () {
         this.fireEvent('dateRangeComboSelection');
+        this.fireEvent('comboItemSelected');
     },
     onGroupSelected:function () {
         this.fireEvent('groupSelected');
+    },
+    onComboItemSelected:function () {
+        this.fireEvent('comboItemSelected');
     },
     onShowPreview:function () {
         this.fireEvent('showPreview');
