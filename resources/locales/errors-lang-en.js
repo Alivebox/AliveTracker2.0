@@ -8,6 +8,7 @@ Ext.define('Locales.ErrorCodes', {
         ERROR101: 'Email already exist',
         ERROR102: 'Email does not exist',
         ERROR103: 'Your session has expired. Please log in again',
+        ERROR104: 'Your token and user don`t match. Please select "forgot my password"',
         ERROR200: 'Group does not exist',
         ERROR300: 'User is not allowed to remove that project',
         ERROR301: 'User is not allowed to retrieve permissions for that group',

@@ -57,7 +57,7 @@ Ext.define('AliveTracker.controller.authentication.LoginController', {
         Framework.core.SecurityManager.logInUser(tmpCurrentUser.get('email'),tmpCurrentUser.get('permissions'));
         if(argRecord.data.entity_status === AliveTracker.defaults.Constants.TO_CHANGE_PASSWORD){
             Ext.Msg.alert(Locales.AliveTracker.WARNING_MESSAGE, Locales.AliveTracker.RESET_PASSWORD_UPDATE);
-            Framework.core.ViewsManager.reconfigureViewsAndShowPage('userProfilePage');
+            Framework.core.ViewsManager.reconfigureViewsAndShowPage('resetPasswordPage');
             return;
         }
         Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');

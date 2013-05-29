@@ -3,22 +3,26 @@ Ext.define('AliveTracker.view.authentication.ResetPassword', {
     xtype:'resetpasswordform',
     cls:'reset-password',
 
-    initComponent:function () {
+    initComponent: function() {
         this.items = [
             {
-                xtype:'button',
-                cls:'all-views-button align-button',
-                text: Locales.AliveTracker.RESET_PASSWORD_LABEL,
+                xtype: 'passwordverification',
+                itemId:'passwordverification'
+            },
+            {
+                xtype: 'button',
+                cls: 'all-views-button userprofile-button',
+                text: Locales.AliveTracker.SET_RESET_PASSWORD_LABEL,
                 listeners:{
                     scope:this,
-                    click:this.onResetPasswordClick
+                    click:this.onResetPassword
                 }
             }
         ];
         this.callParent(arguments);
     },
-    onResetPasswordClick:function () {
-        this.fireEvent('resetPassword',this);
-    }
 
+    onResetPassword:function () {
+        this.fireEvent('resetPassword', this);
+    }
 });
