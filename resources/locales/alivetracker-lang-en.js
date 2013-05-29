@@ -22,6 +22,10 @@ Ext.define('Locales.AliveTracker', {
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Password',
         PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirm Password',
         /**
+         * Set Password
+         */
+        SET_PASSWORD_SUCCESS_RESET: 'Cambio de contraseña exitoso',
+        /**
          * Forgot Password
          */
         SUCCESS_SEND_EMAIL_INSTRUCTION: 'We send you an e-mail with the instruction to reset your password',
@@ -32,9 +36,15 @@ Ext.define('Locales.AliveTracker', {
         RESET_PASSWORD_UPDATE: 'We have scheduled a password change',
         RESET_PASSWORD_LABEL: 'Reset Password',
         /**
+         * Set Password
+         */
+        SET_NEW_PASSWORD_LABEL_PASSWORD: 'New Password',
+        SET_CONFIRM_PASSWORD_VERIFICATION_LABEL: 'Confirm Password',
+        SET_RESET_PASSWORD_LABEL: 'Reset Password',
+        /**
          * Password Verification  View
          */
-   ROFILE_LABEL_NAME: 'Name',
+        ROFILE_LABEL_NAME: 'Name',
         PROFILE_LABEL_PASSWORD: 'Password',
         /**
          * Register  View

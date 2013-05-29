@@ -43,12 +43,11 @@ Ext.define('AliveTracker.ux.PasswordVerification', {
         tmpPassword.setValue(argValue);
         tmpConfirmPassword.setValue(argValue);
     },
-    getValue:function (argValue) {
+    getValue:function () {
         var tmpPassword = this.getComponent('passwordProfile');
         if (Ext.isEmpty(tmpPassword)) {
             return null;
         }
         return tmpPassword.getValue();
     }
-
 });
