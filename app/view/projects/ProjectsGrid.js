@@ -14,8 +14,11 @@ Ext.define('AliveTracker.view.projects.ProjectsGrid', {
                     cls: 'project-grid-column',
                     menuDisabled:true,
                     text: Locales.AliveTracker.GROUP_PROJECT_LABEL_NAME,
-                    sortable:false,
                     dataIndex:'name',
+                    listeners:{
+                        scope: this,
+                        headerclick: this.onSortColumn
+                    },
                     flex:2
                 },
                 {

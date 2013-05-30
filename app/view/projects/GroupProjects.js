@@ -18,7 +18,7 @@ Ext.define('AliveTracker.view.projects.GroupProjects', {
             {
                 xtype: 'projectgrid',
                 cls: 'project-grid-container',
-                height: 787,
+                height: 790,
                 itemId: 'groupProjectGrid',
                 queryMode: 'local',
                 store: 'projects.Projects',
