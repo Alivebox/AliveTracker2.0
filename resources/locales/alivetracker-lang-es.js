@@ -1,6 +1,10 @@
 Ext.define('Locales.AliveTracker', {
     statics: {
         /**
+         * HOME
+         * */
+        GO_HOME_BUTTON: 'Ir a la pantalla principal',
+         /**
          * Forgot Password View
          */
         FORGOT_PASSWORD_LABEL: 'Olvidé mi contraseña',
@@ -20,7 +24,7 @@ Ext.define('Locales.AliveTracker', {
          * Password Verification  View
          */
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Contraseña',
-        PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirmar Contraseña',
+        PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirmar',
         /**
          * Forgot Password
          */
@@ -42,10 +46,11 @@ Ext.define('Locales.AliveTracker', {
          */
         SET_NEW_PASSWORD_LABEL_PASSWORD: 'Contraseña nueva',
         SET_CONFIRM_PASSWORD_VERIFICATION_LABEL: 'Confirmar Contraseña',
-        SET_RESET_PASSWORD_LABEL: 'Restablecer contraseña',
+        SET_RESET_PASSWORD_LABEL: 'Restablecer',
         /**
          * Password Verification  View
          */
+        PROFILE_TITLE: 'Perfil',
         PROFILE_LABEL_EMAIL: 'Email',
         PROFILE_LABEL_NAME: 'Nombre',
         PROFILE_LABEL_PASSWORD: 'Contraseña',

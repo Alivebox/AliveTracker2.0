@@ -26,7 +26,8 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
             'userprofile':{
                 beforerender: this.onLoadFields,
                 editProfile:this.onSaveUserProfile,
-                showPasswordField: this.onShowPasswordField
+                showPasswordField: this.onShowPasswordField,
+                goHome: this.onGoHome
             }
         });
     },
@@ -81,6 +82,11 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
         var tmpPasswordField = this.getPassword();
         tmpPasswordContainer.setVisible(true);
         tmpPasswordField.setValue("");
+    },
+
+    onGoHome: function(){
+      debugger;
+       Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     }
 
 });
