@@ -5,8 +5,8 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
     cls: 'project-users-popup-view',
     header: false,
     resizable: false,
-    height:360,
-    width:550,
+    height:325,
+    width:545,
     modal: true,
     requieres:[
         'AliveTracker.view.users.AssignUsersToProjects'

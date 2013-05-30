@@ -57,7 +57,11 @@ Ext.define('AliveTracker.view.authentication.Register', {
                         emptyText: Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
                         allowBlank:false,
                         maxLength:20,
-                        inputType:'password'
+                        inputType:'password',
+                        listeners:{
+                            scope:this,
+                            specialkey:this.onRegisterEnter
+                        }
                     }
                 ]
             }
@@ -66,5 +70,11 @@ Ext.define('AliveTracker.view.authentication.Register', {
     },
     onRegisterActionClick:function () {
         this.fireEvent('registerClick',this);
+    },
+
+    onRegisterEnter:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            this.fireEvent('registerClick',this);
+        }
     }
 });

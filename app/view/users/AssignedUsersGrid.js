@@ -8,10 +8,8 @@ Ext.define('AliveTracker.view.users.AssignedUsersGrid', {
     columnLines: true,
     scroll:'vertical',
     resizeble: false,
-    maxHeight: 150,
-    minHeight: 150,
-    maxWidth: 225,
-    minWidth: 225,
+    height: 150,
+    width: 235,
 
 
     initComponent: function() {

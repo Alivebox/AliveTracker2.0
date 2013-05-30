@@ -37,7 +37,8 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
             },
             {
                 xtype:'container',
-                layout:'hbox',
+                cls: 'project-grids-container',
+                layout:'column',
                 items:[
                     {
                         xtype:'userslist',
@@ -83,6 +84,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
             },
             {
                 xtype:'container',
+                cls: 'project-buttons-container',
                 layout:'column',
                 items:[
                     {

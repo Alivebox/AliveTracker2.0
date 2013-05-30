@@ -2,7 +2,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     extend:'Ext.window.Window',
     xtype:'forgotpasswordpopup',
     cls: 'forgot-password-view',
-    height: 140,
+    height: 125,
     width: 300,
     header: false,
     modal: true,
@@ -14,7 +14,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                 xtype: 'container',
                 cls: 'forgot-password-view-container',
                 layout: {
-                    type: 'hbox'
+                    type: 'column'
                 },
                 items: [
                     {
@@ -24,6 +24,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                     },
                     {
                         xtype: 'image',
+                        cls: 'forgot-password-close-icon',
                         src: 'resources/images/delete.png',
                         listeners: {
                             el: {

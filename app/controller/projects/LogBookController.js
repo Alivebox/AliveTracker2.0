@@ -193,6 +193,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             activity: tmpActivity,
             time: tmpTime
         });
+        this.onTotalTimeUpdate();
         tmpLog.save({
             urlOverride:tmpUrl
         });

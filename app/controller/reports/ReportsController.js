@@ -116,6 +116,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     loadAssignedUsersStore: function(){
         var tmpProjectId = this.getCmbProject().value;
         var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
+        this.getCmbUser().clearValue();
         tmpProjectDetailStore.removeAll();
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,tmpProjectId);
         tmpProjectDetailStore.load({

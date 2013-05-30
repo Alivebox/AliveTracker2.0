@@ -347,6 +347,9 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         tmpGroupStore.add(argRecord);
         tmpGroupStore.commitChanges();
         this.loadNewButtonsEvents(argRecord.data.id);
+        if(this.isFirstGroup()){
+            this.loadDefaultGroup(tmpGroupStore, null);
+        }
     },
 
     editGroupCallback: function(argRecord){
@@ -361,6 +364,15 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         tmpGroupStore.removeAt(tmpIndex);
         tmpGroupStore.insert(tmpIndex,tmpGroup);
         tmpGroupStore.commitChanges();
+    },
+
+    isFirstGroup: function(){
+        var tmpGroupStore = Ext.getStore('groups.Groups');
+        var tmpBelongGroupsStore = Ext.getStore('groups.BelongGroups');
+        if(tmpGroupStore.getCount()==1 && tmpBelongGroupsStore.getCount()==0){
+            return true;
+        }
+        return false;
     },
     
     confirmDeleteDialog: function(argEvent,argButton) {

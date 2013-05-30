@@ -48,6 +48,7 @@ Ext.define('AliveTracker.view.projects.LogBookGrid', {
                     dataIndex:'time',
                     editor: {
                         xtype: 'numberfield',
+                        decimalSeparator: '.',
                         enableKeyEvents: true,
                         hideTrigger: true,
                         maxValue: 24,

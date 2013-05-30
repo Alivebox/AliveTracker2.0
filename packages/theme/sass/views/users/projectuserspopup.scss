@@ -10,6 +10,7 @@
 
 .project-users-popup-view .x-window-body{
   background-color: $whitetextcolor;
+  padding: 10px;
 }
 
 .project-users-popup-view-button {
@@ -23,7 +24,6 @@
 }
 
 .project-users-popup-view-icon{
-  margin: 10px;
   float: right;
 }
 
@@ -45,24 +45,30 @@
 }
 
 .project-users-popup-view-forms-align{
-  margin-left: 15px;
-  width: 95%;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .project-users-popup-view-txt {
   float: left;
   color: $blackcolor;
   font-size: 16px;
-  margin: 15px;
+  margin-bottom: 10px;
 }
 
 .project-users-popup-view-label {
   color: $blackcolor;
+  display: block;
   font-size: 14px;
+  padding: 3px 0 0;
 }
 
 .project-users-popup-view-form-container .x-panel-body-default {
-  border-style: none;
+   border-style: none;
+ }
+
+.project-users-popup-view-form-container {
+  margin-bottom: 10px;
 }
 
 .x-field-label-cell{
@@ -84,6 +90,8 @@
 
 .project-arrow-buttons-container{
   margin-top: 50px;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
 .project-cancel-button{
@@ -107,7 +115,14 @@
 }
 
 .project-button-align{
-  margin-left: 203px;
+  margin-left: 190px;
   margin-right: 10px;
 }
 
+.project-grids-container{
+  width: 100%;
+}
+
+.project-buttons-container{
+  margin-top: 10px;
+}
