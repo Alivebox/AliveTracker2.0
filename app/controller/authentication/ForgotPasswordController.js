@@ -32,11 +32,13 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
      * Sends via email the reset password instructions
      */
     sendResetInstructions: function(){
-        var tmpForgotPassStore = Ext.create('AliveTracker.model.authentication.ForgotPassword',{email: this.getEmail().value});
-        tmpForgotPassStore.save({
-            scope: this,
-            callback: this.onSendResetInstructionsResult
-        });
+        if(this.getEmail().isValid()){
+            var tmpForgotPassStore = Ext.create('AliveTracker.model.authentication.ForgotPassword',{email: this.getEmail().value});
+            tmpForgotPassStore.save({
+                scope: this,
+                callback: this.onSendResetInstructionsResult
+            });
+        }
     },
     onSendResetInstructionsResult: function(argRecord){
         Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_EMAIL_INSTRUCTION);

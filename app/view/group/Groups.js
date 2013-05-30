@@ -12,7 +12,7 @@ Ext.define('AliveTracker.view.group.Groups', {
                 items:[
                     {
                         xtype:'container',
-                        layout: 'hbox',
+                        layout: 'column',
                         items:[
                             {
                                 xtype: 'label',
