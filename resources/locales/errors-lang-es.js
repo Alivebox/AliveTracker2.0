@@ -7,7 +7,7 @@ Ext.define('Locales.ErrorCodes', {
         ERROR101: 'Correo electrónico ya existe en el sistema',
         ERROR102: 'Correo electrónico no encontrado en el sistem',
         ERROR103: 'Tu sesion ha expirado. Por favor ingrese otra vez',
-        ERROR104: 'Tu token y usuario no coinciden. Por favor selecciones "olvidé mi contraseña"',
+        ERROR104: 'Tu token y usuario no coinciden. Por favor seleccione "olvidé mi contraseña"',
         ERROR200: 'El group no existe',
         ERROR300: 'No tienes suficientes permisos para eliminar el proyecto',
         ERROR301: 'No tienes suficientes permisos para ver los permisos del grupo',

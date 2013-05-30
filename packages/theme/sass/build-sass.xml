@@ -6,7 +6,7 @@
         <attribute name="sassProjectPath"/>
         <sequential>
             <echo message="Compiling sass project: @{sassProjectPath}"/>
-            <exec executable="compass.bat" searchPath="true" >
+            <exec executable="compass" searchPath="true" >
                 <arg value="compile"/>
                 <arg value="@{sassProjectPath}"/>
             </exec>
