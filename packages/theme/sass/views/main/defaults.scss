@@ -55,6 +55,12 @@ $background-main-container: #F0F0F0;
   font-size: 12px;
 }
 
+.home-button{
+  background-image: url("../images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
 .x-form-invalid-field, textarea.x-form-invalid-field  {
   border-style: solid;
   border-color: #CC3300;

@@ -1,6 +1,10 @@
 Ext.define('Locales.AliveTracker', {
 	statics: {
         /**
+         * HOME
+         * */
+        GO_HOME_BUTTON: 'Go to home',
+        /**
          * Forgot Password View
          */
         FORGOT_PASSWORD_LABEL: 'Forgot my password',
@@ -46,6 +50,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Password Verification  View
          */
+        PROFILE_TITLE: 'Profile',
         ROFILE_LABEL_NAME: 'Name',
         PROFILE_LABEL_PASSWORD: 'Password',
         /**

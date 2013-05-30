@@ -14,6 +14,26 @@ Ext.define('AliveTracker.view.users.UserProfile', {
                 items: [
                     {
                         xtype: 'container',
+                        layout: 'column',
+                        items:[
+                            {
+                                xtype: 'button',
+                                cls:'home-button',
+                                tooltip: Locales.AliveTracker.GO_HOME_BUTTON,
+                                listeners:{
+                                    scope: this,
+                                    click: this.onGoHome
+                                }
+                            },
+                            {
+                                xtype: 'label',
+                                text: Locales.AliveTracker.PROFILE_TITLE,
+                                cls:'profile-title'
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'container',
                         cls: 'userprofile-container',
                         layout: 'column',
                         items:[
@@ -101,5 +121,9 @@ Ext.define('AliveTracker.view.users.UserProfile', {
 
     onShowPassword:function (tmpButton) {
         this.fireEvent('showPasswordField', tmpButton);
+    },
+
+    onGoHome: function(){
+        this.fireEvent('goHome', this);
     }
 });
