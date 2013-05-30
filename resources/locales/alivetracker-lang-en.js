@@ -20,7 +20,7 @@ Ext.define('Locales.AliveTracker', {
          * Password Verification  View
          */
         PASSWORD_VERIFICATION_LABEL_PASSWORD: 'Password',
-        PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirm Password',
+        PASSWORD_VERIFICATION_LABEL_CONFIRM_PASSWORD: 'Confirm',
         /**
          * Set Password
          */
@@ -42,7 +42,7 @@ Ext.define('Locales.AliveTracker', {
          */
         SET_NEW_PASSWORD_LABEL_PASSWORD: 'New Password',
         SET_CONFIRM_PASSWORD_VERIFICATION_LABEL: 'Confirm Password',
-        SET_RESET_PASSWORD_LABEL: 'Reset Password',
+        SET_RESET_PASSWORD_LABEL: 'Reset',
         /**
          * Password Verification  View
          */

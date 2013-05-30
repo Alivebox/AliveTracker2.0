@@ -18,7 +18,8 @@ Ext.define('AliveTracker.ux.PasswordVerification', {
                 minLength:8,
                 vtype:'confirmPassword',
                 comparePasswordField:'confirmPasswordProfile',
-                inputType:'password'
+                inputType:'password',
+                cls:'text-field-password-verification'
             },
             {
                 xtype:'textfield',
@@ -29,7 +30,8 @@ Ext.define('AliveTracker.ux.PasswordVerification', {
                 minLength:8,
                 inputType:'password',
                 vtype:'confirmPassword',
-                comparePasswordField:'passwordProfile'
+                comparePasswordField:'passwordProfile',
+                cls:'text-field-password-verification'
             }
         ];
         this.callParent(arguments);

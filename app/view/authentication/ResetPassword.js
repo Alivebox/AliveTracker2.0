@@ -7,15 +7,17 @@ Ext.define('AliveTracker.view.authentication.ResetPassword', {
         this.items = [
             {
                 xtype: 'label',
-                text: Locales.AliveTracker.RESET_PASSWORD_NEW
+                text: Locales.AliveTracker.RESET_PASSWORD_NEW,
+                cls:'title'
             },
             {
                 xtype: 'passwordverification',
-                itemId:'passwordverification'
+                itemId:'passwordverification',
+                cls:'password-verification'
             },
             {
                 xtype: 'button',
-                cls: 'all-views-button userprofile-button',
+                cls: 'all-views-button',
                 text: Locales.AliveTracker.SET_RESET_PASSWORD_LABEL,
                 listeners:{
                     scope:this,
