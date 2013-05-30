@@ -41,7 +41,11 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                 fieldCls: 'forgot-password-view-forms',
                 emptyText: Locales.AliveTracker.FORGOT_PASSWORD_LABEL_MAIL,
                 maxLength:50,
-                vtype:'email'
+                vtype:'email',
+                listeners:{
+                    scope:this,
+                    specialkey:this.onEnterKey
+                }
             },
             {
                 xtype:'button',
@@ -57,6 +61,12 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     },
     onSendInstructionsClick:function () {
         this.fireEvent('sendInstructionsClick',this);
+    },
+
+    onEnterKey:function (field, e) {
+        if(e.getKey() == e.ENTER){
+            this.fireEvent('sendInstructionsClick',this);
+        }
     },
 
     onClosePopUp: function(){

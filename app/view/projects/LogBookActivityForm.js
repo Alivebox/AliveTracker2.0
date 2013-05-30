@@ -19,14 +19,14 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_ACTIVITY,
-                        columnWidth:.60,
+                        columnWidth:.74,
                         cls: 'logbook-label'
                     },
                     {
                         xtype: 'label',
                         text: Locales.AliveTracker.PROJECTS_COLUMN_HEADER_TIME,
                         cls: 'logbook-time-label',
-                        columnWidth:.20
+                        columnWidth:.05
                     },
                     {
                         xtype: 'label',
@@ -67,14 +67,13 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         disabled: true,
                         fieldCls: 'logbook-view-form',
                         cls: 'logbook-form-align',
-                        columnWidth:.60,
+                        columnWidth:.75,
                         regex: /[a-zA-Z0-9]+/,
                         maxLength:300
                     },
                     {
                         xtype: 'numberfield',
-                        name: 'time',
-                        columnWidth:.20,
+                        columnWidth:.05,
                         fieldCls: 'logbook-view-form',
                         allowNegative:false,
                         itemId: 'time',
