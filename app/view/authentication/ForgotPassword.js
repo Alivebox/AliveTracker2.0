@@ -23,14 +23,12 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
                         cls: 'forgot-password-view-txt'
                     },
                     {
-                        xtype: 'image',
-                        cls: 'forgot-password-close-icon',
-                        src: 'resources/images/delete.png',
+                        xtype: 'button',
+                        cls: 'project-users-popup-view-icon',
+                        icon: 'resources/images/delete.png',
                         listeners: {
-                            el: {
-                                scope: this,
-                                click: this.onClosePopUp
-                            }
+                            scope: this,
+                            click: this.onClosePopUp
                         }
                     }
                 ]

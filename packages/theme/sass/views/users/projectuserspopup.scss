@@ -23,8 +23,16 @@
   background: -webkit-linear-gradient(top,  #a5be4e 1%,#8ca33a 50%,#8ca33a 100%); /* Chrome10+,Safari5.1+ */
 }
 
-.project-users-popup-view-icon{
+.project-users-popup-view-icon {
+  background-color: transparent;
+  background-image: none;
+  border-style: none;
   float: right;
+  margin: 0;
+}
+
+.project-users-popup-view-icon .x-btn-icon{
+  margin: 0;
 }
 
 .project-users-popup-view-button .x-btn-center span {
@@ -71,10 +79,6 @@
   margin-bottom: 10px;
 }
 
-.x-field-label-cell{
-  width: 45px;
-}
-
 .project-arrow-button{
   width: 21px;
   height: 25px;
@@ -89,7 +93,7 @@
 }
 
 .project-arrow-buttons-container{
-  margin-top: 50px;
+  margin-top: 42px;
   margin-right: 8px;
   margin-left: 8px;
 }

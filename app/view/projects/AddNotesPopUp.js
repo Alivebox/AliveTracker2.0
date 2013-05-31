@@ -24,14 +24,12 @@ Ext.define('AliveTracker.view.projects.AddNotesPopUp', {
                         cls: 'add-notes-pop-up-view-txt'
                     },
                     {
-                        xtype: 'image',
-                        cls: 'add-notes-popup-icon',
-                        src: 'resources/images/delete.png',
+                        xtype: 'button',
+                        cls: 'project-users-popup-view-icon',
+                        icon: 'resources/images/delete.png',
                         listeners: {
-                            el: {
-                                scope: this,
-                                click: this.onCloseClick
-                            }
+                            scope: this,
+                            click: this.onCloseClick
                         }
                     }
                 ]

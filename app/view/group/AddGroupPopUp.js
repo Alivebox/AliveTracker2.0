@@ -24,14 +24,12 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                         cls: 'add-group-pop-up-view-txt'
                     },
                     {
-                        xtype: 'image',
-                        cls: 'add-group-pop-up-close',
-                        src: 'resources/images/delete.png',
+                        xtype: 'button',
+                        cls: 'project-users-popup-view-icon',
+                        icon: 'resources/images/delete.png',
                         listeners: {
-                            el: {
-                                scope: this,
-                                click: this.onCloseWindow
-                            }
+                            scope: this,
+                            click: this.onCloseWindow
                         }
                     }
                 ]

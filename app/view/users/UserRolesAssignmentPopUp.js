@@ -14,14 +14,12 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
     initComponent:function () {
         this.items = [
             {
-                xtype: 'image',
-                src: 'resources/images/delete.png',
+                xtype: 'button',
+                icon: 'resources/images/delete.png',
                 cls: 'project-users-popup-view-icon',
                 listeners: {
-                    el: {
-                        scope: this,
-                        click: this.onClosePopUp
-                    }
+                    scope: this,
+                    click: this.onClosePopUp
                 }
             },
             {
