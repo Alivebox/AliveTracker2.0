@@ -181,6 +181,7 @@ Ext.define('Locales.AliveTracker', {
         /**
          * Validation Labels
          */
+        VALIDATION_FIELD_REQUIRED: 'This field is required',
         VALIDATION_LABEL_EMAIL_REQUIRED: 'Email is required',
         VALIDATION_LABEL_EMAIL_FORMAT: 'This field must be an email address "user@domain.com"',
         VALIDATION_LABEL_PASSWORD_MIN_LENGTH: 'Password must be at least 8 characters'

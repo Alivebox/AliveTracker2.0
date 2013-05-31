@@ -19,7 +19,8 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
                 beforeshow: this.showUsername,
                 showUserProfile: this.showUserProfile,
                 logout:this.logout,
-                logoClick: this.showHomePage
+                logoClick: this.showHomePage,
+                goHome: this.onGoHome
             }
         });
     },
@@ -45,6 +46,10 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
             urlOverride: AliveTracker.defaults.WebServices.USER_LOG_OUT
         });
 
+    },
+
+    onGoHome: function(){
+        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     onLogoutSuccess: function(argRecord){

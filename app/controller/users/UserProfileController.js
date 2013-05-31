@@ -85,7 +85,6 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     },
 
     onGoHome: function(){
-      debugger;
        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     }
 

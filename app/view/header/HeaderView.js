@@ -27,14 +27,21 @@ Ext.define('AliveTracker.view.header.HeaderView', {
                 cls: 'username-label'
             },
             {
-                xtype:'image',
-                cls:'logo'
+                xtype:'button',
+                cls:'logo',
+                listeners:{
+                    scope: this,
+                    click: this.onGoHome
+                }
             }
         ];
         this.callParent(arguments);
     },
     onUserProfile: function(){
         this.fireEvent('showUserProfile');
+    },
+    onGoHome: function(){
+        this.fireEvent('goHome', this);
     },
     onLogout: function(){
         this.fireEvent('logout');
