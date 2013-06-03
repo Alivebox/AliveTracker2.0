@@ -78,7 +78,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         allowNegative:false,
                         decimalSeparator: '.',
                         enforceMaxLength: true,
-                        maxLength: 2,
+                        maxLength: 5,
                         itemId: 'time',
                         value: 1,
                         maxValue: 24,

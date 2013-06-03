@@ -20,7 +20,7 @@ Ext.define('AliveTracker.view.users.UsersList', {
                     text:Locales.AliveTracker.USERS_LABEL_NAME,
                     sortable:false,
                     flex: 1,
-                    dataIndex:'name'
+                    dataIndex:'email'
                 }
             ]
         });
