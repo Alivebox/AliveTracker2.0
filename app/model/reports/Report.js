@@ -24,7 +24,15 @@ Ext.define('AliveTracker.model.reports.Report', {
         {
             name:'date',
             type:'string'
-        }
+        },
+        {
+            name:'user',
+            type:'string'
+        },
+        {
+            name:'user_name',
+            type:'string'
+        },
     ],
 
     proxy: {

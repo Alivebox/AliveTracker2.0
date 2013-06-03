@@ -55,9 +55,10 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         this.control({
             'reportsform': {
                 beforeshow: this.onBeforeShow,
+                hide: this.onHide,
                 exportReport: this.onExportReport,
                 dateRangeComboSelection: this.onDateRangeComboSelection,
-                groupSelected: this.loadAssignedUsersStore,
+                groupSelected: this.loadUsersStore,
                 showPreview: this.onShowPreview,
                 sortColumn: this.changeColumnBackground,
                 comboItemSelected: this.enablePreviewButton
@@ -70,7 +71,25 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     onBeforeShow: function(){
         var tmpField = this.getDateRange();
+        var tmpProjectStore = Ext.getStore('projects.Projects');
         tmpField.setHiddenProperty(true);
+        if(this.userHasAllPermissions()){
+            var tmpProject = Ext.create('AliveTracker.model.projects.Project',{
+                name: Locales.AliveTracker.REPORTS_ALL_PROJECTS
+            });
+            if(tmpProjectStore.getAt(0).data.id != 0){
+                tmpProjectStore.insert(0,tmpProject);
+                tmpProjectStore.commitChanges();
+            }
+        }
+    },
+
+    onHide: function(){
+        var tmpProjectStore = Ext.getStore('projects.Projects');
+        if(tmpProjectStore.getAt(0).data.id == 0){
+            tmpProjectStore.removeAt(0);
+            tmpProjectStore.commitChanges();
+        }
     },
 
     onDateRangeComboSelection: function(){
@@ -110,55 +129,29 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         }
     },
 
-    /**
-     * Loads the Users store
-     */
-    loadAssignedUsersStore: function(){
-        var tmpProjectId = this.getCmbProject().value;
-        var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
-        this.getCmbUser().clearValue();
-        tmpProjectDetailStore.removeAll();
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_PROJECTS,tmpProjectId);
-        tmpProjectDetailStore.load({
-            scope: this,
-            urlOverride: tmpUrl,
-            callback: this.loadProjectStoreResult
-        });
-    },
-
-    loadProjectStoreResult: function(argRecords,argOperation,argSuccess){
-        if(argSuccess) {
-            var tmpAssignedUsersStore = Ext.getStore('users.AssignedUsers');
-            tmpAssignedUsersStore.removeAll();
-            var tmpUserList = argRecords[0].data.users;
-            var tmpProjectDetailStore = Ext.getStore('projects.ProjectDetails');
-            var tmpProjectUsers = Ext.getStore('users.ProjectUsers');
-            var tmpGroupUsers = Ext.getStore('users.GroupUsers');
-            tmpProjectDetailStore.add(argRecords[0].data);
-            for (var tmpCont = 0; tmpCont <= tmpUserList.length-1; tmpCont++){
-                tmpAssignedUsersStore.add(tmpUserList[tmpCont])
-            }
-            for(var tmpCont=0; tmpCont < tmpGroupUsers.data.items.length; tmpCont++){
-                var tmpUser = tmpGroupUsers.data.items[tmpCont].data;
-                if(tmpAssignedUsersStore.getById(tmpUser.id) == null){
-                    tmpProjectUsers.add(tmpUser);
-                    tmpProjectUsers.commitChanges();
-                }
-            }
-            this.loadUsersStore();
-        }
-    },
-
     loadUsersStore: function(){
         var tmpProjectId = this.getCmbProject();
         var tmpUsersStore = Ext.getStore('users.Users');
+        this.getCmbUser().clearValue();
+        if(tmpProjectId.value == 0){
+            var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP, Ext.state.Manager.get('groupId'));
+            tmpUsersStore.load({
+                scope: this,
+                urlOverride:  tmpStoreUrl,
+                callback: this.enableAdminUsersCombo
+            });
+            return;
+        }
         if(this.userHasAllPermissions() || this.isProjectAdmin(Framework.core.SecurityManager.getCurrentUsername())){
             var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
+            tmpUsersStore.load({
+                scope: this,
+                urlOverride:  tmpStoreUrl,
+                callback: this.enableAdminUsersCombo
+            });
+            return;
         }
-        else{
-            var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Framework.core.SecurityManager.getCurrentUsername());
-        }
-
+        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Framework.core.SecurityManager.getCurrentUsername());
         tmpUsersStore.load({
             scope: this,
             urlOverride:  tmpStoreUrl,
@@ -168,6 +161,16 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     enableUsersCombo: function(){
         this.getCmbUser().setDisabled(false);
+    },
+
+    enableAdminUsersCombo: function(){
+        this.getCmbUser().setDisabled(false);
+        var tmpUsersStore = Ext.getStore('users.Users');
+        var tmpUser = Ext.create('AliveTracker.model.users.User',{
+            email: Locales.AliveTracker.REPORTS_ALL_USERS
+        });
+        tmpUsersStore.insert(0,tmpUser);
+        tmpUsersStore.commitChanges();
     },
 
     userHasAllPermissions: function(){
@@ -211,7 +214,14 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     onloadReportSuccess: function(){
         var tmpReportsStore = Ext.getStore('reports.Reports');
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
         if(tmpReportsStore.getCount() > 0){
+            for(var tmpIndex=0; tmpIndex < tmpReportsStore.getCount(); tmpIndex++){
+                var tmpReport = tmpReportsStore.getAt(tmpIndex);
+                var tmpUser = this.getUserByIndex(tmpReport.get('user'));
+                tmpReport.set('user_name',tmpUser);
+                tmpReportsStore.commitChanges();
+            }
             this.getExportButton().setDisabled(false);
             return;
         }
@@ -219,13 +229,22 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         this.getExportButton().setDisabled(true);
     },
 
+    getUserByIndex: function(argUserId){
+        var tmpUsersGroupStore = Ext.getStore('users.GroupUsers');
+        for(var tmpIndex=0; tmpIndex <tmpUsersGroupStore.getCount(); tmpIndex++){
+            var tmpUser = tmpUsersGroupStore.getAt(tmpIndex);
+            if(tmpUser.get('id')==argUserId){
+                return tmpUser.get('name');
+            }
+        }
+    },
+
     enablePreviewButton: function(){
         var tmpReportsForm = this.getReportsform();
-        var tmpUser = this.getCmbUser().value;
         var tmpDateRange = this.getCmbDateRange().value;
         var tmpStartDate = this.getDateRange().getStartValue();
         var tmpEndDate = this.getDateRange().getEndValue();
-        if(tmpDateRange && tmpUser || (tmpDateRange == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION)){
+        if(tmpDateRange || (tmpDateRange == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION)){
             if(tmpDateRange == AliveTracker.defaults.Constants.REPORTS_CUSTOM_DATERANGE_OPTION){
                 tmpReportsForm.down('button[itemId=btnPreview]').setDisabled(true);
                 if(!(tmpStartDate && tmpEndDate)){

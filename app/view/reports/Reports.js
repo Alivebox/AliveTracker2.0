@@ -114,9 +114,23 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         header: Locales.AliveTracker.REPORTS_LABEL_PROJECT,
                         menuDisabled:true,
-                        sortable: false,
                         cls: 'report-grid-column',
                         dataIndex: 'project_name',
+                        listeners:{
+                            scope: this,
+                            headerclick: this.onSortColumn
+                        },
+                        flex: 1
+                    },
+                    {
+                        header: Locales.AliveTracker.REPORTS_LABEL_USER,
+                        menuDisabled:true,
+                        cls: 'report-grid-column',
+                        dataIndex: 'user_name',
+                        listeners:{
+                            scope: this,
+                            headerclick: this.onSortColumn
+                        },
                         flex: 1
                     },
                     {
@@ -133,9 +147,12 @@ Ext.define('AliveTracker.view.reports.Reports', {
                     {
                         header: Locales.AliveTracker.REPORTS_LABEL_DATE,
                         menuDisabled:true,
-                        sortable: false,
                         cls: 'report-grid-column',
                         dataIndex: 'date',
+                        listeners:{
+                            scope: this,
+                            headerclick: this.onSortColumn
+                        },
                         flex: 1
                     }
                 ]

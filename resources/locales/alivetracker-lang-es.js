@@ -79,6 +79,8 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LABEL_PREVIEW: 'Vista Previa',
         REPORTS_LABEL_ACTIVITY: 'Actividad',
         REPORTS_LABEL_DATE: 'Fecha',
+        REPORTS_ALL_USERS: 'Todos los Usuarios',
+        REPORTS_ALL_PROJECTS: 'Todos los Proyectos',
         /**
          * Header View
          */

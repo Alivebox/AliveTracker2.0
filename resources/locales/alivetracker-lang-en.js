@@ -77,6 +77,8 @@ Ext.define('Locales.AliveTracker', {
         REPORTS_LABEL_PREVIEW: 'Preview',
         REPORTS_LABEL_ACTIVITY: 'Actividad',
         REPORTS_LABEL_DATE: 'Date',
+        REPORTS_ALL_USERS: 'All Users',
+        REPORTS_ALL_PROJECTS: 'All Projects',
         /**
          * Home View
          */

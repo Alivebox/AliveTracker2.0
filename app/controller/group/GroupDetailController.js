@@ -240,6 +240,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     reloadLogStore: function (){
+        Ext.getStore('reports.Reports').removeAll();
         Ext.getStore('projects.Logs').removeAll();
         var tmpSelectDate = Ext.Object.toQueryString({date: this.getDatepicker().getValue('Y-m-d')});
         var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_LOGS_USER_GROUP_DATE, Ext.state.Manager.get('groupId'), tmpSelectDate);
