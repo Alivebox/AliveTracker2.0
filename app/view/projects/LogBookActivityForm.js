@@ -86,7 +86,8 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         hideTrigger: true,
                         listeners:{
                             scope:this,
-                            specialkey:this.onEnterKeyPressed
+                            specialkey:this.onEnterKeyPressed,
+                            focus: this.onNumberFocus
                         }
                     },
                     {
@@ -119,6 +120,10 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
 
     onComboItemSelected: function(){
         this.fireEvent('comboProjectSelected');
+    },
+
+    onNumberFocus: function(){
+        this.fireEvent('numberFieldFocus');
     }
 
 });

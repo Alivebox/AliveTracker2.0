@@ -64,7 +64,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
             },
             'logbookactivityform': {
                 addActivity:this.onAddNewActivity,
-                comboProjectSelected: this.enableActivityField
+                comboProjectSelected: this.enableActivityField,
+                numberFieldFocus: this.onNumberFieldFocus
             },
             'logbookgrid':{
                 deleteLog: this.onShowDeleteConfirm,
@@ -98,6 +99,11 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     enableActivityField:function () {
         var tmpActivityTextField = this.getLogsform().down('textfield[itemId=txtActivity]');
         tmpActivityTextField.setDisabled(false);
+    },
+
+    onNumberFieldFocus: function(){
+        var tmpTimeNumberField = this.getLogsform().down('numberfield[itemId=time]');
+        tmpTimeNumberField.selectText();
     },
 
     onAddNewActivity:function () {

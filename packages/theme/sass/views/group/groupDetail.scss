@@ -72,17 +72,16 @@
 .groupTab .x-toolbar .x-btn{
   border-color: $buttonbordercolor;
   height: 25px;
-  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%); /* FF3.6+ */
+  background: #a5be4e; /* Old browsers */
+  background: -moz-linear-gradient(top,  #a5be4e 32%, #8ca33a 57%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(32%,#a5be4e), color-stop(57%,#8ca33a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #a5be4e 32%,#8ca33a 57%); /* Chrome10+,Safari5.1+ */
+  background: -webkit-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* IE10+ */
+  background: linear-gradient(to bottom,  #a5be4e 32%,#8ca33a 57%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 ); /* IE6-9 */
   border-radius:4px 4px 0px 0px;
   border-color: $buttonbordercolor;
-}
-
-.groupTab .x-toolbar .x-over{
-  background: -moz-linear-gradient(top, #a4be07 32%, #7aa10c 57%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a4be07), color-stop(57%, #7aa10c)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #a4be07 32%, #7aa10c 57%); /* Chrome10+,Safari5.1+ */
 }
 
 .groupTab .x-toolbar .x-btn .x-btn-inner{

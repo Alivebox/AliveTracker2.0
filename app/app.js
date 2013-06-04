@@ -13,6 +13,11 @@ Ext.syncRequire([
 //@require @packageOverrides
 Ext.application({
 
+    init: function () {
+        Ext.supports['CSS3BorderRadius'] = true;
+        Ext.getBody().removeCls('x-nbr x-nlg');
+    },
+
     requires: [
         'AliveTracker.defaults.Constants',
         'AliveTracker.util.VTypesOverrides',
