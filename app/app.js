@@ -16,6 +16,7 @@ Ext.application({
     init: function () {
         Ext.supports['CSS3BorderRadius'] = true;
         Ext.getBody().removeCls('x-nbr x-nlg');
+        Ext.getBody().removeCls('x-ie x-btn button');
     },
 
     requires: [
