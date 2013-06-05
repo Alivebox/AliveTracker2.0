@@ -73,22 +73,26 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         var tmpField = this.getDateRange();
         var tmpProjectStore = Ext.getStore('projects.Projects');
         tmpField.setHiddenProperty(true);
-        if(this.userHasAllPermissions()){
-            var tmpProject = Ext.create('AliveTracker.model.projects.Project',{
-                name: Locales.AliveTracker.REPORTS_ALL_PROJECTS
-            });
-            if(tmpProjectStore.getAt(0).data.id != 0){
-                tmpProjectStore.insert(0,tmpProject);
-                tmpProjectStore.commitChanges();
+        if(tmpProjectStore.getCount() > 0){
+            if(this.userHasAllPermissions()){
+                var tmpProject = Ext.create('AliveTracker.model.projects.Project',{
+                    name: Locales.AliveTracker.REPORTS_ALL_PROJECTS
+                });
+                if(tmpProjectStore.getAt(0).data.id != 0){
+                    tmpProjectStore.insert(0,tmpProject);
+                    tmpProjectStore.commitChanges();
+                }
             }
         }
     },
 
     onHide: function(){
         var tmpProjectStore = Ext.getStore('projects.Projects');
-        if(tmpProjectStore.getAt(0).data.id == 0){
-            tmpProjectStore.removeAt(0);
-            tmpProjectStore.commitChanges();
+        if(tmpProjectStore.getCount() > 0){
+            if(tmpProjectStore.getAt(0).data.id == 0){
+                tmpProjectStore.removeAt(0);
+                tmpProjectStore.commitChanges();
+            }
         }
     },
 
@@ -175,7 +179,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
 
     userHasAllPermissions: function(){
         var tmpLoginUsersStore = Ext.getStore('users.LoginUsers');
-        var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idpermission;
+        var tmpIdPermission = tmpLoginUsersStore.getAt(0).getData().idPermission;
         if(tmpIdPermission == 1){
             return true;
         }
