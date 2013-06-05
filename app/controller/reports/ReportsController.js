@@ -72,6 +72,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
     onBeforeShow: function(){
         var tmpField = this.getDateRange();
         var tmpProjectStore = Ext.getStore('projects.Projects');
+        this.getReportsform().down('combobox[itemId=dateRangeComboReports]').clearValue();
         tmpField.setHiddenProperty(true);
         if(tmpProjectStore.getCount() > 0){
             if(this.userHasAllPermissions()){
@@ -238,7 +239,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         for(var tmpIndex=0; tmpIndex <tmpUsersGroupStore.getCount(); tmpIndex++){
             var tmpUser = tmpUsersGroupStore.getAt(tmpIndex);
             if(tmpUser.get('id')==argUserId){
-                return tmpUser.get('name');
+                return tmpUser.get('email');
             }
         }
     },
