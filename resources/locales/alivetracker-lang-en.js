@@ -107,6 +107,8 @@ Ext.define('Locales.AliveTracker', {
         GROUP_DETAIL_EDIT_USER_OF_PROJECT: 'Edit users assigned to project',
         GROUP_DETAIL_REMOVE_USER_OF_PROJECT: 'Remove project from group',
         GROUPS_ADD_BUTTON: 'Add Group',
+        GROUPS_DELETE_LABEL: 'Delete Group',
+        GROUPS_EDIT_LABEL: 'Edit Group',
         /**
          * Group Project View
          */

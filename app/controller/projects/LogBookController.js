@@ -60,6 +60,7 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
     init:function () {
         this.control({
             'logbook':{
+                afterrender: this.onLogAfterRender,
                 datePickerChanged:this.reloadLogStore
             },
             'logbookactivityform': {
@@ -85,6 +86,12 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
                 itemBlur: this.hideDeleteIcon
             }
         });
+    },
+
+    onLogAfterRender: function (){
+        var tmpMonthButton = this.getDatepicker().monthBtn;;
+        tmpMonthButton.setTooltip('');
+        tmpMonthButton.suspendEvents(true);
     },
 
     onTotalTimeUpdate:function () {

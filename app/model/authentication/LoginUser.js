@@ -22,7 +22,7 @@ Ext.define('AliveTracker.model.authentication.LoginUser', {
             type:'int'
         },
         {
-            name:'idpermission',
+            name:'idPermission',
             type:'int'
         },
         {
