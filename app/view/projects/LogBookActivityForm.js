@@ -69,7 +69,11 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         cls: 'logbook-form-align',
                         columnWidth:.75,
                         regex: /[a-zA-Z0-9]+/,
-                        maxLength:300
+                        maxLength:300,
+                        listeners:{
+                            scope:this,
+                            specialkey:this.onEnterKeyPressed
+                        }
                     },
                     {
                         xtype: 'numberfield',
@@ -80,6 +84,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         enforceMaxLength: true,
                         maxLength: 5,
                         itemId: 'time',
+                        allowBlank: false,
                         value: 1,
                         maxValue: 24,
                         minValue: 1,

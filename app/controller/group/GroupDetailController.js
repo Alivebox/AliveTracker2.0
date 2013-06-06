@@ -50,7 +50,7 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         },
         {
             ref:'groupModelForm',
-            selector:'addgrouppopup form[name=groupModelForm]'
+            selector:'addgrouppopup [name=groupModelForm]'
         },
         {
             ref:'logbookForm',
@@ -301,6 +301,9 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     },
 
     saveGroup: function(argWindow){
+        if(!this.getGroupModelForm().isValid()){
+            return;
+        }
         var tmpGroupModel = this.createModelGroup();
         var tmpId = tmpGroupModel.data.id;
         tmpGroupModel.setProxy({

@@ -40,9 +40,9 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                 name: 'homeGroup',
                 items: [
                     {
-                        xtype: 'form',
+                        xtype: 'formcontainer',
                         cls: 'add-group-pop-up-view-forms-align',
-                        border: false,
+                        modelClassName: 'AliveTracker.model.groups.Group',
                         name: 'groupModelForm',
                         items: [
                             {
@@ -59,7 +59,6 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelWidth: 120,
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
-                                allowBlank:false,
                                 regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },
@@ -72,7 +71,6 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelWidth: 120,
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
-                                allowBlank: false,
                                 regex: /[a-zA-Z0-9]+/,
                                 maxLength:300
                             },

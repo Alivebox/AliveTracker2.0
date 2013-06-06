@@ -45,9 +45,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
                         cls: 'loginregister-field register-username-field',
                         fieldCls: 'loginregister-forms',
                         emptyText: Locales.AliveTracker.REGISTER_LABEL_EMAIL,
-                        allowBlank:false,
-                        maxLength:50,
-                        vtype:'email'
+                        maxLength:50
                     },
                     {
                         name: 'password',
@@ -55,7 +53,6 @@ Ext.define('AliveTracker.view.authentication.Register', {
                         cls: 'loginregister-field register-password-field',
                         fieldCls: 'loginregister-forms',
                         emptyText: Locales.AliveTracker.REGISTER_LABEL_PASSWORD,
-                        allowBlank:false,
                         maxLength:20,
                         inputType:'password',
                         listeners:{

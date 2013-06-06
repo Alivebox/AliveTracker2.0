@@ -33,6 +33,17 @@ Ext.define('AliveTracker.model.groups.Group', {
             name: 'default_group',
             type: 'boolean'
         }
-    ]
+    ],
+
+    validations: [
+        {
+            type: 'presence',
+            field: 'name'
+        },
+        {
+            type: 'presence',
+            field: 'description'
+        }
+    ],
 
 });

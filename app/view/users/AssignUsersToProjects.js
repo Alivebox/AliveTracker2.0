@@ -20,7 +20,6 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                         cls: 'project-users-popup-view-forms-align',
                         fieldCls: 'project-users-popup-view-forms',
                         labelCls: 'project-users-popup-view-label',
-                        allowBlank:false,
                         regex: /[a-zA-Z0-9]+/,
                         fieldLabel: Locales.AliveTracker.USERS_LABEL_PROJECT,
                         maxLength:250
