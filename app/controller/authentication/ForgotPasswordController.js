@@ -42,7 +42,7 @@ Ext.define('AliveTracker.controller.authentication.ForgotPasswordController', {
     },
     onSendResetInstructionsResult: function(argRecord){
         Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_EMAIL_INSTRUCTION);
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'loginPage');
+        Mercury.core.EventBus.fireEvent(Mercury.core.Events.EVENT_SHOW_PAGE, 'loginPage');
         this.forgotPasswordPopup.hide();
     },
     onShowForgotPasswordPopup:function () {

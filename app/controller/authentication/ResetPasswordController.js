@@ -35,7 +35,7 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
         var tmpForgotPassword = Ext.create('AliveTracker.model.authentication.ForgotPassword',{
             email: tmpQueryStringObject.email,
             token: tmpQueryStringObject.token,
-            password: Framework.util.MD5Util.calcMD5(tmpPassword)
+            password: Mercury.util.MD5Util.calcMD5(tmpPassword)
         });
         tmpForgotPassword.save({
             scope: this,
@@ -46,9 +46,9 @@ Ext.define('AliveTracker.controller.authentication.ResetPasswordController', {
 
     onResetPasswordCallback: function(argRecord){
         var tmpUser = argRecord;
-        Framework.core.SecurityManager.logInUser(argRecord.data.email,this.getDefaultPermissions());
+        Mercury.core.SecurityManager.logInUser(argRecord.data.email,this.getDefaultPermissions());
         Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SET_PASSWORD_SUCCESS_RESET);
-        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
+        Mercury.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     getDefaultPermissions: function(){

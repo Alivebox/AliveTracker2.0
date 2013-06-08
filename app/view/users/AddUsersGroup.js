@@ -10,7 +10,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
             {
                 xtype: 'container',
                 cls: 'add-user-container',
-                layout: 'hbox',
+                layout: 'column',
                 items: [
                     this.autoCompleteBox,
                     {
@@ -40,7 +40,7 @@ Ext.define('AliveTracker.view.users.AddUsersGroup', {
     },
 
     getAutoCompleteBox: function(){
-        var tmpAutoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
+        var tmpAutoCompleteBox = Ext.create('Mercury.ux.form.AutoCompleteBox',{
             itemId: 'autoCompleteBox',
             displayField: 'email',
             cls: 'add-users-group-form',

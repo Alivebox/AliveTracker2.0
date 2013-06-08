@@ -35,9 +35,9 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     currentUser: null,
 
     onLoadFields: function(){
-        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Framework.core.SecurityManager.getCurrentUsername());
+        var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS,Mercury.core.SecurityManager.getCurrentUsername());
         this.currentUser = Ext.create('AliveTracker.model.users.User',{
-            email: Framework.core.SecurityManager.getCurrentUsername()
+            email: Mercury.core.SecurityManager.getCurrentUsername()
         });
         this.currentUser.setProxy({
             type: 'restproxy',
@@ -62,7 +62,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
             var tmpRecord = tmpForm.getRecord();
             var tmpUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.UPDATE_USER,this.currentUser.getData().id);
             if(!tmpPasswordField.isHidden()){
-                this.currentUser.set('password',Framework.util.MD5Util.calcMD5(tmpRecord.getData().password));
+                this.currentUser.set('password',Mercury.util.MD5Util.calcMD5(tmpRecord.getData().password));
             }
             this.currentUser.setProxy({
                 type: 'restproxy',
@@ -85,7 +85,7 @@ Ext.define('AliveTracker.controller.users.UserProfileController', {
     },
 
     onGoHome: function(){
-       Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
+        Mercury.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     }
 
 });

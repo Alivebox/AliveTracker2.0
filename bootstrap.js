@@ -5,87 +5,122 @@
  * metadata-driven class system features 
  */
 Ext.Loader.addClassPathMappings({
-  "Ext": "ext/src",
+  "Mercury.ux.view.TreeTabViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
   "AliveTracker": "app",
-  "Framework": "framework",
-  "Ext.ux.GroupTreeChunker": "ext/src/ux/GroupTabPanel.js"
+  "Mercury.core.LocalizationManager": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.Events": "resources/js/mercuryext.min-1.0.0.js",
+  "Ext.rtl.EventObjectImpl": "ext/src/rtl/EventObject.js",
+  "Mercury.core.ErrorsManager": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.SecurityManager": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.container.IFrameContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.FileLoader": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.Main": "resources/js/mercuryext.min-1.0.0.js",
+  "Ext": "ext/src",
+  "Mercury.core.Defaults": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.ViewsManagerUI": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.form.AutoCompleteBox": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.ObjectUtil": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.ViewItem": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.MultipleScriptInjector": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.HotkeysUtil": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.StylesUtil": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.view.BaseViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.ViewsManager": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.util.EnhancedComponentDragger": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.form.DoubleEnhancedDatePicker": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.form.EnhancedDatePicker": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.view.TreeViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.form.FormContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.popup.ErrorWindow": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.view.CardViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.container.TabContainer": "resources/js/mercuryext.min-1.0.0.js",
+  " Ext.Msg": "ext/src/window/MessageBox.js",
+  "Mercury.ux.data.RestProxy": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.MD5Util": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.ModelLocator": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.view.SimpleViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.util.DragSelectionUtil": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.view.TabViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.ux.data.RestJsonReader": "resources/js/mercuryext.min-1.0.0.js",
+  "Mercury.core.EventBus": "resources/js/mercuryext.min-1.0.0.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
-  "AliveTracker.view.home.HomeBelongGroupsGrid": [],
-  "Framework.ux.UxDependencies": [],
   "AliveTracker.controller.authentication.LoginController": [],
   "AliveTracker.store.projects.Logs": [],
   "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.ajax.DataSimlet": [],
   "AliveTracker.model.users.User": [],
+  "Mercury.core.ErrorsManager": [],
   "AliveTracker.ux.PasswordVerification": [],
   "AliveTracker.view.projects.LogBookGrid": [],
   "AliveTracker.controller.authentication.RegisterController": [],
+  "Mercury.Main": [],
+  "AliveTracker.view.authentication.Login": [],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [],
-  "AliveTracker.view.authentication.Login": [],
   "AliveTracker.ux.AliveTrackerUxDependencies": [],
-  "Ext.ux.DataView.DragSelector": [],
+  "Mercury.core.Defaults": [],
   "AliveTracker.controller.authentication.ForgotPasswordController": [],
+  "Ext.ux.DataView.DragSelector": [],
   "AliveTracker.view.header.HeaderView": [],
-  "Framework.ux.view.TreeViewsContainer": [],
   "Ext.ux.grid.menu.ListMenu": [],
-  "Framework.util.MD5Util": [],
-  "Framework.ux.container.TabContainer": [],
   "Ext.ux.form.MultiSelect": [
     "Ext.ux.Multiselect"
   ],
   "AliveTracker.controller.users.AssignUsersToProjectsController": [],
+  "Mercury.core.ViewsManager": [],
+  "Mercury.ux.form.DoubleEnhancedDatePicker": [],
   "AliveTracker.controller.header.HeaderController": [],
-  "Framework.ux.view.CardViewsContainer": [],
-  "Framework.util.ObjectUtil": [],
+  "Mercury.ux.view.CardViewsContainer": [],
   "AliveTracker.model.projects.LogBook": [],
-  "Ext.ux.CheckColumn": [],
   "Ext.ux.PreviewPlugin": [],
   "AliveTracker.defaults.WebServices": [],
-  "Framework.ux.data.RestProxy": [],
-  "Framework.ux.form.AutoCompleteBox": [],
-  "Ext.ux.ajax.SimXhr": [],
   "AliveTracker.view.authentication.ResetPassword": [],
+  "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [],
   "Ext.ux.ajax.Simlet": [],
   "AliveTracker.controller.group.AddUsersGroupController": [],
   "AliveTracker.view.users.AddUsersGroup": [],
   "Ext.ux.SlidingPager": [],
   "AliveTracker.store.reports.Reports": [],
+  "AliveTracker.store.projects.Notes": [],
   "Ext.ux.TabReorderer": [],
   "AliveTracker.view.projects.ProjectsGrid": [],
   "Ext.ux.grid.filter.NumericFilter": [],
   "AliveTracker.model.authentication.ForgotPassword": [],
-  "Framework.ux.data.RestJsonReader": [],
+  "Mercury.core.Events": [],
   "AliveTracker.view.Main": [],
   "AliveTracker.model.projects.Log": [],
   "Ext.ux.event.Recorder": [],
-  "Framework.ux.util.EnhancedComponentDragger": [],
   "AliveTracker.controller.reports.ReportsController": [],
   "Ext.ux.ajax.SimManager": [],
   "AliveTracker.ux.DatePickerField": [],
   "AliveTracker.store.groups.GroupsDTO": [],
+  "Mercury.ux.form.AutoCompleteBox": [],
   "Ext.ux.grid.filter.BooleanFilter": [],
-  "AliveTracker.controller.home.HomeController": [],
   "AliveTracker.view.users.UsersGrid": [],
   "AliveTracker.controller.users.UserProfileController": [],
   "Ext.ux.TabScrollerMenu": [],
   "AliveTracker.store.users.NewUsers": [],
+  "Mercury.core.ViewItem": [],
   "Ext.ux.IFrame": [],
+  "Mercury.util.HotkeysUtil": [],
   "AliveTracker.view.users.UserProfile": [],
   "Ext.ux.form.SearchField": [],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "AliveTracker.view.reports.Reports": [],
+  "AliveTracker.store.projects.ActivityNotes": [],
   "AliveTracker.controller.group.GroupDetailController": [],
   "Ext.ux.LiveSearchGridPanel": [],
+  "Mercury.ux.view.TreeViewsContainer": [],
   "AliveTracker.view.users.UsersList": [],
   "Ext.ux.grid.filter.DateFilter": [],
+  "Mercury.ux.container.TabContainer": [],
+  "Mercury.ux.form.FormContainer": [],
   "AliveTracker.view.users.AssignUsersToProjects": [],
   "Ext.ux.TreePicker": [],
-  "AliveTracker.controller.Main": [],
-  "Framework.core.ViewsManager": [],
-  "AliveTracker.view.home.AddGroupPopUp": [],
   "AliveTracker.util.VTypesOverrides": [],
   "AliveTracker.controller.MainController": [],
   "AliveTracker.view.users.AssignedUsersGrid": [],
@@ -94,46 +129,46 @@ Ext.ClassManager.addNameAlternateMappings({
   ],
   "Ext.ux.BoxReorderer": [],
   "Ext.ux.grid.filter.Filter": [],
-  "Framework.core.LocalizationManager": [],
+  "Ext.ux.GroupTabRenderer": [],
+  "Mercury.ux.view.TreeTabViewsContainer": [],
   "Ext.ux.FieldReplicator": [],
+  "Mercury.core.SecurityManager": [],
   "AliveTracker.view.Viewport": [],
   "AliveTracker.view.users.UserRolesAssignmentPopUp": [],
   "Ext.ux.grid.filter.ListFilter": [],
-  "AliveTracker.view.home.HomeGroupsGrid": [],
   "AliveTracker.store.groups.BelongGroups": [],
-  "Framework.util.HotkeysUtil": [],
-  "Framework.core.ErrorsManager": [],
-  "Framework.util.FileLoader": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
   "AliveTracker.store.groups.Groups": [],
-  "Framework.core.Defaults": [],
-  "Framework.core.CoreDependencies": [],
   "AliveTracker.store.users.ProjectUsers": [],
   "Ext.ux.GMapPanel": [],
   "AliveTracker.ux.ItemSelector": [],
-  "Framework.core.EventBus": [],
   "AliveTracker.model.projects.Project": [],
   "AliveTracker.model.groups.GroupDTO": [],
   "AliveTracker.view.projects.GroupProjects": [],
+  "AliveTracker.model.projects.Note": [],
   "Ext.ux.GroupTabPanel": [],
   "Ext.ux.DataView.LabelEditor": [],
-  "Framework.ux.form.FormContainer": [],
+  "AliveTracker.view.group.BelongGroupsView": [],
   "Ext.ux.grid.filter.StringFilter": [],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.statusbar.ValidationStatus": [],
-  "Framework.core.FrameworkEvents": [],
+  "Mercury.ux.form.EnhancedDatePicker": [],
   "Ext.ux.layout.Center": [],
   "AliveTracker.view.projects.LogBookActivityForm": [],
-  "AliveTracker.view.home.Home": [],
+  "Mercury.core.ModelLocator": [],
   "Ext.ux.DataView.Animated": [],
+  "Mercury.util.DragSelectionUtil": [],
+  "Mercury.ux.view.SimpleViewsContainer": [],
   "AliveTracker.model.reports.ReportForm": [],
   "AliveTracker.controller.authentication.ResetPasswordController": [],
   "AliveTracker.model.groups.BelongGroup": [],
-  "AliveTracker.store.users.LoginUsers": [],
+  "Mercury.ux.data.RestJsonReader": [],
   "AliveTracker.model.roles.Role": [],
-  "Framework.util.DragSelectionUtil": [],
-  "Framework.ux.popup.ErrorWindow": [],
+  "AliveTracker.store.users.LoginUsers": [],
+  "AliveTracker.controller.projects.GroupProjectsController": [],
+  "Mercury.core.EventBus": [],
   "AliveTracker.store.projects.ProjectDetails": [],
   "AliveTracker.view.authentication.LoginRegister": [],
+  "AliveTracker.view.projects.AddNotesPopUp": [],
   "Ext.ux.statusbar.StatusBar": [
     "Ext.ux.StatusBar"
   ],
@@ -141,51 +176,57 @@ Ext.ClassManager.addNameAlternateMappings({
   "AliveTracker.model.authentication.LoginUser": [],
   "AliveTracker.store.reports.LogReport": [],
   "AliveTracker.model.groups.Group": [],
-  "Framework.ux.view.BaseViewsContainer": [],
   "AliveTracker.controller.projects.LogBookController": [],
-  "Framework.core.ViewItem": [],
+  "AliveTracker.view.group.Groups": [],
+  "Mercury.core.LocalizationManager": [],
   "AliveTracker.model.reports.Report": [],
-  "Framework.Main": [],
   "AliveTracker.defaults.Constants": [],
+  "Mercury.ux.container.IFrameContainer": [],
   "Ext.ux.grid.menu.RangeMenu": [],
   "Ext.ux.RowExpander": [],
-  "Framework.core.ModelLocator": [],
-  "Framework.util.MultipleScriptInjector": [],
+  "Mercury.util.FileLoader": [],
   "Ext.ux.event.Player": [],
-  "Framework.util.UtilDependencies": [],
-  "Framework.ux.view.SimpleViewsContainer": [],
+  "Mercury.core.ViewsManagerUI": [],
   "AliveTracker.store.users.AssignedUsers": [],
   "Ext.ux.ToolbarDroppable": [],
   "AliveTracker.store.users.GroupUsers": [],
   "Ext.ux.event.Maker": [],
+  "Mercury.util.ObjectUtil": [],
+  "AliveTracker.view.group.AddGroupPopUp": [],
   "AliveTracker.store.roles.Roles": [],
   "AliveTracker.store.users.Users": [],
   "Ext.ux.DataView.Draggable": [],
+  "Mercury.util.MultipleScriptInjector": [],
   "AliveTracker.view.authentication.ForgotPassword": [],
   "AliveTracker.view.projects.LogBook": [],
   "Ext.ux.TabCloseMenu": [],
+  "Mercury.util.StylesUtil": [],
+  "Mercury.ux.view.BaseViewsContainer": [],
+  "Mercury.ux.util.EnhancedComponentDragger": [],
   "AliveTracker.store.projects.Projects": [],
-  "Framework.core.SecurityManager": [],
+  "Ext.ux.DataTip": [],
+  "Mercury.ux.popup.ErrorWindow": [],
+  "Ext.ux.grid.filter.DateTimeFilter": [],
   "AliveTracker.view.group.GroupDetail": [],
   "Ext.ux.form.ItemSelector": [
     "Ext.ux.ItemSelector"
   ],
   "AliveTracker.view.authentication.Register": [],
+  "Mercury.util.MD5Util": [],
+  "Mercury.ux.data.RestProxy": [],
   "Ext.ux.ajax.JsonSimlet": [],
   "Ext.ux.Spotlight": [],
-  "Framework.util.StylesUtil": [],
-  "Ext.ux.grid.FiltersFeature": []
+  "Ext.ux.grid.FiltersFeature": [],
+  "Mercury.ux.view.TabViewsContainer": [],
+  "AliveTracker.view.group.GroupsView": []
 });
 Ext.ClassManager.addNameAliasMappings({
-  "AliveTracker.view.home.HomeBelongGroupsGrid": [
-    "widget.homebelonggroupsgrid"
-  ],
-  "Framework.ux.UxDependencies": [],
   "AliveTracker.controller.authentication.LoginController": [],
   "AliveTracker.store.projects.Logs": [],
   "Ext.ux.grid.TransformGrid": [],
   "Ext.ux.ajax.DataSimlet": [],
   "AliveTracker.model.users.User": [],
+  "Mercury.core.ErrorsManager": [],
   "AliveTracker.ux.PasswordVerification": [
     "widget.passwordverification"
   ],
@@ -193,59 +234,51 @@ Ext.ClassManager.addNameAliasMappings({
     "widget.logbookgrid"
   ],
   "AliveTracker.controller.authentication.RegisterController": [],
+  "Mercury.Main": [],
+  "AliveTracker.view.authentication.Login": [
+    "widget.loginform"
+  ],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
   ],
-  "AliveTracker.view.authentication.Login": [
-    "widget.loginform"
-  ],
   "AliveTracker.ux.AliveTrackerUxDependencies": [],
-  "Ext.ux.DataView.DragSelector": [],
+  "Mercury.core.Defaults": [],
   "AliveTracker.controller.authentication.ForgotPasswordController": [],
+  "Ext.ux.DataView.DragSelector": [],
   "AliveTracker.view.header.HeaderView": [
     "widget.headerview"
   ],
-  "Framework.ux.view.TreeViewsContainer": [
-    "widget.treeviewscontainer"
-  ],
   "Ext.ux.grid.menu.ListMenu": [],
-  "Framework.util.MD5Util": [],
-  "Framework.ux.container.TabContainer": [
-    "widget.tabcontainer"
-  ],
   "Ext.ux.form.MultiSelect": [
     "widget.multiselect",
     "widget.multiselectfield"
   ],
   "AliveTracker.controller.users.AssignUsersToProjectsController": [],
+  "Mercury.core.ViewsManager": [],
+  "Mercury.ux.form.DoubleEnhancedDatePicker": [
+    "widget.doubleenhanceddatepicker"
+  ],
   "AliveTracker.controller.header.HeaderController": [],
-  "Framework.ux.view.CardViewsContainer": [
+  "Mercury.ux.view.CardViewsContainer": [
     "widget.cardviewscontainer"
   ],
-  "Framework.util.ObjectUtil": [],
   "AliveTracker.model.projects.LogBook": [],
-  "Ext.ux.CheckColumn": [
-    "widget.checkcolumn"
-  ],
   "Ext.ux.PreviewPlugin": [
     "plugin.preview"
   ],
   "AliveTracker.defaults.WebServices": [],
-  "Framework.ux.data.RestProxy": [
-    "proxy.restproxy"
-  ],
-  "Framework.ux.form.AutoCompleteBox": [
-    "widget.autocompletebox"
-  ],
-  "Ext.ux.ajax.SimXhr": [],
   "AliveTracker.view.authentication.ResetPassword": [
     "widget.resetpasswordform"
   ],
+  "Ext.ux.ajax.SimXhr": [],
   "Ext.ux.event.RecorderManager": [
     "widget.eventrecordermanager"
   ],
   "Ext.ux.ProgressBarPager": [],
+  "Ext.ux.CellDragDrop": [
+    "plugin.celldragdrop"
+  ],
   "Ext.ux.ajax.Simlet": [
     "simlet.basic"
   ],
@@ -255,6 +288,7 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.ux.SlidingPager": [],
   "AliveTracker.store.reports.Reports": [],
+  "AliveTracker.store.projects.Notes": [],
   "Ext.ux.TabReorderer": [],
   "AliveTracker.view.projects.ProjectsGrid": [
     "widget.projectgrid"
@@ -263,25 +297,22 @@ Ext.ClassManager.addNameAliasMappings({
     "gridfilter.numeric"
   ],
   "AliveTracker.model.authentication.ForgotPassword": [],
-  "Framework.ux.data.RestJsonReader": [
-    "reader.restjsonreader"
-  ],
+  "Mercury.core.Events": [],
   "AliveTracker.view.Main": [],
   "AliveTracker.model.projects.Log": [],
   "Ext.ux.event.Recorder": [],
-  "Framework.ux.util.EnhancedComponentDragger": [
-    "widget.enhancedcomponentdragger"
-  ],
   "AliveTracker.controller.reports.ReportsController": [],
   "Ext.ux.ajax.SimManager": [],
   "AliveTracker.ux.DatePickerField": [
     "widget.datepickerfield"
   ],
   "AliveTracker.store.groups.GroupsDTO": [],
+  "Mercury.ux.form.AutoCompleteBox": [
+    "widget.autocompletebox"
+  ],
   "Ext.ux.grid.filter.BooleanFilter": [
     "gridfilter.boolean"
   ],
-  "AliveTracker.controller.home.HomeController": [],
   "AliveTracker.view.users.UsersGrid": [
     "widget.usersgrid"
   ],
@@ -290,36 +321,44 @@ Ext.ClassManager.addNameAliasMappings({
     "plugin.tabscrollermenu"
   ],
   "AliveTracker.store.users.NewUsers": [],
+  "Mercury.core.ViewItem": [],
   "Ext.ux.IFrame": [
     "widget.uxiframe"
   ],
+  "Mercury.util.HotkeysUtil": [],
   "AliveTracker.view.users.UserProfile": [
     "widget.userprofile"
   ],
   "Ext.ux.form.SearchField": [
     "widget.searchfield"
   ],
+  "Ext.ux.dd.CellFieldDropZone": [],
   "AliveTracker.view.reports.Reports": [
     "widget.reportsform"
   ],
+  "AliveTracker.store.projects.ActivityNotes": [],
   "AliveTracker.controller.group.GroupDetailController": [],
   "Ext.ux.LiveSearchGridPanel": [],
+  "Mercury.ux.view.TreeViewsContainer": [
+    "widget.treeviewscontainer"
+  ],
   "AliveTracker.view.users.UsersList": [
     "widget.userslist"
   ],
   "Ext.ux.grid.filter.DateFilter": [
     "gridfilter.date"
   ],
+  "Mercury.ux.container.TabContainer": [
+    "widget.tabcontainer"
+  ],
+  "Mercury.ux.form.FormContainer": [
+    "widget.formcontainer"
+  ],
   "AliveTracker.view.users.AssignUsersToProjects": [
     "widget.assignuserstoprojectsview"
   ],
   "Ext.ux.TreePicker": [
     "widget.treepicker"
-  ],
-  "AliveTracker.controller.Main": [],
-  "Framework.core.ViewsManager": [],
-  "AliveTracker.view.home.AddGroupPopUp": [
-    "widget.addgrouppopup"
   ],
   "AliveTracker.util.VTypesOverrides": [],
   "AliveTracker.controller.MainController": [],
@@ -331,8 +370,14 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.ux.BoxReorderer": [],
   "Ext.ux.grid.filter.Filter": [],
-  "Framework.core.LocalizationManager": [],
+  "Ext.ux.GroupTabRenderer": [
+    "plugin.grouptabrenderer"
+  ],
+  "Mercury.ux.view.TreeTabViewsContainer": [
+    "widget.treetabviewscontainer"
+  ],
   "Ext.ux.FieldReplicator": [],
+  "Mercury.core.SecurityManager": [],
   "AliveTracker.view.Viewport": [],
   "AliveTracker.view.users.UserRolesAssignmentPopUp": [
     "widget.userrolesassignmentpopup"
@@ -340,16 +385,9 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.grid.filter.ListFilter": [
     "gridfilter.list"
   ],
-  "AliveTracker.view.home.HomeGroupsGrid": [
-    "widget.homegroupsgrid"
-  ],
   "AliveTracker.store.groups.BelongGroups": [],
-  "Framework.util.HotkeysUtil": [],
-  "Framework.core.ErrorsManager": [],
-  "Framework.util.FileLoader": [],
+  "Ext.ux.dd.PanelFieldDragZone": [],
   "AliveTracker.store.groups.Groups": [],
-  "Framework.core.Defaults": [],
-  "Framework.core.CoreDependencies": [],
   "AliveTracker.store.users.ProjectUsers": [],
   "Ext.ux.GMapPanel": [
     "widget.gmappanel"
@@ -357,47 +395,54 @@ Ext.ClassManager.addNameAliasMappings({
   "AliveTracker.ux.ItemSelector": [
     "widget.itemselector"
   ],
-  "Framework.core.EventBus": [],
   "AliveTracker.model.projects.Project": [],
   "AliveTracker.model.groups.GroupDTO": [],
   "AliveTracker.view.projects.GroupProjects": [
     "widget.groupprojects"
   ],
+  "AliveTracker.model.projects.Note": [],
   "Ext.ux.GroupTabPanel": [
     "widget.grouptabpanel"
   ],
   "Ext.ux.DataView.LabelEditor": [],
-  "Framework.ux.form.FormContainer": [
-    "widget.formcontainer"
+  "AliveTracker.view.group.BelongGroupsView": [
+    "widget.belonggroupsview"
   ],
   "Ext.ux.grid.filter.StringFilter": [
     "gridfilter.string"
   ],
-  "Ext.ux.GroupTreeChunker": [],
   "Ext.ux.statusbar.ValidationStatus": [],
-  "Framework.core.FrameworkEvents": [],
+  "Mercury.ux.form.EnhancedDatePicker": [
+    "widget.enhanceddatepicker"
+  ],
   "Ext.ux.layout.Center": [
     "layout.ux.center"
   ],
   "AliveTracker.view.projects.LogBookActivityForm": [
     "widget.logbookactivityform"
   ],
-  "AliveTracker.view.home.Home": [
-    "widget.homeview"
-  ],
+  "Mercury.core.ModelLocator": [],
   "Ext.ux.DataView.Animated": [],
+  "Mercury.util.DragSelectionUtil": [],
+  "Mercury.ux.view.SimpleViewsContainer": [
+    "widget.simpleviewscontainer"
+  ],
   "AliveTracker.model.reports.ReportForm": [],
   "AliveTracker.controller.authentication.ResetPasswordController": [],
   "AliveTracker.model.groups.BelongGroup": [],
-  "AliveTracker.store.users.LoginUsers": [],
-  "AliveTracker.model.roles.Role": [],
-  "Framework.util.DragSelectionUtil": [],
-  "Framework.ux.popup.ErrorWindow": [
-    "widget.errorwindow"
+  "Mercury.ux.data.RestJsonReader": [
+    "reader.restjsonreader"
   ],
+  "AliveTracker.model.roles.Role": [],
+  "AliveTracker.store.users.LoginUsers": [],
+  "AliveTracker.controller.projects.GroupProjectsController": [],
+  "Mercury.core.EventBus": [],
   "AliveTracker.store.projects.ProjectDetails": [],
   "AliveTracker.view.authentication.LoginRegister": [
     "widget.loginregister"
+  ],
+  "AliveTracker.view.projects.AddNotesPopUp": [
+    "widget.addnotespopup"
   ],
   "Ext.ux.statusbar.StatusBar": [
     "widget.statusbar"
@@ -408,32 +453,33 @@ Ext.ClassManager.addNameAliasMappings({
   "AliveTracker.model.authentication.LoginUser": [],
   "AliveTracker.store.reports.LogReport": [],
   "AliveTracker.model.groups.Group": [],
-  "Framework.ux.view.BaseViewsContainer": [
-    "widget.baseviewscontainer"
-  ],
   "AliveTracker.controller.projects.LogBookController": [],
-  "Framework.core.ViewItem": [],
+  "AliveTracker.view.group.Groups": [
+    "widget.groups"
+  ],
+  "Mercury.core.LocalizationManager": [],
   "AliveTracker.model.reports.Report": [],
-  "Framework.Main": [],
   "AliveTracker.defaults.Constants": [],
+  "Mercury.ux.container.IFrameContainer": [
+    "widget.iframecontainer"
+  ],
   "Ext.ux.grid.menu.RangeMenu": [],
-  "Ext.ux.RowExpander": [
-    "plugin.rowexpander"
-  ],
-  "Framework.core.ModelLocator": [],
-  "Framework.util.MultipleScriptInjector": [],
+  "Ext.ux.RowExpander": [],
+  "Mercury.util.FileLoader": [],
   "Ext.ux.event.Player": [],
-  "Framework.util.UtilDependencies": [],
-  "Framework.ux.view.SimpleViewsContainer": [
-    "widget.simpleviewscontainer"
-  ],
+  "Mercury.core.ViewsManagerUI": [],
   "AliveTracker.store.users.AssignedUsers": [],
   "Ext.ux.ToolbarDroppable": [],
   "AliveTracker.store.users.GroupUsers": [],
   "Ext.ux.event.Maker": [],
+  "Mercury.util.ObjectUtil": [],
+  "AliveTracker.view.group.AddGroupPopUp": [
+    "widget.addgrouppopup"
+  ],
   "AliveTracker.store.roles.Roles": [],
   "AliveTracker.store.users.Users": [],
   "Ext.ux.DataView.Draggable": [],
+  "Mercury.util.MultipleScriptInjector": [],
   "AliveTracker.view.authentication.ForgotPassword": [
     "widget.forgotpasswordpopup"
   ],
@@ -443,8 +489,23 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.TabCloseMenu": [
     "plugin.tabclosemenu"
   ],
+  "Mercury.util.StylesUtil": [],
+  "Mercury.ux.view.BaseViewsContainer": [
+    "widget.baseviewscontainer"
+  ],
+  "Mercury.ux.util.EnhancedComponentDragger": [
+    "widget.enhancedcomponentdragger"
+  ],
   "AliveTracker.store.projects.Projects": [],
-  "Framework.core.SecurityManager": [],
+  "Ext.ux.DataTip": [
+    "plugin.datatip"
+  ],
+  "Mercury.ux.popup.ErrorWindow": [
+    "widget.errorwindow"
+  ],
+  "Ext.ux.grid.filter.DateTimeFilter": [
+    "gridfilter.datetime"
+  ],
   "AliveTracker.view.group.GroupDetail": [
     "widget.groupdetailform"
   ],
@@ -455,12 +516,21 @@ Ext.ClassManager.addNameAliasMappings({
   "AliveTracker.view.authentication.Register": [
     "widget.registerform"
   ],
+  "Mercury.util.MD5Util": [],
+  "Mercury.ux.data.RestProxy": [
+    "proxy.restproxy"
+  ],
   "Ext.ux.ajax.JsonSimlet": [
     "simlet.json"
   ],
   "Ext.ux.Spotlight": [],
-  "Framework.util.StylesUtil": [],
   "Ext.ux.grid.FiltersFeature": [
     "feature.filters"
+  ],
+  "Mercury.ux.view.TabViewsContainer": [
+    "widget.tabviewscontainer"
+  ],
+  "AliveTracker.view.group.GroupsView": [
+    "widget.groupsview"
   ]
 });

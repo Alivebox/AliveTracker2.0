@@ -17,7 +17,7 @@
     "viewsManagement": {
         "enabled": true,
         "headerPackage": "AliveTracker.view.header.HeaderView",
-        "viewsContainerPackage": "Framework.ux.view.SimpleViewsContainer",
+        "viewsContainerPackage": "Mercury.ux.view.SimpleViewsContainer",
         "views": [
             {
                 "name": "loginPage",

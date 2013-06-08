@@ -26,7 +26,7 @@ Ext.define('Sandbox.view.autocompleteboxtest.AutoCompleteBoxTest', {
             ]
         });
 
-        this.autoCompleteBox = Ext.create('Framework.ux.form.AutoCompleteBox',{
+        this.autoCompleteBox = Ext.create('Mercury.ux.form.AutoCompleteBox',{
             fieldLabel: 'Autocomplete',
             displayField: 'name',
             store: Ext.data.StoreManager.lookup('imagesStore'),

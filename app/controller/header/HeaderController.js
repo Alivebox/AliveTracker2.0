@@ -27,15 +27,15 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
 
     showUsername: function(){
         var tmpUserLabel = this.getUserlabel();
-        tmpUserLabel.setText(Framework.core.SecurityManager.getCurrentUsername());
+        tmpUserLabel.setText(Mercury.core.SecurityManager.getCurrentUsername());
     },
 
     showUserProfile: function(){
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'userProfilePage');
+        Mercury.core.EventBus.fireEvent(Mercury.core.Events.EVENT_SHOW_PAGE, 'userProfilePage');
     },
 
     showHomePage: function(){
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'homePage');
+        Mercury.core.EventBus.fireEvent(Mercury.core.Events.EVENT_SHOW_PAGE, 'homePage');
     },
 
     logout: function(){
@@ -49,12 +49,12 @@ Ext.define('AliveTracker.controller.header.HeaderController', {
     },
 
     onGoHome: function(){
-        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
+        Mercury.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     onLogoutSuccess: function(argRecord){
-        Framework.core.SecurityManager.logOutUser();
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'loginPage');
+        Mercury.core.SecurityManager.logOutUser();
+        Mercury.core.EventBus.fireEvent(Mercury.core.Events.EVENT_SHOW_PAGE, 'loginPage');
     }
 
 });

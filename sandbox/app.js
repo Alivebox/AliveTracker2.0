@@ -1,13 +1,6 @@
 Ext.Loader.setConfig({
-    enabled:true,
-    paths: {
-        'Framework': 'framework'
-    }
+    enabled:true
 });
-
-Ext.syncRequire([
-    'Framework.Main'
-]);
 
 Ext.application({
 
@@ -16,6 +9,7 @@ Ext.application({
     autoCreateViewport:false,
 
     launch:function () {
+        Ext.Loader.injectScriptElement('resources/js/mercuryext-1.0.0.js');
         var tmpQueryStringArray = document.location.href.split('?');
         if( Ext.isEmpty(tmpQueryStringArray) || tmpQueryStringArray.length <= 1 ){
             alert('You must specify in the queryString the package of the test file you want to run in the sandbox!!');

@@ -1,0 +1,135 @@
+$defaultbackgroundcolor: #FFFFFF;
+$loginbackgroundcolor: #222222;
+$loginformbackgroundcolor: #313131;
+$buttonbackgroundcolor: #8CA33A;
+$buttonheaderbackgroundcolor: #4A4A4A;
+$buttonbordercolor: #728336;
+$whitetextcolor: #FFFFFF;
+$blackcolor: #000000;
+$formsbackgroundcolor: #F0F0F0;
+$formsfontcolor: #000000;
+$txtfontcolor: #989899;
+$window-font-color:#4d4d4d;
+$buttonbordercolor: #728336;
+$panelbordercolor: #BBBBBB;
+$grid-header-background-color: #BBBBBB;
+$panel-body-border-color: #BBBBBB;
+$grid-font-color: #BBBBBB;
+$panel-body-background-color: #232d38;
+$labelfontcolor: #A8A8A8;
+$linkfontcolor: #8F8F8F;
+$overcalendarcolor: #98B044;
+$selectedcalendarcolor: #5A5A5A;
+$bordercolor: #BBBBBB;
+$bordertopcolor: #C7C7C7;
+$fontdayscalendar: #6B6B6B;
+$backgroundforms: #F0F0F0;
+$grid-header-background-color: #373c4b;
+$grid-header-color: #fff;
+$font-family: "Helvetica Neue", Arial, Verdana, sans-serif !default;
+$supports-gradients: true !default;
+$grid-header-background-gradient: 'glossy';
+$background-main-container: #F0F0F0;
+
+.title{
+  font-size: 16px;
+}
+
+.all-views-button{
+  border-radius: 4px;
+  border-color: $buttonbordercolor;
+  height: 30px;
+  background: #a5be4e; /* Old browsers */
+  background: -moz-linear-gradient(top,  #a5be4e 32%, #8ca33a 57%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%,#a5be4e), color-stop(57%,#8ca33a)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #a5be4e 32%,#8ca33a 57%); /* IE10+ */
+  background: linear-gradient(to bottom,  #a5be4e 32%,#8ca33a 57%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 ); /* IE6-9 */
+}
+
+.all-views-button .x-btn-center span {
+  color: $whitetextcolor;
+  font-weight:900;
+  font-size: 12px;
+}
+
+.home-button{
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+.x-form-invalid-field, textarea.x-form-invalid-field  {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+.x-border-box .x-form-text{
+  height: 30px;
+}
+
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+.x-boundlist {
+  border-color: $bordertopcolor;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+.main-container {
+  background-color: $background-main-container;
+}
+
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+.x-tip {
+  background-color: #BFD181;
+  border-color:$buttonbordercolor;
+}
+
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}

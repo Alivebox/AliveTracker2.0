@@ -7,7 +7,7 @@ Ext.define('AliveTracker.view.authentication.Register', {
             {
                 xtype: 'container',
                 layout: {
-                    type: 'hbox'
+                    type: 'column'
                 },
 
                 items: [
@@ -19,7 +19,6 @@ Ext.define('AliveTracker.view.authentication.Register', {
                     {
                         xtype: 'box',
                         cls: 'register-link',
-                        margin: {left:15},
                         autoEl: {
                             tag: 'a',
                             href: '#',
@@ -31,7 +30,8 @@ Ext.define('AliveTracker.view.authentication.Register', {
                                 c.getEl().on('click', this.onRegisterActionClick, this, {stopEvent: true});
                             }
                         }
-                    }]
+                    }
+                ]
             },
             {
                 xtype: 'formcontainer',

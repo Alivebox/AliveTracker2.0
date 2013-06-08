@@ -22,7 +22,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                         xtype: 'container',
                         cls: 'login-password-container',
                         layout: {
-                            type: 'hbox'
+                            type: 'column'
                         },
 
                         items: [
@@ -31,7 +31,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                                 name: 'password',
                                 itemId:'passwordLoginView',
                                 cls: 'loginregister-short-field',
-                                fieldCls: 'loginregister-forms',
+                                fieldCls: 'loginregister-forms loginregister-forms-password',
                                 emptyText: Locales.AliveTracker.LOGIN_LABEL_PASSWORD,
                                 maxLength:20,
                                 minLength: 8,
@@ -57,7 +57,7 @@ Ext.define('AliveTracker.view.authentication.Login', {
                 xtype: 'container',
                 cls: 'login-forgotpassword-container',
                 layout: {
-                    type: 'hbox'
+                    type: 'column'
                 },
 
                 items: [

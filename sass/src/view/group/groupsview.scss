@@ -1,0 +1,68 @@
+@import '../main/defaults.scss';
+
+.groups-add-button{
+  width: 30px;
+  float: right;
+}
+
+.groups-label{
+  color: $blackcolor;
+  font-size: 16px;
+  margin-top: 9px;
+}
+
+.groups-name-labels{
+  color: $blackcolor;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.belong-groups-view{
+  margin-top: 10px;
+}
+
+.groups-line-container{
+  border-style: solid;
+  border-color: $bordercolor;
+  border-width: 1px 0 0 0;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+a.groups-name-labels:hover{
+  color:$blackcolor;
+}
+
+.x-item-over{
+  background-color: #dfeabb;
+}
+
+.x-item-selected{
+  color: #BFD181;
+}
+
+.groups-view-div{
+  padding: 15px;
+}
+
+.div-groups-buttons{
+  float: right;
+}
+
+.groups-delete-button{
+  background-image: url(images/delete.png);
+  background-color: transparent;
+  border-style: none;
+  height:16px;
+  width:16px;
+  margin-left: 10px;
+}
+
+.groups-edit-button{
+  background-image: url(icons/edit.png);
+  background-color: transparent;
+  border-style: none;
+  height:16px;
+  width:16px;
+}

@@ -1,0 +1,101 @@
+@import '../main/Defaults.scss';
+
+table.x-datepicker-inner {
+  background-color: $backgroundforms;
+  border-radius: 0 0 10px 10px;
+}
+
+table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled a:hover{
+  background-color: $overcalendarcolor;
+  color: $whitetextcolor;
+  text-decoration: none !important;
+}
+
+table.x-datepicker-inner td {
+  border: 1px solid $bordercolor;
+  height: 11px;
+}
+
+table.x-datepicker-inner a {
+  padding: 1px;
+  text-align: center;
+  height: 19px;
+  font-size: 13px;
+}
+
+table.x-datepicker-inner th {
+  background: $backgroundforms;
+  text-align: center;
+  color: $fontdayscalendar;
+  border-bottom-style: none;
+}
+
+table.x-datepicker-inner th span {
+  padding-right: 0px;
+}
+
+table.x-datepicker-inner .x-datepicker-selected a {
+  background: $selectedcalendarcolor;
+  border: 1px solid $selectedcalendarcolor;
+  color: $whitetextcolor;
+}
+
+table.x-datepicker-inner .x-datepicker-selected a:hover {
+  background-color: $overcalendarcolor
+}
+
+table.x-datepicker-inner .x-datepicker-selected{
+  background-color: $selectedcalendarcolor;
+}
+
+.x-datepicker-header {
+  background: #e4e4e4; /* Old browsers */
+  background: -moz-linear-gradient(top,  #e4e4e4 16%, #c7c7c7 82%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(16%,#e4e4e4), color-stop(82%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e4e4e4 16%,#c7c7c7 82%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#c7c7c7',GradientType=0 ); /* IE6-9 */
+  border-color: white;
+  border-style: solid;
+  border-width: 0 0 1px;
+  height: 30px;
+  position: relative;
+}
+
+.x-datepicker-prev a {
+  background-image: url("images/arrow_left.png");
+  margin-top: 20%;
+}
+
+.x-datepicker-next a {
+  background-image: url("images/arrow_right.png");
+  margin-top: 20%;
+}
+
+table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
+  color: $fontdayscalendar;
+}
+
+.x-datepicker-active {
+  background-color: $whitetextcolor;
+}
+
+.x-datepicker-prevday{
+  background: $panelbordercolor;
+}
+
+.date-trigger{
+  background-color: $whitetextcolor;
+  background-image: url("images/calendar.png");
+  border-style: none;
+}
+
+.x-datepicker-month .x-btn-split-right {
+  background-image: none;
+}
+
+.x-btn-split {
+  display: inline;
+}

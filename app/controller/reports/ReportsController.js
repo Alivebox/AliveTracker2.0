@@ -147,7 +147,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             });
             return;
         }
-        if(this.userHasAllPermissions() || this.isProjectAdmin(Framework.core.SecurityManager.getCurrentUsername())){
+        if(this.userHasAllPermissions() || this.isProjectAdmin(Mercury.core.SecurityManager.getCurrentUsername())){
             var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_USERS_GROUP_AND_PROJECT,Ext.state.Manager.get('groupId'),tmpProjectId.value);
             tmpUsersStore.load({
                 scope: this,
@@ -156,7 +156,7 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
             });
             return;
         }
-        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Framework.core.SecurityManager.getCurrentUsername());
+        var tmpStoreUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.GET_ALL_USERS, Mercury.core.SecurityManager.getCurrentUsername());
         tmpUsersStore.load({
             scope: this,
             urlOverride:  tmpStoreUrl,

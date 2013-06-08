@@ -1,0 +1,53 @@
+@import '../main/Defaults.scss';
+
+.userprofile-form{
+  background-color: $backgroundforms;
+  background-image: none;
+  border-radius: 4px;
+  border-style: none;
+  border-top-color: $bordertopcolor;
+  border-top-style: solid;
+  border-top-width: 1px;
+  color: $formsfontcolor;
+}
+
+.userprofile-main-container{
+  background-color: $whitetextcolor;
+  padding: 25px;
+}
+
+.userprofile-main-container .x-form-invalid-field, .userprofile-main-container textarea.x-form-invalid-field  {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+.userprofile-formcontainer{
+  border-style: solid;
+  border-width: 1px;
+  border-color: $background-main-container;
+  width:260px;
+}
+
+
+.userprofile-button{
+  margin: 20px 20px 10px 10px;
+}
+
+.userprofile-label{
+  color: $blackcolor;
+  font-size: 16px;
+}
+
+.userprofile-container{
+  margin: 10px;
+  width: 240px;
+}
+
+.userprofile-form-align{
+  float: right;
+}
+
+.profile-title {
+  font-size: 16px;
+  margin: 10px;
+}

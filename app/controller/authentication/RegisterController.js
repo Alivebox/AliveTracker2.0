@@ -40,7 +40,7 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
         var tmpNewUsersStore = Ext.getStore('users.NewUsers');
         if(tmpRegisterForm.isValid()){
             var tmpUser = tmpRegisterForm.getRecord();
-            tmpUser.set('password',Framework.util.MD5Util.calcMD5(tmpUser.getData().password));
+            tmpUser.set('password',Mercury.util.MD5Util.calcMD5(tmpUser.getData().password));
             tmpUser.setProxy({
                 type: 'restproxy',
                 url: AliveTracker.defaults.WebServices.SAVE_USER
@@ -58,9 +58,9 @@ Ext.define('AliveTracker.controller.authentication.RegisterController', {
     onRegisterLoginSuccess: function(argRecord){
         var tmpCurrentUser = argRecord;
         tmpCurrentUser = this.addDefaultPermissions(tmpCurrentUser);
-        Framework.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
-        Framework.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
-        Framework.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
+        Mercury.core.SecurityManager.setCurrentUsername(tmpCurrentUser.get('email'));
+        Mercury.core.SecurityManager.setCurrentPermissions(tmpCurrentUser.get('permissions'));
+        Mercury.core.ViewsManager.reconfigureViewsAndShowPage('groupDetailPage');
     },
 
     addDefaultPermissions: function(argUser){

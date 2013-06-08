@@ -42,7 +42,7 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                             },
                             {
                                 xtype: 'container',
-                                layout: 'hbox',
+                                layout: 'column',
                                 cls: 'logbook-total-container',
                                 items: [
                                     {

@@ -3,7 +3,7 @@ Ext.define('AliveTracker.controller.MainController', {
     extend: "Ext.app.Controller",
 
     init: function () {
-        Framework.core.ErrorsManager.registerCallbackForError(AliveTracker.defaults.Constants.INVALID_SESSION_ID_ERROR_CODE,this.onInvalidSession,this);
+        Mercury.core.ErrorsManager.registerCallbackForError(AliveTracker.defaults.Constants.INVALID_SESSION_ID_ERROR_CODE,this.onInvalidSession,this);
     },
 
     onInvalidSession: function () {
@@ -11,8 +11,8 @@ Ext.define('AliveTracker.controller.MainController', {
     },
 
     logOutUser: function(){
-        Framework.core.SecurityManager.logOutUser();
-        Framework.core.EventBus.fireEvent(Framework.core.FrameworkEvents.EVENT_SHOW_PAGE, 'loginPage');
+        Mercury.core.SecurityManager.logOutUser();
+        Mercury.core.EventBus.fireEvent(Mercury.core.Events.EVENT_SHOW_PAGE, 'loginPage');
     }
 
 });
