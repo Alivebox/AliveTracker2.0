@@ -14888,6 +14888,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 34, ../../../../sass/src/view/main/Defaults.scss */
 .title {
   font-size: 16px;
@@ -15019,6 +15024,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/Defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 1, ../../../../sass/src/view/main/ViewsContainer.scss */
@@ -15163,6 +15173,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/Defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/main/Windows.scss */
@@ -15387,6 +15402,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 4, ../../../../sass/src/view/main/DefaultsGrid.scss */
@@ -15644,6 +15664,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/main/DefaultsTrigger.scss */
 .x-border-box .x-form-trigger {
   height: 30px;
@@ -15814,6 +15839,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/Defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/projects/Datepicker.scss */
@@ -16169,6 +16199,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/authentication/ResetPassword.scss */
 .reset-password {
   float: left;
@@ -16349,6 +16384,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/authentication/LoginRegister.scss */
@@ -16628,6 +16668,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/users/AddUsersGroup.scss */
 .add-users-group-form .x-form-text, textarea.x-form-field {
   background-color: #f0f0f0;
@@ -16854,6 +16899,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/projects/GroupProjects.scss */
 .project-add-button {
   width: 30px;
@@ -17038,6 +17088,11 @@ a.x-monthpicker-item-inner:hover {
 /* line 133, ../../../../sass/src/view/main/defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/group/groupDetail.scss */
@@ -17294,6 +17349,11 @@ a.x-monthpicker-item-inner:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/group/groupsview.scss */
 .groups-add-button {
   width: 30px;
@@ -17506,6 +17566,11 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/group/AddGroupPopUp.scss */
 .add-group-pop-up-view .x-window-body {
   background-color: white;
@@ -17686,6 +17751,11 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-container {
   position: absolute;
@@ -17841,6 +17911,13 @@ a.groups-name-labels:hover {
   width: 100% !important;
 }
 
+/* line 124, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-status-button {
+  clear: both;
+  float: right;
+  margin-top: 10px;
+}
+
 /* line 34, ../../../../sass/src/view/main/Defaults.scss */
 .title {
   font-size: 16px;
@@ -17972,6 +18049,11 @@ a.groups-name-labels:hover {
 /* line 133, ../../../../sass/src/view/main/Defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
@@ -18178,6 +18260,11 @@ a.groups-name-labels:hover {
 /* line 133, ../../../../sass/src/view/main/Defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/reports/Reports.scss */
@@ -18430,6 +18517,11 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
+/* line 137, ../../../../sass/src/view/main/Defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
+}
+
 /* line 3, ../../../../sass/src/view/users/UserProfile.scss */
 .userprofile-form {
   background-color: #f0f0f0;
@@ -18621,6 +18713,11 @@ a.groups-name-labels:hover {
 /* line 133, ../../../../sass/src/view/main/defaults.scss */
 .x-mask {
   background: none repeat scroll 0 0 #333333;
+}
+
+/* line 137, ../../../../sass/src/view/main/defaults.scss */
+.x-btn-default-small {
+  padding: 5px 5px 5px 6px;
 }
 
 /* line 3, ../../../../sass/src/view/header/HeaderView.scss */

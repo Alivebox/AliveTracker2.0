@@ -161,6 +161,7 @@ Ext.define('Locales.AliveTracker', {
         ACTIVITY_NOTE_ADD: 'Add',
         ACTIVITY_NOTE_EDIT: 'Edit',
         ACTIVITY_REMOVE_NOTE: 'Remove note',
+        LOG_SEND_STATUS: 'Send Status',
         /**
          * Users View
          */
