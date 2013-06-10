@@ -13,7 +13,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         'projects.Project',
         'projects.LogBook',
         'projects.Log',
-        'projects.Note'
+        'projects.Note',
+        'projects.Status'
     ],
 
     stores:[
@@ -61,7 +62,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         this.control({
             'logbook':{
                 afterrender: this.onLogAfterRender,
-                datePickerChanged:this.reloadLogStore
+                datePickerChanged:this.reloadLogStore,
+                sendStatusClick: this.sendStatusToAdmins
             },
             'logbookactivityform': {
                 addActivity:this.onAddNewActivity,
@@ -145,6 +147,25 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         return tmpActivity;
     },
 
+    getLogBook:function () {
+        var tmpLogArray = [];
+        tmpLogArray = this.getItemsFromStore(Ext.getStore('projects.Logs'));
+        var tmpLogBook = Ext.create('AliveTracker.model.projects.Status', {
+            date:this.getDatepicker().getValue(),
+            group: Ext.state.Manager.get('groupId'),
+            activities:tmpLogArray
+        });
+        return tmpLogBook;
+    },
+
+    getItemsFromStore:function (argStore){
+        var tmpArray = [];
+        for(var i=0; i < argStore.data.items.length; i++){
+            tmpArray.push(argStore.data.items[i].data)
+        }
+        return tmpArray;
+    },
+
     isTimeValid: function(){
         var tmpTime = this.getLogsform().down('numberfield[itemId=time]').getValue();
         var tmpBeforeTotal = this.getTotalTime().getValue();
@@ -167,6 +188,18 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpActivityField.setValue('');
         this.getLogsform().down('numberfield[itemId=time]').setValue(1);
         tmpActivityField.focus();
+    },
+
+    sendStatusToAdmins: function() {
+        var tmpDateSelected = this.getDatepicker().getValue();
+        var tmpStore = Ext.getStore('users.AssignedUsers');
+        var tmpLogBook = this.getLogBook();
+        tmpLogBook.set('email', Mercury.core.SecurityManager.getCurrentUsername());
+        tmpLogBook.save();
+    },
+
+    sendStatusSucces: function(argRecord){
+        Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_EMAIL_INSTRUCTION);
     },
 
     reloadLogStore: function (){

@@ -60,6 +60,15 @@ Ext.define('AliveTracker.view.projects.LogBook', {
                                         hideTrigger: true
                                     }
                                 ]
+                            },
+                            {
+                                xtype: 'button',
+                                cls: 'all-views-button logbook-status-button',
+                                text: Locales.AliveTracker.LOG_SEND_STATUS,
+                                listeners: {
+                                    scope: this,
+                                    click: this.onSendStatusClick
+                                }
                             }
                         ]
                     }
@@ -72,6 +81,10 @@ Ext.define('AliveTracker.view.projects.LogBook', {
 
     onDateSelectedAction:function () {
         this.fireEvent('datePickerChanged', this);
+    },
+
+    onSendStatusClick: function(){
+        this.fireEvent('sendStatusClick');
     }
 
 });

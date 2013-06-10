@@ -32,6 +32,7 @@ Ext.define('AliveTracker.defaults.WebServices',{
         LOG_EXPORT_REPORT: '/ws/alivews/logs/exportReport/',
         LOG_LIST_REPORT: '/ws/alivews/logs/listReport/group/{0}/project/{1}/user/{2}/range/{3}/',
         LOG_DELETE: '/ws/alivews/logs/{0}/',
+        LOG_SEND_STATUS: '/ws/alivews/log/sendStatus/',
         NOTE_DELETE: '/ws/alivews/note/{0}',
         GET_GROUP_PERMISSIONS: '/ws/alivews/main/permissions/group/{0}',
     }

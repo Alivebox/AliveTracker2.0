@@ -193,9 +193,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "AliveTracker.view.group.AddGroupPopUp": [],
   "AliveTracker.store.roles.Roles": [],
   "AliveTracker.store.users.Users": [],
+  "AliveTracker.view.authentication.ForgotPassword": [],
   "Ext.ux.DataView.Draggable": [],
   "Mercury.util.MultipleScriptInjector": [],
-  "AliveTracker.view.authentication.ForgotPassword": [],
   "AliveTracker.view.projects.LogBook": [],
   "Ext.ux.TabCloseMenu": [],
   "Mercury.util.StylesUtil": [],
@@ -474,11 +474,11 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "AliveTracker.store.roles.Roles": [],
   "AliveTracker.store.users.Users": [],
-  "Ext.ux.DataView.Draggable": [],
-  "Mercury.util.MultipleScriptInjector": [],
   "AliveTracker.view.authentication.ForgotPassword": [
     "widget.forgotpasswordpopup"
   ],
+  "Ext.ux.DataView.Draggable": [],
+  "Mercury.util.MultipleScriptInjector": [],
   "AliveTracker.view.projects.LogBook": [
     "widget.logbook"
   ],

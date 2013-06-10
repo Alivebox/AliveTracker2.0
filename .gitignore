@@ -8,3 +8,5 @@ packages/theme/sass/build-sass.xml
 .sencha_backup*
 
 build-sass.xml
+/.sass-cache
+/stylesheets
