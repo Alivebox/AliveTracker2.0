@@ -1,0 +1,32 @@
+{
+    "data":[
+        {
+            "name":"Juan Carlos Morales M.",
+            "role":"adm"
+        },
+        {
+            "name":"Erick Chavarria Rosales",
+            "role":"usr"
+        },
+        {
+            "name":"Jorge Clare R.",
+            "role":"inv"
+        },
+        {
+            "name":"Roy Bonilla A",
+            "role":"adm"
+        },
+        {
+            "name":"Andres Garcia",
+            "role":"usr"
+        },
+        {
+            "name":"afernandez@alivebox.com",
+            "role":"inv"
+        },
+        {
+            "name":"rrojas@alivebox.com",
+            "role":"adm"
+        }
+    ]
+}

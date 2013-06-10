@@ -1,0 +1,60 @@
+{
+    "data":[
+        {
+            "id":1,
+            "name":"group1",
+            "description": "group 1 description",
+            "logoUrl": "http://www.unavco.org/lib/images/Footer-NASA-logo.png",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":2,
+            "name":"group2",
+            "description": "group 2 description",
+            "logoUrl": "http://www.techtarget.com/images/logos/client/logo_dell_60.png",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":3,
+            "name":"group3",
+            "description": "group 1 description",
+            "logoUrl": "http://www.bjp-online.com/IMG/865/203865/cnn-logo-60x60.jpg?1322745302",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":4,
+            "name":"group4",
+            "description": "group 2 description",
+            "logoUrl": "http://www.g2support.com/wp-content/uploads/2012/11/adobe-logo-60x60.jpg",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":5,
+            "name":"group1",
+            "description": "group 1 description",
+            "logoUrl": "http://www.unavco.org/lib/images/Footer-NASA-logo.png",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":6,
+            "name":"group2",
+            "description": "group 2 description",
+            "logoUrl": "http://www.techtarget.com/images/logos/client/logo_dell_60.png",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":7,
+            "name":"group3",
+            "description": "group 1 description",
+            "logoUrl": "http://www.bjp-online.com/IMG/865/203865/cnn-logo-60x60.jpg?1322745302",
+            "webSiteUrl": "http://www.techtarget.com"
+        },
+        {
+            "id":8,
+            "name":"group4",
+            "description": "group 2 description",
+            "logoUrl": "http://www.g2support.com/wp-content/uploads/2012/11/adobe-logo-60x60.jpg",
+            "webSiteUrl": "http://www.techtarget.com"
+        }
+    ]
+}

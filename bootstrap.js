@@ -91,7 +91,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.grid.filter.NumericFilter": [],
   "AliveTracker.model.authentication.ForgotPassword": [],
   "Mercury.core.Events": [],
-  "AliveTracker.view.Main": [],
   "AliveTracker.model.projects.Log": [],
   "Ext.ux.event.Recorder": [],
   "AliveTracker.controller.reports.ReportsController": [],
@@ -133,7 +132,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Mercury.ux.view.TreeTabViewsContainer": [],
   "Ext.ux.FieldReplicator": [],
   "Mercury.core.SecurityManager": [],
-  "AliveTracker.view.Viewport": [],
   "AliveTracker.view.users.UserRolesAssignmentPopUp": [],
   "Ext.ux.grid.filter.ListFilter": [],
   "AliveTracker.store.groups.BelongGroups": [],
@@ -298,7 +296,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "AliveTracker.model.authentication.ForgotPassword": [],
   "Mercury.core.Events": [],
-  "AliveTracker.view.Main": [],
   "AliveTracker.model.projects.Log": [],
   "Ext.ux.event.Recorder": [],
   "AliveTracker.controller.reports.ReportsController": [],
@@ -378,7 +375,6 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "Ext.ux.FieldReplicator": [],
   "Mercury.core.SecurityManager": [],
-  "AliveTracker.view.Viewport": [],
   "AliveTracker.view.users.UserRolesAssignmentPopUp": [
     "widget.userrolesassignmentpopup"
   ],
