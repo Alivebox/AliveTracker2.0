@@ -15938,55 +15938,60 @@ a.x-monthpicker-item-inner:hover {
 }
 
 /* line 75, ../../../../sass/src/view/projects/Datepicker.scss */
-.logbook-datepicker .x-datepicker-prev a {
+.logbook-datepicker .x-datepicker-prev {
   background-image: url("images/arrow_left.png");
-  margin-top: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin-left: 5px;
+  margin-top: 6%;
 }
 
-/* line 80, ../../../../sass/src/view/projects/Datepicker.scss */
-.logbook-datepicker .x-datepicker-next a {
+/* line 83, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-next {
   background-image: url("images/arrow_right.png");
-  margin-top: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin-top: 6%;
 }
 
-/* line 85, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 90, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
   color: #6b6b6b;
 }
 
-/* line 89, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 94, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-active {
   background-color: white;
 }
 
-/* line 93, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 98, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-prevday {
   background: #bbbbbb;
 }
 
-/* line 97, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 102, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-btn-center span {
   color: black !important;
   font-size: 16px;
 }
 
-/* line 102, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 107, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-btn .x-btn-center .x-btn-inner {
   height: 50px;
 }
 
-/* line 106, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 111, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-month {
   height: 50px;
 }
 
-/* line 110, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 115, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-month .x-btn-split-right {
   background-image: none;
   height: 50px;
 }
 
-/* line 115, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 120, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
   height: 50px;
   padding: 7px;

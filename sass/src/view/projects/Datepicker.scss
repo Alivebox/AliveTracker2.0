@@ -72,14 +72,19 @@
   position: relative;
 }
 
-.logbook-datepicker .x-datepicker-prev a {
+.logbook-datepicker .x-datepicker-prev {
   background-image: url("images/arrow_left.png");
-  margin-top: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin-left: 5px;
+  margin-top: 6%;
 }
 
-.logbook-datepicker .x-datepicker-next a {
+.logbook-datepicker .x-datepicker-next {
   background-image: url("images/arrow_right.png");
-  margin-top: 100%;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  margin-top: 6%;
 }
 
 .logbook-datepicker table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
