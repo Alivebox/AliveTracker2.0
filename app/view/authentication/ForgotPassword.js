@@ -7,6 +7,7 @@ Ext.define('AliveTracker.view.authentication.ForgotPassword', {
     header: false,
     modal: true,
     resizable: false,
+    shadow: false,
 
     initComponent:function () {
         this.items = [

@@ -1,0 +1,118 @@
+@import '../main/Defaults.scss';
+
+.logbook-datepicker{
+  border-radius: 10px;
+  border-style: none;
+  width: 300px !important;
+}
+
+.logbook-datepicker table.x-datepicker-inner {
+  background-color: $backgroundforms;
+  border-radius: 0 0 10px 10px;
+  padding: 5%;
+}
+
+.logbook-datepicker table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled a:hover{
+  background-color: $overcalendarcolor;
+  color: $whitetextcolor;
+  text-decoration: none !important;
+}
+
+.logbook-datepicker table.x-datepicker-inner td {
+   border: 1px solid $bordercolor;
+   height: 35px;
+}
+
+.logbook-datepicker table.x-datepicker-inner a {
+  padding: 0px;
+  text-align: center;
+  height: 34px;
+  font-size: 18px;
+  padding: 6px;
+}
+
+.logbook-datepicker table.x-datepicker-inner th {
+  background: $backgroundforms;
+  text-align: center;
+  color: $fontdayscalendar;
+}
+
+.logbook-datepicker table.x-datepicker-inner th span {
+  padding-right: 0px;
+}
+
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a {
+  background: $selectedcalendarcolor;
+  border: 1px solid $selectedcalendarcolor;
+  color: $whitetextcolor;
+}
+
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a:hover {
+  background-color: $overcalendarcolor
+}
+
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected{
+  background-color: $selectedcalendarcolor;
+}
+
+.logbook-datepicker .x-datepicker-header {
+  background: #e4e4e4; /* Old browsers */
+  background: -moz-linear-gradient(top,  #e4e4e4 16%, #c7c7c7 82%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(16%,#e4e4e4), color-stop(82%,#c7c7c7)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #e4e4e4 16%,#c7c7c7 82%); /* IE10+ */
+  background: linear-gradient(to bottom,  #e4e4e4 16%,#c7c7c7 82%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#c7c7c7',GradientType=0 ); /* IE6-9 */
+  border-color: white;
+  border-radius: 10px 10px 0 0;
+  border-style: solid;
+  border-width: 0 0 1px;
+  height: 60px;
+  position: relative;
+}
+
+.logbook-datepicker .x-datepicker-prev a {
+  background-image: url("images/arrow_left.png");
+  margin-top: 100%;
+}
+
+.logbook-datepicker .x-datepicker-next a {
+  background-image: url("images/arrow_right.png");
+  margin-top: 100%;
+}
+
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
+  color: $fontdayscalendar;
+}
+
+.logbook-datepicker .x-datepicker-active {
+  background-color: $whitetextcolor;
+}
+
+.logbook-datepicker .x-datepicker-prevday{
+  background: $panelbordercolor;
+}
+
+.logbook-datepicker .x-btn-center span {
+  color: $blackcolor !important;
+  font-size: 16px;
+}
+
+.logbook-datepicker .x-btn .x-btn-center .x-btn-inner {
+  height: 50px;
+}
+
+.logbook-datepicker .x-datepicker-month {
+  height: 50px;
+}
+
+.logbook-datepicker .x-datepicker-month .x-btn-split-right {
+  background-image: none;
+  height: 50px;
+}
+
+.logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
+  height: 50px;
+  padding: 7px;
+}
