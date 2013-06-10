@@ -21855,14 +21855,293 @@ body.x-nbr .x-tab-default-right-frameInfo {
   height: 100%;
 }
 
-/* line 9, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 34, ../../../../sass/src/view/main/Defaults.scss */
+.title {
+  font-size: 16px;
+}
+
+/* line 38, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button {
+  border-radius: 4px;
+  border-color: #728336;
+  height: 30px;
+  background: #a5be4e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a5be4e), color-stop(57%, #8ca33a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a5be4e 32%, #8ca33a 57%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 52, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 58, ../../../../sass/src/view/main/Defaults.scss */
+.home-button {
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+/* line 64, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-invalid-field, textarea.x-form-invalid-field {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+/* line 69, ../../../../sass/src/view/main/Defaults.scss */
+.x-border-box .x-form-text {
+  height: 30px;
+}
+
+/* line 73, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+/* line 77, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist {
+  border-color: #c7c7c7;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* line 83, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+/* line 88, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+/* line 92, ../../../../sass/src/view/main/Defaults.scss */
+.main-container {
+  background-color: #f0f0f0;
+}
+
+/* line 96, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 101, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 105, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 110, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 114, ../../../../sass/src/view/main/Defaults.scss */
+.x-tip {
+  background-color: #BFD181;
+  border-color: #728336;
+}
+
+/* line 119, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+/* line 124, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+/* line 129, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+/* line 133, ../../../../sass/src/view/main/Defaults.scss */
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}
+
+/* line 3, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker {
+  border-radius: 10px;
+  border-style: none;
+  width: 300px !important;
+}
+
+/* line 9, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner {
+  background-color: #f0f0f0;
+  border-radius: 0 0 10px 10px;
+  padding: 5%;
+}
+
+/* line 15, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner a:hover, table.x-datepicker-inner .x-datepicker-disabled a:hover {
+  background-color: #98b044;
+  color: white;
+  text-decoration: none !important;
+}
+
+/* line 21, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner td {
+  border: 1px solid #bbbbbb;
+  height: 35px;
+}
+
+/* line 26, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner a {
+  padding: 0px;
+  text-align: center;
+  height: 34px;
+  font-size: 18px;
+  padding: 6px;
+}
+
+/* line 34, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner th {
+  background: #f0f0f0;
+  text-align: center;
+  color: #6b6b6b;
+}
+
+/* line 40, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner th span {
+  padding-right: 0px;
+}
+
+/* line 44, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a {
+  background: #5a5a5a;
+  border: 1px solid #5a5a5a;
+  color: white;
+}
+
+/* line 50, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected a:hover {
+  background-color: #98b044;
+}
+
+/* line 54, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-selected {
+  background-color: #5a5a5a;
+}
+
+/* line 58, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-header {
+  background: #e4e4e4;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #e4e4e4 16%, #c7c7c7 82%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(16%, #e4e4e4), color-stop(82%, #c7c7c7));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #e4e4e4 16%, #c7c7c7 82%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #e4e4e4 16%, #c7c7c7 82%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #e4e4e4 16%, #c7c7c7 82%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #e4e4e4 16%, #c7c7c7 82%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e4e4e4', endColorstr='#c7c7c7',GradientType=0 );
+  /* IE6-9 */
+  border-color: white;
+  border-radius: 10px 10px 0 0;
+  border-style: solid;
+  border-width: 0 0 1px;
+  height: 60px;
+  position: relative;
+}
+
+/* line 75, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-prev a {
+  background-image: url("images/arrow_left.png");
+  margin-top: 100%;
+}
+
+/* line 80, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-next a {
+  background-image: url("images/arrow_right.png");
+  margin-top: 100%;
+}
+
+/* line 85, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker table.x-datepicker-inner .x-datepicker-prevday a, table.x-datepicker-inner .x-datepicker-nextday a {
+  color: #6b6b6b;
+}
+
+/* line 89, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-active {
+  background-color: white;
+}
+
+/* line 93, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-prevday {
+  background: #bbbbbb;
+}
+
+/* line 97, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-btn-center span {
+  color: black !important;
+  font-size: 16px;
+}
+
+/* line 102, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-btn .x-btn-center .x-btn-inner {
+  height: 50px;
+}
+
+/* line 106, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-month {
+  height: 50px;
+}
+
+/* line 110, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-datepicker-month .x-btn-split-right {
+  background-image: none;
+  height: 50px;
+}
+
+/* line 115, ../../../../sass/src/view/projects/Datepicker.scss */
+.logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
+  height: 50px;
+  padding: 7px;
+}
+
+/* line 10, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view .x-window-body {
   background-color: white;
   border-radius: 15px;
   padding: 10px;
 }
 
-/* line 15, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 16, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-button {
   border-radius: 4px;
   margin-left: 25%;
@@ -21886,24 +22165,24 @@ body.x-nbr .x-tab-default-right-frameInfo {
   /* IE6-9 */
 }
 
-/* line 30, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 31, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-container {
   margin-bottom: 10px;
 }
 
-/* line 34, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 35, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-close-icon {
   float: right;
 }
 
-/* line 38, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 39, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-button .x-btn-center span {
   color: white;
   font-weight: 900;
   font-size: 12px;
 }
 
-/* line 44, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 45, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-forms {
   background-color: #f0f0f0;
   background-image: none;
@@ -21916,13 +22195,13 @@ body.x-nbr .x-tab-default-right-frameInfo {
   padding-left: 10px;
 }
 
-/* line 56, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 57, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-forms-align {
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 61, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 62, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-txt {
   color: #515153;
   font-size: 16px;
@@ -22325,6 +22604,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
   border-radius: 4px;
   border-color: #728336;
   margin-left: 5px;
+  width: 55px;
   height: 30px;
   padding-top: 5px;
   background: #a5be4e;
@@ -22345,21 +22625,21 @@ body.x-nbr .x-tab-default-right-frameInfo {
   /* IE6-9 */
 }
 
-/* line 84, ../../../../sass/src/view/authentication/LoginRegister.scss */
-.loginregister-button .x-btn-center span {
+/* line 85, ../../../../sass/src/view/authentication/LoginRegister.scss */
+.loginregister-button .x-btn-default-small-icon .x-btn-inner, .x-btn-default-small-noicon .x-btn-inner {
   color: white;
   font-weight: 900;
   font-size: 12px;
 }
 
-/* line 90, ../../../../sass/src/view/authentication/LoginRegister.scss */
+/* line 91, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .loginregister-label {
   color: #a8a8a8;
   text-decoration: none;
   font-size: 11px;
 }
 
-/* line 96, ../../../../sass/src/view/authentication/LoginRegister.scss */
+/* line 97, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .loginregister-checkbox {
   -moz-border-radius: 10px;
   border-radius: 5px;
@@ -22367,19 +22647,19 @@ body.x-nbr .x-tab-default-right-frameInfo {
   margin-right: 5px;
 }
 
-/* line 103, ../../../../sass/src/view/authentication/LoginRegister.scss */
+/* line 104, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .loginregister-titles {
   color: white;
   font-size: 14px;
 }
 
-/* line 108, ../../../../sass/src/view/authentication/LoginRegister.scss */
+/* line 109, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .register-elements {
   margin-top: 8px;
   margin-bottom: 15px;
 }
 
-/* line 113, ../../../../sass/src/view/authentication/LoginRegister.scss */
+/* line 114, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .register-link {
   color: #8f8f8f;
   text-decoration: none;
@@ -22611,6 +22891,192 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background-image: url(images/delete_dis.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+/* line 34, ../../../../sass/src/view/main/Defaults.scss */
+.title {
+  font-size: 16px;
+}
+
+/* line 38, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button {
+  border-radius: 4px;
+  border-color: #728336;
+  height: 30px;
+  background: #a5be4e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a5be4e), color-stop(57%, #8ca33a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a5be4e 32%, #8ca33a 57%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 52, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 58, ../../../../sass/src/view/main/Defaults.scss */
+.home-button {
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+/* line 64, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-invalid-field, textarea.x-form-invalid-field {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+/* line 69, ../../../../sass/src/view/main/Defaults.scss */
+.x-border-box .x-form-text {
+  height: 30px;
+}
+
+/* line 73, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+/* line 77, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist {
+  border-color: #c7c7c7;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* line 83, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+/* line 88, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+/* line 92, ../../../../sass/src/view/main/Defaults.scss */
+.main-container {
+  background-color: #f0f0f0;
+}
+
+/* line 96, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 101, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 105, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 110, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 114, ../../../../sass/src/view/main/Defaults.scss */
+.x-tip {
+  background-color: #BFD181;
+  border-color: #728336;
+}
+
+/* line 119, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+/* line 124, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+/* line 129, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+/* line 133, ../../../../sass/src/view/main/Defaults.scss */
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}
+
+/* line 3, ../../../../sass/src/view/projects/GroupProjects.scss */
+.project-add-button {
+  width: 30px;
+  margin-top: 0px;
+  float: right;
+  margin-bottom: 10px;
+}
+
+/* line 10, ../../../../sass/src/view/projects/GroupProjects.scss */
+.project-grid-container {
+  clear: both;
+}
+
+/* line 14, ../../../../sass/src/view/projects/GroupProjects.scss */
+.project-grid-column .x-column-header-inner {
+  background: #ececec;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6%, #ececec), color-stop(43%, #dbdada));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ececec 6%, #dbdada 43%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 25, ../../../../sass/src/view/projects/GroupProjects.scss */
+.project-grid-sort-column .x-column-header-inner {
+  background: #d1d1d1;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, #d1d1d1), color-stop(63%, #c2c1c1));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #d1d1d1 22%, #c2c1c1 63%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#c2c1c1',GradientType=0 );
+  /* IE6-9 */
 }
 
 /* line 34, ../../../../sass/src/view/main/defaults.scss */
@@ -23254,6 +23720,500 @@ a.groups-name-labels:hover {
 
 /* line 37, ../../../../sass/src/view/group/AddGroupPopUp.scss */
 .add-group-pop-up-view-label {
+  display: block;
+  font-size: 14px;
+  padding: 3px 0 0;
+}
+
+/* line 34, ../../../../sass/src/view/main/Defaults.scss */
+.title {
+  font-size: 16px;
+}
+
+/* line 38, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button {
+  border-radius: 4px;
+  border-color: #728336;
+  height: 30px;
+  background: #a5be4e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a5be4e), color-stop(57%, #8ca33a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a5be4e 32%, #8ca33a 57%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 52, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 58, ../../../../sass/src/view/main/Defaults.scss */
+.home-button {
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+/* line 64, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-invalid-field, textarea.x-form-invalid-field {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+/* line 69, ../../../../sass/src/view/main/Defaults.scss */
+.x-border-box .x-form-text {
+  height: 30px;
+}
+
+/* line 73, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+/* line 77, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist {
+  border-color: #c7c7c7;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* line 83, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+/* line 88, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+/* line 92, ../../../../sass/src/view/main/Defaults.scss */
+.main-container {
+  background-color: #f0f0f0;
+}
+
+/* line 96, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 101, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 105, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 110, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 114, ../../../../sass/src/view/main/Defaults.scss */
+.x-tip {
+  background-color: #BFD181;
+  border-color: #728336;
+}
+
+/* line 119, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+/* line 124, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+/* line 129, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+/* line 133, ../../../../sass/src/view/main/Defaults.scss */
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}
+
+/* line 3, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-container {
+  position: absolute;
+  top: 0;
+  left: 310px;
+  right: 0;
+}
+
+/* line 10, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-view-form {
+  background-color: #f0f0f0;
+  background-image: none;
+  border-radius: 4px;
+  border-style: none;
+  border-top-color: #c7c7c7;
+  border-top-style: solid;
+  border-top-width: 1px;
+  color: black;
+}
+
+/* line 21, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-view-project-form {
+  background-color: #f0f0f0;
+  background-image: none;
+  border-radius: 4px 0px 0px 4px;
+  border-style: none;
+  border-top-color: #c7c7c7;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: #c7c7c7;
+  border-right-style: solid;
+  border-right-width: 1px;
+  color: black;
+}
+
+/* line 35, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-form-align {
+  margin-right: 10px;
+}
+
+/* line 39, ../../../../sass/src/view/projects/LogBook.scss */
+.x-btn-icon {
+  margin: 4px;
+}
+
+/* line 43, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-button {
+  float: right;
+  margin-top: 10px;
+  margin-right: 35px;
+}
+
+/* line 49, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-add-button {
+  width: 30px;
+  margin-top: 0px;
+  margin-left: 10px;
+}
+
+/* line 55, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-label {
+  color: black;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+/* line 61, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-time-label {
+  color: black;
+  font-size: 16px;
+}
+
+/* line 66, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-total-label {
+  color: black;
+  font-size: 16px;
+  margin-top: 4px;
+  margin-right: 15px;
+}
+
+/* line 73, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-grid-container {
+  border-width: 1px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* line 79, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-grid-column .x-column-header-inner {
+  background: #ececec;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6%, #ececec), color-stop(43%, #dbdada));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ececec 6%, #dbdada 43%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 90, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-grid-sort-column .x-column-header-inner {
+  background: #d1d1d1;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(22%, #d1d1d1), color-stop(63%, #c2c1c1));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #d1d1d1 22%, #c2c1c1 63%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #d1d1d1 22%, #c2c1c1 63%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d1d1d1', endColorstr='#c2c1c1',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 101, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-total-container {
+  width: 160px;
+  float: right;
+}
+
+/* line 106, ../../../../sass/src/view/projects/LogBook.scss */
+.logboog-activity-form-container {
+  width: 100% !important;
+}
+
+/* line 110, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-activity-form-labels-container {
+  width: 100% !important;
+}
+
+/* line 114, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-fields-container {
+  width: 100% !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 120, ../../../../sass/src/view/projects/LogBook.scss */
+.logbook-fields-container x-box-inner {
+  width: 100% !important;
+}
+
+/* line 34, ../../../../sass/src/view/main/Defaults.scss */
+.title {
+  font-size: 16px;
+}
+
+/* line 38, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button {
+  border-radius: 4px;
+  border-color: #728336;
+  height: 30px;
+  background: #a5be4e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a5be4e), color-stop(57%, #8ca33a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a5be4e 32%, #8ca33a 57%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 52, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 58, ../../../../sass/src/view/main/Defaults.scss */
+.home-button {
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+/* line 64, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-invalid-field, textarea.x-form-invalid-field {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+/* line 69, ../../../../sass/src/view/main/Defaults.scss */
+.x-border-box .x-form-text {
+  height: 30px;
+}
+
+/* line 73, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+/* line 77, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist {
+  border-color: #c7c7c7;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* line 83, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+/* line 88, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+/* line 92, ../../../../sass/src/view/main/Defaults.scss */
+.main-container {
+  background-color: #f0f0f0;
+}
+
+/* line 96, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 101, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 105, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 110, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 114, ../../../../sass/src/view/main/Defaults.scss */
+.x-tip {
+  background-color: #BFD181;
+  border-color: #728336;
+}
+
+/* line 119, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+/* line 124, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+/* line 129, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+/* line 133, ../../../../sass/src/view/main/Defaults.scss */
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}
+
+/* line 3, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view .x-window-body {
+  background-color: white;
+  border-radius: 15px;
+}
+
+/* line 8, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view-container {
+  margin: 5px;
+  width: 460px;
+}
+
+/* line 13, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view-txt {
+  color: #515153;
+  font-size: 16px;
+}
+
+/* line 18, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view-forms {
+  background-color: #f0f0f0;
+  background-image: none;
+  border-radius: 4px;
+  border-style: none;
+  border-top-color: #c7c7c7;
+  border-top-style: solid;
+  border-top-width: 1px;
+  color: black;
+}
+
+/* line 29, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view-forms-align {
+  margin-left: 8px;
+  margin-bottom: 10px;
+}
+
+/* line 34, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-popup-textarea-align {
+  width: 390px;
+  height: 50px;
+}
+
+/* line 39, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-popup-textarea-align .x-field-label-cell {
+  width: 30px;
+}
+
+/* line 43, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-popup-grid {
+  margin: 5px;
+  float: right;
+  width: 397px;
+}
+
+/* line 49, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-popup-icon {
+  float: right;
+}
+
+/* line 53, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-popup-button {
+  clear: both;
+  margin-top: 5px;
+  margin-left: 205px;
+}
+
+/* line 59, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
+.add-notes-pop-up-view-label {
   display: block;
   font-size: 14px;
   padding: 3px 0 0;
