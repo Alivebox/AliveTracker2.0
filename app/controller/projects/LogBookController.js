@@ -152,18 +152,8 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         tmpLogArray = this.getItemsFromStore(Ext.getStore('projects.Logs'));
         var tmpLogBook = Ext.create('AliveTracker.model.projects.Status', {
             date:this.getDatepicker().getValue(),
-            group: Ext.state.Manager.get('groupId'),
-            activities:tmpLogArray
         });
         return tmpLogBook;
-    },
-
-    getItemsFromStore:function (argStore){
-        var tmpArray = [];
-        for(var i=0; i < argStore.data.items.length; i++){
-            tmpArray.push(argStore.data.items[i].data)
-        }
-        return tmpArray;
     },
 
     isTimeValid: function(){
@@ -192,7 +182,6 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
 
     sendStatusToAdmins: function() {
         var tmpDateSelected = this.getDatepicker().getValue();
-        var tmpStore = Ext.getStore('users.AssignedUsers');
         var tmpLogBook = this.getLogBook();
         tmpLogBook.set('email', Mercury.core.SecurityManager.getCurrentUsername());
         tmpLogBook.save();

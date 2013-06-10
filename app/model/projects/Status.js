@@ -12,14 +12,6 @@ Ext.define('AliveTracker.model.projects.Status', {
         {
             name:'email',
             type:'string'
-        },
-        {
-            name:'group',
-            type:'int'
-        },
-        {
-            name:'activities',
-            type:'array'
         }
     ],
     proxy: {
