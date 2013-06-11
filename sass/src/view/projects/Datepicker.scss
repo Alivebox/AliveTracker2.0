@@ -99,9 +99,11 @@
   background: $panelbordercolor;
 }
 
-.logbook-datepicker .x-btn-center span {
+.logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
   color: $blackcolor !important;
   font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
 .logbook-datepicker .x-btn .x-btn-center .x-btn-inner {

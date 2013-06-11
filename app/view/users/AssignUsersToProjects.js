@@ -47,6 +47,7 @@ Ext.define('AliveTracker.view.users.AssignUsersToProjects', {
                     {
                         xtype:'container',
                         cls: 'project-arrow-buttons-container',
+                        layout: 'vbox',
                         items:[
                             {
                                 xtype:'button',

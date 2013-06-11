@@ -5,7 +5,7 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
     cls: 'project-users-popup-view',
     header: false,
     resizable: false,
-    height:325,
+    height:335,
     width:545,
     modal: true,
     requieres:[
@@ -14,18 +14,24 @@ Ext.define('AliveTracker.view.users.UserRolesAssignmentPopUp', {
     initComponent:function () {
         this.items = [
             {
-                xtype: 'button',
-                icon: 'resources/images/delete.png',
-                cls: 'project-users-popup-view-icon',
-                listeners: {
-                    scope: this,
-                    click: this.onClosePopUp
-                }
-            },
-            {
-                xtype: 'label',
-                text: Locales.AliveTracker.NEW_PROJECT_LABEL,
-                cls: 'project-users-popup-view-txt'
+                xtype: 'container',
+                layout: 'column',
+                items: [
+                    {
+                        xtype: 'button',
+                        icon: 'resources/images/delete.png',
+                        cls: 'project-users-popup-view-icon',
+                        listeners: {
+                            scope: this,
+                            click: this.onClosePopUp
+                        }
+                    },
+                    {
+                        xtype: 'label',
+                        text: Locales.AliveTracker.NEW_PROJECT_LABEL,
+                        cls: 'project-users-popup-view-txt'
+                    }
+                ]
             },
             {
                 xtype: 'assignuserstoprojectsview',

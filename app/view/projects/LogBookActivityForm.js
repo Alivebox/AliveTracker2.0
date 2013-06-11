@@ -102,6 +102,7 @@ Ext.define('AliveTracker.view.projects.LogBookActivityForm', {
                         minWidth: 30,
                         tooltip: Locales.AliveTracker.ACTIVITY_ADD_BUTTON,
                         icon: AliveTracker.defaults.Constants.ADD_ELEMENT_BUTTON,
+                        iconAlign: 'center',
                         listeners: {
                             scope: this,
                             click: this.onAddActivityClick

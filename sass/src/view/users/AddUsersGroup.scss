@@ -9,7 +9,7 @@
   border-top-style: solid;
   border-top-width: 1px;
   color: $formsfontcolor;
-  width: 200px;
+  width: 197px;
 }
 
 .add-users-group-form-invalid{
@@ -21,8 +21,8 @@
 
 .add-users-group-button{
   width: 30px;
-  margin-top: 0px;
-  margin-left: 5px;
+  margin-top: 0px !important;
+  padding: 6px;
 }
 
 .add-users-group-save-button{

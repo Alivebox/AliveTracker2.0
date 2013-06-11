@@ -21060,9 +21060,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 34, ../../../../sass/src/view/main/Defaults.scss */
@@ -21198,9 +21199,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 1, ../../../../sass/src/view/main/ViewsContainer.scss */
@@ -21347,9 +21349,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/main/Windows.scss */
@@ -21576,9 +21579,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 4, ../../../../sass/src/view/main/DefaultsGrid.scss */
@@ -21836,9 +21840,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/main/DefaultsTrigger.scss */
@@ -22013,9 +22018,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/projects/Datepicker.scss */
@@ -22142,45 +22148,44 @@ body.x-nbr .x-tab-default-right-frameInfo {
 }
 
 /* line 102, ../../../../sass/src/view/projects/Datepicker.scss */
-.logbook-datepicker .x-btn-center span {
+.logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
   color: black !important;
   font-size: 16px;
+  font-weight: 500;
+  margin-top: 8px;
 }
 
-/* line 107, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 109, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-btn .x-btn-center .x-btn-inner {
   height: 50px;
 }
 
-/* line 111, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 113, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-month {
   height: 50px;
 }
 
-/* line 115, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 117, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-datepicker-month .x-btn-split-right {
   background-image: none;
   height: 50px;
 }
 
-/* line 120, ../../../../sass/src/view/projects/Datepicker.scss */
+/* line 122, ../../../../sass/src/view/projects/Datepicker.scss */
 .logbook-datepicker .x-btn-default-small-icon button, .logbook-datepicker .x-btn-default-small-icon a, .logbook-datepicker .x-btn-default-small-icon .x-btn-inner, .logbook-datepicker .x-btn-default-small-noicon button, .logbook-datepicker .x-btn-default-small-noicon a, .logbook-datepicker .x-btn-default-small-noicon .x-btn-inner {
   height: 50px;
   padding: 7px;
 }
 
-/* line 10, ../../../../sass/src/view/authentication/ForgotPassword.scss */
-.forgot-password-view .x-window-body {
-  background-color: white;
-  border-radius: 15px;
-  padding: 10px;
+/* line 34, ../../../../sass/src/view/main/Defaults.scss */
+.title {
+  font-size: 16px;
 }
 
-/* line 16, ../../../../sass/src/view/authentication/ForgotPassword.scss */
-.forgot-password-view-button {
+/* line 38, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button {
   border-radius: 4px;
-  margin-left: 25%;
-  width: 50%;
+  border-color: #728336;
   height: 30px;
   background: #a5be4e;
   /* Old browsers */
@@ -22200,24 +22205,340 @@ body.x-nbr .x-tab-default-right-frameInfo {
   /* IE6-9 */
 }
 
-/* line 31, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 52, ../../../../sass/src/view/main/Defaults.scss */
+.all-views-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 58, ../../../../sass/src/view/main/Defaults.scss */
+.home-button {
+  background-image: url("images/home.png");
+  margin: 10px 0 0 10px;
+  border: none;
+}
+
+/* line 64, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-invalid-field, textarea.x-form-invalid-field {
+  border-style: solid;
+  border-color: #CC3300;
+}
+
+/* line 69, ../../../../sass/src/view/main/Defaults.scss */
+.x-border-box .x-form-text {
+  height: 30px;
+}
+
+/* line 73, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-inner {
+  line-height: 30px;
+}
+
+/* line 77, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist {
+  border-color: #c7c7c7;
+  border-style: solid;
+  border-width: 1px;
+}
+
+/* line 83, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item {
+  background-color: #F7F7F7;
+  border-color: #F7F7F7;
+}
+
+/* line 88, ../../../../sass/src/view/main/Defaults.scss */
+.x-boundlist-item-over {
+  background-color: #BFD181;
+}
+
+/* line 92, ../../../../sass/src/view/main/Defaults.scss */
+.main-container {
+  background-color: #f0f0f0;
+}
+
+/* line 96, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 101, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 105, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 4px;
+  padding-bottom: 2px;
+  line-height: 14px;
+}
+
+/* line 110, ../../../../sass/src/view/main/Defaults.scss */
+.x-grid-with-row-lines .x-grid-cell-checkcolumn .x-grid-cell-inner {
+  padding-top: 3px;
+}
+
+/* line 114, ../../../../sass/src/view/main/Defaults.scss */
+.x-tip {
+  background-color: #BFD181;
+  border-color: #728336;
+}
+
+/* line 119, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-DESC .x-column-header-text {
+  background-image: url("images/arrow_down.png");
+  background-position: right;
+}
+
+/* line 124, ../../../../sass/src/view/main/Defaults.scss */
+.x-column-header-sort-ASC .x-column-header-text {
+  background-image: url("images/arrow_up.png");
+  background-position: right;
+}
+
+/* line 129, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-focus, textarea.x-form-focus {
+  border-color: #BFD181;
+}
+
+/* line 133, ../../../../sass/src/view/main/Defaults.scss */
+.x-mask {
+  background: none repeat scroll 0 0 #333333;
+}
+
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
+}
+
+/* line 3, ../../../../sass/src/view/users/projectuserspopup.scss */
+.x-window-body-default {
+  border-style: none;
+}
+
+/* line 7, ../../../../sass/src/view/users/projectuserspopup.scss */
+.x-css-shadow {
+  border-radius: 15px;
+}
+
+/* line 11, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view .x-window-body {
+  background-color: white;
+  padding: 10px;
+}
+
+/* line 16, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-button {
+  border-radius: 4px;
+  margin-left: 100px;
+  margin-top: 5px;
+  height: 30px;
+  width: 100px;
+  background: -moz-linear-gradient(top, #a5be4e 1%, #8ca33a 50%, #8ca33a 100%);
+  /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #a5be4e 1%, #8ca33a 50%, #8ca33a 100%);
+  /* Chrome10+,Safari5.1+ */
+}
+
+/* line 26, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-icon {
+  background-color: transparent;
+  background-image: none;
+  border-style: none;
+  float: right;
+  margin: 0 !important;
+}
+
+/* line 34, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 40, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-forms {
+  background-color: #f0f0f0;
+  background-image: none;
+  border-radius: 4px;
+  border-style: none;
+  border-top-color: #c7c7c7;
+  border-top-style: solid;
+  border-top-width: 1px;
+  color: black;
+}
+
+/* line 51, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-forms-align {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* line 56, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-txt {
+  float: left;
+  color: black;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* line 63, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-label {
+  color: black;
+  display: block;
+  font-size: 14px;
+  padding: 3px 0 0;
+}
+
+/* line 70, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-form-container .x-panel-body-default {
+  border-style: none;
+}
+
+/* line 74, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-users-popup-view-form-container {
+  margin-bottom: 10px;
+}
+
+/* line 78, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-arrow-button .x-btn-icon {
+  margin: 4px 3px 3px;
+}
+
+/* line 82, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-arrow-button {
+  padding: 6px 5px 5px;
+  width: 20px;
+  height: 25px;
+  background: #ececec;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(6%, #ececec), color-stop(43%, #dbdada));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ececec 6%, #dbdada 43%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ececec 6%, #dbdada 43%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ececec', endColorstr='#dbdada',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 96, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-arrow-buttons-container {
+  margin-top: 42px;
+  margin-right: 8px;
+  margin-left: 8px;
+}
+
+/* line 102, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-cancel-button {
+  border-radius: 4px;
+  border-color: #656565;
+  height: 30px;
+  padding-top: 5px;
+  background: #929292;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #929292 17%, #787878 59%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(17%, #929292), color-stop(59%, #787878));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #929292 17%, #787878 59%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #929292 17%, #787878 59%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #929292 17%, #787878 59%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #929292 17%, #787878 59%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#929292', endColorstr='#787878',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 117, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-cancel-button .x-btn-center span {
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+}
+
+/* line 123, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-button-align {
+  margin-left: 190px;
+  margin-right: 10px;
+  padding-top: 5px;
+}
+
+/* line 129, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-grids-container {
+  width: 100%;
+}
+
+/* line 133, ../../../../sass/src/view/users/projectuserspopup.scss */
+.project-buttons-container {
+  margin-top: 10px;
+}
+
+/* line 11, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+.forgot-password-view .x-window-body {
+  background-color: white;
+  border-style: none;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+/* line 18, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+.forgot-password-view-button {
+  border-radius: 4px;
+  margin-left: 25%;
+  width: 50%;
+  height: 30px;
+  padding-top: 5px;
+  background: #a5be4e;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(32%, #a5be4e), color-stop(57%, #8ca33a));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5be4e 32%, #8ca33a 57%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #a5be4e 32%, #8ca33a 57%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a5be4e', endColorstr='#8ca33a',GradientType=0 );
+  /* IE6-9 */
+}
+
+/* line 34, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-container {
   margin-bottom: 10px;
 }
 
-/* line 35, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 38, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-close-icon {
   float: right;
 }
 
-/* line 39, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 42, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-button .x-btn-center span {
   color: white;
   font-weight: 900;
   font-size: 12px;
 }
 
-/* line 45, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 48, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-forms {
   background-color: #f0f0f0;
   background-image: none;
@@ -22230,13 +22551,13 @@ body.x-nbr .x-tab-default-right-frameInfo {
   padding-left: 10px;
 }
 
-/* line 57, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 60, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-forms-align {
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 62, ../../../../sass/src/view/authentication/ForgotPassword.scss */
+/* line 65, ../../../../sass/src/view/authentication/ForgotPassword.scss */
 .forgot-password-view-txt {
   color: #515153;
   font-size: 16px;
@@ -22376,9 +22697,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/authentication/ResetPassword.scss */
@@ -22563,9 +22885,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/authentication/LoginRegister.scss */
@@ -22641,7 +22964,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
 
 /* line 63, ../../../../sass/src/view/authentication/LoginRegister.scss */
 .loginregister-forms-password {
-  width: 195px;
+  width: 186px;
 }
 
 /* line 67, ../../../../sass/src/view/authentication/LoginRegister.scss */
@@ -22649,7 +22972,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
   border-radius: 4px;
   border-color: #728336;
   margin-left: 5px;
-  width: 55px;
+  width: 63px;
   height: 30px;
   padding-top: 5px;
   background: #a5be4e;
@@ -22845,9 +23168,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/users/AddUsersGroup.scss */
@@ -22860,7 +23184,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
   border-top-style: solid;
   border-top-width: 1px;
   color: black;
-  width: 200px;
+  width: 197px;
 }
 
 /* line 15, ../../../../sass/src/view/users/AddUsersGroup.scss */
@@ -22874,8 +23198,8 @@ body.x-nbr .x-tab-default-right-frameInfo {
 /* line 22, ../../../../sass/src/view/users/AddUsersGroup.scss */
 .add-users-group-button {
   width: 30px;
-  margin-top: 0px;
-  margin-left: 5px;
+  margin-top: 0px !important;
+  padding: 6px;
 }
 
 /* line 28, ../../../../sass/src/view/users/AddUsersGroup.scss */
@@ -23076,9 +23400,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/projects/GroupProjects.scss */
@@ -23086,15 +23411,16 @@ body.x-nbr .x-tab-default-right-frameInfo {
   width: 30px;
   margin-top: 0px;
   float: right;
-  margin-bottom: 10px;
+  margin-bottom: 10px !important;
+  padding: 6px;
 }
 
-/* line 10, ../../../../sass/src/view/projects/GroupProjects.scss */
+/* line 11, ../../../../sass/src/view/projects/GroupProjects.scss */
 .project-grid-container {
   clear: both;
 }
 
-/* line 14, ../../../../sass/src/view/projects/GroupProjects.scss */
+/* line 15, ../../../../sass/src/view/projects/GroupProjects.scss */
 .project-grid-column .x-column-header-inner {
   background: #ececec;
   /* Old browsers */
@@ -23114,7 +23440,7 @@ body.x-nbr .x-tab-default-right-frameInfo {
   /* IE6-9 */
 }
 
-/* line 25, ../../../../sass/src/view/projects/GroupProjects.scss */
+/* line 26, ../../../../sass/src/view/projects/GroupProjects.scss */
 .project-grid-sort-column .x-column-header-inner {
   background: #d1d1d1;
   /* Old browsers */
@@ -23267,9 +23593,10 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/group/groupDetail.scss */
@@ -23526,37 +23853,39 @@ body.x-nbr .x-tab-default-right-frameInfo {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/group/groupsview.scss */
 .groups-add-button {
   width: 30px;
   float: right;
+  padding: 6px;
 }
 
-/* line 8, ../../../../sass/src/view/group/groupsview.scss */
+/* line 9, ../../../../sass/src/view/group/groupsview.scss */
 .groups-label {
   color: black;
   font-size: 16px;
   margin-top: 9px;
 }
 
-/* line 14, ../../../../sass/src/view/group/groupsview.scss */
+/* line 15, ../../../../sass/src/view/group/groupsview.scss */
 .groups-name-labels {
   color: black;
   font-size: 14px;
   text-decoration: none;
 }
 
-/* line 20, ../../../../sass/src/view/group/groupsview.scss */
+/* line 21, ../../../../sass/src/view/group/groupsview.scss */
 .belong-groups-view {
   margin-top: 10px;
 }
 
-/* line 24, ../../../../sass/src/view/group/groupsview.scss */
+/* line 25, ../../../../sass/src/view/group/groupsview.scss */
 .groups-line-container {
   border-style: solid;
   border-color: #bbbbbb;
@@ -23566,32 +23895,32 @@ body.x-nbr .x-tab-default-right-frameInfo {
   margin-bottom: 20px;
 }
 
-/* line 33, ../../../../sass/src/view/group/groupsview.scss */
+/* line 34, ../../../../sass/src/view/group/groupsview.scss */
 a.groups-name-labels:hover {
   color: black;
 }
 
-/* line 37, ../../../../sass/src/view/group/groupsview.scss */
+/* line 38, ../../../../sass/src/view/group/groupsview.scss */
 .x-item-over {
   background-color: #dfeabb;
 }
 
-/* line 41, ../../../../sass/src/view/group/groupsview.scss */
+/* line 42, ../../../../sass/src/view/group/groupsview.scss */
 .x-item-selected {
   color: #BFD181;
 }
 
-/* line 45, ../../../../sass/src/view/group/groupsview.scss */
+/* line 46, ../../../../sass/src/view/group/groupsview.scss */
 .groups-view-div {
   padding: 15px;
 }
 
-/* line 49, ../../../../sass/src/view/group/groupsview.scss */
+/* line 50, ../../../../sass/src/view/group/groupsview.scss */
 .div-groups-buttons {
   float: right;
 }
 
-/* line 53, ../../../../sass/src/view/group/groupsview.scss */
+/* line 54, ../../../../sass/src/view/group/groupsview.scss */
 .groups-delete-button {
   background-image: url(images/delete.png);
   background-color: transparent;
@@ -23601,9 +23930,9 @@ a.groups-name-labels:hover {
   margin-left: 10px;
 }
 
-/* line 62, ../../../../sass/src/view/group/groupsview.scss */
+/* line 63, ../../../../sass/src/view/group/groupsview.scss */
 .groups-edit-button {
-  background-image: url(icons/edit.png);
+  background-image: url(images/edit.png);
   background-color: transparent;
   border-style: none;
   height: 16px;
@@ -23743,9 +24072,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/group/AddGroupPopUp.scss */
@@ -23786,9 +24116,10 @@ a.groups-name-labels:hover {
 /* line 33, ../../../../sass/src/view/group/AddGroupPopUp.scss */
 .add-group-pop-up-button-align {
   margin-left: 105px;
+  padding-top: 5px;
 }
 
-/* line 37, ../../../../sass/src/view/group/AddGroupPopUp.scss */
+/* line 38, ../../../../sass/src/view/group/AddGroupPopUp.scss */
 .add-group-pop-up-view-label {
   display: block;
   font-size: 14px;
@@ -23928,9 +24259,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/projects/LogBook.scss */
@@ -23990,22 +24322,23 @@ a.groups-name-labels:hover {
   width: 30px;
   margin-top: 0px;
   margin-left: 10px;
+  padding: 6px;
 }
 
-/* line 55, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 56, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-label {
   color: black;
   font-size: 16px;
   margin-right: 20px;
 }
 
-/* line 61, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 62, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-time-label {
   color: black;
   font-size: 16px;
 }
 
-/* line 66, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 67, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-total-label {
   color: black;
   font-size: 16px;
@@ -24013,14 +24346,14 @@ a.groups-name-labels:hover {
   margin-right: 15px;
 }
 
-/* line 73, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 74, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-grid-container {
   border-width: 1px;
   margin-bottom: 10px;
   width: 100%;
 }
 
-/* line 79, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 80, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-grid-column .x-column-header-inner {
   background: #ececec;
   /* Old browsers */
@@ -24040,7 +24373,7 @@ a.groups-name-labels:hover {
   /* IE6-9 */
 }
 
-/* line 90, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 91, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-grid-sort-column .x-column-header-inner {
   background: #d1d1d1;
   /* Old browsers */
@@ -24060,39 +24393,40 @@ a.groups-name-labels:hover {
   /* IE6-9 */
 }
 
-/* line 101, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 102, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-total-container {
   width: 160px;
   float: right;
 }
 
-/* line 106, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 107, ../../../../sass/src/view/projects/LogBook.scss */
 .logboog-activity-form-container {
   width: 100% !important;
 }
 
-/* line 110, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 111, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-activity-form-labels-container {
   width: 100% !important;
 }
 
-/* line 114, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 115, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-fields-container {
   width: 100% !important;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-/* line 120, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 121, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-fields-container x-box-inner {
   width: 100% !important;
 }
 
-/* line 124, ../../../../sass/src/view/projects/LogBook.scss */
+/* line 125, ../../../../sass/src/view/projects/LogBook.scss */
 .logbook-status-button {
   clear: both;
   float: right;
   margin-top: 10px;
+  padding-top: 5px;
 }
 
 /* line 34, ../../../../sass/src/view/main/Defaults.scss */
@@ -24228,9 +24562,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/projects/AddNotesPopUp.scss */
@@ -24439,9 +24774,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/reports/Reports.scss */
@@ -24514,14 +24850,16 @@ a.groups-name-labels:hover {
 .report-button-align {
   float: right;
   margin-top: 10px;
+  padding-top: 5px;
 }
 
-/* line 65, ../../../../sass/src/view/reports/Reports.scss */
+/* line 66, ../../../../sass/src/view/reports/Reports.scss */
 .report-preview-button {
   float: right;
+  padding-top: 5px;
 }
 
-/* line 69, ../../../../sass/src/view/reports/Reports.scss */
+/* line 71, ../../../../sass/src/view/reports/Reports.scss */
 .report-grid-column .x-column-header-inner {
   background: #ececec;
   /* Old browsers */
@@ -24541,7 +24879,7 @@ a.groups-name-labels:hover {
   /* IE6-9 */
 }
 
-/* line 80, ../../../../sass/src/view/reports/Reports.scss */
+/* line 82, ../../../../sass/src/view/reports/Reports.scss */
 .report-grid-sort-column .x-column-header-inner {
   background: #d1d1d1;
   /* Old browsers */
@@ -24694,9 +25032,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/Defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/Defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/users/UserProfile.scss */
@@ -24892,9 +25231,10 @@ a.groups-name-labels:hover {
   background: none repeat scroll 0 0 #333333;
 }
 
-/* line 137, ../../../../sass/src/view/main/defaults.scss */
-.x-btn-default-small {
-  padding: 5px 5px 5px 6px;
+/* line 138, ../../../../sass/src/view/main/defaults.scss */
+.x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
+  background-color: #f0f0f0;
+  background-image: none;
 }
 
 /* line 3, ../../../../sass/src/view/header/HeaderView.scss */

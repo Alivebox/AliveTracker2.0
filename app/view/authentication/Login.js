@@ -33,8 +33,6 @@ Ext.define('AliveTracker.view.authentication.Login', {
                                 cls: 'loginregister-short-field',
                                 fieldCls: 'loginregister-forms loginregister-forms-password',
                                 emptyText: Locales.AliveTracker.LOGIN_LABEL_PASSWORD,
-                                maxLength:20,
-                                minLength: 8,
                                 inputType:'password',
                                 listeners:{
                                     scope:this,

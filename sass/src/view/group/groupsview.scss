@@ -3,6 +3,7 @@
 .groups-add-button{
   width: 30px;
   float: right;
+  padding: 6px;
 }
 
 .groups-label{
@@ -60,7 +61,7 @@ a.groups-name-labels:hover{
 }
 
 .groups-edit-button{
-  background-image: url(icons/edit.png);
+  background-image: url(images/edit.png);
   background-color: transparent;
   border-style: none;
   height:16px;
