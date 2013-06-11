@@ -184,11 +184,14 @@ Ext.define("AliveTracker.controller.projects.LogBookController", {
         var tmpDateSelected = this.getDatepicker().getValue();
         var tmpLogBook = this.getLogBook();
         tmpLogBook.set('email', Mercury.core.SecurityManager.getCurrentUsername());
-        tmpLogBook.save();
+        tmpLogBook.save({
+            scope: this,
+            success: this.sendStatusSucces
+        });
     },
 
     sendStatusSucces: function(argRecord){
-        Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_EMAIL_INSTRUCTION);
+        Ext.Msg.alert(Locales.AliveTracker.SUCCESS_MESSAGE, Locales.AliveTracker.SUCCESS_SEND_STATUS);
     },
 
     reloadLogStore: function (){

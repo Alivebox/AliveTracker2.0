@@ -134,8 +134,19 @@ $background-main-container: #F0F0F0;
   background: none repeat scroll 0 0 #333333;
 }
 
-
 .x-form-type-text textarea.x-form-invalid-field, .x-form-type-text input.x-form-invalid-field, .x-form-type-password textarea.x-form-invalid-field, .x-form-type-password input.x-form-invalid-field, .x-form-type-number textarea.x-form-invalid-field, .x-form-type-number input.x-form-invalid-field, .x-form-type-email textarea.x-form-invalid-field, .x-form-type-email input.x-form-invalid-field, .x-form-type-search textarea.x-form-invalid-field, .x-form-type-search input.x-form-invalid-field, .x-form-type-tel textarea.x-form-invalid-field, .x-form-type-tel input.x-form-invalid-field {
   background-color: $formsbackgroundcolor;
   background-image: none;
+}
+
+.x-window-header-default .x-tool-img {
+  background-color: transparent;
+}
+
+.x-window-header-default-top {
+  padding-top: 10px;
+}
+
+.x-toolbar-footer .x-btn-default-small {
+  padding-top: 5px;
 }

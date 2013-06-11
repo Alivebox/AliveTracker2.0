@@ -173,6 +173,7 @@ Ext.define('Locales.AliveTracker', {
         ACTIVITY_NOTE_EDIT: 'Editar',
         ACTIVITY_REMOVE_NOTE: 'Eliminar nota',
         LOG_SEND_STATUS: 'Enviar Estado',
+        SUCCESS_SEND_STATUS: 'Correo enviado a los administradores del proyecto',
         /**
          * Users View
          */

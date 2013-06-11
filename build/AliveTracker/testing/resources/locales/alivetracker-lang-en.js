@@ -162,6 +162,7 @@ Ext.define('Locales.AliveTracker', {
         ACTIVITY_NOTE_EDIT: 'Edit',
         ACTIVITY_REMOVE_NOTE: 'Remove note',
         LOG_SEND_STATUS: 'Send Status',
+        SUCCESS_SEND_STATUS: 'An email was sent to the project managers',
         /**
          * Users View
          */
