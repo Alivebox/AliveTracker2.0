@@ -709,16 +709,6 @@ Ext.define('Mercury.core.LocalizationManager', {
 
 });
 
-/**
- * The intention of this class is to be a centralized place where you can 
- *  store variables that are needed to be used in different places.
- */
-Ext.define('Mercury.core.ModelLocator', {
-	
-    singleton: true
-
-});
-
 Ext.define('Mercury.core.SecurityManager', {
 
     singleton: true,
@@ -1376,7 +1366,6 @@ Ext.define('Mercury.ux.container.TabContainer',{
         var tmpCardLayout = this.cardContainer.getLayout();
         tmpCardLayout.setActiveItem(argIndex);
         this.selectedIndex = argIndex;
-        Mercury.core.ModelLocator.tabIndex = this.selectedIndex;
         var tmpTabItem = this.cardContainer.items.getAt(this.selectedIndex);
         if( tmpTabItem.includeInToolbar === false ){
             return;

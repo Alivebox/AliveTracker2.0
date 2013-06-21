@@ -12,7 +12,6 @@
 
 // DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
 //@require @packageOverrides
-
 Ext.application({
 
     name: 'AliveTracker',

@@ -37,7 +37,6 @@ Ext.Loader.addClassPathMappings({
   " Ext.Msg": "ext/src/window/MessageBox.js",
   "Mercury.ux.data.RestProxy": "resources/js/mercuryext.min-1.0.0.js",
   "Mercury.util.MD5Util": "resources/js/mercuryext.min-1.0.0.js",
-  "Mercury.core.ModelLocator": "resources/js/mercuryext.min-1.0.0.js",
   "Mercury.ux.view.SimpleViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
   "Mercury.util.DragSelectionUtil": "resources/js/mercuryext.min-1.0.0.js",
   "Mercury.ux.view.TabViewsContainer": "resources/js/mercuryext.min-1.0.0.js",
@@ -55,9 +54,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "AliveTracker.view.projects.LogBookGrid": [],
   "AliveTracker.controller.authentication.RegisterController": [],
   "Mercury.Main": [],
-  "AliveTracker.view.authentication.Login": [],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [],
+  "AliveTracker.view.authentication.Login": [],
   "AliveTracker.ux.AliveTrackerUxDependencies": [],
   "Mercury.core.Defaults": [],
   "AliveTracker.controller.authentication.ForgotPasswordController": [],
@@ -152,7 +151,6 @@ Ext.ClassManager.addNameAlternateMappings({
   "Mercury.ux.form.EnhancedDatePicker": [],
   "Ext.ux.layout.Center": [],
   "AliveTracker.view.projects.LogBookActivityForm": [],
-  "Mercury.core.ModelLocator": [],
   "Ext.ux.DataView.Animated": [],
   "Mercury.util.DragSelectionUtil": [],
   "Mercury.ux.view.SimpleViewsContainer": [],
@@ -186,6 +184,7 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.ux.event.Player": [],
   "Mercury.core.ViewsManagerUI": [],
   "AliveTracker.store.users.AssignedUsers": [],
+  "AliveTracker.model.projects.Status": [],
   "Ext.ux.ToolbarDroppable": [],
   "AliveTracker.store.users.GroupUsers": [],
   "Ext.ux.event.Maker": [],
@@ -233,12 +232,12 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "AliveTracker.controller.authentication.RegisterController": [],
   "Mercury.Main": [],
-  "AliveTracker.view.authentication.Login": [
-    "widget.loginform"
-  ],
   "Ext.ux.event.Driver": [],
   "Ext.ux.ajax.XmlSimlet": [
     "simlet.xml"
+  ],
+  "AliveTracker.view.authentication.Login": [
+    "widget.loginform"
   ],
   "AliveTracker.ux.AliveTrackerUxDependencies": [],
   "Mercury.core.Defaults": [],
@@ -417,7 +416,6 @@ Ext.ClassManager.addNameAliasMappings({
   "AliveTracker.view.projects.LogBookActivityForm": [
     "widget.logbookactivityform"
   ],
-  "Mercury.core.ModelLocator": [],
   "Ext.ux.DataView.Animated": [],
   "Mercury.util.DragSelectionUtil": [],
   "Mercury.ux.view.SimpleViewsContainer": [
@@ -465,6 +463,7 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.ux.event.Player": [],
   "Mercury.core.ViewsManagerUI": [],
   "AliveTracker.store.users.AssignedUsers": [],
+  "AliveTracker.model.projects.Status": [],
   "Ext.ux.ToolbarDroppable": [],
   "AliveTracker.store.users.GroupUsers": [],
   "Ext.ux.event.Maker": [],
