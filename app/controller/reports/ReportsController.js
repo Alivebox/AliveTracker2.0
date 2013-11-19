@@ -203,8 +203,11 @@ Ext.define('AliveTracker.controller.reports.ReportsController', {
         if( !tmpReportsForm.isValid() ){
             return;
         }
-        var tmpGroup = Ext.state.Manager.get('groupId');
         var tmpProject = this.getCmbProject().value;
+        var tmpGroup = 0;
+        if( tmpProject ){
+            tmpGroup = Ext.state.Manager.get('groupId');
+        }
         var tmpUser = this.getCmbUser().value;
         var tmpDateRange = this.getCmbDateRange().value;
         var tmpBaseUrl = Ext.util.Format.format(AliveTracker.defaults.WebServices.LOG_LIST_REPORT,tmpGroup,tmpProject,tmpUser,tmpDateRange);
