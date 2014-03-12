@@ -306,23 +306,18 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
         }
         var tmpGroupModel = this.createModelGroup();
         var tmpId = tmpGroupModel.data.id;
-        tmpGroupModel.setProxy({
-            type: 'restproxy',
-            url: AliveTracker.defaults.WebServices.SAVE_GROUP
-        });
+
         if(this.isInsertAction(tmpId)){
             tmpGroupModel.save({
-                scope: this,
-                urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
-                success: this.saveGroupCallback
+                scope:this,
+                success:this.saveGroupCallback
             });
         }
         else{
             tmpGroupModel.save({
-                scope: this,
-                urlOverride: AliveTracker.defaults.WebServices.SAVE_GROUP,
+                scope:this,
                 success: this.editGroupCallback
-            });
+            })
         }
         this.closeWindow(argWindow);
     },
@@ -330,7 +325,6 @@ Ext.define('AliveTracker.controller.group.GroupDetailController', {
     createModelGroup: function(){
         var tmpItem = this.getGroupModelForm().getValues();
         var tmpModel = Ext.create('AliveTracker.model.groups.Group', {
-            id: tmpItem.id,
             name: tmpItem.name,
             description: tmpItem.description,
             logo_url: tmpItem.logo_url,

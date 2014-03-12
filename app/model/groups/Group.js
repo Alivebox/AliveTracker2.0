@@ -7,7 +7,8 @@ Ext.define('AliveTracker.model.groups.Group', {
     fields:[
         {
             name:'id',
-            type:'int'
+            type:'int',
+            defaultValue:undefined
         },
         {
             name:'name',
@@ -46,4 +47,8 @@ Ext.define('AliveTracker.model.groups.Group', {
         }
     ],
 
+    proxy:{
+        type:'restproxy',
+        url:AliveTracker.defaults.WebServices.SAVE_GROUP
+    }
 });

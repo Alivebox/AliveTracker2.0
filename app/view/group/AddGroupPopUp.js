@@ -2,8 +2,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
     extend:'Ext.window.Window',
     xtype:'addgrouppopup',
     cls: 'add-group-pop-up-view',
-    height: 205,
-    width: 300,
+    height: 300,
+    width: 500,
     header: false,
     resizable: false,
     modal: true,
@@ -38,12 +38,16 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                 xtype: 'container',
                 itemId: 'addEditGroupContainer',
                 name: 'homeGroup',
+                layout:'absolute',
                 items: [
                     {
-                        xtype: 'formcontainer',
+                        xtype: 'form',
                         cls: 'add-group-pop-up-view-forms-align',
                         modelClassName: 'AliveTracker.model.groups.Group',
                         name: 'groupModelForm',
+                        x: 50,
+                        y: 50,
+                        border:false,
                         items: [
                             {
                                 xtype: 'textfield',
@@ -60,7 +64,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_GROUP_NAME,
                                 regex: /[a-zA-Z0-9]+/,
-                                maxLength:300
+                                maxLength:300,
+                                anchor: '100%'
                             },
                             {
                                 xtype: 'textfield',
@@ -72,7 +77,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_DESCRIPTION,
                                 regex: /[a-zA-Z0-9]+/,
-                                maxLength:300
+                                maxLength:300,
+                                anchor: '100%'
                             },
                             {
                                 xtype: 'textfield',
@@ -84,7 +90,8 @@ Ext.define('AliveTracker.view.group.AddGroupPopUp', {
                                 labelCls: 'add-group-pop-up-view-label',
                                 emptyText: Locales.AliveTracker.HOME_LABEL_WEBSITE,
                                 maxLength:300,
-                                vtype: 'url'
+                                vtype: 'url',
+                                anchor: '100%'
                             },
                             {
                                 xtype: 'button',
